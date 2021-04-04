@@ -20,6 +20,8 @@ sys.path.insert(0, os.path.abspath('../..'))
 project = 'Trabalho de Análise de Texto'
 copyright = '2021, Rodrigo Renie'
 author = 'Rodrigo Renie'
+show_authors = True
+
 
 
 # -- General configuration ---------------------------------------------------

@@ -27,7 +27,9 @@ A segunda parte, também com peso de 50% e data final de entrega para o dia 04/0
     *  Qual é a proporção de pronomes frente aos verbos do texto?
     *  Obtenha um resumo dos textos utilizados, acompanhados das palavras-chave
 
-Verificando Resultado
+.. _verificando-resultados:
+
+Verificando Resultados
 ************************
 
 Para verificar os resultados deste trabalho, primeiro realize clone do repositório do `GitHub <https://github.com>`_:
@@ -52,7 +54,7 @@ Equipe
 ************************
 Integrantes da ``Equipe Rocket``:
 
-#. Frederick
-#. Jackson Querubin
-#. Jonios Maximo
-#. Rodrigo Renie
+.. codeauthor:: Frederick
+.. codeauthor:: Jackson Querubin
+.. codeauthor:: Joniox Maximo
+.. codeauthor:: Rodrigo Renie

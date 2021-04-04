@@ -6,10 +6,12 @@ from typing import Optional, Union
 
 
 class Exercitando01:
-    """Implementa os itens solicitados no Exercitando 01 da Aposta Parte 0. Os métodos com o decorator ``@property`` são
-    tratados como um atributo da classe, o que significa que podem ser invocados utilizando ``instancia.metodo`` ao
-    invés de ``instancia.metodo()``. `Clique aqui <https://docs.python.org/3/library/functions.html#property>`_ para
-    saber mais.
+    """Implementa os itens solicitados no Exercitando 01 da Aposta Parte 0. Os
+    métodos com o decorator ``@property`` são tratados como um atributo da
+    classe, o que significa que podem ser invocados utilizando
+    ``instancia.metodo`` ao invés de ``instancia.metodo()``. `Clique aqui
+    <https://docs.python.org/3/library/functions.html#property>`_ para saber
+    mais.
 
     :param text: Texto a ser utilizado como base para o exercício.
     :type text: str
@@ -20,7 +22,8 @@ class Exercitando01:
         self._text = text if text else ''
 
     def __str__(self) -> str:
-        """Define que a representação de string desta classe é o conteúdo do texto.
+        """Define que a representação de string desta classe é o conteúdo do
+        texto.
 
         :rtype: str
         """
@@ -37,8 +40,8 @@ class Exercitando01:
 
     @property
     def text_split(self) -> Iterator[str]:
-        """Divide o texto em uma lista de palavras, separadas por um espaço em branco, e cria um gerador para os itens
-        da lista.
+        """Divide o texto em uma lista de palavras, separadas por um espaço em
+        branco, e cria um gerador para os itens da lista.
 
         :rtype: Iterator[str]
         """
@@ -47,39 +50,44 @@ class Exercitando01:
 
     @property
     def text_split_len(self) -> int:
-        """Contabiliza o tamanho da lista do gerador criado por :func:`Exercitando01.text_split`.
+        """Contabiliza o tamanho da lista do gerador criado por
+        :func:`Exercitando01.text_split`.
 
         :rtype: int
         """
         return len(list(self.text_split))
 
     def text_replace(self, old: str, new: str) -> str:
-        """Substitui um trecho no texto indicado pelo parâmetro ``old`` pelo texto indicado no parâmetro ``new``.
+        """Substitui um trecho no texto indicado pelo parâmetro ``old`` pelo
+        texto indicado no parâmetro ``new``.
 
         :param old: Texto original a ser substituído.
-        :type: str
-        :param new: Texto novo
-        :type: str
+        :type old: str
+        :param new: Texto novo.
+        :type new: str
 
-        :return: Uma cópia do texto substituído
+        :return: O texto substituído.
         :rtype: str
         """
         self._text = self._text.replace(old, new)
         return self._text
 
     def text_segment(self, first: int, last: Optional[int] = None) -> str:
-        """Retorna o segmento do texto indicado, da posição inicial ``first`` até a posição ``last``, ambos *INCLUSIVO*,
-        ou seja, retorna o caracter das posições indicadas. Se ``last`` for omitido, retorna apenas o caracter indicado
-        por ``first``.
+        """Retorna o segmento do texto indicado, da posição inicial ``first``
+        até a posição ``last``, ambos *INCLUSIVO*, ou seja, retorna o caracter
+        das posições indicadas. Se ``last`` for omitido, retorna apenas o
+        caracter indicado por ``first``.
 
-        :raises ValueError: Erro gerado quando ``first`` é menor ou igual a zero ou quando ``first`` menor que ``last``.
+        :raises ValueError: Erro gerado quando ``first`` é menor ou igual a
+            zero ou quando ``first`` menor que ``last``.
 
         :param first: Posição inicial do segmento (deve ser maior que zero).
-        :type: int
+        :type first: int
         :param last: Posição final do segmento, opcional.
-        :type: int, opcional
+        :type last: int, opcional
 
-        :return: String com o segmento do texto ou uma string vazia se ``first`` for maior que o tamanho do texto.
+        :return: String com o segmento do texto ou uma string vazia se
+            ``first`` for maior que o tamanho do texto.
         :rtype: str
         """
         if first <= 0:
@@ -94,15 +102,15 @@ class Exercitando01:
         return self._text[first-1:last]
 
     def text_last(self, n: int) -> str:
-        """Returna os últimos caracteres do texto, de tamanho indicado pelo parâmetro n. O parâmetro n é opcional com
-        valor padrão 15.
+        """Returna os últimos caracteres do texto, de tamanho indicado pelo
+        parâmetro ``n``, que é opcional com valor padrão ``15``.
 
-        :param n: Tamanho do segmento
-        :type: int, optional
+        :param n: Tamanho do segmento.
+        :type n: int, opcional
 
         :raises IndexError: se o tamanho do segmento é maior que o texto em si.
 
-        :return: Segmento do texto dos últimos n caracteres
+        :return: Segmento do texto dos últimos ``n`` caracteres.
         :rtype: str
         """
         return self._text[-n:]
@@ -111,7 +119,7 @@ class Exercitando01:
         """Salva o texto em um arquivo indicado pelo parâmetro ``filename``.
 
         :param filename: Caminho do arquivo
-        :type: str
+        :type filename: str
 
         :return: Caminho completo do arquivo salvo
         :rtype: str
@@ -122,11 +130,12 @@ class Exercitando01:
 
 
 class Exercitando02:
-    """Classe que implementa os itens solicitado no Exercitando 2 da apostila "Parte 0". Cada método desta classe
-    implementa um item solicitado. Esta classe carrega um documento em formato ``docx``.
+    """Classe que implementa os itens solicitado no Exercitando 2 da apostila
+    "Parte 0". Cada método desta classe implementa um item solicitado. Esta
+    classe carrega um documento em formato ``docx``.
 
     :param docpath: Caminho do arquivo ``docx`` a ser carregado.
-    :type: str
+    :type docpath: str
 
     :rtype: None
     """
@@ -154,33 +163,40 @@ class Exercitando02:
 
     @property
     def paragraphs_len(self):
-        """Contabiliza o tamanho da lista do gerador criado por :func:`Exercitando02.paragraphs`.
+        """Contabiliza o tamanho da lista do gerador criado por
+        :func:`Exercitando02.paragraphs`.
 
+        :returns: Tamanho da lista.
         :rtype: int
         """
         return len(self.paragraphs_list)
 
-    def paragraphs_segment(self, first: int, last: int = None) -> Union[list[str], str]:
-        """Retorna os parágrafos do documento, da posição inicial ``first`` até a posição ``last``, ambos *INCLUSIVO*,
-        ou seja, também retorna os parágrafos nas posições indicadas. Se ``last`` for omitido, retorna apenas o
-        parágrafo indicado por ``first``.
+    def paragraphs_segment(self, first: int,
+                           last: int = None) -> Union[list[str], str]:
+        """Retorna os parágrafos do documento, da posição inicial ``first`` até
+        a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os
+        parágrafos nas posições indicadas. Se ``last`` for omitido, retorna
+        apenas o parágrafo indicado por ``first``.
 
-        :raises ValueError: Erro gerado quando ``first`` é menor ou igual a zero ou quando ``first`` menor que ``last``.
+        :raises ValueError: Erro gerado quando ``first`` é menor ou igual a
+            zero ou quando ``first`` menor que ``last``.
 
         :param first: Posição inicial do segmento (deve ser maior que zero).
-        :type: int
-        :param last: Posição final do segmento, opcional.
-        :type: int, opcional
+        :type first: int
+        :param last: Posição final do segmento.
+        :type last: int, opcional
 
-        :return: Uma lista de string com os parágrafos solicitados, ou uma única string de parágrafo de ``last`` for
-                 omitido.
+        :return: Uma lista de string com os parágrafos solicitados, ou uma
+            única string de parágrafo de ``last`` for omitido.
         :rtype: list[str] ou str
         """
         if first <= 0:
-            raise ValueError('first parameter must be greater or equal to one')
+            raise ValueError('first parameter must be greater '
+                             'or equal to one')
 
         if last and first > last:
-            raise ValueError('last parameter must be greater or equal to first')
+            raise ValueError('last parameter must be greater '
+                             'or equal to first')
 
         if last:
             return self.paragraphs_list[first - 1:last]
@@ -188,9 +204,12 @@ class Exercitando02:
             return self.paragraphs_list[first - 1]
 
     def paragraphs_hastext(self, text: str) -> bool:
-        """Verifica se a string indicado pelo parâmetro ``text`` existe no documento
+        """Verifica se a string indicado pelo parâmetro ``text`` existe no
+        documento.
 
         :param text: Texto a procurar no documento.
+        :type text: str
+
         :return: Verdadeiro ou falso.
         :rtype: bool
         """
@@ -206,13 +225,13 @@ class Exercitando02:
         return '\n'.join(self.paragraphs_list)
 
     def paragraphs_replacetext(self, old: str, new: str) -> str:
-        """Retorna uma string com o conteúdo do documento, substiuindo o texto indicado pelo parâmetro ``old`` por
-        ``new``.
+        """Retorna uma string com o conteúdo do documento, substiuindo o texto
+        indicado pelo parâmetro ``old`` por ``new``.
 
         :param old: Texto original a ser substituído.
-        :type: str
+        :type old: str
         :param new: Texto novo.
-        :type: str
+        :type new: str
 
         :return: String com o texto substituído.
         :rtype: str
