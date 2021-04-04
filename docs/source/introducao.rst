@@ -56,5 +56,5 @@ Integrantes da ``Equipe Rocket``:
 
 .. codeauthor:: Frederick
 .. codeauthor:: Jackson Querubin
-.. codeauthor:: Joniox Maximo
+.. codeauthor:: Jonios Maximo
 .. codeauthor:: Rodrigo Renie
