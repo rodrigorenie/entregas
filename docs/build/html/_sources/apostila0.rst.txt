@@ -1,23 +1,25 @@
 Apostila Parte 0
 ========================
 
-Documentação da solução aplicada nos exercícios da Apostila - Parte 0. Aqui é detalhado como cada item solicitado nos
-exercícios foram implementados. Caso deseje apenas visualizar os resultados, execute os comandos descritos em
+Documentação da solução aplicada nos exercícios da Apostila - Parte 0. Aqui é
+detalhado como cada item solicitado nos exercícios foram implementados. Caso
+deseje apenas visualizar os resultados, execute os comandos descritos em
 :ref:`verificando-resultados`.
 
 Exercitando 01
 ************************
 
-Execute o que se pede. Logo após, cole a solução do exercício neste documento. Lembre-se de salvar seu programa, para
-estudos posteriores.
+Execute o que se pede. Logo após, cole a solução do exercício neste documento.
+Lembre-se de salvar seu programa, para estudos posteriores.
 
 -----
 
-.. topic:: Crie uma string com o conteúdo "Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem
-    amor eu nada seria."
+.. topic:: Crie uma string com o conteúdo "Ainda que falasse as línguas dos
+    homens e falasse a língua dos anjos, sem amor eu nada seria."
 
-    Implementado no construtor da Classe :class:`atividade_apostila.apostila0.Exercitando01`. A string acima deve ser
-    passado como parâmetro.
+    Implementado no construtor da Classe
+    :class:`atividade_apostila.apostila0.Exercitando01`. A string acima deve
+    ser passado como parâmetro.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -27,8 +29,9 @@ estudos posteriores.
 
 .. topic:: Imprima cada caractere da string
 
-    Implementado na propriedade :py:attr:`atividade_apostila.apostila0.Exercitando01.text_chars`. A impressão na tela
-    deve ser realizado fora do escopo deste método.
+    Implementado na propriedade
+    :py:attr:`atividade_apostila.apostila0.Exercitando01.text_chars`. A
+    impressão na tela deve ser realizado fora do escopo deste método.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -38,7 +41,8 @@ estudos posteriores.
 
 .. topic:: Segmente a string em uma lista
 
-    Implementado na propriedade :py:attr:`atividade_apostila.apostila0.Exercitando01.text_split`.
+    Implementado na propriedade
+    :py:attr:`atividade_apostila.apostila0.Exercitando01.text_split`.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -48,7 +52,8 @@ estudos posteriores.
 
 .. topic:: Quantas palavras há na lista?
 
-    Implementado na propriedade :py:attr:`atividade_apostila.apostila0.Exercitando01.text_split_len`.
+    Implementado na propriedade
+    :py:attr:`atividade_apostila.apostila0.Exercitando01.text_split_len`.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -59,8 +64,9 @@ estudos posteriores.
 
 .. topic:: Imprima cada palavra da string
 
-    Implementado na propriedade :py:attr:`atividade_apostila.apostila0.Exercitando01.text_split`. A impressão na tela
-    deve ser realizado fora do escopo deste método.
+    Implementado na propriedade
+    :py:attr:`atividade_apostila.apostila0.Exercitando01.text_split`. A
+    impressão na tela deve ser realizado fora do escopo deste método.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -70,8 +76,9 @@ estudos posteriores.
 
 .. topic:: Substitua o termo "dos homens" por "do mundo"
 
-    Implementado no método :py:meth:`atividade_apostila.apostila0.Exercitando01.text_replace`. Os termos devem ser
-    passados como parâmetros.
+    Implementado no método
+    :py:meth:`atividade_apostila.apostila0.Exercitando01.text_replace`. Os
+    termos devem ser passados como parâmetros.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -81,8 +88,10 @@ estudos posteriores.
 
 .. topic:: Imprima o fragmento que vai do 21º até o 30º caracteres
 
-    Implementado na propriedade :py:attr:`atividade_apostila.apostila0.Exercitando01.text_segment`. O método deve ser
-    invocado passando os valores ``21`` e ``30`` conforme requisitado neste item.
+    Implementado na propriedade
+    :py:attr:`atividade_apostila.apostila0.Exercitando01.text_segment`. O
+    método deve ser invocado passando os valores ``21`` e ``30`` conforme
+    requisitado neste item.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -92,8 +101,9 @@ estudos posteriores.
 
 .. topic:: Imprima os últimos 15 caracteres
 
-    Implementado no método :py:meth:`atividade_apostila.apostila0.Exercitando01.text_last`. O método deve ser
-    invocado passando o valor ``15`` conforme requisitado neste item.
+    Implementado no método
+    :py:meth:`atividade_apostila.apostila0.Exercitando01.text_last`. O método
+    deve ser invocado passando o valor ``15`` conforme requisitado neste item.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
@@ -103,9 +113,45 @@ estudos posteriores.
 
 .. topic:: Salve a sentença em um arquivo do tipo txt
 
-    Implementado no método :py:meth:`atividade_apostila.apostila0.Exercitando01.text_save`. O método deve ser invocado
-    passando o caminho, relativo ou total, do arquivo de texto.
+    Implementado no método
+    :py:meth:`atividade_apostila.apostila0.Exercitando01.text_save`. O método
+    deve ser invocado passando o caminho, relativo ou total, do arquivo de
+    texto.
 
     .. literalinclude:: ../../atividade_apostila/apostila0.py
         :linenos:
         :pyobject: Exercitando01.text_save
+
+Exercitando 02
+************************
+
+Execute o que se pede. Logo após, cole a solução do exercício neste documento.
+Lembre-se de salvar seu programa, para estudos posteriores.
+
+-----
+
+.. topic:: Crie uma lista com os parágrafos do documento
+
+    Implementado no construtor da Classe
+    :class:`atividade_apostila.apostila0.Exercitando02`. O caminho do ``docx``
+    deve ser passado como parâmetro.
+
+    .. literalinclude:: ../../atividade_apostila/apostila0.py
+        :linenos:
+        :pyobject: Exercitando02.__init__
+
+-----
+
+.. topic:: Crie uma lista com os parágrafos do documento
+
+.. topic:: Quantos parágrafos o documento possui?
+
+.. topic:: Imprima o conteúdo do 1º parágrafo do texto
+
+.. topic:: Imprima os parágrafos 3 a 6, inclusive
+
+.. topic:: O termo "Machado" está no documento?
+
+.. topic:: Crie um  texto corrido a partir dos parágrafos lidos
+
+.. topic:: Substitua o termo "Batista" por "João Batista"

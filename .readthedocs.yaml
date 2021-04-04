@@ -6,11 +6,5 @@ build:
 python:
   version: 3.8
   install:
-    - method: pip
-      path: .
-      extra_requirements:
-        - docx
-        - nltk
-    - method: setuptools
-      path: another/package
+    - requirements: requirements.txt
   system_packages: true
