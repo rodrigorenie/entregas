@@ -1,38 +1,35 @@
 API
 ================
 
-Trabalho da Apostila
+atividade_apostila
 *************************
 
-apostila.apostila0 module
--------------------------
+atividade\_apostila.apostila0
+-----------------------------
 
 .. automodule:: atividade_apostila.apostila0
    :members:
    :undoc-members:
    :show-inheritance:
 
-apostila.apostila1 module
--------------------------
+atividade\_apostila.apostila1
+-----------------------------
 
 .. automodule:: atividade_apostila.apostila1
    :members:
    :undoc-members:
    :show-inheritance:
 
-apostila.apostila2 module
--------------------------
+atividade\_apostila.apostila2
+-----------------------------
 
 .. automodule:: atividade_apostila.apostila2
    :members:
    :undoc-members:
    :show-inheritance:
 
-Trabalho Final
+atividade_final
 ****************
-
-final.trabalho\_final module
-----------------------------
 
 .. automodule:: atividade_final.trabalho_final
    :members:
