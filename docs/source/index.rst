@@ -16,6 +16,8 @@ Avaliação do Módulo de Análise de Texto
 Índice e Tabelas
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+:ref:`genindex`
+
+:ref:`modindex`
+
+:ref:`search`
