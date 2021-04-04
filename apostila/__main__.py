@@ -1,6 +1,6 @@
 import os
 
-from trabalho_apostila import apostila0
+from apostila import apostila0
 from rich.table import Table
 from rich.console import Console
 
