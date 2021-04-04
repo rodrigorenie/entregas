@@ -1,8 +1,8 @@
-pos_trabalho_analise_de_texto
+pos-trabalho-analise-de-texto
 =============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    trabalho_apostila
    trabalho_final

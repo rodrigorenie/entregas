@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'pos_trabalho_analise_de_texto'
+project = 'Trabalho de Análise de Texto'
 copyright = '2021, Rodrigo Renie'
 author = 'Rodrigo Renie'
 
