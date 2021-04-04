@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>final.trabalho_final &mdash; documentação Trabalho de Análise de Texto </title>
+  <title>atividade_final.trabalho_final &mdash; documentação Trabalho de Análise de Texto </title>
   
 
   
@@ -80,8 +80,7 @@
             
               <p><span class="caption-text">Conteúdo:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../introducao.html">Build Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../introducao.html#introducao">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introducao.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../apostila0.html">Apostila Parte 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../apostila1.html">Apostila Parte 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../apostila2.html">Apostila Parte 2</a></li>
@@ -134,7 +133,7 @@
         
           <li><a href="../index.html">Código do módulo</a> &raquo;</li>
         
-      <li>final.trabalho_final</li>
+      <li>atividade_final.trabalho_final</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -149,7 +148,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Código fonte para final.trabalho_final</h1><div class="highlight"><pre>
+  <h1>Código fonte para atividade_final.trabalho_final</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Rodrigo Renie de Braga Pinto</span>
 <span class="c1"># Tarefa: Analisar textos.</span>
 <span class="c1"># Os textos baixados podem estar relacionados com um interesse da equipe, mas</span>
@@ -185,7 +184,7 @@
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="logged"><a class="viewcode-back" href="../../api.html#final.trabalho_final.logged">[documentos]</a><span class="k">def</span> <span class="nf">logged</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="logged"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.logged">[documentos]</a><span class="k">def</span> <span class="nf">logged</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">logged</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
 
@@ -200,7 +199,7 @@
     <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
-<div class="viewcode-block" id="timed"><a class="viewcode-back" href="../../api.html#final.trabalho_final.timed">[documentos]</a><span class="k">def</span> <span class="nf">timed</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="timed"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.timed">[documentos]</a><span class="k">def</span> <span class="nf">timed</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">timed</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
 
@@ -218,7 +217,7 @@
     <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
-<div class="viewcode-block" id="parse_filename"><a class="viewcode-back" href="../../api.html#final.trabalho_final.parse_filename">[documentos]</a><span class="k">def</span> <span class="nf">parse_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="parse_filename"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.parse_filename">[documentos]</a><span class="k">def</span> <span class="nf">parse_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">rex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[sS]([0-9]</span><span class="si">{2}</span><span class="s2">)[eE]([0-9]</span><span class="si">{2}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">season</span><span class="p">,</span> <span class="n">episode</span> <span class="o">=</span> <span class="n">rex</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -229,7 +228,7 @@
         <span class="k">return</span> <span class="n">season</span><span class="p">,</span> <span class="n">episode</span></div>
 
 
-<div class="viewcode-block" id="nltk_tree_find"><a class="viewcode-back" href="../../api.html#final.trabalho_final.nltk_tree_find">[documentos]</a><span class="k">def</span> <span class="nf">nltk_tree_find</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PERSON&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="nltk_tree_find"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.nltk_tree_find">[documentos]</a><span class="k">def</span> <span class="nf">nltk_tree_find</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PERSON&#39;</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">tree</span><span class="o">.</span><span class="n">label</span><span class="p">()</span> <span class="o">==</span> <span class="n">label</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">tree</span>
 
@@ -239,7 +238,7 @@
                 <span class="k">yield</span> <span class="n">match</span></div>
 
 
-<div class="viewcode-block" id="Subtitles"><a class="viewcode-back" href="../../api.html#final.trabalho_final.Subtitles">[documentos]</a><span class="k">class</span> <span class="nc">Subtitles</span><span class="p">:</span>
+<div class="viewcode-block" id="Subtitles"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.Subtitles">[documentos]</a><span class="k">class</span> <span class="nc">Subtitles</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rootdir</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_subtitles</span> <span class="o">=</span> <span class="p">{}</span>
@@ -278,7 +277,7 @@
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_subtitles</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ProjetoFinal"><a class="viewcode-back" href="../../api.html#final.trabalho_final.ProjetoFinal">[documentos]</a><span class="k">class</span> <span class="nc">ProjetoFinal</span><span class="p">:</span>
+<div class="viewcode-block" id="ProjetoFinal"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.ProjetoFinal">[documentos]</a><span class="k">class</span> <span class="nc">ProjetoFinal</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
@@ -306,7 +305,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_summary</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_summary_tokens</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="ProjetoFinal.plot"><a class="viewcode-back" href="../../api.html#final.trabalho_final.ProjetoFinal.plot">[documentos]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ProjetoFinal.plot"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.ProjetoFinal.plot">[documentos]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">16.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
         <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
@@ -333,7 +332,7 @@
             <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
 
 
-<div class="viewcode-block" id="ProjetoFinalNLTK"><a class="viewcode-back" href="../../api.html#final.trabalho_final.ProjetoFinalNLTK">[documentos]</a><span class="k">class</span> <span class="nc">ProjetoFinalNLTK</span><span class="p">(</span><span class="n">ProjetoFinal</span><span class="p">):</span>
+<div class="viewcode-block" id="ProjetoFinalNLTK"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.ProjetoFinalNLTK">[documentos]</a><span class="k">class</span> <span class="nc">ProjetoFinalNLTK</span><span class="p">(</span><span class="n">ProjetoFinal</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
@@ -357,7 +356,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;&#39;text&#39; must be string or a list of strings&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ProjetoFinalNLTK.token_isstop"><a class="viewcode-back" href="../../api.html#final.trabalho_final.ProjetoFinalNLTK.token_isstop">[documentos]</a>    <span class="k">def</span> <span class="nf">token_isstop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+<div class="viewcode-block" id="ProjetoFinalNLTK.token_isstop"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.ProjetoFinalNLTK.token_isstop">[documentos]</a>    <span class="k">def</span> <span class="nf">token_isstop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span></div>
 
     <span class="nd">@property</span>
@@ -535,7 +534,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 
-<div class="viewcode-block" id="ProjetoFinalSpacy"><a class="viewcode-back" href="../../api.html#final.trabalho_final.ProjetoFinalSpacy">[documentos]</a><span class="k">class</span> <span class="nc">ProjetoFinalSpacy</span><span class="p">(</span><span class="n">ProjetoFinal</span><span class="p">):</span>
+<div class="viewcode-block" id="ProjetoFinalSpacy"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.ProjetoFinalSpacy">[documentos]</a><span class="k">class</span> <span class="nc">ProjetoFinalSpacy</span><span class="p">(</span><span class="n">ProjetoFinal</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">selectfor</span><span class="o">=</span><span class="s2">&quot;efficiency&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
@@ -596,7 +595,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sentences_len</span>
 
-<div class="viewcode-block" id="ProjetoFinalSpacy.token_isstop"><a class="viewcode-back" href="../../api.html#final.trabalho_final.ProjetoFinalSpacy.token_isstop">[documentos]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ProjetoFinalSpacy.token_isstop"><a class="viewcode-back" href="../../api.html#atividade_final.trabalho_final.ProjetoFinalSpacy.token_isstop">[documentos]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">token_isstop</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
         <span class="c1"># return token.is_punct or token.is_space</span>
         <span class="k">return</span> <span class="n">token</span><span class="o">.</span><span class="n">is_stop</span> <span class="ow">or</span> <span class="n">token</span><span class="o">.</span><span class="n">is_punct</span> <span class="ow">or</span> <span class="n">token</span><span class="o">.</span><span class="n">is_space</span></div>

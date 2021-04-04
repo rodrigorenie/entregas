@@ -7,7 +7,7 @@ Trabalho da Apostila
 apostila.apostila0 module
 -------------------------
 
-.. automodule:: apostila.apostila0
+.. automodule:: atividade_apostila.apostila0
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ apostila.apostila0 module
 apostila.apostila1 module
 -------------------------
 
-.. automodule:: apostila.apostila1
+.. automodule:: atividade_apostila.apostila1
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ apostila.apostila1 module
 apostila.apostila2 module
 -------------------------
 
-.. automodule:: apostila.apostila2
+.. automodule:: atividade_apostila.apostila2
    :members:
    :undoc-members:
    :show-inheritance:
@@ -34,7 +34,7 @@ Trabalho Final
 final.trabalho\_final module
 ----------------------------
 
-.. automodule:: final.trabalho_final
+.. automodule:: atividade_final.trabalho_final
    :members:
    :undoc-members:
    :show-inheritance:

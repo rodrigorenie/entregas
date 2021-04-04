@@ -2,7 +2,7 @@ Avaliação do Módulo de Análise de Texto
 =========================================================
 
 .. toctree::
-   :maxdepth: 0
+   :maxdepth: 2
    :caption: Conteúdo:
 
    introducao

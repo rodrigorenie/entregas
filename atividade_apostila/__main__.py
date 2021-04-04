@@ -1,6 +1,6 @@
 import os
 
-from apostila import apostila0
+from atividade_apostila import apostila0
 from rich.table import Table
 from rich.console import Console
 
@@ -12,78 +12,79 @@ def apostila01(table: Table) -> None:
     :param table: Instância de :class:`rich.table.Table`
     :rtype: None
     """
-    ex = apostila0.Exercitando01()
+    ex = apostila0.Exercitando01(
+        'Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem amor eu nada seria.'
+    )
 
     table.add_row(
         '00', '01',
         'Crie uma string com o conteúdo "Ainda que falasse as línguas dos homens e falasse a  língua dos  anjos, sem '
         'amor eu nada seria."',
-        ex.text
+        str(ex)
     )
 
     table.add_row(
         '00', '01',
         'Imprima cada caractere da string',
-        ' '.join([c for c in ex.chars()])
+        ' '.join([c for c in ex.text_chars])
     )
 
     table.add_row(
         '00', '01',
         'Segmente a string em uma lista',
-        str(list(ex.words()))
+        str(list(ex.text_split))
     )
 
     table.add_row(
         '00', '01',
         'Quantas palavras há na lista?',
-        str(ex.words_len())
+        str(ex.text_split_len)
     )
 
     table.add_row(
         '00', '01',
         'Imprima cada palavra da string',
-        ' | '.join(list(ex.words()))
+        ' | '.join(list(ex.text_split))
     )
 
     table.add_row(
         '00', '01',
         'Substitua o termo "dos homens" por "do mundo"',
-        ex.replace()
+        ex.text_replace('dos homens', 'do mundo')
     )
 
     table.add_row(
         '00', '01',
         'Imprima o fragmento que vai do 21º até o 30º caracteres',
-        '"{}"'.format(ex.segment())
+        '"{}"'.format(ex.text_segment(21, 30))
     )
 
     table.add_row(
         '00', '01',
         'Imprima os últimos 15 caracteres',
-        '"{}"'.format(ex.last())
+        '"{}"'.format(ex.text_last(15))
     )
 
     table.add_row(
         '00', '01',
         'Salve a sentença em um arquivo do tipo txt',
         'Arquivo salvo em:\n{}'.format(
-            ex.save(os.path.dirname(__file__) + '/../dados/apostila01_ex01.txt')
+            ex.text_save(os.path.dirname(__file__) + '/../dados/apostila01_ex01.txt')
         )
     )
 
-    docpath = os.path.dirname(__file__) + '/../dados/ROMANCE.docx'
-    ex = apostila0.Exercitando02(docpath)
+    ex = apostila0.Exercitando02(os.path.dirname(__file__) + '/../dados/ROMANCE.docx')
 
     table.add_row(
         '00', '02',
         'Crie uma lista com os parágrafos do documento',
-        'ex.paragraphs(): tipo {}'.format(type(ex.paragraphs()))
+        'ex.paragraphs_list: tipo {}'.format(type(ex.paragraphs_list))
     )
 
     table.add_row(
         '00', '02',
         'Quantos parágrafos o documento possui?',
-        str(ex.paragraphs_len())
+        str(ex.paragraphs_len)
     )
 
     table.add_row(
@@ -101,19 +102,19 @@ def apostila01(table: Table) -> None:
     table.add_row(
         '00', '02',
         'O termo ‘Machado’ está no documento?',
-        'Sim' if ex.text_exists('Machado') else 'Não'
+        'Sim' if ex.paragraphs_hastext('Machado') else 'Não'
     )
 
     table.add_row(
         '00', '02',
         'Crie um  texto corrido a partir dos parágrafos lidos',
-        ex.paragraphs_text()
+        ex.paragraphs_text
     )
 
     table.add_row(
         '00', '02',
         'Substitua o termo "Batista" por "João Batista"',
-        ex.text_replace('Batista', 'João Batista')
+        ex.paragraphs_replacetext('Batista', 'João Batista')
     )
 
 

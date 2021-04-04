@@ -82,13 +82,16 @@
             
               <p><span class="caption-text">Conteúdo:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introducao.html">Build Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introducao.html#introducao">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introducao.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apostila0.html">Apostila Parte 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apostila1.html">Apostila Parte 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apostila2.html">Apostila Parte 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trabalhofinal.html">Trabalho Final</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#trabalho-da-apostila">Trabalho da Apostila</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trabalho-final">Trabalho Final</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -157,38 +160,38 @@
 <h1>API<a class="headerlink" href="#api" title="Link permanente para este título">¶</a></h1>
 <section id="trabalho-da-apostila">
 <h2>Trabalho da Apostila<a class="headerlink" href="#trabalho-da-apostila" title="Link permanente para este título">¶</a></h2>
-<section id="module-apostila.apostila0">
-<span id="apostila-apostila0-module"></span><h3>apostila.apostila0 module<a class="headerlink" href="#module-apostila.apostila0" title="Link permanente para este título">¶</a></h3>
+<section id="module-atividade_apostila.apostila0">
+<span id="apostila-apostila0-module"></span><h3>apostila.apostila0 module<a class="headerlink" href="#module-atividade_apostila.apostila0" title="Link permanente para este título">¶</a></h3>
 <dl class="py class">
-<dt id="apostila.apostila0.Exercitando01">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">apostila.apostila0.</span></code><code class="sig-name descname"><span class="pre">Exercitando01</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila0.Exercitando01">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila0.</span></code><code class="sig-name descname"><span class="pre">Exercitando01</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando01"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Classe que implementa os itens solicitado no Exercitando 1 da apostila “Parte 0”. Cada método desta classe
-implementa um item solicitado.</p>
+<p>Implementa os itens solicitados no Exercitando 01 da Aposta Parte 0. Os métodos com o decorator <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> são
+tratados como um atributo da classe, o que significa que podem ser invocados utilizando <code class="docutils literal notranslate"><span class="pre">instancia.metodo</span></code> ao
+invés de <code class="docutils literal notranslate"><span class="pre">instancia.metodo()</span></code>. <a class="reference external" href="https://docs.python.org/3/library/functions.html#property">Clique aqui</a> para
+saber mais.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
-<dd class="field-odd"><p><strong>text</strong> (<em>str</em><em>, </em><em>optional</em>) – String utilizado como base para o exercício. O padrão é None, o que siginifica que será utilizado a
-seguinte sentaça: “Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem amor eu nada
-seria.”</p>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – Texto a ser utilizado como base para o exercício.</p>
 </dd>
 <dt class="field-even">Tipo de retorno</dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando01.chars">
-<code class="sig-name descname"><span class="pre">chars</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01.chars"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01.chars" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Cria um gerador pora cada caracter do texto.</p>
+<dt id="atividade_apostila.apostila0.Exercitando01.text_chars">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text_chars</span></code><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01.text_chars" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Cria um gerador para os caracteres individuais do texto.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p>None</p>
+<dd class="field-odd"><p>Iterator[str]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando01.last">
-<code class="sig-name descname"><span class="pre">last</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01.last"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01.last" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila0.Exercitando01.text_last">
+<code class="sig-name descname"><span class="pre">text_last</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando01.text_last"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01.text_last" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Returna os últimos caracteres do texto, de tamanho indicado pelo parâmetro n. O parâmetro n é opcional com
 valor padrão 15.</p>
 <dl class="field-list simple">
@@ -211,40 +214,41 @@ valor padrão 15.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando01.replace">
-<code class="sig-name descname"><span class="pre">replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_from</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'dos</span> <span class="pre">homens'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_to</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'do</span> <span class="pre">mundo'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01.replace"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01.replace" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Substitui um trecho no texto indicado pelo parâmetro t_from pelo texto indicado no parâmetro t_to. Os dois
-parâmetros são opcionais, assumindo os valores ‘dos homens’ e ‘do mundo’ por padrão, respectivamente.</p>
+<dt id="atividade_apostila.apostila0.Exercitando01.text_replace">
+<code class="sig-name descname"><span class="pre">text_replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando01.text_replace"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01.text_replace" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Substitui um trecho no texto indicado pelo parâmetro <code class="docutils literal notranslate"><span class="pre">old</span></code> pelo texto indicado no parâmetro <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>t_from</strong> – Texto original a ser substituído</p></li>
-<li><p><strong>t_to</strong> – Texto a substituir</p></li>
+<li><p><strong>old</strong> – Texto original a ser substituído.</p></li>
+<li><p><strong>new</strong> – Texto novo</p></li>
 </ul>
 </dd>
 <dt class="field-even">Type</dt>
-<dd class="field-even"><p>str, optional</p>
-</dd>
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>Uma cópia do texto substituído</p>
-</dd>
-<dt class="field-even">Tipo de retorno</dt>
 <dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Uma cópia do texto substituído</p>
+</dd>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando01.save">
-<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'apostila01_ex01.txt'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01.save"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01.save" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Salva o texto em um arquivo indicado pelo parâmetro opcional filename, cujo valor padrão é
-‘apostila_ex01.txt’ (salva na pasta corrente).</p>
+<dt id="atividade_apostila.apostila0.Exercitando01.text_save">
+<code class="sig-name descname"><span class="pre">text_save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando01.text_save"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01.text_save" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Salva o texto em um arquivo indicado pelo parâmetro <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
-<dd class="field-odd"><p><strong>filename</strong> – </p>
+<dd class="field-odd"><p><strong>filename</strong> – Caminho do arquivo</p>
 </dd>
 <dt class="field-even">Type</dt>
-<dd class="field-even"><p>str, optional</p>
+<dd class="field-even"><p>str</p>
 </dd>
 <dt class="field-odd">Retorna</dt>
 <dd class="field-odd"><p>Caminho completo do arquivo salvo</p>
@@ -256,29 +260,29 @@ parâmetros são opcionais, assumindo os valores ‘dos homens’ e ‘do mundo�
 </dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando01.segment">
-<code class="sig-name descname"><span class="pre">segment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_ini</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">21</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01.segment"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01.segment" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Retorna o segmento do texto indicado, da posição inicial p_ini até a posição final p_end, ambos INCLUSIVO, ou
-seja, retorna o caracter da posição indicada. Além disso, este método considera que o primeiro caracter do texto
-está na posição 1. Os parâmetros p_ini e p_end são opcionais e assumem os valores 21 e 30 por padrão
-respectivamente.</p>
+<dt id="atividade_apostila.apostila0.Exercitando01.text_segment">
+<code class="sig-name descname"><span class="pre">text_segment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando01.text_segment"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01.text_segment" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Retorna o segmento do texto indicado, da posição inicial <code class="docutils literal notranslate"><span class="pre">first</span></code> até a posição <code class="docutils literal notranslate"><span class="pre">last</span></code>, ambos <em>INCLUSIVO</em>,
+ou seja, retorna o caracter das posições indicadas. Se <code class="docutils literal notranslate"><span class="pre">last</span></code> for omitido, retorna apenas o caracter indicado
+por <code class="docutils literal notranslate"><span class="pre">first</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Levanta</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ValueError</strong> – Erro gerado nas seguintes condições:
-- Quando o valor inicial é menor ou igual a zero;
-- Quando o valor inicial é menor que o valor final;</p></li>
-<li><p><strong>IndexError</strong> – Erro gerado quando</p></li>
-</ul>
+<dd class="field-odd"><p><strong>ValueError</strong> – Erro gerado quando <code class="docutils literal notranslate"><span class="pre">first</span></code> é menor ou igual a zero ou quando <code class="docutils literal notranslate"><span class="pre">first</span></code> menor que <code class="docutils literal notranslate"><span class="pre">last</span></code>.</p>
 </dd>
 <dt class="field-even">Parâmetros</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>p_ini</strong> – Posição inicial do segmento (deve ser maior que zero)</p></li>
-<li><p><strong>p_end</strong> – Posição final do segmento</p></li>
+<li><p><strong>first</strong> – Posição inicial do segmento (deve ser maior que zero).</p></li>
+<li><p><strong>last</strong> – Posição final do segmento, opcional.</p></li>
 </ul>
 </dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>int, opcional</p>
+</dd>
 <dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>Segmento do texto</p>
+<dd class="field-odd"><p>String com o segmento do texto ou uma string vazia se <code class="docutils literal notranslate"><span class="pre">first</span></code> for maior que o tamanho do texto.</p>
 </dd>
 <dt class="field-even">Tipo de retorno</dt>
 <dd class="field-even"><p>str</p>
@@ -287,21 +291,21 @@ respectivamente.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando01.words">
-<code class="sig-name descname"><span class="pre">words</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01.words"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01.words" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Divide o texto em uma lista de palavras (separadas por um espaço em branco) e cria um gerador com cada item
+<dt id="atividade_apostila.apostila0.Exercitando01.text_split">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text_split</span></code><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01.text_split" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Divide o texto em uma lista de palavras, separadas por um espaço em branco, e cria um gerador para os itens
 da lista.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p>None</p>
+<dd class="field-odd"><p>Iterator[str]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando01.words_len">
-<code class="sig-name descname"><span class="pre">words_len</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando01.words_len"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando01.words_len" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Contabiliza o tamanho da lista do gerador criado no método <a class="reference internal" href="#apostila.apostila0.Exercitando01.words" title="apostila.apostila0.Exercitando01.words"><code class="xref py py-func docutils literal notranslate"><span class="pre">Exercitando01.words()</span></code></a>.</p>
+<dt id="atividade_apostila.apostila0.Exercitando01.text_split_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text_split_len</span></code><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando01.text_split_len" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Contabiliza o tamanho da lista do gerador criado por <a class="reference internal" href="#atividade_apostila.apostila0.Exercitando01.text_split" title="atividade_apostila.apostila0.Exercitando01.text_split"><code class="xref py py-func docutils literal notranslate"><span class="pre">Exercitando01.text_split()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
 <dd class="field-odd"><p>int</p>
@@ -312,400 +316,509 @@ da lista.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="apostila.apostila0.Exercitando02">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">apostila.apostila0.</span></code><code class="sig-name descname"><span class="pre">Exercitando02</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">docpath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando02"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando02" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila0.Exercitando02">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila0.</span></code><code class="sig-name descname"><span class="pre">Exercitando02</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">docpath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando02"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe que implementa os itens solicitado no Exercitando 2 da apostila “Parte 0”. Cada método desta classe
+implementa um item solicitado. Esta classe carrega um documento em formato <code class="docutils literal notranslate"><span class="pre">docx</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>docpath</strong> – Caminho do arquivo <code class="docutils literal notranslate"><span class="pre">docx</span></code> a ser carregado.</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando02.paragraphs">
-<code class="sig-name descname"><span class="pre">paragraphs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando02.paragraphs"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando02.paragraphs" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dt id="atividade_apostila.apostila0.Exercitando02.paragraphs">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">paragraphs</span></code><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02.paragraphs" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Cria um gerador para os parágrafos encontrados no documento.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>Iterator[str]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando02.paragraphs_len">
-<code class="sig-name descname"><span class="pre">paragraphs_len</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando02.paragraphs_len"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando02.paragraphs_len" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dt id="atividade_apostila.apostila0.Exercitando02.paragraphs_hastext">
+<code class="sig-name descname"><span class="pre">paragraphs_hastext</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando02.paragraphs_hastext"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02.paragraphs_hastext" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Verifica se a string indicado pelo parâmetro <code class="docutils literal notranslate"><span class="pre">text</span></code> existe no documento</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>text</strong> – Texto a procurar no documento.</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Verdadeiro ou falso.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando02.paragraphs_segment">
-<code class="sig-name descname"><span class="pre">paragraphs_segment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando02.paragraphs_segment"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando02.paragraphs_segment" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dt id="atividade_apostila.apostila0.Exercitando02.paragraphs_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">paragraphs_len</span></code><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02.paragraphs_len" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Contabiliza o tamanho da lista do gerador criado por <a class="reference internal" href="#atividade_apostila.apostila0.Exercitando02.paragraphs" title="atividade_apostila.apostila0.Exercitando02.paragraphs"><code class="xref py py-func docutils literal notranslate"><span class="pre">Exercitando02.paragraphs()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando02.paragraphs_text">
-<code class="sig-name descname"><span class="pre">paragraphs_text</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando02.paragraphs_text"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando02.paragraphs_text" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dt id="atividade_apostila.apostila0.Exercitando02.paragraphs_list">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">paragraphs_list</span></code><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02.paragraphs_list" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Cria uma lista contendo cada parágrafo encontrado no documento.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>Lista com os parágrafos.</p>
+</dd>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando02.text_exists">
-<code class="sig-name descname"><span class="pre">text_exists</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando02.text_exists"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando02.text_exists" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dt id="atividade_apostila.apostila0.Exercitando02.paragraphs_replacetext">
+<code class="sig-name descname"><span class="pre">paragraphs_replacetext</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando02.paragraphs_replacetext"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02.paragraphs_replacetext" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Retorna uma string com o conteúdo do documento, substiuindo o texto indicado pelo parâmetro <code class="docutils literal notranslate"><span class="pre">old</span></code> por
+<code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>old</strong> – Texto original a ser substituído.</p></li>
+<li><p><strong>new</strong> – Texto novo.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>String com o texto substituído.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="apostila.apostila0.Exercitando02.text_replace">
-<code class="sig-name descname"><span class="pre">text_replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/apostila/apostila0.html#Exercitando02.text_replace"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila0.Exercitando02.text_replace" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dt id="atividade_apostila.apostila0.Exercitando02.paragraphs_segment">
+<code class="sig-name descname"><span class="pre">paragraphs_segment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/atividade_apostila/apostila0.html#Exercitando02.paragraphs_segment"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02.paragraphs_segment" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Retorna os parágrafos do documento, da posição inicial <code class="docutils literal notranslate"><span class="pre">first</span></code> até a posição <code class="docutils literal notranslate"><span class="pre">last</span></code>, ambos <em>INCLUSIVO</em>,
+ou seja, também retorna os parágrafos nas posições indicadas. Se <code class="docutils literal notranslate"><span class="pre">last</span></code> for omitido, retorna apenas o
+parágrafo indicado por <code class="docutils literal notranslate"><span class="pre">first</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Levanta</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – Erro gerado quando <code class="docutils literal notranslate"><span class="pre">first</span></code> é menor ou igual a zero ou quando <code class="docutils literal notranslate"><span class="pre">first</span></code> menor que <code class="docutils literal notranslate"><span class="pre">last</span></code>.</p>
+</dd>
+<dt class="field-even">Parâmetros</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>first</strong> – Posição inicial do segmento (deve ser maior que zero).</p></li>
+<li><p><strong>last</strong> – Posição final do segmento, opcional.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>int, opcional</p>
+</dd>
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>Uma lista de string com os parágrafos solicitados, ou uma única string de parágrafo de <code class="docutils literal notranslate"><span class="pre">last</span></code> for
+omitido.</p>
+</dd>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p>list[str] ou str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="atividade_apostila.apostila0.Exercitando02.paragraphs_text">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">paragraphs_text</span></code><a class="headerlink" href="#atividade_apostila.apostila0.Exercitando02.paragraphs_text" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Retorna uma string com o conteúdo do documento.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>String do documento.</p>
+</dd>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
 </section>
-<section id="module-apostila.apostila1">
-<span id="apostila-apostila1-module"></span><h3>apostila.apostila1 module<a class="headerlink" href="#module-apostila.apostila1" title="Link permanente para este título">¶</a></h3>
+<section id="module-atividade_apostila.apostila1">
+<span id="apostila-apostila1-module"></span><h3>apostila.apostila1 module<a class="headerlink" href="#module-atividade_apostila.apostila1" title="Link permanente para este título">¶</a></h3>
 <dl class="py function">
-<dt id="apostila.apostila1.ex01">
-<code class="sig-prename descclassname"><span class="pre">apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex01</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila1.html#ex01"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila1.ex01" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila1.ex01">
+<code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex01</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila1.html#ex01"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila1.ex01" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="apostila.apostila1.ex02">
-<code class="sig-prename descclassname"><span class="pre">apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex02</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila1.html#ex02"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila1.ex02" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila1.ex02">
+<code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex02</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila1.html#ex02"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila1.ex02" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="apostila.apostila1.ex03">
-<code class="sig-prename descclassname"><span class="pre">apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex03</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila1.html#ex03"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila1.ex03" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila1.ex03">
+<code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex03</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila1.html#ex03"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila1.ex03" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="apostila.apostila1.ex04">
-<code class="sig-prename descclassname"><span class="pre">apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex04</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila1.html#ex04"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila1.ex04" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila1.ex04">
+<code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila1.</span></code><code class="sig-name descname"><span class="pre">ex04</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila1.html#ex04"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila1.ex04" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 </section>
-<section id="module-apostila.apostila2">
-<span id="apostila-apostila2-module"></span><h3>apostila.apostila2 module<a class="headerlink" href="#module-apostila.apostila2" title="Link permanente para este título">¶</a></h3>
+<section id="module-atividade_apostila.apostila2">
+<span id="apostila-apostila2-module"></span><h3>apostila.apostila2 module<a class="headerlink" href="#module-atividade_apostila.apostila2" title="Link permanente para este título">¶</a></h3>
 <dl class="py function">
-<dt id="apostila.apostila2.ex01">
-<code class="sig-prename descclassname"><span class="pre">apostila.apostila2.</span></code><code class="sig-name descname"><span class="pre">ex01</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila2.html#ex01"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila2.ex01" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila2.ex01">
+<code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila2.</span></code><code class="sig-name descname"><span class="pre">ex01</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila2.html#ex01"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila2.ex01" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="apostila.apostila2.ex02">
-<code class="sig-prename descclassname"><span class="pre">apostila.apostila2.</span></code><code class="sig-name descname"><span class="pre">ex02</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila2.html#ex02"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila2.ex02" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila2.ex02">
+<code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila2.</span></code><code class="sig-name descname"><span class="pre">ex02</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila2.html#ex02"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila2.ex02" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="apostila.apostila2.ex03">
-<code class="sig-prename descclassname"><span class="pre">apostila.apostila2.</span></code><code class="sig-name descname"><span class="pre">ex03</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apostila/apostila2.html#ex03"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#apostila.apostila2.ex03" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_apostila.apostila2.ex03">
+<code class="sig-prename descclassname"><span class="pre">atividade_apostila.apostila2.</span></code><code class="sig-name descname"><span class="pre">ex03</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_apostila/apostila2.html#ex03"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_apostila.apostila2.ex03" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 </section>
 </section>
 <section id="trabalho-final">
 <h2>Trabalho Final<a class="headerlink" href="#trabalho-final" title="Link permanente para este título">¶</a></h2>
-<section id="module-final.trabalho_final">
-<span id="final-trabalho-final-module"></span><h3>final.trabalho_final module<a class="headerlink" href="#module-final.trabalho_final" title="Link permanente para este título">¶</a></h3>
+<section id="module-atividade_final.trabalho_final">
+<span id="final-trabalho-final-module"></span><h3>final.trabalho_final module<a class="headerlink" href="#module-atividade_final.trabalho_final" title="Link permanente para este título">¶</a></h3>
 <dl class="py class">
-<dt id="final.trabalho_final.ProjetoFinal">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">ProjetoFinal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#ProjetoFinal"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.ProjetoFinal" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinal">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">ProjetoFinal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#ProjetoFinal"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinal" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinal.plot">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">counter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlimit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#ProjetoFinal.plot"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.ProjetoFinal.plot" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinal.plot">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">counter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlimit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#ProjetoFinal.plot"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinal.plot" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="final.trabalho_final.ProjetoFinalNLTK">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">ProjetoFinalNLTK</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#ProjetoFinalNLTK"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Base: <a class="reference internal" href="#final.trabalho_final.ProjetoFinal" title="final.trabalho_final.ProjetoFinal"><code class="xref py py-class docutils literal notranslate"><span class="pre">final.trabalho_final.ProjetoFinal</span></code></a></p>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">ProjetoFinalNLTK</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#ProjetoFinalNLTK"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#atividade_final.trabalho_final.ProjetoFinal" title="atividade_final.trabalho_final.ProjetoFinal"><code class="xref py py-class docutils literal notranslate"><span class="pre">atividade_final.trabalho_final.ProjetoFinal</span></code></a></p>
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner_len" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner_len" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner_location">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner_location" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner_location">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner_location" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner_location_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner_location_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner_location_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner_location_frequency" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner_location_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner_location_len" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner_location_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner_location_len" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner_person">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner_person" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner_person">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner_person" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner_person_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner_person_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner_person_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner_person_frequency" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.ner_person_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.ner_person_len" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.ner_person_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.ner_person_len" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.pos">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">pos</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.pos" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.pos">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">pos</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.pos" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.sentences">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.sentences" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.sentences">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.sentences" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.sentences_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.sentences_len" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.sentences_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.sentences_len" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.summary">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.summary" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.summary">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.summary" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.text">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.text" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.text">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.text" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.token_isstop">
-<code class="sig-name descname"><span class="pre">token_isstop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#ProjetoFinalNLTK.token_isstop"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.token_isstop" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.token_isstop">
+<code class="sig-name descname"><span class="pre">token_isstop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#ProjetoFinalNLTK.token_isstop"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.token_isstop" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.tokens">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.tokens" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.tokens">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.tokens" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.tokens_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.tokens_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_frequency" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.tokens_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.tokens_len" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_len" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.tokens_pron_verb_frequency" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.trigrams">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.trigrams" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.trigrams">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.trigrams" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.trigrams_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.trigrams_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.trigrams_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.trigrams_frequency" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.vocabulary">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vocabulary</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.vocabulary" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.vocabulary">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vocabulary</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.vocabulary" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalNLTK.wordcloud">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">wordcloud</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalNLTK.wordcloud" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="final.trabalho_final.ProjetoFinalSpacy">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">ProjetoFinalSpacy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selectfor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'efficiency'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#ProjetoFinalSpacy"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Base: <a class="reference internal" href="#final.trabalho_final.ProjetoFinal" title="final.trabalho_final.ProjetoFinal"><code class="xref py py-class docutils literal notranslate"><span class="pre">final.trabalho_final.ProjetoFinal</span></code></a></p>
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.doc">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">doc</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.doc" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner_len" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner_location">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner_location" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner_location_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner_location_frequency" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner_location_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner_location_len" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner_person">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner_person" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner_person_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner_person_frequency" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.ner_person_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.ner_person_len" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.nlp">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">nlp</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.nlp" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.pos">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">pos</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.pos" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.sentences">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.sentences" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.sentences_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.sentences_len" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.summary">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.summary" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.summary_doc">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary_doc</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.summary_doc" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.summary_keywords">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary_keywords</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.summary_keywords" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.summary_tokens">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary_tokens</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.summary_tokens" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.text">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.text" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.token_isstop">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">token_isstop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#ProjetoFinalSpacy.token_isstop"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.token_isstop" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.tokens">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.tokens" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.tokens_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.tokens_frequency" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.tokens_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_len</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.tokens_len" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb_frequency" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.trigrams">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.trigrams" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.trigrams_frequency">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams_frequency</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.trigrams_frequency" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.vocabulary">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vocabulary</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.vocabulary" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="final.trabalho_final.ProjetoFinalSpacy.wordcloud">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">wordcloud</span></code><a class="headerlink" href="#final.trabalho_final.ProjetoFinalSpacy.wordcloud" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalNLTK.wordcloud">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">wordcloud</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalNLTK.wordcloud" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="final.trabalho_final.Subtitles">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">Subtitles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latin-1'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#Subtitles"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.Subtitles" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">ProjetoFinalSpacy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selectfor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'efficiency'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#ProjetoFinalSpacy"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#atividade_final.trabalho_final.ProjetoFinal" title="atividade_final.trabalho_final.ProjetoFinal"><code class="xref py py-class docutils literal notranslate"><span class="pre">atividade_final.trabalho_final.ProjetoFinal</span></code></a></p>
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.doc">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">doc</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.doc" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner_len" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner_location">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner_location" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner_location_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner_location_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner_location_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_location_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner_location_len" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner_person">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner_person" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner_person_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner_person_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.ner_person_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ner_person_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.ner_person_len" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.nlp">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">nlp</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.nlp" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.pos">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">pos</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.pos" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.sentences">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.sentences" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.sentences_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sentences_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.sentences_len" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.summary">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.summary" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.summary_doc">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary_doc</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.summary_doc" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.summary_keywords">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary_keywords</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.summary_keywords" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.summary_tokens">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">summary_tokens</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.summary_tokens" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.text">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.text" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.token_isstop">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">token_isstop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#ProjetoFinalSpacy.token_isstop"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.token_isstop" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.tokens">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.tokens" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_len">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_len</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_len" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">tokens_pron_verb_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.tokens_pron_verb_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.trigrams">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.trigrams" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.trigrams_frequency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">trigrams_frequency</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.trigrams_frequency" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.vocabulary">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vocabulary</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.vocabulary" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="atividade_final.trabalho_final.ProjetoFinalSpacy.wordcloud">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">wordcloud</span></code><a class="headerlink" href="#atividade_final.trabalho_final.ProjetoFinalSpacy.wordcloud" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="atividade_final.trabalho_final.Subtitles">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">Subtitles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rootdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latin-1'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#Subtitles"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.Subtitles" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt id="final.trabalho_final.Subtitles.subtitles">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">subtitles</span></code><a class="headerlink" href="#final.trabalho_final.Subtitles.subtitles" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.Subtitles.subtitles">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">subtitles</span></code><a class="headerlink" href="#atividade_final.trabalho_final.Subtitles.subtitles" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="final.trabalho_final.Subtitles.subtitles_text">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">subtitles_text</span></code><a class="headerlink" href="#final.trabalho_final.Subtitles.subtitles_text" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.Subtitles.subtitles_text">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">subtitles_text</span></code><a class="headerlink" href="#atividade_final.trabalho_final.Subtitles.subtitles_text" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt id="final.trabalho_final.logged">
-<code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">logged</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#logged"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.logged" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.logged">
+<code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">logged</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#logged"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.logged" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="final.trabalho_final.nltk_tree_find">
-<code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">nltk_tree_find</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PERSON'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#nltk_tree_find"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.nltk_tree_find" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.nltk_tree_find">
+<code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">nltk_tree_find</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PERSON'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#nltk_tree_find"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.nltk_tree_find" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="final.trabalho_final.parse_filename">
-<code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">parse_filename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#parse_filename"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.parse_filename" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.parse_filename">
+<code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">parse_filename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#parse_filename"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.parse_filename" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="final.trabalho_final.timed">
-<code class="sig-prename descclassname"><span class="pre">final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">timed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/final/trabalho_final.html#timed"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#final.trabalho_final.timed" title="Link permanente para esta definição">¶</a></dt>
+<dt id="atividade_final.trabalho_final.timed">
+<code class="sig-prename descclassname"><span class="pre">atividade_final.trabalho_final.</span></code><code class="sig-name descname"><span class="pre">timed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/atividade_final/trabalho_final.html#timed"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#atividade_final.trabalho_final.timed" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 </section>
