@@ -160,6 +160,7 @@
 <span></span><span class="kn">import</span> <span class="nn">docx</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">CategorizedPlaintextCorpusReader</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">ngrams</span>
@@ -170,14 +171,8 @@
 
 
 <div class="viewcode-block" id="ex01"><a class="viewcode-back" href="../../api.html#atividade_apostila.apostila1.ex01">[documentos]</a><span class="k">def</span> <span class="nf">ex01</span><span class="p">():</span>
-    <span class="c1"># Rodrigo Renie de Braga Pinto</span>
-    <span class="c1"># TEXT ANALYSIS(Apostila)Parte 1.docx</span>
-    <span class="c1"># Exercitando 1</span>
-    <span class="c1"># Execute o que se pede.</span>
-    <span class="c1"># Imprima as palavras dos documentos neg/cv002_tok-3321.txt e</span>
-    <span class="c1"># pos/cv003_tok-8338.txt</span>
     <span class="n">corpus_reader</span> <span class="o">=</span> <span class="n">CategorizedPlaintextCorpusReader</span><span class="p">(</span>
-        <span class="s1">&#39;dados/mix20_rand700_tokens_cleaned/tokens/&#39;</span><span class="p">,</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../dados/mix20_rand700_tokens_cleaned/tokens/&#39;</span><span class="p">,</span>
         <span class="s1">&#39;.*.txt&#39;</span><span class="p">,</span> <span class="n">cat_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;(\w+)/*&#39;</span><span class="p">)</span>
 
     <span class="n">words</span> <span class="o">=</span> <span class="p">{</span>
@@ -191,16 +186,10 @@
 
 
 <div class="viewcode-block" id="ex02"><a class="viewcode-back" href="../../api.html#atividade_apostila.apostila1.ex02">[documentos]</a><span class="k">def</span> <span class="nf">ex02</span><span class="p">():</span>
-    <span class="c1"># Rodrigo Renie de Braga Pinto</span>
-    <span class="c1"># TEXT ANALYSIS(Apostila)Parte 1.docx</span>
-    <span class="c1"># Exercitando 2</span>
-    <span class="c1"># Execute o que se pede.</span>
-    <span class="c1"># Utilize o arquivo Noticia_1 disponível na pasta de dados da turma e liste os</span>
-    <span class="c1"># 50 bigramas e trigramas mais frequentes obtidos do texto.</span>
-    <span class="n">docpath</span> <span class="o">=</span> <span class="s1">&#39;dados/Noticia_1.docx&#39;</span>
+    <span class="n">docpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../dados/Noticia_1.docx&#39;</span>
     <span class="n">doc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="n">docpath</span><span class="p">)</span>
 
-    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">_paragraphs</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">paragraphs</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
 
     <span class="n">fb2</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">ngrams</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
     <span class="n">fb3</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">ngrams</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -210,21 +199,11 @@
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">((</span><span class="n">bw</span><span class="p">,</span> <span class="n">bf</span><span class="p">),</span> <span class="p">(</span><span class="n">tw</span><span class="p">,</span> <span class="n">tf</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fb2</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
                                                  <span class="n">fb3</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">50</span><span class="p">))):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:02}</span><span class="s1"> </span><span class="si">{:&gt;30s}</span><span class="s1"> : </span><span class="si">{:&lt;4}</span><span class="s1"> </span><span class="si">{:&gt;40s}</span><span class="s1"> : </span><span class="si">{:&lt;4}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">bw</span><span class="p">),</span> <span class="n">bf</span><span class="p">,</span>
-                                                             <span class="nb">str</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">tf</span><span class="p">))</span></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:02}</span><span class="s1"> </span><span class="si">{:&gt;30s}</span><span class="s1"> : </span><span class="si">{:&lt;4}</span><span class="s1"> </span><span class="si">{:&gt;40s}</span><span class="s1"> : </span><span class="si">{:&lt;4}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">bw</span><span class="p">),</span>
+                                                             <span class="n">bf</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">tf</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="ex03"><a class="viewcode-back" href="../../api.html#atividade_apostila.apostila1.ex03">[documentos]</a><span class="k">def</span> <span class="nf">ex03</span><span class="p">():</span>
-    <span class="c1"># Rodrigo Renie de Braga Pinto</span>
-    <span class="c1"># TEXT ANALYSIS(Apostila)Parte 1.docx</span>
-    <span class="c1"># Exercitando 3</span>
-    <span class="c1"># Execute o que se pede.</span>
-    <span class="c1"># Analise a frequência das palavras [&#39;the&#39;, &#39;that&#39;] no arquivo singles.txt e,</span>
-    <span class="c1"># depois, no arquivo pirates.txt.</span>
-    <span class="c1"># Inclua a geração do gráfico de frequência.</span>
-    <span class="c1"># Gere a lista dos 15 bigramas mais frequentes do texto.</span>
-    <span class="c1"># Gere a lista dos 20 quadrigramas gramas mais frequentes que possuam a</span>
-    <span class="c1"># palavra &#39;life&#39;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;singles.txt&#39;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s1">&#39;tokens&#39;</span><span class="p">:</span> <span class="p">[],</span>
@@ -275,7 +254,8 @@
         <span class="n">data</span><span class="p">[</span><span class="n">file</span><span class="p">][</span><span class="s1">&#39;freq_bigrams_top15&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">top15</span>
 
         <span class="c1"># Gera os dados de frequência dos quadrigramas com palavra &quot;life&quot;</span>
-        <span class="n">quadrigram</span> <span class="o">=</span> <span class="p">[</span><span class="n">ng</span> <span class="k">for</span> <span class="n">ng</span> <span class="ow">in</span> <span class="n">ngrams</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">file</span><span class="p">][</span><span class="s1">&#39;tokens&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;life&#39;</span> <span class="ow">in</span> <span class="n">ng</span><span class="p">]</span>
+        <span class="n">quadrigram</span> <span class="o">=</span> <span class="p">[</span><span class="n">ng</span> <span class="k">for</span> <span class="n">ng</span> <span class="ow">in</span> <span class="n">ngrams</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">file</span><span class="p">][</span><span class="s1">&#39;tokens&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+                      <span class="k">if</span> <span class="s1">&#39;life&#39;</span> <span class="ow">in</span> <span class="n">ng</span><span class="p">]</span>
         <span class="n">data</span><span class="p">[</span><span class="n">file</span><span class="p">][</span><span class="s1">&#39;freq_quadrigrams_life&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">quadrigram</span><span class="p">)</span>
 
         <span class="c1"># Imprime frequência das palavras &#39;the&#39; e &#39;that&#39;</span>
@@ -285,7 +265,8 @@
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:20s}</span><span class="s1"> </span><span class="si">{:35s}</span><span class="s1"> </span><span class="si">{:03}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">freq</span><span class="p">))</span>
 
         <span class="c1"># Imprime Top 15 Tokens</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{:20s}</span><span class="s1"> </span><span class="si">{:35s}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Arquivo&#39;</span><span class="p">,</span> <span class="s1">&#39;Top 15 Tokens&#39;</span><span class="p">,</span> <span class="s1">&#39;Frequência&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{:20s}</span><span class="s1"> </span><span class="si">{:35s}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Arquivo&#39;</span><span class="p">,</span> <span class="s1">&#39;Top 15 Tokens&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;Frequência&#39;</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">file</span><span class="p">][</span><span class="s1">&#39;freq_tokens_top15&#39;</span><span class="p">]:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:20s}</span><span class="s1"> </span><span class="si">{:35s}</span><span class="s1"> </span><span class="si">{:03}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">freq</span><span class="p">))</span>
 
@@ -307,15 +288,11 @@
 
 
 <div class="viewcode-block" id="ex04"><a class="viewcode-back" href="../../api.html#atividade_apostila.apostila1.ex04">[documentos]</a><span class="k">def</span> <span class="nf">ex04</span><span class="p">():</span>
-    <span class="c1"># Rodrigo Renie de Braga Pinto</span>
-    <span class="c1"># TEXT ANALYSIS(Apostila)Parte 1.docx</span>
-    <span class="c1"># Exercitando 4</span>
-    <span class="c1"># Execute o que se pede.</span>
-
     <span class="c1"># Execute print(machado.readme()) para conhecer melhor o corpus</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">machado</span><span class="o">.</span><span class="n">readme</span><span class="p">())</span>
 
-    <span class="c1"># Utilizando o corpus machado, elabore um programa que atenda aos requisitos:</span>
+    <span class="c1"># Utilizando o corpus machado, elabore um programa que atenda aos</span>
+    <span class="c1"># requisitos:</span>
 
     <span class="c1"># a. Quais são as categorias presentes no corpus?</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Categorias: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">machado</span><span class="o">.</span><span class="n">categories</span><span class="p">()))</span>

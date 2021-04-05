@@ -1,6 +1,7 @@
 import string
 import docx
 import nltk
+import os
 
 from nltk.corpus import machado
 from nltk import PorterStemmer, LancasterStemmer, RSLPStemmer
@@ -8,14 +9,6 @@ from nltk.corpus import stopwords
 
 
 def ex01():
-    # Rodrigo Renie de Braga Pinto
-    # TEXT ANALYSIS(Apostila)Parte 2.docx
-    # Exercitando 1
-    # Execute o que se pede.
-    # Utilize o arquivo com a obra Memórias Póstumas de Bras Cubas e compare os
-    # stemms obtidos a partir do 6º e 7º parágrafos do texto. Utilize Porter,
-    # Lancaster e RSPL.
-
     #
     # Carrega os parágrafos de Memórias Póstumas de Brás Cubas
     #
@@ -51,16 +44,7 @@ def ex01():
 
 
 def ex02():
-    # Rodrigo Renie de Braga Pinto
-    # TEXT ANALYSIS(Apostila)Parte 2.docx
-    # Exercitando 2
-    # Execute o que se pede.
-    # Utilize o arquivo Noticia_1 disponível na pasta de dados da turma e realize
-    # as tarefas de POS e NER.
-    # Salve o resultado de POS em um arquivo, com <seu_nome>_POS_Noticia1
-    # Salve o resultado de NER em um arquivo, com <seu_nome>_NER_Noticia1
-
-    noticia1 = docx.Document('dados/Noticia_1.docx')
+    noticia1 = docx.Document(os.path.dirname(__file__) + '/../dados/Noticia_1.docx')
 
     noticia1_tokens = '\n'.join([p.text for p in noticia1.paragraphs])
     noticia1_tokens = nltk.sent_tokenize(noticia1_tokens)
@@ -74,20 +58,15 @@ def ex02():
     posdoc = docx.Document()
     for pos in noticia1_pos:
         posdoc.add_paragraph(str(pos))
-    posdoc.save('dados/RodrigoRenieDeBragaPinto_POS_Noticia1.docx')
+    posdoc.save(os.path.dirname(__file__) + '/../dados/EquipeRocket_POS_Noticia1.docx')
 
     nerdoc = docx.Document()
     for ner in noticia1_ner:
         nerdoc.add_paragraph(str(ner))
-    nerdoc.save('dados/RodrigoRenieDeBragaPinto_NER_Noticia1.docx')
+    nerdoc.save(os.path.dirname(__file__) + '/../dados/EquipeRocket_NER_Noticia1.docx')
 
 
 def ex03():
-    # Rodrigo Renie de Braga Pinto
-    # TEXT ANALYSIS(Apostila)Parte 2.docx
-    # Exercitando 3
-    # Execute o que se pede.
-
     topn = 5
 
     def tree_get_ner(t: nltk.Tree) -> list:

@@ -1,6 +1,6 @@
 import os
 
-from atividade_apostila import apostila0
+from atividade_apostila import apostila0, apostila1, apostila2
 from rich.table import Table
 from rich.console import Console
 
@@ -128,5 +128,13 @@ if __name__ == '__main__':
     t.add_column("Resultado", overflow='fold')
 
     apostila01(t)
-
     console.print(t)
+
+    apostila1.ex01()
+    apostila1.ex02()
+    apostila1.ex03()
+    apostila1.ex04()
+
+    apostila2.ex01()
+    apostila2.ex02()
+    apostila2.ex03()

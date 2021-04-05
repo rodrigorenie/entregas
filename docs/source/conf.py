@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 project = 'Avaliação Final de Análise de Texto'
 copyright = '2021, Equipe Rocket'
-author = 'Rodrigo Renie, Frederick, Jackson Querubin, Jonios Maximo'
+author = 'Rodrigo Renie, Frederick, Jacson Querubin, Jonios Maximo'
 show_authors = True
 
 

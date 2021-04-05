@@ -160,6 +160,7 @@
 <span></span><span class="kn">import</span> <span class="nn">string</span>
 <span class="kn">import</span> <span class="nn">docx</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">machado</span>
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">PorterStemmer</span><span class="p">,</span> <span class="n">LancasterStemmer</span><span class="p">,</span> <span class="n">RSLPStemmer</span>
@@ -167,14 +168,6 @@
 
 
 <div class="viewcode-block" id="ex01"><a class="viewcode-back" href="../../api.html#atividade_apostila.apostila2.ex01">[documentos]</a><span class="k">def</span> <span class="nf">ex01</span><span class="p">():</span>
-    <span class="c1"># Rodrigo Renie de Braga Pinto</span>
-    <span class="c1"># TEXT ANALYSIS(Apostila)Parte 2.docx</span>
-    <span class="c1"># Exercitando 1</span>
-    <span class="c1"># Execute o que se pede.</span>
-    <span class="c1"># Utilize o arquivo com a obra Memórias Póstumas de Bras Cubas e compare os</span>
-    <span class="c1"># stemms obtidos a partir do 6º e 7º parágrafos do texto. Utilize Porter,</span>
-    <span class="c1"># Lancaster e RSPL.</span>
-
     <span class="c1">#</span>
     <span class="c1"># Carrega os parágrafos de Memórias Póstumas de Brás Cubas</span>
     <span class="c1">#</span>
@@ -210,16 +203,7 @@
 
 
 <div class="viewcode-block" id="ex02"><a class="viewcode-back" href="../../api.html#atividade_apostila.apostila2.ex02">[documentos]</a><span class="k">def</span> <span class="nf">ex02</span><span class="p">():</span>
-    <span class="c1"># Rodrigo Renie de Braga Pinto</span>
-    <span class="c1"># TEXT ANALYSIS(Apostila)Parte 2.docx</span>
-    <span class="c1"># Exercitando 2</span>
-    <span class="c1"># Execute o que se pede.</span>
-    <span class="c1"># Utilize o arquivo Noticia_1 disponível na pasta de dados da turma e realize</span>
-    <span class="c1"># as tarefas de POS e NER.</span>
-    <span class="c1"># Salve o resultado de POS em um arquivo, com &lt;seu_nome&gt;_POS_Noticia1</span>
-    <span class="c1"># Salve o resultado de NER em um arquivo, com &lt;seu_nome&gt;_NER_Noticia1</span>
-
-    <span class="n">noticia1</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="s1">&#39;dados/Noticia_1.docx&#39;</span><span class="p">)</span>
+    <span class="n">noticia1</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../dados/Noticia_1.docx&#39;</span><span class="p">)</span>
 
     <span class="n">noticia1_tokens</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">noticia1</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">])</span>
     <span class="n">noticia1_tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">noticia1_tokens</span><span class="p">)</span>
@@ -233,20 +217,15 @@
     <span class="n">posdoc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">noticia1_pos</span><span class="p">:</span>
         <span class="n">posdoc</span><span class="o">.</span><span class="n">add_paragraph</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pos</span><span class="p">))</span>
-    <span class="n">posdoc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;dados/RodrigoRenieDeBragaPinto_POS_Noticia1.docx&#39;</span><span class="p">)</span>
+    <span class="n">posdoc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../dados/EquipeRocket_POS_Noticia1.docx&#39;</span><span class="p">)</span>
 
     <span class="n">nerdoc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">ner</span> <span class="ow">in</span> <span class="n">noticia1_ner</span><span class="p">:</span>
         <span class="n">nerdoc</span><span class="o">.</span><span class="n">add_paragraph</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ner</span><span class="p">))</span>
-    <span class="n">nerdoc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;dados/RodrigoRenieDeBragaPinto_NER_Noticia1.docx&#39;</span><span class="p">)</span></div>
+    <span class="n">nerdoc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../dados/EquipeRocket_NER_Noticia1.docx&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ex03"><a class="viewcode-back" href="../../api.html#atividade_apostila.apostila2.ex03">[documentos]</a><span class="k">def</span> <span class="nf">ex03</span><span class="p">():</span>
-    <span class="c1"># Rodrigo Renie de Braga Pinto</span>
-    <span class="c1"># TEXT ANALYSIS(Apostila)Parte 2.docx</span>
-    <span class="c1"># Exercitando 3</span>
-    <span class="c1"># Execute o que se pede.</span>
-
     <span class="n">topn</span> <span class="o">=</span> <span class="mi">5</span>
 
     <span class="k">def</span> <span class="nf">tree_get_ner</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="n">nltk</span><span class="o">.</span><span class="n">Tree</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>

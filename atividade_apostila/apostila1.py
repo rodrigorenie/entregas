@@ -1,6 +1,7 @@
 import docx
 import nltk
 import string
+import os
 
 from nltk.corpus import CategorizedPlaintextCorpusReader
 from nltk import ngrams
@@ -11,14 +12,8 @@ from nltk.corpus import machado
 
 
 def ex01():
-    # Rodrigo Renie de Braga Pinto
-    # TEXT ANALYSIS(Apostila)Parte 1.docx
-    # Exercitando 1
-    # Execute o que se pede.
-    # Imprima as palavras dos documentos neg/cv002_tok-3321.txt e
-    # pos/cv003_tok-8338.txt
     corpus_reader = CategorizedPlaintextCorpusReader(
-        'dados/mix20_rand700_tokens_cleaned/tokens/',
+        os.path.dirname(__file__) + '/../dados/mix20_rand700_tokens_cleaned/tokens/',
         '.*.txt', cat_pattern=r'(\w+)/*')
 
     words = {
@@ -32,16 +27,10 @@ def ex01():
 
 
 def ex02():
-    # Rodrigo Renie de Braga Pinto
-    # TEXT ANALYSIS(Apostila)Parte 1.docx
-    # Exercitando 2
-    # Execute o que se pede.
-    # Utilize o arquivo Noticia_1 disponível na pasta de dados da turma e liste os
-    # 50 bigramas e trigramas mais frequentes obtidos do texto.
-    docpath = 'dados/Noticia_1.docx'
+    docpath = os.path.dirname(__file__) + '/../dados/Noticia_1.docx'
     doc = docx.Document(docpath)
 
-    words = [w for p in doc._paragraphs for w in p.text.split()]
+    words = [w for p in doc.paragraphs for w in p.text.split()]
 
     fb2 = nltk.FreqDist(ngrams(words, 2))
     fb3 = nltk.FreqDist(ngrams(words, 3))
@@ -51,21 +40,11 @@ def ex02():
 
     for i, ((bw, bf), (tw, tf)) in enumerate(zip(fb2.most_common(50),
                                                  fb3.most_common(50))):
-        print('{:02} {:>30s} : {:<4} {:>40s} : {:<4}'.format(i + 1, str(bw), bf,
-                                                             str(tw), tf))
+        print('{:02} {:>30s} : {:<4} {:>40s} : {:<4}'.format(i + 1, str(bw),
+                                                             bf, str(tw), tf))
 
 
 def ex03():
-    # Rodrigo Renie de Braga Pinto
-    # TEXT ANALYSIS(Apostila)Parte 1.docx
-    # Exercitando 3
-    # Execute o que se pede.
-    # Analise a frequência das palavras ['the', 'that'] no arquivo singles.txt e,
-    # depois, no arquivo pirates.txt.
-    # Inclua a geração do gráfico de frequência.
-    # Gere a lista dos 15 bigramas mais frequentes do texto.
-    # Gere a lista dos 20 quadrigramas gramas mais frequentes que possuam a
-    # palavra 'life'
     data = {
         'singles.txt': {
             'tokens': [],
@@ -116,7 +95,8 @@ def ex03():
         data[file]['freq_bigrams_top15'] = top15
 
         # Gera os dados de frequência dos quadrigramas com palavra "life"
-        quadrigram = [ng for ng in ngrams(data[file]['tokens'], 4) if 'life' in ng]
+        quadrigram = [ng for ng in ngrams(data[file]['tokens'], 4)
+                      if 'life' in ng]
         data[file]['freq_quadrigrams_life'] = nltk.FreqDist(quadrigram)
 
         # Imprime frequência das palavras 'the' e 'that'
@@ -126,7 +106,8 @@ def ex03():
             print('{:20s} {:35s} {:03}'.format(file, word, freq))
 
         # Imprime Top 15 Tokens
-        print('\n{:20s} {:35s} {}'.format('Arquivo', 'Top 15 Tokens', 'Frequência'))
+        print('\n{:20s} {:35s} {}'.format('Arquivo', 'Top 15 Tokens',
+                                          'Frequência'))
         for token, freq in data[file]['freq_tokens_top15']:
             print('{:20s} {:35s} {:03}'.format(file, token, freq))
 
@@ -148,15 +129,11 @@ def ex03():
 
 
 def ex04():
-    # Rodrigo Renie de Braga Pinto
-    # TEXT ANALYSIS(Apostila)Parte 1.docx
-    # Exercitando 4
-    # Execute o que se pede.
-
     # Execute print(machado.readme()) para conhecer melhor o corpus
     print(machado.readme())
 
-    # Utilizando o corpus machado, elabore um programa que atenda aos requisitos:
+    # Utilizando o corpus machado, elabore um programa que atenda aos
+    # requisitos:
 
     # a. Quais são as categorias presentes no corpus?
     print('Categorias: {}'.format(machado.categories()))
