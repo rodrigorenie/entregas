@@ -6,6 +6,7 @@ Avaliação do Módulo de Análise de Texto
    :caption: Conteúdo:
 
    introducao
+   atividade_aula
    atividade_apostila0
    atividade_apostila1
    atividade_apostila2

@@ -86,10 +86,11 @@
               <p class="caption"><span class="caption-text">Conteúdo:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introducao.html">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../atividade_aula.html">Atividade Aula</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_apostila0.html">Apostila Parte 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_apostila1.html">Apostila Parte 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_apostila2.html">Apostila Parte 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../atividade_final.html">Trabalho Final</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../atividade_final.html">Atividade Final</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
 </ul>
 
@@ -174,17 +175,15 @@
 <span class="kn">import</span> <span class="nn">wordcloud</span>
 <span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">functools</span>
 
 <span class="kn">from</span> <span class="nn">spacy.symbols</span> <span class="kn">import</span> <span class="n">PRON</span><span class="p">,</span> <span class="n">VERB</span>
 <span class="kn">from</span> <span class="nn">pysubparser</span> <span class="kn">import</span> <span class="n">parser</span>
 <span class="kn">from</span> <span class="nn">pysubparser.cleaners</span> <span class="kn">import</span> <span class="n">brackets</span><span class="p">,</span> <span class="n">formatting</span>
-<span class="kn">from</span> <span class="nn">rich.table</span> <span class="kn">import</span> <span class="n">Table</span>
-<span class="kn">from</span> <span class="nn">rich.console</span> <span class="kn">import</span> <span class="n">Console</span>
+
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
     <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">.</span><span class="si">%(msecs)03d</span><span class="s1"> [</span><span class="si">%(name)s</span><span class="s1">] [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
     <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y %H:%M:%S&#39;</span><span class="p">,</span>
     <span class="c1"># filename=&#39;dados/debug.log&#39;,</span>
@@ -264,7 +263,6 @@
                 <span class="n">data</span> <span class="o">=</span> <span class="n">formatting</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_subtitles</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">season</span><span class="p">,</span> <span class="n">episode</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-                <span class="k">break</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">subtitles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -760,228 +758,6 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">summary_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;  topn: int    </span>
-<span class="sd">    </span>
-<span class="sd">    Variável que define a quantidade de itens (TOP N) que serão demonstrados ao longo da execução do programa, tanto na</span>
-<span class="sd">    saída texto quanto nos gráficos. Aumentar ou diminuir este valor não altera significativamente o tempo de </span>
-<span class="sd">    processamento, visto que o mais demorado é o processamentos do texto em si, não a contabilização do TOP N.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">topn</span> <span class="o">=</span> <span class="mi">50</span>
-
-    <span class="sd">&quot;&quot;&quot; s: Subtitles</span>
-<span class="sd">        </span>
-<span class="sd">    Classe que extrai o texto de todas as legendas encontradas na pasta passada como parâmetro. Possui duas principais</span>
-<span class="sd">    funcionalidades:    </span>
-<span class="sd">        s.subtitles_text: lista onde cada item é o texto de uma das legendas encontradas na pasta</span>
-<span class="sd">        str(s): retorna um único objeto de texto contendo todas as legendas da lista acima concatenadas, separadas por</span>
-<span class="sd">                duas linhas em branco (\n\n). </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># s = Subtitles(&#39;dados/Breaking.Bad&#39;)</span>
-    <span class="c1"># s = Subtitles(&#39;dados/The.Simpsons&#39;)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">Subtitles</span><span class="p">(</span><span class="s1">&#39;dados/Friends&#39;</span><span class="p">)</span>
-
-    <span class="sd">&quot;&quot;&quot; ps: ProjetoFinalSpacy()</span>
-<span class="sd">        pn: ProjetoFinalNLTK()</span>
-<span class="sd">    </span>
-<span class="sd">    Armazenam o objeto principal contendo toda a lógica de cada um dos algoritmos de análise de texto: Spacy e NLTK. As</span>
-<span class="sd">    duas classes possuem os seguintes atributos:</span>
-<span class="sd">    </span>
-<span class="sd">        .tokens: lista com todos os tokens detectados pelo algoritmo</span>
-<span class="sd">        .tokens_pron_verb: lista de bigramas que são pares de pronomes seguidos por um verbo        </span>
-<span class="sd">        .trigrams: lista de todos os trigramas</span>
-<span class="sd">        .vocabulary: lista de palavras únicas        </span>
-<span class="sd">        </span>
-<span class="sd">        .ner: lista contendo todos os tokens detectadas como NER</span>
-<span class="sd">        .ner_person: lista de tokens NER especificamente da classe &quot;PESSOAS&quot;</span>
-<span class="sd">        .ner_location: lista de tokens NER especificamente da classe &quot;LOCAIS&quot;</span>
-<span class="sd">        </span>
-<span class="sd">        .wordcloud: armazena a nuvem de palavras de todos os tokens (sem os stopwords)</span>
-<span class="sd">        .summary: armazena o texto resumido de todo o texto carregado pela classe</span>
-<span class="sd">        .summary_keywords: palavras chaves (apenas as raízes) do texto resumido</span>
-<span class="sd">        </span>
-<span class="sd">        atributos &quot;&lt;nome&gt;_len&quot;: armazena o tamanho da lista retornada pelo atributo &lt;nome&gt;</span>
-<span class="sd">        atributos &quot;&lt;nome&gt;_frequency&quot;: armazena o objeto Counter do atributo &lt;nome&gt; (para fazer seu TOP N)</span>
-<span class="sd">        </span>
-<span class="sd">    Cada classe pode ser criada com os seguintes parâmetros:</span>
-<span class="sd">    </span>
-<span class="sd">        Spacy(text, selectfor)</span>
-<span class="sd">            text: texto (string) para realizar a separação em sentenças e tokenização. Pode ser também uma lista de </span>
-<span class="sd">            strings. Se o tamanho do texto passar de nlp.max_length, é obrigatório dividí-lo antes, podendo passar </span>
-<span class="sd">            então como uma lista de strings.</span>
-<span class="sd">            </span>
-<span class="sd">            selectfor: pode ser &quot;accuracy&quot;, onde será selecionado um pipile de treinamento mais veloz, porém mais lento.</span>
-<span class="sd">            Ou &quot;efficiency&quot;, onde será selecionado um pipeline de treinamento bem mais lento, porém mais preciso. </span>
-<span class="sd">            </span>
-<span class="sd">        NLTK(text)</span>
-<span class="sd">            text: texto (string) para realizar a separação em sentenças e tokenização.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">ps</span> <span class="o">=</span> <span class="n">ProjetoFinalSpacy</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">subtitles_text</span><span class="p">)</span>
-    <span class="n">pn</span> <span class="o">=</span> <span class="n">ProjetoFinalNLTK</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A partir daqui, todo o código trata puramente de formatar corretamente o conteúdo dos atributos acima citados, para</span>
-<span class="sd">    apresentar o resultado do NLTK e SPACY lado a lado permitindo, visualmente, analisar a diferença dos algoritimos.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">t_fmtstr</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="si">{:24}</span><span class="s1"> </span><span class="si">{:&gt;22}</span><span class="s1"> </span><span class="si">{:&gt;46}</span><span class="s1">&#39;</span>
-    <span class="n">d_fmtstr</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:02}</span><span class="s1"> </span><span class="si">{:&gt;40}</span><span class="s1"> : </span><span class="si">{:&lt;4}</span><span class="s1"> </span><span class="si">{:&gt;40}</span><span class="s1"> : </span><span class="si">{:&lt;4}</span><span class="s1">&#39;</span>
-
-    <span class="c1">#</span>
-    <span class="c1"># Contagem de sentenças</span>
-    <span class="c1">#</span>
-
-    <span class="n">console</span> <span class="o">=</span> <span class="n">Console</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
-    <span class="n">tablelist</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">show_header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;Contagem&quot;</span><span class="p">)</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;Spacy&quot;</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;NLTK&quot;</span><span class="p">)</span>
-
-    <span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s1">&#39;Tokens&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">tokens_len</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">tokens_len</span><span class="p">))</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s1">&#39;Sentenças&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">sentences_len</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">sentences_len</span><span class="p">))</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s1">&#39;Vocabulário&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">vocabulary</span><span class="p">)),</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">vocabulary</span><span class="p">)))</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s1">&#39;Entidades NER&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">ner_len</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ner_len</span><span class="p">))</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s1">&#39;Entidades NER Pessoas&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">ner_person_len</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ner_person_len</span><span class="p">))</span>
-    <span class="n">table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="s1">&#39;Entidades NER Locais&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">ner_location_len</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ner_location_len</span><span class="p">))</span>
-
-    <span class="n">tablelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tablelist</span><span class="p">:</span>
-        <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-    <span class="n">exit</span><span class="p">()</span>
-
-    <span class="c1">#</span>
-    <span class="c1"># Vocabulário</span>
-    <span class="c1">#</span>
-
-    <span class="n">zipped</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">zip_longest</span><span class="p">([</span><span class="n">ps</span><span class="o">.</span><span class="n">vocabulary</span><span class="p">[</span><span class="n">s</span> <span class="o">-</span> <span class="mi">5</span><span class="p">:</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">vocabulary</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span>
-                                   <span class="p">[</span><span class="n">pn</span><span class="o">.</span><span class="n">vocabulary</span><span class="p">[</span><span class="n">s</span> <span class="o">-</span> <span class="mi">5</span><span class="p">:</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">vocabulary</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span>
-                                   <span class="n">fillvalue</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="si">{:20}</span><span class="s1"> </span><span class="si">{:&gt;74}</span><span class="s1"> | </span><span class="si">{:&lt;}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Vocabulário&#39;</span><span class="p">,</span> <span class="s1">&#39;SPACY&#39;</span><span class="p">,</span> <span class="s1">&#39;NLTK&#39;</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">spacy_v</span><span class="p">,</span> <span class="n">nltk_v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:04}</span><span class="s1"> </span><span class="si">{:&gt;90}</span><span class="s1"> | </span><span class="si">{:&lt;90}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spacy_v</span><span class="p">)),</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nltk_v</span><span class="p">))))</span>
-
-    <span class="c1">#</span>
-    <span class="c1"># Frequência de palavras relevantes (com gráfico de colunas ou barras)</span>
-    <span class="c1">#</span>
-
-    <span class="n">zipped</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">zip_longest</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">tokens_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">pn</span><span class="o">.</span><span class="n">tokens_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">fillvalue</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">t_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Top Tokens&#39;</span><span class="p">,</span> <span class="s1">&#39;SPACY&#39;</span><span class="p">,</span> <span class="s1">&#39;NLTK&#39;</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">((</span><span class="n">spacy_v</span><span class="p">,</span> <span class="n">spacy_n</span><span class="p">),</span> <span class="p">(</span><span class="n">nltk_v</span><span class="p">,</span> <span class="n">nltk_n</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">spacy_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">spacy_n</span>
-        <span class="k">if</span> <span class="n">nltk_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">nltk_n</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">d_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">spacy_v</span><span class="p">),</span> <span class="n">spacy_n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nltk_v</span><span class="p">),</span> <span class="n">nltk_n</span><span class="p">))</span>
-
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="p">((</span><span class="n">highest_v</span> <span class="o">-</span> <span class="p">(</span><span class="n">highest_v</span> <span class="o">%</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">ps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">tokens_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Tokens: SPACY&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_tokens_spacy.png&quot;</span><span class="p">)</span>
-    <span class="n">pn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">tokens_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Tokens: NLTK&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_tokens_nltk.png&quot;</span><span class="p">)</span>
-
-    <span class="c1">#</span>
-    <span class="c1"># Trigramas relevantes (com gráfico de colunas ou barras)</span>
-    <span class="c1">#</span>
-
-    <span class="n">zipped</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">zip_longest</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">trigrams_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">pn</span><span class="o">.</span><span class="n">trigrams_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">fillvalue</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">t_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Top Trigramas&#39;</span><span class="p">,</span> <span class="s1">&#39;SPACY&#39;</span><span class="p">,</span> <span class="s1">&#39;NLTK&#39;</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">((</span><span class="n">spacy_v</span><span class="p">,</span> <span class="n">spacy_n</span><span class="p">),</span> <span class="p">(</span><span class="n">nltk_v</span><span class="p">,</span> <span class="n">nltk_n</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">spacy_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">spacy_n</span>
-        <span class="k">if</span> <span class="n">nltk_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">nltk_n</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">d_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">spacy_v</span><span class="p">),</span> <span class="n">spacy_n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nltk_v</span><span class="p">),</span> <span class="n">nltk_n</span><span class="p">))</span>
-
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="p">((</span><span class="n">highest_v</span> <span class="o">-</span> <span class="p">(</span><span class="n">highest_v</span> <span class="o">%</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">ps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">trigrams_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Trigramas: SPACY&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_trigrams_spacy.png&quot;</span><span class="p">)</span>
-    <span class="n">pn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">trigrams_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Trigramas: NLTK&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_trigrams_nltk.png&quot;</span><span class="p">)</span>
-
-    <span class="c1">#</span>
-    <span class="c1"># Quais locais (entidades da classe LOCAL) são citados no texto processado?</span>
-    <span class="c1"># Quantas vezes cada local é citado?</span>
-    <span class="c1">#</span>
-    <span class="n">zipped</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">zip_longest</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">ner_person_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">pn</span><span class="o">.</span><span class="n">ner_person_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">fillvalue</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">t_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Top Pessoas&#39;</span><span class="p">,</span> <span class="s1">&#39;SPACY&#39;</span><span class="p">,</span> <span class="s1">&#39;NLTK&#39;</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">((</span><span class="n">spacy_v</span><span class="p">,</span> <span class="n">spacy_n</span><span class="p">),</span> <span class="p">(</span><span class="n">nltk_v</span><span class="p">,</span> <span class="n">nltk_n</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">spacy_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">spacy_n</span>
-        <span class="k">if</span> <span class="n">nltk_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">nltk_n</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">d_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">spacy_v</span><span class="p">),</span> <span class="n">spacy_n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nltk_v</span><span class="p">),</span> <span class="n">nltk_n</span><span class="p">))</span>
-
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="p">((</span><span class="n">highest_v</span> <span class="o">-</span> <span class="p">(</span><span class="n">highest_v</span> <span class="o">%</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">ps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">ner_person_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Pessoas: SPACY&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_person_spacy.png&quot;</span><span class="p">)</span>
-    <span class="n">pn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ner_person_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Pessoas: NLTK&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_person_nltk.png&quot;</span><span class="p">)</span>
-
-    <span class="n">zipped</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">zip_longest</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">ner_location_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">pn</span><span class="o">.</span><span class="n">ner_location_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">fillvalue</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">t_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Top Locais&#39;</span><span class="p">,</span> <span class="s1">&#39;SPACY&#39;</span><span class="p">,</span> <span class="s1">&#39;NLTK&#39;</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">((</span><span class="n">spacy_v</span><span class="p">,</span> <span class="n">spacy_n</span><span class="p">),</span> <span class="p">(</span><span class="n">nltk_v</span><span class="p">,</span> <span class="n">nltk_n</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">spacy_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">spacy_n</span>
-        <span class="k">if</span> <span class="n">nltk_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">nltk_n</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">d_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">spacy_v</span><span class="p">),</span> <span class="n">spacy_n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nltk_v</span><span class="p">),</span> <span class="n">nltk_n</span><span class="p">))</span>
-
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="p">((</span><span class="n">highest_v</span> <span class="o">-</span> <span class="p">(</span><span class="n">highest_v</span> <span class="o">%</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">ps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">ner_location_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Locais: SPACY&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_location_spacy.png&quot;</span><span class="p">)</span>
-    <span class="n">pn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">ner_location_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Locais: NLTK&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_location_nltk.png&quot;</span><span class="p">)</span>
-
-    <span class="c1">#</span>
-    <span class="c1"># Qual é a proporção de pronomes frente aos verbos do texto?</span>
-    <span class="c1">#</span>
-
-    <span class="n">zipped</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">zip_longest</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">tokens_pron_verb_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">pn</span><span class="o">.</span><span class="n">tokens_pron_verb_frequency</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">topn</span><span class="p">),</span>
-                                   <span class="n">fillvalue</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">t_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Top Pron-Verb&#39;</span><span class="p">,</span> <span class="s1">&#39;SPACY&#39;</span><span class="p">,</span> <span class="s1">&#39;NLTK&#39;</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">((</span><span class="n">spacy_v</span><span class="p">,</span> <span class="n">spacy_n</span><span class="p">),</span> <span class="p">(</span><span class="n">nltk_v</span><span class="p">,</span> <span class="n">nltk_n</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zipped</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">spacy_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">spacy_n</span>
-        <span class="k">if</span> <span class="n">nltk_n</span> <span class="o">&gt;</span> <span class="n">highest_v</span><span class="p">:</span>
-            <span class="n">highest_v</span> <span class="o">=</span> <span class="n">nltk_n</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">d_fmtstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">spacy_v</span><span class="p">),</span> <span class="n">spacy_n</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nltk_v</span><span class="p">),</span> <span class="n">nltk_n</span><span class="p">))</span>
-
-    <span class="n">highest_v</span> <span class="o">=</span> <span class="p">((</span><span class="n">highest_v</span> <span class="o">-</span> <span class="p">(</span><span class="n">highest_v</span> <span class="o">%</span> <span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">ps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">tokens_pron_verb_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Pron-Verb: SPACY&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_pron_verb_spacy.png&quot;</span><span class="p">)</span>
-    <span class="n">pn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">tokens_pron_verb_frequency</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;TOP </span><span class="si">{</span><span class="n">topn</span><span class="si">}</span><span class="s2"> Pron-Verb: NLTK&quot;</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">topn</span><span class="p">,</span> <span class="n">xlimit</span><span class="o">=</span><span class="n">highest_v</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;dados/g_top_pron_verb_nltk.png&quot;</span><span class="p">)</span>
-
-    <span class="c1">#</span>
-    <span class="c1"># Nuvem de palavras</span>
-    <span class="c1">#</span>
-
-    <span class="n">ps</span><span class="o">.</span><span class="n">wordcloud</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;dados/g_wordcloud_spacy.png&#39;</span><span class="p">)</span>
-    <span class="n">pn</span><span class="o">.</span><span class="n">wordcloud</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;dados/g_wordcloud_nltk.png&#39;</span><span class="p">)</span>
-
-    <span class="c1"># TODO</span>
-    <span class="c1"># Obtenha um resumo dos textos utilizados, acompanhados das palavras-chave</span>
 </pre></div>
 
            </div>

@@ -5,3 +5,4 @@ matplotlib
 rich
 python-docx
 pysub-parser
+wikipedia

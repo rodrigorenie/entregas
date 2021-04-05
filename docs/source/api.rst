@@ -1,6 +1,14 @@
 API
 ================
 
+atividade_aula
+*************************
+
+.. automodule:: atividade_aula.aula
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 atividade_apostila
 *************************
 
