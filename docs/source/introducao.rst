@@ -54,7 +54,7 @@ Equipe
 ************************
 Integrantes da ``Equipe Rocket``:
 
-.. codeauthor:: Frederick
-.. codeauthor:: Jackson Querubin
-.. codeauthor:: Jonios Maximo
-.. codeauthor:: Rodrigo Renie
+#. Frederick Moschkowich
+#. Jackson Querubin
+#. Jonios Maximo
+#. Rodrigo Renie

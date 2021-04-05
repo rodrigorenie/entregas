@@ -1,7 +1,7 @@
 Apostila Parte 1
 ========================
 
-Documentação da solução aplicada nos exercícios da Apostila - Parte 0. Aqui é
+Documentação da solução aplicada nos exercícios da Apostila - Parte 1. Aqui é
 detalhado como cada item solicitado nos exercícios foram implementados. Caso
 deseje apenas visualizar os resultados, execute os comandos descritos em
 :ref:`verificando-resultados`.
@@ -49,11 +49,11 @@ Lembre-se de salvar seu programa, para estudos posteriores.
 #. Gere a lista dos 20 quadrigramas gramas mais frequentes que possuam a
    palavra ``life``.
 
-     Implementado na função :py:func:`atividade_apostila.apostila1.ex03`.
+Implementado na função :py:func:`atividade_apostila.apostila1.ex03`.
 
-    .. literalinclude:: ../../atividade_apostila/apostila1.py
-        :linenos:
-        :pyobject: ex03
+.. literalinclude:: ../../atividade_apostila/apostila1.py
+    :linenos:
+    :pyobject: ex03
 
 Exercitando 04
 ************************
