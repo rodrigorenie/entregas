@@ -83,14 +83,23 @@
               
             
             
-              <p class="caption"><span class="caption-text">Conteúdo:</span></p>
+              <p class="caption"><span class="caption-text">Introdução</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introducao.html">Introdução</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Atividade de Aula</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_aula.html">Atividade Aula</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Atividade de Análise de Texto</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_apostila0.html">Apostila Parte 0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_apostila1.html">Apostila Parte 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_apostila2.html">Apostila Parte 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atividade_final.html">Atividade Final</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
 </ul>
 
@@ -203,6 +212,7 @@
                           <span class="n">relative_scaling</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">key_words</span><span class="p">)</span>
 
     <span class="n">dadospath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../dados/&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dadospath</span> <span class="o">+</span> <span class="s1">&#39;/g_wordcloud_wiki.png&#39;</span><span class="p">)</span>
     <span class="n">wordcloud</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">dadospath</span> <span class="o">+</span> <span class="s1">&#39;/g_wordcloud_wiki.png&#39;</span><span class="p">)</span></div>
 </pre></div>
 

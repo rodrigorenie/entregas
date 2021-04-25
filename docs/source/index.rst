@@ -3,16 +3,37 @@ Avaliação do Módulo de Análise de Texto
 
 .. toctree::
    :maxdepth: 2
-   :caption: Conteúdo:
+   :caption: Introdução
 
    introducao
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Atividade de Aula
+
    atividade_aula
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Atividade de Análise de Texto
+
    atividade_apostila0
    atividade_apostila1
    atividade_apostila2
    atividade_final
-   api
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Atividade de Machine Learning
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API
+
+   api
 
 Índice e Tabelas
 ==================
