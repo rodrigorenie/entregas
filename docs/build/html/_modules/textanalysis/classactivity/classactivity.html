@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>textanalysis.classactivity.classactivity &mdash; documentação Avaliação Final de Análise de Texto </title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Buscar" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Avaliação Final de Análise de Texto
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introdução</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html#avaliacao-final">Avaliação Final</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html#verificando-resultados">Verificando Resultados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html#equipe">Equipe</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Análise de Texto</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../textanalysis/classactivity.html">Atividade da Aula</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/api.html">classactivity</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Avaliação Final de Análise de Texto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Código do módulo</a> &raquo;</li>
+        
+      <li>textanalysis.classactivity.classactivity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Código fonte para textanalysis.classactivity.classactivity</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Iterator</span>
+
+
+<div class="viewcode-block" id="News"><a class="viewcode-back" href="../../../api/api.html#textanalysis.classactivity.News">[documentos]</a><span class="k">class</span> <span class="nc">News</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;implementa a atividade descrita em :ref:`textanalysis.classactivity`.</span>
+
+<span class="sd">    :param newsdir: Caminho da pasta de dados (veja a propriedade</span>
+<span class="sd">        :py:attr:`newsdir` para mais detalhes)</span>
+<span class="sd">    :param newsfile: Caminho relativo a pasta de dados do arquivo contendo a</span>
+<span class="sd">        notícia a ser analisada (veja a propriedade :py:attr:`text` para mais</span>
+<span class="sd">        detalhes)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newsdir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">newsfile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;news.txt&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newsdir</span> <span class="o">=</span> <span class="n">newsdir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newsfile</span> <span class="o">=</span> <span class="n">newsfile</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sent</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">punkt</span><span class="o">.</span><span class="n">PunktSentenceTokenizer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_word</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">treebank</span><span class="o">.</span><span class="n">TreebankWordTokenizer</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span> <span class="o">+=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">stopwords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">newsdir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Propriedade que define o caminho da pasta de dados</span>
+
+<span class="sd">        A pasta de dados é o diretório onde todos os arquivos carregados ou</span>
+<span class="sd">        gerados por esta classe ficam armazenados. Se for definido com</span>
+<span class="sd">        ``None``, é definido o valor padrão</span>
+<span class="sd">        ``../../data/textanalysis.classactivity``. Neste caso o atributo</span>
+<span class="sd">        :py:attr:`text` também é definido para ``None`` para recarregar o texto</span>
+<span class="sd">        deste arquivo.</span>
+
+<span class="sd">        :return: valor atual da propriedade :py:attr:`newsdir`</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :raises FileNotFoundError: se for definido com um caminho que não</span>
+<span class="sd">                existe</span>
+<span class="sd">        :raises TypeError: se for definido com um caminho que não é</span>
+<span class="sd">                uma pasta</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datadir</span>
+
+    <span class="nd">@newsdir</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">newsdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datadir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">datadir</span><span class="p">:</span>
+            <span class="n">datadir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;textanalysis.classactivity&#39;</span><span class="p">)</span>
+            <span class="n">datadir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">datadir</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">datadir</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">datadir</span><span class="si">}</span><span class="s2">&#39; não existe&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">datadir</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">datadir</span><span class="si">}</span><span class="s2">&#39; não é uma pasta&quot;</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_datadir</span> <span class="o">=</span> <span class="n">datadir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">newsfile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Propriedade que define o caminho do arquivo de notícia</span>
+
+<span class="sd">        O caminho deve ser relativo à pasta de dados definido no atributo</span>
+<span class="sd">        :py:attr:`newsdir`. Se for definido com ``None``, é definido o valor</span>
+<span class="sd">        padrão ``news.txt``. Neste caso o atributo :py:attr:`text` também é</span>
+<span class="sd">        definido para ``None`` para recarregar o texto deste arquivo.</span>
+
+<span class="sd">        :return: valor atual da propriedade :py:attr:`newsfile`</span>
+<span class="sd">        :rtype: str</span>
+
+<span class="sd">        :raises FileNotFoundError: se for definido com um caminho que não</span>
+<span class="sd">                existe</span>
+<span class="sd">        :raises TypeError: se for definido com um caminho que não é</span>
+<span class="sd">                uma pasta</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_newsfile</span>
+
+    <span class="nd">@newsfile</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">newsfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newsfile</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">newsfile</span><span class="p">:</span>
+            <span class="n">newsfile</span> <span class="o">=</span> <span class="s1">&#39;text.txt&#39;</span>
+
+        <span class="n">newsfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">newsdir</span><span class="p">,</span> <span class="n">newsfile</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">newsfile</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">newsfile</span><span class="si">}</span><span class="s2">&#39; não existe&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">newsfile</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">newsfile</span><span class="si">}</span><span class="s2">&#39; não é um arquivo&quot;</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_newsfile</span> <span class="o">=</span> <span class="n">newsfile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Conteúdo do arquivo definido em :py:attr:`newsfile`</span>
+
+<span class="sd">        Na primeira execução, abre o arquivo definido em :py:attr:`newsfile`</span>
+<span class="sd">        como somente leitura, armazena e retorna seu conteúdo. Nas execuções</span>
+<span class="sd">        seguintes, apenas retorna o valor armazenado.</span>
+
+<span class="sd">        :return: conteúdo do arquivo definido em :py:attr:`newsfile`</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">newsfile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">newsfile</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">newsfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizada</span>
+
+<span class="sd">        Gera um iterador sobre cada sentença encontrada em :py:attr:`text`.,</span>
+<span class="sd">        com cada sentança devidamente tokenizada, sendo portanto uma lista de</span>
+<span class="sd">        tokens.</span>
+
+<span class="sd">        :return: iterador de lista de sentenças tokenizadas</span>
+<span class="sd">        :rtype: Iterator[list]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sent</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
+            <span class="n">sent</span> <span class="o">=</span> <span class="n">sent</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="n">sent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_word</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">sent</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sents_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizadas sem *stopwords*.</span>
+
+<span class="sd">        Mesma funcionalidade de :py:attr:`sents`, porém a sentença não contém</span>
+<span class="sd">        tokens definidos em :py:attr:`stopwords`.</span>
+
+<span class="sd">        :return: iterador de lista de sentenças tokenizadas</span>
+<span class="sd">        :rtype: Iterator[list]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sent</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopwords</span><span class="p">:</span>
+                    <span class="n">sent</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sent</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopwords</span><span class="p">:</span>
+                    <span class="n">sent</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">sent</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sents_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Quantidade de sentenças</span>
+
+<span class="sd">        Retorna o tamanho da lista de sentenças gerado por :py:attr:`sents`.</span>
+
+<span class="sd">        :return: quantidade de sentenças</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sents_words_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Quantidade de tokens</span>
+
+<span class="sd">        Contabiliza a quantidade de tokens de todas as sentenças.</span>
+
+<span class="sd">        :return: quantidade de tokens em todas as sentaças</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sents_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tagueadas gramaticalmente</span>
+
+<span class="sd">        Realiza o tagueamento gramatical das sentenças retornadas por</span>
+<span class="sd">        :attr:`sents` utilizando a função :meth:`nltk.pos_tag_sents`.</span>
+
+<span class="sd">        :return: iterador de lista de sentenças tagueadas</span>
+<span class="sd">        :rtype: Iterator[list]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag_sents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">sent</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sents_ner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">nltk</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">Tree</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">ne_chunk_sents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sents_pos</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">sent</span>
+
+<div class="viewcode-block" id="News.top_words"><a class="viewcode-back" href="../../../api/api.html#textanalysis.classactivity.News.top_words">[documentos]</a>    <span class="k">def</span> <span class="nf">top_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]:</span>
+        <span class="n">freq</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents_clean</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">word</span><span class="p">,</span> <span class="n">top</span></div>
+
+<div class="viewcode-block" id="News.top_bigram"><a class="viewcode-back" href="../../../api/api.html#textanalysis.classactivity.News.top_bigram">[documentos]</a>    <span class="k">def</span> <span class="nf">top_bigram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]:</span>
+        <span class="n">bigrams</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents_clean</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">freq</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">bigrams</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">bigram</span><span class="p">,</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">bigram</span><span class="p">,</span> <span class="n">top</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Equipe Rocket.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

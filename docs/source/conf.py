@@ -34,8 +34,14 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.viewcode'
+    'sphinx.ext.viewcode',
+    'sphinxcontrib.programoutput'
 ]
+
+# Looks for objects in external projects
+intersphinx_mapping = {
+    'nltk': ('https://nltk.readthedocs.io/en/latest/', None),
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
