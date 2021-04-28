@@ -3,17 +3,13 @@
 Atividade da Aula
 =================
 
-Documentação da solução aplicada na atividade da aula do dia 05/03. Aqui é
-detalhado como cada item solicitado foi implementado. Caso deseje apenas
-visualizar os resultados, execute os comandos descritos em
-:ref:`verificando-resultados`.
+Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto. Utilize a notícia baixada e crie um script que
+realize o que se pede.
 
-A atividade consiste selecionar o texto de uma notícia e, utilizando a
-biblioteca `NLTK`_, realizar as tarefas listadas na sequência.
 
------
+.. config:option:: Contar o número de palavras no texto
 
-.. topic:: Contar o número de palavras no texto
+    :attr:`textanalysis.classactivity.News.sents_words_len`:
 
     .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
         :linenos:
@@ -24,9 +20,7 @@ biblioteca `NLTK`_, realizar as tarefas listadas na sequência.
         :pyobject: News.sents
 
 
------
-
-.. topic:: Imprimir as 10 palavras mais utilizadas
+.. config:option:: Imprimir as 10 palavras mais utilizadas
 
     .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
         :linenos:
@@ -39,11 +33,20 @@ biblioteca `NLTK`_, realizar as tarefas listadas na sequência.
 
 -----
 
-.. topic:: Imprimir os 10 bigramas mais utilizadas
+.. topic:: Imprimir os 10 bigramas mais utilizados
 
     .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
         :linenos:
         :pyobject: News.top_bigram
+
+
+-----
+
+.. topic:: Contar o número de sentenças no texto
+
+    .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
+        :linenos:
+        :pyobject: News.sents_len
 
 
 -----
@@ -65,5 +68,7 @@ biblioteca `NLTK`_, realizar as tarefas listadas na sequência.
     :cwd: ../../../
     :caption:
 
+.. program-output:: python -c "print('olá')"
 
 .. _NLTK: https://www.nltk.org
+.. _GoogleDrive: https://docs.google.com/document/d/13s6jq6--Ouh3eGQ8qKt1urZbT49Sq2eXM2drTfZT0EQ/edit?usp=sharing

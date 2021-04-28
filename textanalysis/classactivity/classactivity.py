@@ -3,20 +3,23 @@ import string
 import os
 
 
-from typing import Union, Iterator
+from typing import Optional, Iterator
 
 
 class News:
     """implementa a atividade descrita em :ref:`textanalysis.classactivity`.
 
     :param newsdir: Caminho da pasta de dados (veja a propriedade
-        :py:attr:`newsdir` para mais detalhes)
+        :attr:`newsdir` para mais detalhes)
+    :type newsdir: Union[str, None]
+
     :param newsfile: Caminho relativo a pasta de dados do arquivo contendo a
-        notícia a ser analisada (veja a propriedade :py:attr:`text` para mais
+        notícia a ser analisada (veja a propriedade :attr:`text` para mais
         detalhes)
+    :type newsfile: str
     """
 
-    def __init__(self, newsdir: Union[str, None] = None,
+    def __init__(self, newsdir: Optional[str] = None,
                  newsfile: str = 'news.txt') -> None:
         self.newsdir = newsdir
         self.newsfile = newsfile
@@ -42,10 +45,10 @@ class News:
         gerados por esta classe ficam armazenados. Se for definido com
         ``None``, é definido o valor padrão
         ``../../data/textanalysis.classactivity``. Neste caso o atributo
-        :py:attr:`text` também é definido para ``None`` para recarregar o texto
+        :attr:`text` também é definido para ``None`` para recarregar o texto
         deste arquivo.
 
-        :return: valor atual da propriedade :py:attr:`newsdir`
+        :return: valor atual da propriedade :attr:`newsdir`
         :rtype: str
 
         :raises FileNotFoundError: se for definido com um caminho que não
@@ -56,7 +59,7 @@ class News:
         return self._datadir
 
     @newsdir.setter
-    def newsdir(self, datadir: Union[str, None]) -> None:
+    def newsdir(self, datadir: str) -> None:
         if not datadir:
             datadir = os.path.join(os.path.dirname(__file__), '..', '..',
                                    'data', 'textanalysis.classactivity')
@@ -80,11 +83,11 @@ class News:
         """Propriedade que define o caminho do arquivo de notícia
 
         O caminho deve ser relativo à pasta de dados definido no atributo
-        :py:attr:`newsdir`. Se for definido com ``None``, é definido o valor
-        padrão ``news.txt``. Neste caso o atributo :py:attr:`text` também é
+        :attr:`newsdir`. Se for definido com ``None``, é definido o valor
+        padrão ``news.txt``. Neste caso o atributo :attr:`text` também é
         definido para ``None`` para recarregar o texto deste arquivo.
 
-        :return: valor atual da propriedade :py:attr:`newsfile`
+        :return: valor atual da propriedade :attr:`newsfile`
         :rtype: str
 
         :raises FileNotFoundError: se for definido com um caminho que não
@@ -95,7 +98,7 @@ class News:
         return self._newsfile
 
     @newsfile.setter
-    def newsfile(self, newsfile: Union[str, None]) -> None:
+    def newsfile(self, newsfile: str) -> None:
         if not newsfile:
             newsfile = 'text.txt'
 
@@ -116,13 +119,13 @@ class News:
 
     @property
     def text(self) -> str:
-        """Conteúdo do arquivo definido em :py:attr:`newsfile`
+        """Conteúdo do arquivo definido em :attr:`newsfile`
 
-        Na primeira execução, abre o arquivo definido em :py:attr:`newsfile`
+        Na primeira execução, abre o arquivo definido em :attr:`newsfile`
         como somente leitura, armazena e retorna seu conteúdo. Nas execuções
         seguintes, apenas retorna o valor armazenado.
 
-        :return: conteúdo do arquivo definido em :py:attr:`newsfile`
+        :return: conteúdo do arquivo definido em :attr:`newsfile`
         :rtype: str
         """
         if not self._text:
@@ -135,7 +138,7 @@ class News:
     def sents(self) -> Iterator[list]:
         """Gera a lista de sentenças tokenizada
 
-        Gera um iterador sobre cada sentença encontrada em :py:attr:`text`.,
+        Gera um iterador sobre cada sentença encontrada em :attr:`text`.,
         com cada sentança devidamente tokenizada, sendo portanto uma lista de
         tokens.
 
@@ -151,8 +154,8 @@ class News:
     def sents_clean(self) -> Iterator[list]:
         """Gera a lista de sentenças tokenizadas sem *stopwords*.
 
-        Mesma funcionalidade de :py:attr:`sents`, porém a sentença não contém
-        tokens definidos em :py:attr:`stopwords`.
+        Mesma funcionalidade de :attr:`sents`, porém a sentença não contém
+        tokens definidos em :attr:`stopwords`.
 
         :return: iterador de lista de sentenças tokenizadas
         :rtype: Iterator[list]
@@ -170,12 +173,12 @@ class News:
     def sents_len(self) -> int:
         """Quantidade de sentenças
 
-        Retorna o tamanho da lista de sentenças gerado por :py:attr:`sents`.
+        Retorna o tamanho da lista de sentenças gerado por :attr:`sents`.
 
         :return: quantidade de sentenças
         :rtype: int
         """
-        return sum([1 for _ in self.sents for _ in _])
+        return sum([1 for _ in self.sents])
 
     @property
     def sents_words_len(self) -> int:
@@ -190,12 +193,12 @@ class News:
 
     @property
     def sents_pos(self) -> Iterator[list]:
-        """Gera a lista de sentenças tagueadas gramaticalmente
+        """Gera a lista de sentenças com tokens POS
 
         Realiza o tagueamento gramatical das sentenças retornadas por
         :attr:`sents` utilizando a função :meth:`nltk.pos_tag_sents`.
 
-        :return: iterador de lista de sentenças tagueadas
+        :return: iterador de lista de tokens POS
         :rtype: Iterator[list]
         """
         for sent in nltk.pos_tag_sents(self.sents):
@@ -203,16 +206,39 @@ class News:
 
     @property
     def sents_ner(self) -> Iterator[nltk.tree.Tree]:
+        """Gera a lista de sentenças com tokens NER
+
+        Realiza o reconhecimento de entidades nomeadas (NER) das sentenças
+        retornadas por :attr:`sents` utilizando a função
+        :meth:`nltk.ne_chunk_sents`.
+
+        :return: iterador de lista de tokens NER
+        :rtype: Iterator[list]
+        """
         for sent in nltk.ne_chunk_sents(self.sents_pos):
             yield sent
 
     def top_words(self, n: int = 10) -> Iterator[tuple]:
+        """Gera as palavras (tokens) mais frequentes no texto
+
+        :param n: número de palavras a retornar
+        :type n: int
+        :return: iterador de tupla (palavra, frequência)
+        :rtype: Iterator[list]
+        """
         freq = nltk.FreqDist(_ for _ in self.sents_clean for _ in _)
 
-        for (word, top) in freq.most_common(n):
+        for word, top in freq.most_common(n):
             yield word, top
 
     def top_bigram(self, n: int = 10) -> Iterator[tuple]:
+        """Gera os bigramas mais frequentes no texto
+
+        :param n: número de bigramas a retornar
+        :type n: int
+        :return: iterador de tupla (palavra, frequência)
+        :rtype: Iterator[list]
+        """
         bigrams = nltk.ngrams([_ for _ in self.sents_clean for _ in _], 2)
         freq = nltk.FreqDist(bigrams)
         for bigram, top in freq.most_common(n):

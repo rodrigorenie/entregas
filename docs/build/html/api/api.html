@@ -175,9 +175,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>newsdir</strong> – Caminho da pasta de dados (veja a propriedade
+<li><p><strong>newsdir</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>None</em><em>]</em>) – Caminho da pasta de dados (veja a propriedade
 <a class="reference internal" href="#textanalysis.classactivity.News.newsdir" title="textanalysis.classactivity.News.newsdir"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsdir</span></code></a> para mais detalhes)</p></li>
-<li><p><strong>newsfile</strong> – Caminho relativo a pasta de dados do arquivo contendo a
+<li><p><strong>newsfile</strong> (<em>str</em>) – Caminho relativo a pasta de dados do arquivo contendo a
 notícia a ser analisada (veja a propriedade <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> para mais
 detalhes)</p></li>
 </ul>
@@ -288,17 +288,29 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 <dl class="py method">
 <dt id="textanalysis.classactivity.News.sents_ner">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_ner</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_ner" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gera a lista de sentenças com tokens NER</p>
+<p>Realiza o reconhecimento de entidades nomeadas (NER) das sentenças
+retornadas por <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">nltk.ne_chunk_sents()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>iterador de lista de tokens NER</p>
+</dd>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p>Iterator[list]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="textanalysis.classactivity.News.sents_pos">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_pos</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_pos" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Gera a lista de sentenças tagueadas gramaticalmente</p>
+<dd><p>Gera a lista de sentenças com tokens POS</p>
 <p>Realiza o tagueamento gramatical das sentenças retornadas por
 <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função <code class="xref py py-meth docutils literal notranslate"><span class="pre">nltk.pos_tag_sents()</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>iterador de lista de sentenças tagueadas</p>
+<dd class="field-odd"><p>iterador de lista de tokens POS</p>
 </dd>
 <dt class="field-even">Tipo de retorno</dt>
 <dd class="field-even"><p>Iterator[list]</p>
@@ -346,12 +358,36 @@ seguintes, apenas retorna o valor armazenado.</p>
 <dl class="py method">
 <dt id="textanalysis.classactivity.News.top_bigram">
 <code class="sig-name descname"><span class="pre">top_bigram</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_bigram"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_bigram" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gera os bigramas mais frequentes no texto</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – número de bigramas a retornar</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>iterador de tupla (palavra, frequência)</p>
+</dd>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>Iterator[list]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="textanalysis.classactivity.News.top_words">
 <code class="sig-name descname"><span class="pre">top_words</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_words"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_words" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gera as palavras (tokens) mais frequentes no texto</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – número de palavras a retornar</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>iterador de tupla (palavra, frequência)</p>
+</dd>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p>Iterator[list]</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

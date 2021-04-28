@@ -39,9 +39,9 @@ extensions = [
 ]
 
 # Looks for objects in external projects
-intersphinx_mapping = {
-    'nltk': ('https://nltk.readthedocs.io/en/latest/', None),
-}
+# intersphinx_mapping = {
+#     'nltk': ('https://nltk.readthedocs.io/en/latest/', None),
+# }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
