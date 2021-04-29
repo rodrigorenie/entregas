@@ -29,15 +29,10 @@ if __name__ == '__main__':
     table.add_row('04', act, res)
 
     act = 'Realizar a classificação gramatical (POS e NER)'
-    res = 'News.sents_pos\nNews.sents_ner'
+    res = 'mostrando apenas o primeiro resultado, veja a implementação de ' \
+          'News.sents_pos e News.sents_ner'
+    res += '\n\nPOS\n' + str(next(news.sents_pos))
+    res += '\n\nNER\n' + str(next(news.sents_ner)).replace('\n', '')
     table.add_row('05', act, res)
 
     console.print(table)
-    # for word, top in c.top_words():
-    #     print(word, top)
-    # for b, top in c.top_bigram():
-    #     print(b, top)
-    # print(list(c.sents_pos))
-    # for tree in c.sents_ner:
-    #     print(type(tree))
-

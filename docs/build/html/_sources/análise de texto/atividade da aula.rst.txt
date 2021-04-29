@@ -7,9 +7,9 @@ Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto. Utili
 realize o que se pede.
 
 
-.. config:option:: Contar o número de palavras no texto
+.. topic:: Contar o número de palavras no texto
 
-    :attr:`textanalysis.classactivity.News.sents_words_len`:
+    Implementado em :attr:`textanalysis.classactivity.classactivity.News.sents_words_len`
 
     .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
         :linenos:
@@ -20,7 +20,9 @@ realize o que se pede.
         :pyobject: News.sents
 
 
-.. config:option:: Imprimir as 10 palavras mais utilizadas
+.. topic:: Imprimir as 10 palavras mais utilizadas
+
+    Implementado em :attr:`textanalysis.classactivity.classactivity.News.top_words`
 
     .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
         :linenos:
@@ -31,16 +33,12 @@ realize o que se pede.
         :pyobject: News.sents_clean
 
 
------
-
 .. topic:: Imprimir os 10 bigramas mais utilizados
 
     .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
         :linenos:
         :pyobject: News.top_bigram
 
-
------
 
 .. topic:: Contar o número de sentenças no texto
 

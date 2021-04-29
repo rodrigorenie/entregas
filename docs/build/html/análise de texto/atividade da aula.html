@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
   
   
@@ -170,10 +171,9 @@
 <span id="id1"></span><h1>Atividade da Aula<a class="headerlink" href="#atividade-da-aula" title="Link permanente para este título">¶</a></h1>
 <p>Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto. Utilize a notícia baixada e crie um script que
 realize o que se pede.</p>
-<dl class="std option">
-<dt id="cmdoption-arg-Contar">
-<span id="cmdoption-arg-contar"></span><code class="sig-name descname"><span class="pre">Contar</span></code><code class="sig-prename descclassname"> <span class="pre">o</span> <span class="pre">número</span> <span class="pre">de</span> <span class="pre">palavras</span> <span class="pre">no</span> <span class="pre">texto</span></code><a class="headerlink" href="#cmdoption-arg-Contar" title="Link permanente para esta definição">¶</a></dt>
-<dd><p><a class="reference internal" href="../api/api.html#textanalysis.classactivity.News.sents_words_len" title="textanalysis.classactivity.News.sents_words_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_words_len</span></code></a>:</p>
+<div class="topic">
+<p class="topic-title">Contar o número de palavras no texto</p>
+<p>Implementado em <code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.classactivity.News.sents_words_len</span></code></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -226,12 +226,11 @@ realize o que se pede.</p>
             <span class="k">yield</span> <span class="n">sent</span>
 </pre></div>
 </td></tr></table></div>
-</dd></dl>
-
-<dl class="std option">
-<dt id="cmdoption-arg-Imprimir">
-<span id="cmdoption-arg-imprimir"></span><code class="sig-name descname"><span class="pre">Imprimir</span></code><code class="sig-prename descclassname"> <span class="pre">as</span> <span class="pre">10</span> <span class="pre">palavras</span> <span class="pre">mais</span> <span class="pre">utilizadas</span></code><a class="headerlink" href="#cmdoption-arg-Imprimir" title="Link permanente para esta definição">¶</a></dt>
-<dd><div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div>
+<div class="topic">
+<p class="topic-title">Imprimir as 10 palavras mais utilizadas</p>
+<p>Implementado em <code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.classactivity.News.top_words</span></code></p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -293,9 +292,7 @@ realize o que se pede.</p>
             <span class="k">yield</span> <span class="n">sent</span>
 </pre></div>
 </td></tr></table></div>
-</dd></dl>
-
-<hr class="docutils" />
+</div>
 <div class="topic">
 <p class="topic-title">Imprimir os 10 bigramas mais utilizados</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
@@ -324,7 +321,6 @@ realize o que se pede.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Contar o número de sentenças no texto</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>

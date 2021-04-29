@@ -101,3 +101,8 @@ extlinks = {
     'ml-at': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None),
     'ml-final': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None)
 }
+
+# https://github.com/readthedocs/sphinx_rtd_theme/issues/117#issuecomment-41506687
+#
+def setup(app):
+    app.add_css_file("theme_overrides.css")
