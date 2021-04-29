@@ -1,5 +1,6 @@
 import os
 import nltk
+
 from textanalysis.classactivity.classactivity import News
 
 nltk_data = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'nltk')

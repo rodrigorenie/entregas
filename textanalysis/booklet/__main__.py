@@ -6,14 +6,9 @@ from rich.console import Console
 
 
 def apostila01(table: Table) -> None:
-    """Adiciona na tabela passada como parâmetro todos os exercícios e respectivos itens da Apostila 01, assim como o
-    resultado de cada um.
-
-    :param table: Instância de :class:`rich.table.Table`
-    :rtype: None
-    """
-    ex = apostila0.Exercitando01(
-        'Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem amor eu nada seria.'
+    ex = apostila0.Ex01(
+        'Ainda que falasse as línguas dos homens e falasse a língua dos anjos, '
+        'sem amor eu nada seria.'
     )
 
     table.add_row(

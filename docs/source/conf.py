@@ -17,12 +17,14 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Avaliação Final de Análise de Texto'
+project = 'Entregas da Equipe Rocket'
 copyright = '2021, Equipe Rocket'
-authors = 'Frederick Moschkowich, Jackson Querubin, Jonios Maximo, Rodrigo Renie'
+authors = 'André da Silva Barbosa, ' \
+          'Frederick Moschkowich, ' \
+          'Jackson Querubin, ' \
+          'Jonios Maximo, ' \
+          'Rodrigo Renie'
 show_authors = True
-
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -35,6 +37,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
+    'sphinx.ext.extlinks',
     'sphinxcontrib.programoutput'
 ]
 
@@ -85,3 +88,16 @@ html_static_path = ['_static']
 
 
 # -- Extension configuration -------------------------------------------------
+
+extlinks = {
+    'nltk': ('https://www.nltk.org', 'NLTK'),
+    'github_rodrigorenie': ('https://github.com/rodrigorenie/%s', None),
+    'github_entregas': ('https://github.com/rodrigorenie/entregas/%s', None),
+    'ta-aula': ('https://docs.google.com/document/d/13s6jq6--Ouh3eGQ8qKt1urZbT49Sq2eXM2drTfZT0EQ/%s', None),
+    'ta-p0': ('https://docs.google.com/document/d/1eZew1Qwm64EyAbaiL5Xt8owmttOH9YGo/%s', None),
+    'ta-p1': ('https://docs.google.com/document/d/1DMUES7vDRG0ubwjYIjR5KbUh2MLIeE9r/%s', None),
+    'ta-p2': ('https://docs.google.com/document/d/15Bsq4fk7fs2MRFMHjVLL0R5fvptTJovz/%s', None),
+    'ta-final': ('https://docs.google.com/document/d/13SZAiID1Qth1ywr5RxHFT5TGnzksLFvi/%s', None),
+    'ml-at': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None),
+    'ml-final': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None)
+}

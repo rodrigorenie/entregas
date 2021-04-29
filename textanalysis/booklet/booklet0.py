@@ -1,12 +1,11 @@
 import os
 import docx
 
-from collections.abc import Iterator
-from typing import Optional, Union
+from typing import Optional, Union, Iterator
 
 
-class Exercitando01:
-    """Implementa os itens solicitados no Exercitando 01 da Aposta Parte 0. Os
+class Ex01:
+    """Implementa os itens solicitados no Exercitando 01 da Apostila Parte 0. Os
     métodos com o decorator ``@property`` são tratados como um atributo da
     classe, o que significa que podem ser invocados utilizando
     ``instancia.metodo`` ao invés de ``instancia.metodo()``. `Clique aqui
@@ -51,7 +50,7 @@ class Exercitando01:
     @property
     def text_split_len(self) -> int:
         """Contabiliza o tamanho da lista do gerador criado por
-        :func:`Exercitando01.text_split`.
+        :func:`Ex01.text_split`.
 
         :rtype: int
         """

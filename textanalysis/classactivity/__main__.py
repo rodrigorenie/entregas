@@ -3,7 +3,6 @@ from rich.table import Table
 from rich.console import Console
 
 
-
 if __name__ == '__main__':
     news = News()
     console = Console(width=80)

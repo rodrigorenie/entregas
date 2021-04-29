@@ -7,7 +7,7 @@ from typing import Optional, Iterator
 
 
 class News:
-    """implementa a atividade descrita em :ref:`textanalysis.classactivity`.
+    """implementa a atividade descrita em :ref:`atividade_da_aula`.
 
     :param newsdir: Caminho da pasta de dados (veja a propriedade
         :attr:`newsdir` para mais detalhes)

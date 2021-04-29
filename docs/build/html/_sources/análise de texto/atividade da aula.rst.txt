@@ -1,4 +1,4 @@
-.. _textanalysis.classactivity:
+.. _atividade_da_aula:
 
 Atividade da Aula
 =================
@@ -60,15 +60,3 @@ realize o que se pede.
     .. literalinclude:: ../../../textanalysis/classactivity/classactivity.py
         :linenos:
         :pyobject: News.sents_ner
-
-
------
-
-.. program-output:: python -m textanalysis.classactivity
-    :cwd: ../../../
-    :caption:
-
-.. program-output:: python -c "print('olá')"
-
-.. _NLTK: https://www.nltk.org
-.. _GoogleDrive: https://docs.google.com/document/d/13s6jq6--Ouh3eGQ8qKt1urZbT49Sq2eXM2drTfZT0EQ/edit?usp=sharing
