@@ -38,6 +38,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
     'sphinx.ext.extlinks',
+    'sphinx.ext.autosectionlabel',
     'sphinxcontrib.programoutput'
 ]
 
@@ -102,7 +103,9 @@ extlinks = {
     'ml-final': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None)
 }
 
+coverage_show_missing_items = True
+autodoc_member_order = 'bysource'
+
 # https://github.com/readthedocs/sphinx_rtd_theme/issues/117#issuecomment-41506687
-#
 def setup(app):
     app.add_css_file("theme_overrides.css")

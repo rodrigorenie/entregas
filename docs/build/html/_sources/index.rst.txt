@@ -15,9 +15,11 @@ Avaliação do Módulo de Análise de Texto
     :caption: Análise de Texto
 
     análise de texto/atividade da aula
+    análise de texto/apostila0
 
 .. toctree::
     :maxdepth: 2
     :caption: API
 
-    api/api
+    api/classactivity
+    api/booklet

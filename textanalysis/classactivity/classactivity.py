@@ -7,7 +7,7 @@ from typing import Optional, Iterator
 
 
 class News:
-    """implementa a atividade descrita em :ref:`atividade_da_aula`.
+    """Implementa a atividade descrita em :ref`Atividade da Aula`.
 
     :param newsdir: Caminho da pasta de dados (veja a propriedade
         :attr:`newsdir` para mais detalhes)
@@ -23,9 +23,6 @@ class News:
                  newsfile: str = 'news.txt') -> None:
         self.newsdir = newsdir
         self.newsfile = newsfile
-
-        self._sent = nltk.tokenize.punkt.PunktSentenceTokenizer()
-        self._word = nltk.tokenize.treebank.TreebankWordTokenizer()
 
         self._stopwords = list(string.punctuation)
         self._stopwords += nltk.corpus.stopwords.words('english')
@@ -145,9 +142,9 @@ class News:
         :return: iterador de lista de sentenças tokenizadas
         :rtype: Iterator[list]
         """
-        for sent in self._sent.tokenize(self.text):
+        for sent in nltk.sent_tokenize(self.text):
             sent = sent.replace('\n', ' ')
-            sent = self._word.tokenize(sent)
+            sent = nltk.word_tokenize(sent)
             yield sent
 
     @property

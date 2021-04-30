@@ -1,5 +1,3 @@
-.. _resultados:
-
 Resultados
 =========================
 
@@ -16,7 +14,7 @@ Em seguida, execute os passos abaixo para os verificar os resultados individuais
     Utiliza versão 3.9 do Python ou superior.
 
 
-Análise de Texto
+Resultados de Análise de Texto
 ******************************
 
 Dentro de ``entregas``, execute o seguinte:
@@ -29,5 +27,5 @@ Dentro de ``entregas``, execute o seguinte:
     :cwd: ../../../
 
 
-Machine Learning
+Resultados de Machine Learning
 ******************************

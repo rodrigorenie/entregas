@@ -40,7 +40,7 @@
     
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
-    <link rel="next" title="classactivity" href="../api/api.html" />
+    <link rel="next" title="Exercícios da Apostila 0" href="apostila0.html" />
     <link rel="prev" title="Equipe Rocket" href="../introdu%C3%A7%C3%A3o/equipe.html" /> 
 </head>
 
@@ -96,10 +96,12 @@
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Atividade da Aula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apostila0.html">Exercícios da Apostila 0</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/api.html">classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/classactivity.html">classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/booklet.html">booklet</a></li>
 </ul>
 
             
@@ -168,12 +170,16 @@
            <div itemprop="articleBody">
             
   <div class="section" id="atividade-da-aula">
-<span id="id1"></span><h1>Atividade da Aula<a class="headerlink" href="#atividade-da-aula" title="Link permanente para este título">¶</a></h1>
+<h1>Atividade da Aula<a class="headerlink" href="#atividade-da-aula" title="Link permanente para este título">¶</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">Ver também</p>
+<p><a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html#resultados"><span class="std std-ref">Resultados</span></a> &gt; <a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html#resultados-de-analise-de-texto"><span class="std std-ref">Resultados de Análise de Texto</span></a></p>
+</div>
 <p>Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto. Utilize a notícia baixada e crie um script que
 realize o que se pede.</p>
 <div class="topic">
 <p class="topic-title">Contar o número de palavras no texto</p>
-<p>Implementado em <code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.classactivity.News.sents_words_len</span></code></p>
+<p>Implementado em <a class="reference internal" href="../api/classactivity.html#textanalysis.classactivity.News.sents_words_len" title="textanalysis.classactivity.News.sents_words_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_words_len</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -220,16 +226,16 @@ realize o que se pede.</p>
 <span class="sd">        :return: iterador de lista de sentenças tokenizadas</span>
 <span class="sd">        :rtype: Iterator[list]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sent</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
             <span class="n">sent</span> <span class="o">=</span> <span class="n">sent</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-            <span class="n">sent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_word</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+            <span class="n">sent</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
             <span class="k">yield</span> <span class="n">sent</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="topic">
 <p class="topic-title">Imprimir as 10 palavras mais utilizadas</p>
-<p>Implementado em <code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.classactivity.News.top_words</span></code></p>
+<p>Implementado em <a class="reference internal" href="../api/classactivity.html#textanalysis.classactivity.News.top_words" title="textanalysis.classactivity.News.top_words"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.top_words</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -295,6 +301,7 @@ realize o que se pede.</p>
 </div>
 <div class="topic">
 <p class="topic-title">Imprimir os 10 bigramas mais utilizados</p>
+<p>Implementado em <a class="reference internal" href="../api/classactivity.html#textanalysis.classactivity.News.top_bigram" title="textanalysis.classactivity.News.top_bigram"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.top_bigram</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -323,6 +330,7 @@ realize o que se pede.</p>
 </div>
 <div class="topic">
 <p class="topic-title">Contar o número de sentenças no texto</p>
+<p>Implementado em <a class="reference internal" href="../api/classactivity.html#textanalysis.classactivity.News.sents_len" title="textanalysis.classactivity.News.sents_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_len</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -345,9 +353,9 @@ realize o que se pede.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Realizar a classificação gramatical (POS e NER)</p>
+<p>Implementado em <a class="reference internal" href="../api/classactivity.html#textanalysis.classactivity.News.sents_pos" title="textanalysis.classactivity.News.sents_pos"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_pos</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -409,7 +417,7 @@ realize o que se pede.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../api/api.html" class="btn btn-neutral float-right" title="classactivity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="apostila0.html" class="btn btn-neutral float-right" title="Exercícios da Apostila 0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../introdu%C3%A7%C3%A3o/equipe.html" class="btn btn-neutral float-left" title="Equipe Rocket" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

@@ -5,12 +5,7 @@ from typing import Optional, Union, Iterator
 
 
 class Ex01:
-    """Implementa os itens solicitados no Exercitando 01 da Apostila Parte 0. Os
-    métodos com o decorator ``@property`` são tratados como um atributo da
-    classe, o que significa que podem ser invocados utilizando
-    ``instancia.metodo`` ao invés de ``instancia.metodo()``. `Clique aqui
-    <https://docs.python.org/3/library/functions.html#property>`_ para saber
-    mais.
+    """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`.
 
     :param text: Texto a ser utilizado como base para o exercício.
     :type text: str
@@ -101,7 +96,7 @@ class Ex01:
         return self._text[first-1:last]
 
     def text_last(self, n: int) -> str:
-        """Returna os últimos caracteres do texto, de tamanho indicado pelo
+        """Retorna os últimos caracteres do texto, de tamanho indicado pelo
         parâmetro ``n``, que é opcional com valor padrão ``15``.
 
         :param n: Tamanho do segmento.
@@ -128,7 +123,7 @@ class Ex01:
             return os.path.abspath(filename)
 
 
-class Exercitando02:
+class Ex02:
     """Classe que implementa os itens solicitado no Exercitando 2 da apostila
     "Parte 0". Cada método desta classe implementa um item solicitado. Esta
     classe carrega um documento em formato ``docx``.

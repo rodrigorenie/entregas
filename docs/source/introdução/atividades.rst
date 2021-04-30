@@ -2,7 +2,7 @@ Atividades
 ==============================
 
 
-Análise de Texto
+Atividades de Análise de Texto
 ******************************
 
 As entregas que devem ser realizadas para o módulo de Análise de Texto, até o dia 21/03/2021, são:
@@ -11,14 +11,14 @@ As entregas que devem ser realizadas para o módulo de Análise de Texto, até o
     :header: "", "Atividade", "Detalhes", "Implementação"
     :widths: 5, 50, 10, 20
 
-    "01", "Atividade da Aula do dia 05/03", ":ta-aula:`link <>`", ":ref:`atividade_da_aula`"
+    "01", "Atividade da Aula do dia 05/03", ":ta-aula:`link <>`", ":ref:`Atividade da Aula`"
     "02", "Exercícios da Apostila 0", ":ta-p0:`link <>`", ""
     "03", "Exercícios da Apostila 1", ":ta-p1:`link <>`", ""
     "04", "Exercícios da Apostila 2", ":ta-p2:`link <>`", ""
     "05", "Atividade final", ":ta-final:`link <>`", ""
 
 
-Machine Learning
+Atividades de Machine Learning
 ******************************
 
 As entregas que devem ser realizadas para o módulo de Machine Learning, até o dia 10/05/2021, são:
