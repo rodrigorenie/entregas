@@ -46,7 +46,6 @@ class News:
         deste arquivo.
 
         :return: valor atual da propriedade :attr:`newsdir`
-        :rtype: str
 
         :raises FileNotFoundError: se for definido com um caminho que não
                 existe
@@ -85,7 +84,6 @@ class News:
         definido para ``None`` para recarregar o texto deste arquivo.
 
         :return: valor atual da propriedade :attr:`newsfile`
-        :rtype: str
 
         :raises FileNotFoundError: se for definido com um caminho que não
                 existe
@@ -123,7 +121,6 @@ class News:
         seguintes, apenas retorna o valor armazenado.
 
         :return: conteúdo do arquivo definido em :attr:`newsfile`
-        :rtype: str
         """
         if not self._text:
             with open(self.newsfile, 'r', encoding='utf8') as newsfile:
@@ -132,30 +129,29 @@ class News:
         return self._text
 
     @property
-    def sents(self) -> Iterator[list]:
+    def sents(self) -> Iterator[list[str]]:
         """Gera a lista de sentenças tokenizada
 
-        Gera um iterador sobre cada sentença encontrada em :attr:`text`.,
-        com cada sentança devidamente tokenizada, sendo portanto uma lista de
+        Gera um iterador sobre cada sentença encontrada em :attr:`text`. Ao
+        tokenizar (utilizando as funções :func:`nltk.tokenize.sent_tokenize` e
+        :func:`nltk.tokenize.word_tokenize`, a sentença se torna uma lista de
         tokens.
 
         :return: iterador de lista de sentenças tokenizadas
-        :rtype: Iterator[list]
         """
-        for sent in nltk.sent_tokenize(self.text):
+        for sent in nltk.tokenize.sent_tokenize(self.text):
             sent = sent.replace('\n', ' ')
-            sent = nltk.word_tokenize(sent)
+            sent = nltk.tokenize.word_tokenize(sent)
             yield sent
 
     @property
-    def sents_clean(self) -> Iterator[list]:
+    def sents_clean(self) -> Iterator[list[str]]:
         """Gera a lista de sentenças tokenizadas sem *stopwords*.
 
         Mesma funcionalidade de :attr:`sents`, porém a sentença não contém
         tokens definidos em :attr:`stopwords`.
 
         :return: iterador de lista de sentenças tokenizadas
-        :rtype: Iterator[list]
         """
         for sent in self.sents:
             for word in sent:
@@ -173,7 +169,6 @@ class News:
         Retorna o tamanho da lista de sentenças gerado por :attr:`sents`.
 
         :return: quantidade de sentenças
-        :rtype: int
         """
         return sum([1 for _ in self.sents])
 
@@ -184,21 +179,19 @@ class News:
         Contabiliza a quantidade de tokens de todas as sentenças.
 
         :return: quantidade de tokens em todas as sentaças
-        :rtype: int
         """
         return sum([1 for _ in self.sents for _ in _])
 
     @property
-    def sents_pos(self) -> Iterator[list]:
+    def sents_pos(self) -> Iterator[list[tuple[str, str]]]:
         """Gera a lista de sentenças com tokens POS
 
         Realiza o tagueamento gramatical das sentenças retornadas por
-        :attr:`sents` utilizando a função :meth:`nltk.pos_tag_sents`.
+        :attr:`sents` utilizando a função :func:`nltk.tag.pos_tag_sents`.
 
         :return: iterador de lista de tokens POS
-        :rtype: Iterator[list]
         """
-        for sent in nltk.pos_tag_sents(self.sents):
+        for sent in nltk.tag.pos_tag_sents(self.sents):
             yield sent
 
     @property
@@ -207,36 +200,40 @@ class News:
 
         Realiza o reconhecimento de entidades nomeadas (NER) das sentenças
         retornadas por :attr:`sents` utilizando a função
-        :meth:`nltk.ne_chunk_sents`.
+        :func:`nltk.chunk.ne_chunk_sents`.
 
         :return: iterador de lista de tokens NER
-        :rtype: Iterator[list]
         """
-        for sent in nltk.ne_chunk_sents(self.sents_pos):
+        for sent in nltk.chunk.ne_chunk_sents(self.sents_pos):
             yield sent
 
-    def top_words(self, n: int = 10) -> Iterator[tuple]:
-        """Gera as palavras (tokens) mais frequentes no texto
+    def top_words(self, n: int = 10) -> Iterator[tuple[str, int]]:
+        """Gera as palavras mais frequentes
+
+        Gera as palavras (neste caso, tokens) mais frequentes em :attr:`text`
+        utilizando a classe :class:`nltk.probability.FreqDist`.
 
         :param n: número de palavras a retornar
         :type n: int
         :return: iterador de tupla (palavra, frequência)
-        :rtype: Iterator[list]
         """
-        freq = nltk.FreqDist(_ for _ in self.sents_clean for _ in _)
+        freq = nltk.probability.FreqDist(_ for _ in self.sents_clean for _ in _)
 
         for word, top in freq.most_common(n):
             yield word, top
 
-    def top_bigram(self, n: int = 10) -> Iterator[tuple]:
-        """Gera os bigramas mais frequentes no texto
+    def top_bigram(self, n: int = 10) -> Iterator[tuple[str, int]]:
+        """Gera os bigramas mais frequentes no texto utilizando
+
+        Gera os bigramas de :attr:`text` utilzando a classe
+        :class:`nltk.probability.FreqDist` no resultado da função
+        :func:`nltk.util.ngrams`.
 
         :param n: número de bigramas a retornar
         :type n: int
         :return: iterador de tupla (palavra, frequência)
-        :rtype: Iterator[list]
         """
         bigrams = nltk.ngrams([_ for _ in self.sents_clean for _ in _], 2)
-        freq = nltk.FreqDist(bigrams)
+        freq = nltk.probability.FreqDist(bigrams)
         for bigram, top in freq.most_common(n):
             yield bigram, top

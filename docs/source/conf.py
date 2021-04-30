@@ -39,7 +39,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.extlinks',
     'sphinx.ext.autosectionlabel',
-    'sphinxcontrib.programoutput'
+    'sphinxcontrib.programoutput',
+    'sphinx_autodoc_typehints'
 ]
 
 # Looks for objects in external projects
@@ -105,6 +106,11 @@ extlinks = {
 
 coverage_show_missing_items = True
 autodoc_member_order = 'bysource'
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    'nltk': ('https://www.nltk.org/', None)
+}
 
 # https://github.com/readthedocs/sphinx_rtd_theme/issues/117#issuecomment-41506687
 def setup(app):

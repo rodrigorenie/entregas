@@ -173,14 +173,14 @@
 <span id="classactivity"></span><h1>classactivity<a class="headerlink" href="#module-textanalysis.classactivity" title="Link permanente para este título">¶</a></h1>
 <dl class="py class">
 <dt id="textanalysis.classactivity.News">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">textanalysis.classactivity.</span></code><code class="sig-name descname"><span class="pre">News</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsdir</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newsfile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'news.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">textanalysis.classactivity.</span></code><code class="sig-name descname"><span class="pre">News</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newsfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'news.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Implementa a atividade descrita em :ref`Atividade da Aula`.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>newsdir</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>None</em><em>]</em>) – Caminho da pasta de dados (veja a propriedade
+<li><p><strong>newsdir</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(em Python v3.9)"><em>None</em></a><em>]</em>) – Caminho da pasta de dados (veja a propriedade
 <a class="reference internal" href="#textanalysis.classactivity.News.newsdir" title="textanalysis.classactivity.News.newsdir"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsdir</span></code></a> para mais detalhes)</p></li>
-<li><p><strong>newsfile</strong> (<em>str</em>) – Caminho relativo a pasta de dados do arquivo contendo a
+<li><p><strong>newsfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a>) – Caminho relativo a pasta de dados do arquivo contendo a
 notícia a ser analisada (veja a propriedade <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> para mais
 detalhes)</p></li>
 </ul>
@@ -202,17 +202,17 @@ gerados por esta classe ficam armazenados. Se for definido com
 <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> também é definido para <code class="docutils literal notranslate"><span class="pre">None</span></code> para recarregar o texto
 deste arquivo.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>valor atual da propriedade <a class="reference internal" href="#textanalysis.classactivity.News.newsdir" title="textanalysis.classactivity.News.newsdir"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsdir</span></code></a></p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>str</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>valor atual da propriedade <a class="reference internal" href="#textanalysis.classactivity.News.newsdir" title="textanalysis.classactivity.News.newsdir"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsdir</span></code></a></p>
 </dd>
 <dt class="field-odd">Levanta</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>FileNotFoundError</strong> – se for definido com um caminho que não
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(em Python v3.9)"><strong>FileNotFoundError</strong></a> – se for definido com um caminho que não
 existe</p></li>
-<li><p><strong>TypeError</strong> – se for definido com um caminho que não é
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(em Python v3.9)"><strong>TypeError</strong></a> – se for definido com um caminho que não é
 uma pasta</p></li>
 </ul>
 </dd>
@@ -228,17 +228,17 @@ uma pasta</p></li>
 padrão <code class="docutils literal notranslate"><span class="pre">news.txt</span></code>. Neste caso o atributo <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> também é
 definido para <code class="docutils literal notranslate"><span class="pre">None</span></code> para recarregar o texto deste arquivo.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>valor atual da propriedade <a class="reference internal" href="#textanalysis.classactivity.News.newsfile" title="textanalysis.classactivity.News.newsfile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsfile</span></code></a></p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>str</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>valor atual da propriedade <a class="reference internal" href="#textanalysis.classactivity.News.newsfile" title="textanalysis.classactivity.News.newsfile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsfile</span></code></a></p>
 </dd>
 <dt class="field-odd">Levanta</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>FileNotFoundError</strong> – se for definido com um caminho que não
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(em Python v3.9)"><strong>FileNotFoundError</strong></a> – se for definido com um caminho que não
 existe</p></li>
-<li><p><strong>TypeError</strong> – se for definido com um caminho que não é
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(em Python v3.9)"><strong>TypeError</strong></a> – se for definido com um caminho que não é
 uma pasta</p></li>
 </ul>
 </dd>
@@ -253,11 +253,11 @@ uma pasta</p></li>
 como somente leitura, armazena e retorna seu conteúdo. Nas execuções
 seguintes, apenas retorna o valor armazenado.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>conteúdo do arquivo definido em <a class="reference internal" href="#textanalysis.classactivity.News.newsfile" title="textanalysis.classactivity.News.newsfile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsfile</span></code></a></p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>str</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>conteúdo do arquivo definido em <a class="reference internal" href="#textanalysis.classactivity.News.newsfile" title="textanalysis.classactivity.News.newsfile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsfile</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -266,15 +266,16 @@ seguintes, apenas retorna o valor armazenado.</p>
 <dt id="textanalysis.classactivity.News.sents">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças tokenizada</p>
-<p>Gera um iterador sobre cada sentença encontrada em <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a>.,
-com cada sentança devidamente tokenizada, sendo portanto uma lista de
+<p>Gera um iterador sobre cada sentença encontrada em <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a>. Ao
+tokenizar (utilizando as funções <a class="reference external" href="https://www.nltk.org/api/nltk.tokenize.html#nltk.tokenize.sent_tokenize" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.tokenize.sent_tokenize()</span></code></a> e
+<a class="reference external" href="https://www.nltk.org/api/nltk.tokenize.html#nltk.tokenize.word_tokenize" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.tokenize.word_tokenize()</span></code></a>, a sentença se torna uma lista de
 tokens.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>iterador de lista de sentenças tokenizadas</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>Iterator[list]</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>iterador de lista de sentenças tokenizadas</p>
 </dd>
 </dl>
 </dd></dl>
@@ -286,11 +287,11 @@ tokens.</p>
 <p>Mesma funcionalidade de <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a>, porém a sentença não contém
 tokens definidos em <a class="reference internal" href="#textanalysis.classactivity.News.stopwords" title="textanalysis.classactivity.News.stopwords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stopwords</span></code></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>iterador de lista de sentenças tokenizadas</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>Iterator[list]</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>iterador de lista de sentenças tokenizadas</p>
 </dd>
 </dl>
 </dd></dl>
@@ -301,11 +302,11 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 <dd><p>Quantidade de sentenças</p>
 <p>Retorna o tamanho da lista de sentenças gerado por <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>quantidade de sentenças</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>int</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>quantidade de sentenças</p>
 </dd>
 </dl>
 </dd></dl>
@@ -316,11 +317,11 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 <dd><p>Quantidade de tokens</p>
 <p>Contabiliza a quantidade de tokens de todas as sentenças.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>quantidade de tokens em todas as sentaças</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>int</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>quantidade de tokens em todas as sentaças</p>
 </dd>
 </dl>
 </dd></dl>
@@ -330,13 +331,13 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_pos</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_pos" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças com tokens POS</p>
 <p>Realiza o tagueamento gramatical das sentenças retornadas por
-<a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função <code class="xref py py-meth docutils literal notranslate"><span class="pre">nltk.pos_tag_sents()</span></code>.</p>
+<a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função <a class="reference external" href="https://www.nltk.org/api/nltk.tag.html#nltk.tag.pos_tag_sents" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.tag.pos_tag_sents()</span></code></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>iterador de lista de tokens POS</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]]</p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>Iterator[list]</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>iterador de lista de tokens POS</p>
 </dd>
 </dl>
 </dd></dl>
@@ -347,47 +348,52 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 <dd><p>Gera a lista de sentenças com tokens NER</p>
 <p>Realiza o reconhecimento de entidades nomeadas (NER) das sentenças
 retornadas por <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">nltk.ne_chunk_sents()</span></code>.</p>
+<a class="reference external" href="https://www.nltk.org/api/nltk.chunk.html#nltk.chunk.ne_chunk_sents" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.chunk.ne_chunk_sents()</span></code></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>iterador de lista de tokens NER</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.tree.Tree" title="(em NLTK v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tree</span></code></a>]</p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p>Iterator[list]</p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>iterador de lista de tokens NER</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="textanalysis.classactivity.News.top_words">
-<code class="sig-name descname"><span class="pre">top_words</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_words"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_words" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Gera as palavras (tokens) mais frequentes no texto</p>
+<code class="sig-name descname"><span class="pre">top_words</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_words"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_words" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Gera as palavras mais frequentes</p>
+<p>Gera as palavras (neste caso, tokens) mais frequentes em <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a>
+utilizando a classe <a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.probability.FreqDist" title="(em NLTK v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">nltk.probability.FreqDist</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – número de palavras a retornar</p>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a>) – número de palavras a retornar</p>
 </dd>
-<dt class="field-even">Retorna</dt>
-<dd class="field-even"><p>iterador de tupla (palavra, frequência)</p>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</p>
 </dd>
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p>Iterator[list]</p>
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>iterador de tupla (palavra, frequência)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="textanalysis.classactivity.News.top_bigram">
-<code class="sig-name descname"><span class="pre">top_bigram</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_bigram"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_bigram" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Gera os bigramas mais frequentes no texto</p>
+<code class="sig-name descname"><span class="pre">top_bigram</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_bigram"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_bigram" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Gera os bigramas mais frequentes no texto utilizando</p>
+<p>Gera os bigramas de <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> utilzando a classe
+<a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.probability.FreqDist" title="(em NLTK v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">nltk.probability.FreqDist</span></code></a> no resultado da função
+<a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.util.ngrams" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.util.ngrams()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – número de bigramas a retornar</p>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a>) – número de bigramas a retornar</p>
 </dd>
-<dt class="field-even">Retorna</dt>
-<dd class="field-even"><p>iterador de tupla (palavra, frequência)</p>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</p>
 </dd>
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p>Iterator[list]</p>
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>iterador de tupla (palavra, frequência)</p>
 </dd>
 </dl>
 </dd></dl>

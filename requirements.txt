@@ -7,3 +7,4 @@ python-docx
 pysub-parser
 wikipedia
 sphinxcontrib-programoutput
+sphinx-autodoc-typehints
