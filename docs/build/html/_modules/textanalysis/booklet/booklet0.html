@@ -98,8 +98,9 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/classactivity.html">classactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/booklet.html">booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/dsutils.html">dsutils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/booklet0.html">textanalysis.booklet</a></li>
 </ul>
 
             
@@ -170,100 +171,124 @@
 <span class="kn">import</span> <span class="nn">docx</span>
 
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Iterator</span>
+<span class="kn">from</span> <span class="nn">dsutils</span> <span class="kn">import</span> <span class="n">DataDir</span>
 
 
-<div class="viewcode-block" id="Ex01"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex01">[documentos]</a><span class="k">class</span> <span class="nc">Ex01</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`.</span>
+<div class="viewcode-block" id="Ex01"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01">[documentos]</a><span class="k">class</span> <span class="nc">Ex01</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
 
 <span class="sd">    :param text: Texto a ser utilizado como base para o exercício.</span>
 <span class="sd">    :type text: str</span>
-<span class="sd">    :rtype: None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span> <span class="k">if</span> <span class="n">text</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Define que a representação de string desta classe é o conteúdo do</span>
-<span class="sd">        texto.</span>
+<span class="sd">        texto</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span>
 
-<span class="sd">        :rtype: str</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Texto a ser utilizado pela classe</span>
+
+<span class="sd">        Propriedade ser utilizado pelos outros métodos da classe. Se for</span>
+<span class="sd">        atribuído ``None``, será convertido para uma string vazia.</span>
+
+<span class="sd">        :raises TypeError: Se for atribuído com um valor que não seja string</span>
+
+<span class="sd">        :return: Texto a ser utilizado pela classe</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span>
+
+    <span class="nd">@text</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;&#39;text&#39; deve ser uma string&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">text_chars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Cria um gerador para os caracteres individuais do texto.</span>
 
-<span class="sd">        :rtype: Iterator[str]</span>
+<span class="sd">        :return: Iterador dos caracteres de :attr:`text`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">char</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">text_split</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras, separadas por um espaço em</span>
+        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras</span>
+
+<span class="sd">        Divide o texto em uma lista de palavras, separadas por um espaço em</span>
 <span class="sd">        branco, e cria um gerador para os itens da lista.</span>
 
-<span class="sd">        :rtype: Iterator[str]</span>
+<span class="sd">        :return: Iterador das palavras de :attr:`text`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
             <span class="k">yield</span> <span class="n">item</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">text_split_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Contabiliza o tamanho da lista do gerador criado por</span>
-<span class="sd">        :func:`Ex01.text_split`.</span>
+        <span class="sd">&quot;&quot;&quot;Contabiliza o tamanho da lista do iterador :attr:`text_split`</span>
 
-<span class="sd">        :rtype: int</span>
+<span class="sd">        :return: Tamanho da lista :attr:`text_split`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text_split</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Ex01.text_replace"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_replace">[documentos]</a>    <span class="k">def</span> <span class="nf">text_replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Substitui um trecho no texto indicado pelo parâmetro ``old`` pelo</span>
-<span class="sd">        texto indicado no parâmetro ``new``.</span>
+<div class="viewcode-block" id="Ex01.text_replace"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_replace">[documentos]</a>    <span class="k">def</span> <span class="nf">text_replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Substitui ``old`` por ``new``</span>
+
+<span class="sd">        Substitui o trecho de :attr:`text` indicado pelo parâmetro ``old`` pelo</span>
+<span class="sd">        texto indicado no parâmetro ``new``</span>
 
 <span class="sd">        :param old: Texto original a ser substituído.</span>
 <span class="sd">        :type old: str</span>
 <span class="sd">        :param new: Texto novo.</span>
 <span class="sd">        :type new: str</span>
 
-<span class="sd">        :return: O texto substituído.</span>
-<span class="sd">        :rtype: str</span>
+<span class="sd">        :return: O novo valor de :attr:`text`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Ex01.text_segment"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">text_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Retorna o segmento do texto indicado, da posição inicial ``first``</span>
+<div class="viewcode-block" id="Ex01.text_segment"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">text_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Retorna o segmento do texto entre ``first`` e ``last``</span>
+
+<span class="sd">        Retorna o segmento do texto indicado, da posição inicial ``first``</span>
 <span class="sd">        até a posição ``last``, ambos *INCLUSIVO*, ou seja, retorna o caracter</span>
 <span class="sd">        das posições indicadas. Se ``last`` for omitido, retorna apenas o</span>
-<span class="sd">        caracter indicado por ``first``.</span>
+<span class="sd">        caracter indicado por ``first``</span>
 
-<span class="sd">        :raises ValueError: Erro gerado quando ``first`` é menor ou igual a</span>
-<span class="sd">            zero ou quando ``first`` menor que ``last``.</span>
+<span class="sd">        :raises ValueError: Se ``first`` é menor ou igual a zero ou menor que</span>
+<span class="sd">            ``last``</span>
 
-<span class="sd">        :param first: Posição inicial do segmento (deve ser maior que zero).</span>
+<span class="sd">        :param first: Posição inicial do segmento (deve ser maior que zero)</span>
 <span class="sd">        :type first: int</span>
-<span class="sd">        :param last: Posição final do segmento, opcional.</span>
+<span class="sd">        :param last: Posição final do segmento, opcional</span>
 <span class="sd">        :type last: int, opcional</span>
 
 <span class="sd">        :return: String com o segmento do texto ou uma string vazia se</span>
-<span class="sd">            ``first`` for maior que o tamanho do texto.</span>
-<span class="sd">        :rtype: str</span>
+<span class="sd">            ``first`` for maior que o tamanho do texto</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">first</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;first must be 1 or higher&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;first&#39; deve ser maior ou igual a 1&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">last</span><span class="p">:</span>
             <span class="n">last</span> <span class="o">=</span> <span class="n">first</span>
 
         <span class="k">if</span> <span class="n">last</span> <span class="o">&lt;</span> <span class="n">first</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;last must be equal or greater than first&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;last&#39; deve ser maior ou igual a &#39;first&#39;&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">[</span><span class="n">first</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">last</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">first</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">last</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Ex01.text_last"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_last">[documentos]</a>    <span class="k">def</span> <span class="nf">text_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex01.text_last"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_last">[documentos]</a>    <span class="k">def</span> <span class="nf">text_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Retorna os últimos caracteres do texto, de tamanho indicado pelo</span>
 <span class="sd">        parâmetro ``n``, que é opcional com valor padrão ``15``.</span>
 
@@ -273,28 +298,26 @@
 <span class="sd">        :raises IndexError: se o tamanho do segmento é maior que o texto em si.</span>
 
 <span class="sd">        :return: Segmento do texto dos últimos ``n`` caracteres.</span>
-<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span></div>
 
-<div class="viewcode-block" id="Ex01.text_save"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_save">[documentos]</a>    <span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex01.text_save"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_save">[documentos]</a>    <span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Salva o texto em um arquivo indicado pelo parâmetro ``filename``.</span>
 
 <span class="sd">        :param filename: Caminho do arquivo</span>
 <span class="sd">        :type filename: str</span>
 
 <span class="sd">        :return: Caminho completo do arquivo salvo</span>
-<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;textanalysis.booklet.booklet0&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="Ex02"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex02">[documentos]</a><span class="k">class</span> <span class="nc">Ex02</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Classe que implementa os itens solicitado no Exercitando 2 da apostila</span>
-<span class="sd">    &quot;Parte 0&quot;. Cada método desta classe implementa um item solicitado. Esta</span>
-<span class="sd">    classe carrega um documento em formato ``docx``.</span>
+<div class="viewcode-block" id="Ex02"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02">[documentos]</a><span class="k">class</span> <span class="nc">Ex02</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
 
 <span class="sd">    :param docpath: Caminho do arquivo ``docx`` a ser carregado.</span>
 <span class="sd">    :type docpath: str</span>
@@ -333,7 +356,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Ex02.paragraphs_segment"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<div class="viewcode-block" id="Ex02.paragraphs_segment"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                            <span class="n">last</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Retorna os parágrafos do documento, da posição inicial ``first`` até</span>
 <span class="sd">        a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os</span>
@@ -365,7 +388,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">[</span><span class="n">first</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Ex02.paragraphs_hastext"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_hastext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_hastext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex02.paragraphs_hastext"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_hastext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_hastext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Verifica se a string indicado pelo parâmetro ``text`` existe no</span>
 <span class="sd">        documento.</span>
 
@@ -386,7 +409,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Ex02.paragraphs_replacetext"><a class="viewcode-back" href="../../../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_replacetext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex02.paragraphs_replacetext"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_replacetext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Retorna uma string com o conteúdo do documento, substiuindo o texto</span>
 <span class="sd">        indicado pelo parâmetro ``old`` por ``new``.</span>
 
@@ -399,6 +422,11 @@
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span></div></div>
+
+<span class="kn">from</span> <span class="nn">dsutils.dsutils</span> <span class="kn">import</span> <span class="n">DataDir</span>
+
+<div class="viewcode-block" id="B"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.B">[documentos]</a><span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="n">datadir</span> <span class="o">=</span> <span class="n">DataDir</span><span class="p">()</span></div>
 </pre></div>
 
            </div>

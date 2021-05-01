@@ -1,99 +1,123 @@
-import os
 import docx
 
 from typing import Optional, Union, Iterator
+from dsutils import DataDir
 
 
-class Ex01:
-    """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`.
+class Ex01(DataDir):
+    """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`
 
     :param text: Texto a ser utilizado como base para o exercício.
     :type text: str
-    :rtype: None
     """
 
     def __init__(self, text: str = None) -> None:
-        self._text = text if text else ''
+        super().__init__()
+        self.text = text
 
     def __str__(self) -> str:
         """Define que a representação de string desta classe é o conteúdo do
-        texto.
+        texto
+        """
+        return self.text
 
-        :rtype: str
+    @property
+    def text(self) -> str:
+        """Texto a ser utilizado pela classe
+
+        Propriedade ser utilizado pelos outros métodos da classe. Se for
+        atribuído ``None``, será convertido para uma string vazia.
+
+        :raises TypeError: Se for atribuído com um valor que não seja string
+
+        :return: Texto a ser utilizado pela classe
         """
         return self._text
+
+    @text.setter
+    def text(self, text: Optional[str]) -> None:
+        if not text:
+            text = ''
+
+        if not isinstance(text, str):
+            raise TypeError("'text' deve ser uma string")
+
+        self._text = text
 
     @property
     def text_chars(self) -> Iterator[str]:
         """Cria um gerador para os caracteres individuais do texto.
 
-        :rtype: Iterator[str]
+        :return: Iterador dos caracteres de :attr:`text`
         """
-        for char in self._text:
+        for char in self.text:
             yield char
 
     @property
     def text_split(self) -> Iterator[str]:
-        """Divide o texto em uma lista de palavras, separadas por um espaço em
+        """Divide o texto em uma lista de palavras
+
+        Divide o texto em uma lista de palavras, separadas por um espaço em
         branco, e cria um gerador para os itens da lista.
 
-        :rtype: Iterator[str]
+        :return: Iterador das palavras de :attr:`text`
         """
-        for item in self._text.split():
+        for item in self.text.split():
             yield item
 
     @property
     def text_split_len(self) -> int:
-        """Contabiliza o tamanho da lista do gerador criado por
-        :func:`Ex01.text_split`.
+        """Contabiliza o tamanho da lista do iterador :attr:`text_split`
 
-        :rtype: int
+        :return: Tamanho da lista :attr:`text_split`
         """
         return len(list(self.text_split))
 
     def text_replace(self, old: str, new: str) -> str:
-        """Substitui um trecho no texto indicado pelo parâmetro ``old`` pelo
-        texto indicado no parâmetro ``new``.
+        """Substitui ``old`` por ``new``
+
+        Substitui o trecho de :attr:`text` indicado pelo parâmetro ``old`` pelo
+        texto indicado no parâmetro ``new``
 
         :param old: Texto original a ser substituído.
         :type old: str
         :param new: Texto novo.
         :type new: str
 
-        :return: O texto substituído.
-        :rtype: str
+        :return: O novo valor de :attr:`text`
         """
-        self._text = self._text.replace(old, new)
-        return self._text
+        self.text = self.text.replace(old, new)
+        return self.text
 
     def text_segment(self, first: int, last: Optional[int] = None) -> str:
-        """Retorna o segmento do texto indicado, da posição inicial ``first``
+        """Retorna o segmento do texto entre ``first`` e ``last``
+
+        Retorna o segmento do texto indicado, da posição inicial ``first``
         até a posição ``last``, ambos *INCLUSIVO*, ou seja, retorna o caracter
         das posições indicadas. Se ``last`` for omitido, retorna apenas o
-        caracter indicado por ``first``.
+        caracter indicado por ``first``
 
-        :raises ValueError: Erro gerado quando ``first`` é menor ou igual a
-            zero ou quando ``first`` menor que ``last``.
+        :raises ValueError: Se ``first`` é menor ou igual a zero ou menor que
+            ``last``
 
-        :param first: Posição inicial do segmento (deve ser maior que zero).
+        :param first: Posição inicial do segmento (deve ser maior que zero)
         :type first: int
-        :param last: Posição final do segmento, opcional.
+        :param last: Posição final do segmento, opcional
         :type last: int, opcional
 
         :return: String com o segmento do texto ou uma string vazia se
-            ``first`` for maior que o tamanho do texto.
-        :rtype: str
+            ``first`` for maior que o tamanho do texto
         """
         if first <= 0:
-            raise ValueError('first must be 1 or higher')
+            raise ValueError("'first' deve ser maior ou igual a 1")
 
         if not last:
             last = first
 
         if last < first:
-            raise ValueError('last must be equal or greater than first')
+            raise ValueError("'last' deve ser maior ou igual a 'first'")
 
-        return self._text[first-1:last]
+        return self.text[first-1:last]
 
     def text_last(self, n: int) -> str:
         """Retorna os últimos caracteres do texto, de tamanho indicado pelo
@@ -105,9 +129,8 @@ class Ex01:
         :raises IndexError: se o tamanho do segmento é maior que o texto em si.
 
         :return: Segmento do texto dos últimos ``n`` caracteres.
-        :rtype: str
         """
-        return self._text[-n:]
+        return self.text[-n:]
 
     def text_save(self, filename: str) -> str:
         """Salva o texto em um arquivo indicado pelo parâmetro ``filename``.
@@ -116,17 +139,15 @@ class Ex01:
         :type filename: str
 
         :return: Caminho completo do arquivo salvo
-        :rtype: str
         """
-        with open(filename, 'w') as f:
-            f.write(self._text + '\n')
-            return os.path.abspath(filename)
+        filename = self.datafilename(filename)
+        with open(filename, 'w', encoding='utf8') as f:
+            f.write(self.text + '\n')
+            return filename
 
 
-class Ex02:
-    """Classe que implementa os itens solicitado no Exercitando 2 da apostila
-    "Parte 0". Cada método desta classe implementa um item solicitado. Esta
-    classe carrega um documento em formato ``docx``.
+class Ex02(DataDir):
+    """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`
 
     :param docpath: Caminho do arquivo ``docx`` a ser carregado.
     :type docpath: str
@@ -134,8 +155,9 @@ class Ex02:
     :rtype: None
     """
 
-    def __init__(self, docpath: str) -> None:
-        self._doc = docx.Document(docpath)
+    def __init__(self, docname: str) -> None:
+        super().__init__()
+        self._doc = docx.Document(self.datafilename(docname))
 
     @property
     def paragraphs(self) -> Iterator[str]:

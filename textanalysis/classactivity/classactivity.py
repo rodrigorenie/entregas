@@ -2,11 +2,11 @@ import nltk
 import string
 import os
 
-
+from dsutils import DataDir
 from typing import Optional, Iterator
 
 
-class News:
+class News(DataDir):
     """Implementa a atividade descrita em :ref`Atividade da Aula`.
 
     :param newsdir: Caminho da pasta de dados (veja a propriedade
@@ -21,96 +21,24 @@ class News:
 
     def __init__(self, newsdir: Optional[str] = None,
                  newsfile: str = 'news.txt') -> None:
-        self.newsdir = newsdir
-        self.newsfile = newsfile
+        super().__init__()
 
+        self._newsfile = self.datafilename(newsfile)
         self._stopwords = list(string.punctuation)
         self._stopwords += nltk.corpus.stopwords.words('english')
         self._stopwords += ['a', 'the']
-
-        self._text = None
 
     @property
     def stopwords(self):
         return self._stopwords
 
     @property
-    def newsdir(self) -> str:
-        """Propriedade que define o caminho da pasta de dados
-
-        A pasta de dados é o diretório onde todos os arquivos carregados ou
-        gerados por esta classe ficam armazenados. Se for definido com
-        ``None``, é definido o valor padrão
-        ``../../data/textanalysis.classactivity``. Neste caso o atributo
-        :attr:`text` também é definido para ``None`` para recarregar o texto
-        deste arquivo.
-
-        :return: valor atual da propriedade :attr:`newsdir`
-
-        :raises FileNotFoundError: se for definido com um caminho que não
-                existe
-        :raises TypeError: se for definido com um caminho que não é
-                uma pasta
-        """
-        return self._datadir
-
-    @newsdir.setter
-    def newsdir(self, datadir: str) -> None:
-        if not datadir:
-            datadir = os.path.join(os.path.dirname(__file__), '..', '..',
-                                   'data', 'textanalysis.classactivity')
-            datadir = os.path.abspath(datadir)
-
-        if not os.path.exists(datadir):
-            raise FileNotFoundError(
-                f"O caminho informado '{datadir}' não existe"
-            )
-
-        if not os.path.isdir(datadir):
-            raise TypeError(
-                f"O caminho informado '{datadir}' não é uma pasta"
-            )
-
-        self._datadir = datadir
-        self._text = None
-
-    @property
     def newsfile(self) -> str:
-        """Propriedade que define o caminho do arquivo de notícia
+        """Propriedade que define o nome do arquivo de notícia
 
-        O caminho deve ser relativo à pasta de dados definido no atributo
-        :attr:`newsdir`. Se for definido com ``None``, é definido o valor
-        padrão ``news.txt``. Neste caso o atributo :attr:`text` também é
-        definido para ``None`` para recarregar o texto deste arquivo.
-
-        :return: valor atual da propriedade :attr:`newsfile`
-
-        :raises FileNotFoundError: se for definido com um caminho que não
-                existe
-        :raises TypeError: se for definido com um caminho que não é
-                uma pasta
+        :return: Nome do arquivo de notícia
         """
         return self._newsfile
-
-    @newsfile.setter
-    def newsfile(self, newsfile: str) -> None:
-        if not newsfile:
-            newsfile = 'text.txt'
-
-        newsfile = os.path.join(self.newsdir, newsfile)
-
-        if not os.path.exists(newsfile):
-            raise FileNotFoundError(
-                f"O caminho informado '{newsfile}' não existe"
-            )
-
-        if not os.path.isfile(newsfile):
-            raise TypeError(
-                f"O caminho informado '{newsfile}' não é um arquivo"
-            )
-
-        self._newsfile = newsfile
-        self._text = None
 
     @property
     def text(self) -> str:
@@ -122,11 +50,10 @@ class News:
 
         :return: conteúdo do arquivo definido em :attr:`newsfile`
         """
-        if not self._text:
-            with open(self.newsfile, 'r', encoding='utf8') as newsfile:
-                self._text = newsfile.read()
+        with open(self.newsfile, 'r', encoding='utf8') as newsfile:
+            text = newsfile.read()
 
-        return self._text
+        return text
 
     @property
     def sents(self) -> Iterator[list[str]]:

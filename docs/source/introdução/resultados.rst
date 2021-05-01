@@ -27,5 +27,12 @@ Dentro de ``entregas``, execute o seguinte:
     :cwd: ../../../
 
 
+.. parsed-literal::
+
+    ~/entregas$ python -m textanalysis.booklet
+
+.. program-output:: python -m textanalysis.booklet
+    :cwd: ../../../
+
 Resultados de Machine Learning
 ******************************

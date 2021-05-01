@@ -1,5 +1,8 @@
-booklet
-=========================
+textanalysis.booklet
+==============================
+
+textanalysis.booklet.booklet0
+******************************
 
 .. automodule:: textanalysis.booklet.booklet0
     :members:

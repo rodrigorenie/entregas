@@ -98,8 +98,9 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/classactivity.html">classactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/booklet.html">booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/dsutils.html">dsutils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/booklet0.html">textanalysis.booklet</a></li>
 </ul>
 
             
@@ -170,7 +171,7 @@
 <span class="kn">import</span> <span class="nn">string</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-
+<span class="kn">from</span> <span class="nn">dsutils</span> <span class="kn">import</span> <span class="n">DataDir</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterator</span>
 
 
@@ -189,96 +190,24 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newsdir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">newsfile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;news.txt&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">newsdir</span> <span class="o">=</span> <span class="n">newsdir</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">newsfile</span> <span class="o">=</span> <span class="n">newsfile</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_datadir</span> <span class="o">=</span> <span class="n">DataDir</span><span class="p">(</span><span class="s1">&#39;textanalysis.classactivity&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_newsfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datadir</span><span class="o">.</span><span class="n">datafilename</span><span class="p">(</span><span class="n">newsfile</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span> <span class="o">+=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">]</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">stopwords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stopwords</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">newsdir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Propriedade que define o caminho da pasta de dados</span>
-
-<span class="sd">        A pasta de dados é o diretório onde todos os arquivos carregados ou</span>
-<span class="sd">        gerados por esta classe ficam armazenados. Se for definido com</span>
-<span class="sd">        ``None``, é definido o valor padrão</span>
-<span class="sd">        ``../../data/textanalysis.classactivity``. Neste caso o atributo</span>
-<span class="sd">        :attr:`text` também é definido para ``None`` para recarregar o texto</span>
-<span class="sd">        deste arquivo.</span>
-
-<span class="sd">        :return: valor atual da propriedade :attr:`newsdir`</span>
-
-<span class="sd">        :raises FileNotFoundError: se for definido com um caminho que não</span>
-<span class="sd">                existe</span>
-<span class="sd">        :raises TypeError: se for definido com um caminho que não é</span>
-<span class="sd">                uma pasta</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datadir</span>
-
-    <span class="nd">@newsdir</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">newsdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datadir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">datadir</span><span class="p">:</span>
-            <span class="n">datadir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span>
-                                   <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;textanalysis.classactivity&#39;</span><span class="p">)</span>
-            <span class="n">datadir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">datadir</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">datadir</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">datadir</span><span class="si">}</span><span class="s2">&#39; não existe&quot;</span>
-            <span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">datadir</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">datadir</span><span class="si">}</span><span class="s2">&#39; não é uma pasta&quot;</span>
-            <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_datadir</span> <span class="o">=</span> <span class="n">datadir</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">newsfile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Propriedade que define o caminho do arquivo de notícia</span>
+        <span class="sd">&quot;&quot;&quot;Propriedade que define o nome do arquivo de notícia</span>
 
-<span class="sd">        O caminho deve ser relativo à pasta de dados definido no atributo</span>
-<span class="sd">        :attr:`newsdir`. Se for definido com ``None``, é definido o valor</span>
-<span class="sd">        padrão ``news.txt``. Neste caso o atributo :attr:`text` também é</span>
-<span class="sd">        definido para ``None`` para recarregar o texto deste arquivo.</span>
-
-<span class="sd">        :return: valor atual da propriedade :attr:`newsfile`</span>
-
-<span class="sd">        :raises FileNotFoundError: se for definido com um caminho que não</span>
-<span class="sd">                existe</span>
-<span class="sd">        :raises TypeError: se for definido com um caminho que não é</span>
-<span class="sd">                uma pasta</span>
+<span class="sd">        :return: Nome do arquivo de notícia</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_newsfile</span>
-
-    <span class="nd">@newsfile</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">newsfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newsfile</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">newsfile</span><span class="p">:</span>
-            <span class="n">newsfile</span> <span class="o">=</span> <span class="s1">&#39;text.txt&#39;</span>
-
-        <span class="n">newsfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">newsdir</span><span class="p">,</span> <span class="n">newsfile</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">newsfile</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">newsfile</span><span class="si">}</span><span class="s2">&#39; não existe&quot;</span>
-            <span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">newsfile</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;O caminho informado &#39;</span><span class="si">{</span><span class="n">newsfile</span><span class="si">}</span><span class="s2">&#39; não é um arquivo&quot;</span>
-            <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_newsfile</span> <span class="o">=</span> <span class="n">newsfile</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -290,11 +219,10 @@
 
 <span class="sd">        :return: conteúdo do arquivo definido em :attr:`newsfile`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">:</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">newsfile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">newsfile</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">newsfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">newsfile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">newsfile</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">newsfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span>
+        <span class="k">return</span> <span class="n">text</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>

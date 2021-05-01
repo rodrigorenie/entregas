@@ -104,8 +104,9 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/classactivity.html">classactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/booklet.html">booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/dsutils.html">dsutils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/booklet0.html">textanalysis.booklet</a></li>
 </ul>
 
             
@@ -247,6 +248,54 @@
 |    |                                    |    math/NN  requires/VBZ  great/JJ |
 |    |                                    |          minds/NNS  to/TO  pose/VB |
 |    |                                    | fascinating/JJ  problems/NNS  ./.) |
++------------------------------------------------------------------------------+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/entregas$ python -m textanalysis.booklet
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------------------+
+|    | Atividade                          |                          Resultado |
+|----+------------------------------------+------------------------------------|
+| 01 | Crie uma string com o conte�do     |   Ainda que falasse as l�nguas dos |
+|    | &quot;Ainda que falasse as l�nguas dos  |      homens e falasse a l�ngua dos |
+|    | homens e falasse a  l�ngua dos     |     anjos, sem amor eu nada seria. |
+|    | anjos, sem amor eu nada seria.&quot;    |                                    |
+|----+------------------------------------+------------------------------------|
+| 02 | Imprima cada caractere da string   |  A i n d a   q u e   f a l a s s e |
+|    |                                    |  a s   l � n g u a s   d o s   h o |
+|    |                                    |    m e n s   e   f a l a s s e   a |
+|    |                                    |  l � n g u a   d o s   a n j o s , |
+|    |                                    |    s e m   a m o r   e u   n a d a |
+|    |                                    |                        s e r i a . |
+|----+------------------------------------+------------------------------------|
+| 03 | Segmente a string em uma lista     |  [&#39;Ainda&#39;, &#39;que&#39;, &#39;falasse&#39;, &#39;as&#39;, |
+|    |                                    |   &#39;l�nguas&#39;, &#39;dos&#39;, &#39;homens&#39;, &#39;e&#39;, |
+|    |                                    |   &#39;falasse&#39;, &#39;a&#39;, &#39;l�ngua&#39;, &#39;dos&#39;, |
+|    |                                    |     &#39;anjos,&#39;, &#39;sem&#39;, &#39;amor&#39;, &#39;eu&#39;, |
+|    |                                    |                  &#39;nada&#39;, &#39;seria.&#39;] |
+|----+------------------------------------+------------------------------------|
+| 04 | Quantas palavras h� na lista?      |                                 18 |
+|----+------------------------------------+------------------------------------|
+| 05 | Imprima cada palavra da string     |       Ainda | que | falasse | as | |
+|    |                                    |       l�nguas | dos | homens | e | |
+|    |                                    |       falasse | a | l�ngua | dos | |
+|    |                                    |  anjos, | sem | amor | eu | nada | |
+|    |                                    |                             seria. |
+|----+------------------------------------+------------------------------------|
+| 06 | Substitua o termo &quot;dos homens&quot; por |    Ainda que falasse as l�nguas do |
+|    | &quot;do mundo&quot;                         |       mundo e falasse a l�ngua dos |
+|    |                                    |     anjos, sem amor eu nada seria. |
+|----+------------------------------------+------------------------------------|
+| 07 | Imprima o fragmento que vai do 21� |                       &quot; l�nguas d&quot; |
+|    | at� o 30� caracteres               |                                    |
+|----+------------------------------------+------------------------------------|
+| 08 | Imprima os �ltimos 15 caracteres   |                  &quot; eu nada seria.&quot; |
+|----+------------------------------------+------------------------------------|
+| 09 | Salve a senten�a em um arquivo do  | Arquivo salvo em: C:\Users\rodri\D |
+|    | tipo txt                           | ropbox\P�sGradua��o\entregas\data\ |
+|    |                                    | textanalysis.booklet.booklet0\book |
+|    |                                    |                      let0_ex01.txt |
 +------------------------------------------------------------------------------+
 </pre></div>
 </div>

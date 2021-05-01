@@ -1,7 +1,7 @@
-textanalysis.classactivity
+dsutils
 ==============================
 
-.. automodule:: textanalysis.classactivity
+.. automodule:: dsutils
     :members:
     :special-members: __init__ __str__
     :undoc-members:

@@ -15,13 +15,11 @@ estudos posteriores.
 .. topic:: Crie uma string com o conteúdo "Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem
     amor eu nada seria."
 
-    Implementado em :class:`textanalysis.booklet.booklet0.Ex01` (a string deve ser passado como parâmetro do
-    constructor da classe)
+    Implementado em :attr:`textanalysis.booklet.booklet0.Ex01.text`
 
     .. literalinclude:: ../../../textanalysis/booklet/booklet0.py
         :linenos:
-        :pyobject: Ex01.__init__
-..        :end-before: @property
+        :pyobject: Ex01.text
 
 
 .. topic:: Imprima cada caractere da string

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>booklet &mdash; documentação Entregas da Equipe Rocket </title>
+  <title>textanalysis.booklet &mdash; documentação Entregas da Equipe Rocket </title>
   
 
   
@@ -40,7 +40,7 @@
     
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
-    <link rel="prev" title="classactivity" href="classactivity.html" /> 
+    <link rel="prev" title="textanalysis.classactivity" href="classactivity.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,8 +99,12 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="classactivity.html">classactivity</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsutils.html">dsutils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">textanalysis.booklet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-textanalysis.booklet.booklet0">textanalysis.booklet.booklet0</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -149,13 +153,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>booklet</li>
+      <li>textanalysis.booklet</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/booklet.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/booklet0.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,27 +172,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-textanalysis.booklet.booklet0">
-<span id="booklet"></span><h1>booklet<a class="headerlink" href="#module-textanalysis.booklet.booklet0" title="Link permanente para este título">¶</a></h1>
+  <div class="section" id="textanalysis-booklet">
+<h1>textanalysis.booklet<a class="headerlink" href="#textanalysis-booklet" title="Link permanente para este título">¶</a></h1>
+<div class="section" id="module-textanalysis.booklet.booklet0">
+<span id="textanalysis-booklet-booklet0"></span><h2>textanalysis.booklet.booklet0<a class="headerlink" href="#module-textanalysis.booklet.booklet0" title="Link permanente para este título">¶</a></h2>
 <dl class="py class">
 <dt id="textanalysis.booklet.booklet0.Ex01">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">textanalysis.booklet.booklet0.</span></code><code class="sig-name descname"><span class="pre">Ex01</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/booklet/booklet0.html#Ex01"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex01" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Implementa a atividade descrita em <a class="reference internal" href="../an%C3%A1lise%20de%20texto/apostila0.html#apostila-0-exercitando-01"><span class="std std-ref">Apostila 0 Exercitando 01</span></a>.</p>
+<dd><p>Implementa a atividade descrita em <a class="reference internal" href="../an%C3%A1lise%20de%20texto/apostila0.html#apostila-0-exercitando-01"><span class="std std-ref">Apostila 0 Exercitando 01</span></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a>) – Texto a ser utilizado como base para o exercício.</p>
 </dd>
+</dl>
+<dl class="py method">
+<dt id="textanalysis.booklet.booklet0.Ex01.text">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text</span></code><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex01.text" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Texto a ser utilizado pela classe</p>
+<p>Propriedade ser utilizado pelos outros métodos da classe. Se for
+atribuído <code class="docutils literal notranslate"><span class="pre">None</span></code>, será convertido para uma string vazia.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Levanta</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(em Python v3.9)"><strong>TypeError</strong></a> – Se for atribuído com um valor que não seja string</p>
+</dd>
 <dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(em Python v3.9)">None</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>Texto a ser utilizado pela classe</p>
 </dd>
 </dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="textanalysis.booklet.booklet0.Ex01.text_chars">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text_chars</span></code><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex01.text_chars" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Cria um gerador para os caracteres individuais do texto.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p>Iterator[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)">str</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Iterador dos caracteres de <a class="reference internal" href="#textanalysis.booklet.booklet0.Ex01.text" title="textanalysis.booklet.booklet0.Ex01.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -196,11 +221,15 @@
 <dl class="py method">
 <dt id="textanalysis.booklet.booklet0.Ex01.text_split">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text_split</span></code><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex01.text_split" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Divide o texto em uma lista de palavras, separadas por um espaço em
+<dd><p>Divide o texto em uma lista de palavras</p>
+<p>Divide o texto em uma lista de palavras, separadas por um espaço em
 branco, e cria um gerador para os itens da lista.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p>Iterator[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)">str</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Iterador das palavras de <a class="reference internal" href="#textanalysis.booklet.booklet0.Ex01.text" title="textanalysis.booklet.booklet0.Ex01.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -208,11 +237,13 @@ branco, e cria um gerador para os itens da lista.</p>
 <dl class="py method">
 <dt id="textanalysis.booklet.booklet0.Ex01.text_split_len">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text_split_len</span></code><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex01.text_split_len" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Contabiliza o tamanho da lista do gerador criado por
-<a class="reference internal" href="#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-func docutils literal notranslate"><span class="pre">Ex01.text_split()</span></code></a>.</p>
+<dd><p>Contabiliza o tamanho da lista do iterador <a class="reference internal" href="#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text_split</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)">int</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Tamanho da lista <a class="reference internal" href="#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text_split</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,8 +251,9 @@ branco, e cria um gerador para os itens da lista.</p>
 <dl class="py method">
 <dt id="textanalysis.booklet.booklet0.Ex01.text_replace">
 <code class="sig-name descname"><span class="pre">text_replace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/booklet/booklet0.html#Ex01.text_replace"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex01.text_replace" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Substitui um trecho no texto indicado pelo parâmetro <code class="docutils literal notranslate"><span class="pre">old</span></code> pelo
-texto indicado no parâmetro <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
+<dd><p>Substitui <code class="docutils literal notranslate"><span class="pre">old</span></code> por <code class="docutils literal notranslate"><span class="pre">new</span></code></p>
+<p>Substitui o trecho de <a class="reference internal" href="#textanalysis.booklet.booklet0.Ex01.text" title="textanalysis.booklet.booklet0.Ex01.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> indicado pelo parâmetro <code class="docutils literal notranslate"><span class="pre">old</span></code> pelo
+texto indicado no parâmetro <code class="docutils literal notranslate"><span class="pre">new</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><ul class="simple">
@@ -229,11 +261,11 @@ texto indicado no parâmetro <code class="docutils literal notranslate"><span cl
 <li><p><strong>new</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a>) – Texto novo.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Retorna</dt>
-<dd class="field-even"><p>O texto substituído.</p>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)">str</a></p>
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>O novo valor de <a class="reference internal" href="#textanalysis.booklet.booklet0.Ex01.text" title="textanalysis.booklet.booklet0.Ex01.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -241,27 +273,28 @@ texto indicado no parâmetro <code class="docutils literal notranslate"><span cl
 <dl class="py method">
 <dt id="textanalysis.booklet.booklet0.Ex01.text_segment">
 <code class="sig-name descname"><span class="pre">text_segment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/booklet/booklet0.html#Ex01.text_segment"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex01.text_segment" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Retorna o segmento do texto indicado, da posição inicial <code class="docutils literal notranslate"><span class="pre">first</span></code>
+<dd><p>Retorna o segmento do texto entre <code class="docutils literal notranslate"><span class="pre">first</span></code> e <code class="docutils literal notranslate"><span class="pre">last</span></code></p>
+<p>Retorna o segmento do texto indicado, da posição inicial <code class="docutils literal notranslate"><span class="pre">first</span></code>
 até a posição <code class="docutils literal notranslate"><span class="pre">last</span></code>, ambos <em>INCLUSIVO</em>, ou seja, retorna o caracter
 das posições indicadas. Se <code class="docutils literal notranslate"><span class="pre">last</span></code> for omitido, retorna apenas o
-caracter indicado por <code class="docutils literal notranslate"><span class="pre">first</span></code>.</p>
+caracter indicado por <code class="docutils literal notranslate"><span class="pre">first</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Levanta</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(em Python v3.9)"><strong>ValueError</strong></a> – Erro gerado quando <code class="docutils literal notranslate"><span class="pre">first</span></code> é menor ou igual a
-zero ou quando <code class="docutils literal notranslate"><span class="pre">first</span></code> menor que <code class="docutils literal notranslate"><span class="pre">last</span></code>.</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(em Python v3.9)"><strong>ValueError</strong></a> – Se <code class="docutils literal notranslate"><span class="pre">first</span></code> é menor ou igual a zero ou menor que
+<code class="docutils literal notranslate"><span class="pre">last</span></code></p>
 </dd>
 <dt class="field-even">Parâmetros</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>first</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a>) – Posição inicial do segmento (deve ser maior que zero).</p></li>
-<li><p><strong>last</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a><em>, </em><em>opcional</em>) – Posição final do segmento, opcional.</p></li>
+<li><p><strong>first</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a>) – Posição inicial do segmento (deve ser maior que zero)</p></li>
+<li><p><strong>last</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a><em>, </em><em>opcional</em>) – Posição final do segmento, opcional</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>String com o segmento do texto ou uma string vazia se
-<code class="docutils literal notranslate"><span class="pre">first</span></code> for maior que o tamanho do texto.</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)">str</a></p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>String com o segmento do texto ou uma string vazia se
+<code class="docutils literal notranslate"><span class="pre">first</span></code> for maior que o tamanho do texto</p>
 </dd>
 </dl>
 </dd></dl>
@@ -278,11 +311,11 @@ parâmetro <code class="docutils literal notranslate"><span class="pre">n</span>
 <dt class="field-even">Levanta</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError" title="(em Python v3.9)"><strong>IndexError</strong></a> – se o tamanho do segmento é maior que o texto em si.</p>
 </dd>
-<dt class="field-odd">Retorna</dt>
-<dd class="field-odd"><p>Segmento do texto dos últimos <code class="docutils literal notranslate"><span class="pre">n</span></code> caracteres.</p>
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
-<dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)">str</a></p>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Segmento do texto dos últimos <code class="docutils literal notranslate"><span class="pre">n</span></code> caracteres.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -295,11 +328,11 @@ parâmetro <code class="docutils literal notranslate"><span class="pre">n</span>
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a>) – Caminho do arquivo</p>
 </dd>
-<dt class="field-even">Retorna</dt>
-<dd class="field-even"><p>Caminho completo do arquivo salvo</p>
+<dt class="field-even">Tipo de retorno</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)">str</a></p>
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>Caminho completo do arquivo salvo</p>
 </dd>
 </dl>
 </dd></dl>
@@ -309,9 +342,7 @@ parâmetro <code class="docutils literal notranslate"><span class="pre">n</span>
 <dl class="py class">
 <dt id="textanalysis.booklet.booklet0.Ex02">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">textanalysis.booklet.booklet0.</span></code><code class="sig-name descname"><span class="pre">Ex02</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">docpath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/booklet/booklet0.html#Ex02"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.booklet.booklet0.Ex02" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Classe que implementa os itens solicitado no Exercitando 2 da apostila
-“Parte 0”. Cada método desta classe implementa um item solicitado. Esta
-classe carrega um documento em formato <code class="docutils literal notranslate"><span class="pre">docx</span></code>.</p>
+<dd><p>Implementa a atividade descrita em <a class="reference internal" href="../an%C3%A1lise%20de%20texto/apostila0.html#apostila-0-exercitando-01"><span class="std std-ref">Apostila 0 Exercitando 01</span></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>docpath</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a>) – Caminho do arquivo <code class="docutils literal notranslate"><span class="pre">docx</span></code> a ser carregado.</p>
@@ -443,6 +474,17 @@ indicado pelo parâmetro <code class="docutils literal notranslate"><span class=
 
 </dd></dl>
 
+<dl class="py class">
+<dt id="textanalysis.booklet.booklet0.B">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">textanalysis.booklet.booklet0.</span></code><code class="sig-name descname"><span class="pre">B</span></code><a class="reference internal" href="../_modules/textanalysis/booklet/booklet0.html#B"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.booklet.booklet0.B" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="textanalysis.booklet.booklet0.B.datadir">
+<code class="sig-name descname"><span class="pre">datadir</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;dsutils.dsutils.DataDir</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#textanalysis.booklet.booklet0.B.datadir" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -451,7 +493,7 @@ indicado pelo parâmetro <code class="docutils literal notranslate"><span class=
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="classactivity.html" class="btn btn-neutral float-left" title="classactivity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classactivity.html" class="btn btn-neutral float-left" title="textanalysis.classactivity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

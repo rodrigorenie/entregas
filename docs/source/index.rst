@@ -21,5 +21,6 @@ Avaliação do Módulo de Análise de Texto
     :maxdepth: 2
     :caption: API
 
+    api/dsutils
     api/classactivity
-    api/booklet
+    api/booklet0

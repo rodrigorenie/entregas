@@ -40,7 +40,7 @@
     
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
-    <link rel="next" title="classactivity" href="../api/classactivity.html" />
+    <link rel="next" title="dsutils" href="../api/dsutils.html" />
     <link rel="prev" title="Atividade da Aula" href="atividade%20da%20aula.html" /> 
 </head>
 
@@ -104,8 +104,9 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/classactivity.html">classactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/booklet.html">booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/dsutils.html">dsutils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/booklet0.html">textanalysis.booklet</a></li>
 </ul>
 
             
@@ -186,17 +187,30 @@ estudos posteriores.</p>
 <div class="topic">
 <p class="topic-title">Crie uma string com o conteúdo “Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem
 amor eu nada seria.”</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01" title="textanalysis.booklet.booklet0.Ex01"><code class="xref py py-class docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01</span></code></a> (a string deve ser passado como parâmetro do
-constructor da classe)</p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text" title="textanalysis.booklet.booklet0.Ex01.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span> <span class="k">if</span> <span class="n">text</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@text</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;&#39;text&#39; deve ser uma string&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="topic">
 <p class="topic-title">Imprima cada caractere da string</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_chars" title="textanalysis.booklet.booklet0.Ex01.text_chars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_chars</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_chars" title="textanalysis.booklet.booklet0.Ex01.text_chars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_chars</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -208,52 +222,54 @@ constructor da classe)</p>
     <span class="k">def</span> <span class="nf">text_chars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Cria um gerador para os caracteres individuais do texto.</span>
 
-<span class="sd">        :rtype: Iterator[str]</span>
+<span class="sd">        :return: Iterador dos caracteres de :attr:`text`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">char</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="topic">
 <p class="topic-title">Segmente a string em uma lista</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split</span></code></a></p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">text_split</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras, separadas por um espaço em</span>
+        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras</span>
+
+<span class="sd">        Divide o texto em uma lista de palavras, separadas por um espaço em</span>
 <span class="sd">        branco, e cria um gerador para os itens da lista.</span>
 
-<span class="sd">        :rtype: Iterator[str]</span>
+<span class="sd">        :return: Iterador das palavras de :attr:`text`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
             <span class="k">yield</span> <span class="n">item</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="topic">
 <p class="topic-title">Quantas palavras há na lista?</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_split_len" title="textanalysis.booklet.booklet0.Ex01.text_split_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split_len</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_split_len" title="textanalysis.booklet.booklet0.Ex01.text_split_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split_len</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">text_split_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Contabiliza o tamanho da lista do gerador criado por</span>
-<span class="sd">        :func:`Ex01.text_split`.</span>
+        <span class="sd">&quot;&quot;&quot;Contabiliza o tamanho da lista do iterador :attr:`text_split`</span>
 
-<span class="sd">        :rtype: int</span>
+<span class="sd">        :return: Tamanho da lista :attr:`text_split`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text_split</span><span class="p">))</span>
 </pre></div>
@@ -261,30 +277,34 @@ constructor da classe)</p>
 </div>
 <div class="topic">
 <p class="topic-title">Imprima cada palavra da string</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split</span></code></a></p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">text_split</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras, separadas por um espaço em</span>
+        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras</span>
+
+<span class="sd">        Divide o texto em uma lista de palavras, separadas por um espaço em</span>
 <span class="sd">        branco, e cria um gerador para os itens da lista.</span>
 
-<span class="sd">        :rtype: Iterator[str]</span>
+<span class="sd">        :return: Iterador das palavras de :attr:`text`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
             <span class="k">yield</span> <span class="n">item</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="topic">
 <p class="topic-title">Substitua o termo “dos homens” por “do mundo”</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_replace" title="textanalysis.booklet.booklet0.Ex01.text_replace"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_replace()</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_replace" title="textanalysis.booklet.booklet0.Ex01.text_replace"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_replace()</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -298,27 +318,29 @@ constructor da classe)</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Substitui um trecho no texto indicado pelo parâmetro ``old`` pelo</span>
-<span class="sd">        texto indicado no parâmetro ``new``.</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Substitui ``old`` por ``new``</span>
+
+<span class="sd">        Substitui o trecho de :attr:`text` indicado pelo parâmetro ``old`` pelo</span>
+<span class="sd">        texto indicado no parâmetro ``new``</span>
 
 <span class="sd">        :param old: Texto original a ser substituído.</span>
 <span class="sd">        :type old: str</span>
 <span class="sd">        :param new: Texto novo.</span>
 <span class="sd">        :type new: str</span>
 
-<span class="sd">        :return: O texto substituído.</span>
-<span class="sd">        :rtype: str</span>
+<span class="sd">        :return: O novo valor de :attr:`text`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="topic">
 <p class="topic-title">Imprima o fragmento que vai do 21º até o 30º caracteres</p>
 <p>Implementado na propriedade
-<a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_segment" title="textanalysis.booklet.booklet0.Ex01.text_segment"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_segment</span></code></a>. O
+<a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_segment" title="textanalysis.booklet.booklet0.Ex01.text_segment"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_segment</span></code></a>. O
 método deve ser invocado passando os valores <code class="docutils literal notranslate"><span class="pre">21</span></code> e <code class="docutils literal notranslate"><span class="pre">30</span></code> conforme
 requisitado neste item.</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
@@ -348,40 +370,71 @@ requisitado neste item.</p>
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Retorna o segmento do texto indicado, da posição inicial ``first``</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Retorna o segmento do texto entre ``first`` e ``last``</span>
+
+<span class="sd">        Retorna o segmento do texto indicado, da posição inicial ``first``</span>
 <span class="sd">        até a posição ``last``, ambos *INCLUSIVO*, ou seja, retorna o caracter</span>
 <span class="sd">        das posições indicadas. Se ``last`` for omitido, retorna apenas o</span>
-<span class="sd">        caracter indicado por ``first``.</span>
+<span class="sd">        caracter indicado por ``first``</span>
 
-<span class="sd">        :raises ValueError: Erro gerado quando ``first`` é menor ou igual a</span>
-<span class="sd">            zero ou quando ``first`` menor que ``last``.</span>
+<span class="sd">        :raises ValueError: Se ``first`` é menor ou igual a zero ou menor que</span>
+<span class="sd">            ``last``</span>
 
-<span class="sd">        :param first: Posição inicial do segmento (deve ser maior que zero).</span>
+<span class="sd">        :param first: Posição inicial do segmento (deve ser maior que zero)</span>
 <span class="sd">        :type first: int</span>
-<span class="sd">        :param last: Posição final do segmento, opcional.</span>
+<span class="sd">        :param last: Posição final do segmento, opcional</span>
 <span class="sd">        :type last: int, opcional</span>
 
 <span class="sd">        :return: String com o segmento do texto ou uma string vazia se</span>
-<span class="sd">            ``first`` for maior que o tamanho do texto.</span>
-<span class="sd">        :rtype: str</span>
+<span class="sd">            ``first`` for maior que o tamanho do texto</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">first</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;first must be 1 or higher&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;first&#39; deve ser maior ou igual a 1&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">last</span><span class="p">:</span>
             <span class="n">last</span> <span class="o">=</span> <span class="n">first</span>
 
         <span class="k">if</span> <span class="n">last</span> <span class="o">&lt;</span> <span class="n">first</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;last must be equal or greater than first&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;last&#39; deve ser maior ou igual a &#39;first&#39;&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">[</span><span class="n">first</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">last</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">first</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">last</span><span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="topic">
 <p class="topic-title">Imprima os últimos 15 caracteres</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_last" title="textanalysis.booklet.booklet0.Ex01.text_last"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_last()</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_last" title="textanalysis.booklet.booklet0.Ex01.text_last"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_last()</span></code></a></p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Retorna os últimos caracteres do texto, de tamanho indicado pelo</span>
+<span class="sd">        parâmetro ``n``, que é opcional com valor padrão ``15``.</span>
+
+<span class="sd">        :param n: Tamanho do segmento.</span>
+<span class="sd">        :type n: int, opcional</span>
+
+<span class="sd">        :raises IndexError: se o tamanho do segmento é maior que o texto em si.</span>
+
+<span class="sd">        :return: Segmento do texto dos últimos ``n`` caracteres.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="topic">
+<p class="topic-title">Salve a sentença em um arquivo do tipo txt</p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_save" title="textanalysis.booklet.booklet0.Ex01.text_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_save()</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -394,47 +447,18 @@ requisitado neste item.</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Retorna os últimos caracteres do texto, de tamanho indicado pelo</span>
-<span class="sd">        parâmetro ``n``, que é opcional com valor padrão ``15``.</span>
-
-<span class="sd">        :param n: Tamanho do segmento.</span>
-<span class="sd">        :type n: int, opcional</span>
-
-<span class="sd">        :raises IndexError: se o tamanho do segmento é maior que o texto em si.</span>
-
-<span class="sd">        :return: Segmento do texto dos últimos ``n`` caracteres.</span>
-<span class="sd">        :rtype: str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="topic">
-<p class="topic-title">Salve a sentença em um arquivo do tipo txt</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex01.text_save" title="textanalysis.booklet.booklet0.Ex01.text_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_save()</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Salva o texto em um arquivo indicado pelo parâmetro ``filename``.</span>
 
 <span class="sd">        :param filename: Caminho do arquivo</span>
 <span class="sd">        :type filename: str</span>
 
 <span class="sd">        :return: Caminho completo do arquivo salvo</span>
-<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;textanalysis.booklet.booklet0&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -447,7 +471,7 @@ Lembre-se de salvar seu programa, para estudos posteriores.</p>
 <div class="topic">
 <p class="topic-title">Crie uma lista com os parágrafos do documento</p>
 <p>Implementado no construtor da Classe
-<a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02" title="textanalysis.booklet.booklet0.Ex02"><code class="xref py py-class docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02</span></code></a>. O caminho do <code class="docutils literal notranslate"><span class="pre">docx</span></code>
+<a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02" title="textanalysis.booklet.booklet0.Ex02"><code class="xref py py-class docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02</span></code></a>. O caminho do <code class="docutils literal notranslate"><span class="pre">docx</span></code>
 deve ser passado como parâmetro.</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -460,12 +484,8 @@ deve ser passado como parâmetro.</p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ex02</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Classe que implementa os itens solicitado no Exercitando 2 da apostila</span>
-<span class="sd">    &quot;Parte 0&quot;. Cada método desta classe implementa um item solicitado. Esta</span>
-<span class="sd">    classe carrega um documento em formato ``docx``.</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ex02</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
 
 <span class="sd">    :param docpath: Caminho do arquivo ``docx`` a ser carregado.</span>
 <span class="sd">    :type docpath: str</span>
@@ -482,7 +502,7 @@ deve ser passado como parâmetro.</p>
 <hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Crie uma lista com os parágrafos do documento</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_list" title="textanalysis.booklet.booklet0.Ex02.paragraphs_list"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_list</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_list" title="textanalysis.booklet.booklet0.Ex02.paragraphs_list"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_list</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -520,7 +540,7 @@ deve ser passado como parâmetro.</p>
 </div>
 <div class="topic">
 <p class="topic-title">Quantos parágrafos o documento possui?</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_len" title="textanalysis.booklet.booklet0.Ex02.paragraphs_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_len</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_len" title="textanalysis.booklet.booklet0.Ex02.paragraphs_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_len</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -543,7 +563,7 @@ deve ser passado como parâmetro.</p>
 </div>
 <div class="topic">
 <p class="topic-title">Imprima o conteúdo do 1º parágrafo do texto</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment" title="textanalysis.booklet.booklet0.Ex02.paragraphs_segment"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_segment()</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment" title="textanalysis.booklet.booklet0.Ex02.paragraphs_segment"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_segment()</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -610,7 +630,7 @@ deve ser passado como parâmetro.</p>
 </div>
 <div class="topic">
 <p class="topic-title">Imprima os parágrafos 3 a 6, inclusive</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment" title="textanalysis.booklet.booklet0.Ex02.paragraphs_segment"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_segment()</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment" title="textanalysis.booklet.booklet0.Ex02.paragraphs_segment"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_segment()</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -677,7 +697,7 @@ deve ser passado como parâmetro.</p>
 </div>
 <div class="topic">
 <p class="topic-title">O termo “Machado” está no documento?</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_hastext" title="textanalysis.booklet.booklet0.Ex02.paragraphs_hastext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_hastext()</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_hastext" title="textanalysis.booklet.booklet0.Ex02.paragraphs_hastext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_hastext()</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -704,7 +724,7 @@ deve ser passado como parâmetro.</p>
 </div>
 <div class="topic">
 <p class="topic-title">Crie um  texto corrido a partir dos parágrafos lidos</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_text" title="textanalysis.booklet.booklet0.Ex02.paragraphs_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_text</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_text" title="textanalysis.booklet.booklet0.Ex02.paragraphs_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_text</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -725,7 +745,7 @@ deve ser passado como parâmetro.</p>
 </div>
 <div class="topic">
 <p class="topic-title">Substitua o termo “Batista” por “João Batista”</p>
-<p>Implementado em <a class="reference internal" href="../api/booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext" title="textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext()</span></code></a></p>
+<p>Implementado em <a class="reference internal" href="../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext" title="textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext()</span></code></a></p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -763,7 +783,7 @@ deve ser passado como parâmetro.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../api/classactivity.html" class="btn btn-neutral float-right" title="classactivity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../api/dsutils.html" class="btn btn-neutral float-right" title="dsutils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="atividade%20da%20aula.html" class="btn btn-neutral float-left" title="Atividade da Aula" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
