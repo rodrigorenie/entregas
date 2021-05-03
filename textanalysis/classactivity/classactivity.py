@@ -3,7 +3,7 @@ import string
 import os
 
 from dsutils import DataDir
-from typing import Optional, Iterator
+from typing import Optional, Iterator, List, Tuple
 
 
 class News(DataDir):
@@ -56,7 +56,7 @@ class News(DataDir):
         return text
 
     @property
-    def sents(self) -> Iterator[list[str]]:
+    def sents(self) -> Iterator[List[str]]:
         """Gera a lista de sentenças tokenizada
 
         Gera um iterador sobre cada sentença encontrada em :attr:`text`. Ao
@@ -72,7 +72,7 @@ class News(DataDir):
             yield sent
 
     @property
-    def sents_clean(self) -> Iterator[list[str]]:
+    def sents_clean(self) -> Iterator[List[str]]:
         """Gera a lista de sentenças tokenizadas sem *stopwords*.
 
         Mesma funcionalidade de :attr:`sents`, porém a sentença não contém
@@ -110,7 +110,7 @@ class News(DataDir):
         return sum([1 for _ in self.sents for _ in _])
 
     @property
-    def sents_pos(self) -> Iterator[list[tuple[str, str]]]:
+    def sents_pos(self) -> Iterator[List[Tuple[str, str]]]:
         """Gera a lista de sentenças com tokens POS
 
         Realiza o tagueamento gramatical das sentenças retornadas por
@@ -134,7 +134,7 @@ class News(DataDir):
         for sent in nltk.chunk.ne_chunk_sents(self.sents_pos):
             yield sent
 
-    def top_words(self, n: int = 10) -> Iterator[tuple[str, int]]:
+    def top_words(self, n: int = 10) -> Iterator[Tuple[str, int]]:
         """Gera as palavras mais frequentes
 
         Gera as palavras (neste caso, tokens) mais frequentes em :attr:`text`
@@ -149,7 +149,7 @@ class News(DataDir):
         for word, top in freq.most_common(n):
             yield word, top
 
-    def top_bigram(self, n: int = 10) -> Iterator[tuple[str, int]]:
+    def top_bigram(self, n: int = 10) -> Iterator[Tuple[str, int]]:
         """Gera os bigramas mais frequentes no texto utilizando
 
         Gera os bigramas de :attr:`text` utilzando a classe

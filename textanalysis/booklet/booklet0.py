@@ -1,6 +1,6 @@
 import docx
 
-from typing import Optional, Union, Iterator
+from typing import Optional, Union, Iterator, List
 from dsutils import DataDir
 
 
@@ -149,10 +149,8 @@ class Ex01(DataDir):
 class Ex02(DataDir):
     """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`
 
-    :param docpath: Caminho do arquivo ``docx`` a ser carregado.
-    :type docpath: str
-
-    :rtype: None
+    :param docname: Caminho do arquivo ``docx`` a ser carregado.
+    :type docname: str
     """
 
     def __init__(self, docname: str) -> None:
@@ -161,34 +159,33 @@ class Ex02(DataDir):
 
     @property
     def paragraphs(self) -> Iterator[str]:
-        """Cria um gerador para os parágrafos encontrados no documento.
+        """Cria um iterador para os parágrafos encontrados no documento.
 
-       :rtype: Iterator[str]
-       """
+        :returns: iterador dos parágrafos no documento
+        """
+
         for paragraph in self._doc.paragraphs:
             yield paragraph.text
 
     @property
-    def paragraphs_list(self) -> list[str]:
+    def paragraphs_list(self) -> List[str]:
         """Cria uma lista contendo cada parágrafo encontrado no documento.
 
         :return: Lista com os parágrafos.
-        :rtype: list[str]
         """
         return list(self.paragraphs)
 
     @property
-    def paragraphs_len(self):
+    def paragraphs_len(self) -> int:
         """Contabiliza o tamanho da lista do gerador criado por
         :func:`Exercitando02.paragraphs`.
 
         :returns: Tamanho da lista.
-        :rtype: int
         """
         return len(self.paragraphs_list)
 
     def paragraphs_segment(self, first: int,
-                           last: int = None) -> Union[list[str], str]:
+                           last: int = None) -> Union[List[str], str]:
         """Retorna os parágrafos do documento, da posição inicial ``first`` até
         a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os
         parágrafos nas posições indicadas. Se ``last`` for omitido, retorna
@@ -204,7 +201,6 @@ class Ex02(DataDir):
 
         :return: Uma lista de string com os parágrafos solicitados, ou uma
             única string de parágrafo de ``last`` for omitido.
-        :rtype: list[str] ou str
         """
         if first <= 0:
             raise ValueError('first parameter must be greater '
@@ -227,7 +223,6 @@ class Ex02(DataDir):
         :type text: str
 
         :return: Verdadeiro ou falso.
-        :rtype: bool
         """
         return text in self.paragraphs_text
 
@@ -236,7 +231,6 @@ class Ex02(DataDir):
         """Retorna uma string com o conteúdo do documento.
 
         :return: String do documento.
-        :rtype: str
         """
         return '\n'.join(self.paragraphs_list)
 
@@ -250,6 +244,5 @@ class Ex02(DataDir):
         :type new: str
 
         :return: String com o texto substituído.
-        :rtype: str
         """
         return self.paragraphs_text.replace(old, new)

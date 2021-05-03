@@ -1,4 +1,5 @@
 from textanalysis.classactivity import News
+from rich import box
 from rich.table import Table
 from rich.console import Console
 
@@ -6,7 +7,7 @@ from rich.console import Console
 if __name__ == '__main__':
     news = News()
     console = Console(width=80)
-    table = Table(show_header=True, show_lines=True, width=80)
+    table = Table(show_header=True, show_lines=True, width=80, box=box.MINIMAL)
 
     table.add_column('', justify='center')
     table.add_column('Atividade')

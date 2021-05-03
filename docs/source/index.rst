@@ -8,6 +8,7 @@ Avaliação do Módulo de Análise de Texto
     introdução/introdução
     introdução/atividades
     introdução/resultados
+    introdução/saídas
     introdução/equipe
 
 .. toctree::
@@ -24,3 +25,4 @@ Avaliação do Módulo de Análise de Texto
     api/dsutils
     api/classactivity
     api/booklet0
+    api/booklet1

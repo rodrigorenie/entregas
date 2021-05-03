@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/sa%C3%ADdas.html">Saídas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introdu%C3%A7%C3%A3o/equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
@@ -167,14 +168,13 @@
            <div itemprop="articleBody">
             
   <h1>Código fonte para textanalysis.booklet.booklet0</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">docx</span>
+<span></span><span class="kn">import</span> <span class="nn">docx</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">List</span>
 <span class="kn">from</span> <span class="nn">dsutils</span> <span class="kn">import</span> <span class="n">DataDir</span>
 
 
-<div class="viewcode-block" id="Ex01"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01">[documentos]</a><span class="k">class</span> <span class="nc">Ex01</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex01"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01">[documentos]</a><span class="k">class</span> <span class="nc">Ex01</span><span class="p">(</span><span class="n">DataDir</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
 
 <span class="sd">    :param text: Texto a ser utilizado como base para o exercício.</span>
@@ -182,6 +182,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -309,55 +310,52 @@
 
 <span class="sd">        :return: Caminho completo do arquivo salvo</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;textanalysis.booklet.booklet0&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">datafilename</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div></div>
+            <span class="k">return</span> <span class="n">filename</span></div></div>
 
 
-<div class="viewcode-block" id="Ex02"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02">[documentos]</a><span class="k">class</span> <span class="nc">Ex02</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex02"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02">[documentos]</a><span class="k">class</span> <span class="nc">Ex02</span><span class="p">(</span><span class="n">DataDir</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
 
-<span class="sd">    :param docpath: Caminho do arquivo ``docx`` a ser carregado.</span>
-<span class="sd">    :type docpath: str</span>
-
-<span class="sd">    :rtype: None</span>
+<span class="sd">    :param docname: Caminho do arquivo ``docx`` a ser carregado.</span>
+<span class="sd">    :type docname: str</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="n">docpath</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datafilename</span><span class="p">(</span><span class="n">docname</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">paragraphs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;Cria um gerador para os parágrafos encontrados no documento.</span>
+        <span class="sd">&quot;&quot;&quot;Cria um iterador para os parágrafos encontrados no documento.</span>
 
-<span class="sd">       :rtype: Iterator[str]</span>
-<span class="sd">       &quot;&quot;&quot;</span>
+<span class="sd">        :returns: iterador dos parágrafos no documento</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">paragraphs_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">paragraphs_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Cria uma lista contendo cada parágrafo encontrado no documento.</span>
 
 <span class="sd">        :return: Lista com os parágrafos.</span>
-<span class="sd">        :rtype: list[str]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">paragraphs_len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">paragraphs_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Contabiliza o tamanho da lista do gerador criado por</span>
 <span class="sd">        :func:`Exercitando02.paragraphs`.</span>
 
 <span class="sd">        :returns: Tamanho da lista.</span>
-<span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Ex02.paragraphs_segment"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                           <span class="n">last</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
+                           <span class="n">last</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Retorna os parágrafos do documento, da posição inicial ``first`` até</span>
 <span class="sd">        a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os</span>
 <span class="sd">        parágrafos nas posições indicadas. Se ``last`` for omitido, retorna</span>
@@ -373,7 +371,6 @@
 
 <span class="sd">        :return: Uma lista de string com os parágrafos solicitados, ou uma</span>
 <span class="sd">            única string de parágrafo de ``last`` for omitido.</span>
-<span class="sd">        :rtype: list[str] ou str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">first</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;first parameter must be greater &#39;</span>
@@ -396,7 +393,6 @@
 <span class="sd">        :type text: str</span>
 
 <span class="sd">        :return: Verdadeiro ou falso.</span>
-<span class="sd">        :rtype: bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">text</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_text</span></div>
 
@@ -405,7 +401,6 @@
         <span class="sd">&quot;&quot;&quot;Retorna uma string com o conteúdo do documento.</span>
 
 <span class="sd">        :return: String do documento.</span>
-<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">)</span>
 
@@ -419,14 +414,8 @@
 <span class="sd">        :type new: str</span>
 
 <span class="sd">        :return: String com o texto substituído.</span>
-<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span></div></div>
-
-<span class="kn">from</span> <span class="nn">dsutils.dsutils</span> <span class="kn">import</span> <span class="n">DataDir</span>
-
-<div class="viewcode-block" id="B"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.B">[documentos]</a><span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
-    <span class="n">datadir</span> <span class="o">=</span> <span class="n">DataDir</span><span class="p">()</span></div>
 </pre></div>
 
            </div>

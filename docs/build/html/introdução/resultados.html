@@ -40,7 +40,7 @@
     
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
-    <link rel="next" title="Equipe Rocket" href="equipe.html" />
+    <link rel="next" title="Saídas" href="sa%C3%ADdas.html" />
     <link rel="prev" title="Atividades" href="atividades.html" /> 
 </head>
 
@@ -95,6 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#resultados-de-machine-learning">Resultados de Machine Learning</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="sa%C3%ADdas.html">Saídas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
@@ -176,132 +177,44 @@
             
   <div class="section" id="resultados">
 <h1>Resultados<a class="headerlink" href="#resultados" title="Link permanente para este título">¶</a></h1>
-<p>Para verificar os resultados das entregas, primeiro realize clone do <a class="reference external" href="https://github.com/rodrigorenie/">repositório do código</a>:</p>
-<pre class="literal-block">git clone <a class="reference external" href="https://github.com/rodrigorenie/entregas/">https://github.com/rodrigorenie/entregas/</a></pre>
-<p>Em seguida, execute os passos abaixo para os verificar os resultados individuais de cada módulo.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Utiliza versão 3.9 do Python ou superior.</p>
+<p>A implementação permite imprimir na tela o resultado de cada atividade. Para
+verificar estes restulados, siga os passos abaixo:</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Utilize versão 3.6 do Python ou superior.</p>
 </div>
+<div class="topic">
+<p class="topic-title">Realize o clone do <a class="reference external" href="https://github.com/rodrigorenie/">repositório do código no GibHub</a>:</p>
+<pre class="literal-block">git clone <a class="reference external" href="https://github.com/rodrigorenie/entregas/">https://github.com/rodrigorenie/entregas/</a></pre>
+</div>
+<div class="topic">
+<p class="topic-title">Instale os pré-requisitos usando PIP:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r entregas/requirements.txt
+</pre></div>
+</div>
+</div>
+<p>Em seguida, execute os passos abaixo para os verificar os resultados individuais de cada módulo implementado.</p>
 <div class="section" id="resultados-de-analise-de-texto">
 <h2>Resultados de Análise de Texto<a class="headerlink" href="#resultados-de-analise-de-texto" title="Link permanente para este título">¶</a></h2>
-<p>Dentro de <code class="docutils literal notranslate"><span class="pre">entregas</span></code>, execute o seguinte:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/entregas$ python -m textanalysis.classactivity
+<div class="admonition seealso">
+<p class="admonition-title">Ver também</p>
+<p><a class="reference internal" href="sa%C3%ADdas.html#saidas"><span class="std std-ref">Saídas</span></a> &gt; <a class="reference internal" href="sa%C3%ADdas.html#saidas-de-analise-de-texto"><span class="std std-ref">Saídas de Análise de Texto</span></a></p>
+</div>
+<p>Na pasta <code class="docutils literal notranslate"><span class="pre">entregas</span></code>, execute os comandos descritos abaixo para imprimir na
+tela os resultados da implementação de cada módulo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/entregas$ python3 -m textanalysis.classactivity
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------------------+
-|    | Atividade                          |                          Resultado |
-|----+------------------------------------+------------------------------------|
-| 01 | Contar o n�mero de palavras no     |                                950 |
-|    | texto                              |                                    |
-|----+------------------------------------+------------------------------------|
-| 02 | Imprimir as 10 palavras mais       |                     universal:  11 |
-|    | utilizadas                         |                     constants:   9 |
-|    |                                    |                    conjecture:   8 |
-|    |                                    |                   conjectures:   8 |
-|    |                                    |                      formulas:   8 |
-|    |                                    |                         value:   8 |
-|    |                                    |                      fraction:   7 |
-|    |                                    |                  mathematical:   6 |
-|    |                                    |                   mathematics:   6 |
-|    |                                    |                            &#39;s:   6 |
-|----+------------------------------------+------------------------------------|
-| 03 | Imprimir os 10 bigramas mais       |    (&#39;universal&#39;, &#39;constants&#39;):   6 |
-|    | utilizados                         |      (&#39;Ramanujan&#39;, &#39;Machine&#39;):   4 |
-|    |                                    |     (&#39;continued&#39;, &#39;fraction&#39;):   4 |
-|    |                                    |          (&#39;compute&#39;, &#39;value&#39;):   3 |
-|    |                                    |        (&#39;value&#39;, &#39;universal&#39;):   3 |
-|    |                                    |     (&#39;universal&#39;, &#39;constant&#39;):   3 |
-|    |                                    |             (&#39;Catalan&#39;, &quot;&#39;s&quot;):   3 |
-|    |                                    |        (&#39;good&#39;, &#39;conjecture&#39;):   2 |
-|    |                                    |     (&#39;researchers&#39;, &#39;system&#39;):   2 |
-|    |                                    |       (&#39;called&#39;, &#39;universal&#39;):   2 |
-|----+------------------------------------+------------------------------------|
-| 04 | Contar o n�mero de senten�as no    |                                 39 |
-|    | texto                              |                                    |
-|----+------------------------------------+------------------------------------|
-| 05 | Realizar a classifica��o           |        mostrando apenas o primeiro |
-|    | gramatical (POS e NER)             | resultado, veja a implementa��o de |
-|    |                                    |    News.sents_pos e News.sents_ner |
-|    |                                    |                                    |
-|    |                                    |                                POS |
-|    |                                    |      [(&#39;Machines&#39;, &#39;NNS&#39;), (&#39;Are&#39;, |
-|    |                                    |      &#39;NNP&#39;), (&#39;Inventing&#39;, &#39;VBG&#39;), |
-|    |                                    |   (&#39;New&#39;, &#39;NNP&#39;), (&#39;Math&#39;, &#39;NNP&#39;), |
-|    |                                    |     (&#39;We&#39;, &#39;PRP&#39;), (&quot;&#39;ve&quot;, &#39;VBP&#39;), |
-|    |                                    |  (&#39;Never&#39;, &#39;RB&#39;), (&#39;Seen&#39;, &#39;NNP&#39;), |
-|    |                                    | (&#39;Pushing&#39;, &#39;VBG&#39;), (&#39;the&#39;, &#39;DT&#39;), |
-|    |                                    |      (&#39;boundaries&#39;, &#39;NNS&#39;), (&#39;of&#39;, |
-|    |                                    |             &#39;IN&#39;), (&#39;math&#39;, &#39;NN&#39;), |
-|    |                                    |     (&#39;requires&#39;, &#39;VBZ&#39;), (&#39;great&#39;, |
-|    |                                    |    &#39;JJ&#39;), (&#39;minds&#39;, &#39;NNS&#39;), (&#39;to&#39;, |
-|    |                                    |             &#39;TO&#39;), (&#39;pose&#39;, &#39;VB&#39;), |
-|    |                                    |             (&#39;fascinating&#39;, &#39;JJ&#39;), |
-|    |                                    |   (&#39;problems&#39;, &#39;NNS&#39;), (&#39;.&#39;, &#39;.&#39;)] |
-|    |                                    |                                    |
-|    |                                    |                                NER |
-|    |                                    |          (S  Machines/NNS  Are/NNP |
-|    |                                    |       Inventing/VBG  (GPE New/NNP) |
-|    |                                    |          Math/NNP  We/PRP  &#39;ve/VBP |
-|    |                                    |    Never/RB  Seen/NNP  Pushing/VBG |
-|    |                                    |      the/DT  boundaries/NNS  of/IN |
-|    |                                    |    math/NN  requires/VBZ  great/JJ |
-|    |                                    |          minds/NNS  to/TO  pose/VB |
-|    |                                    | fascinating/JJ  problems/NNS  ./.) |
-+------------------------------------------------------------------------------+
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/entregas$ python -m textanalysis.booklet
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------------------+
-|    | Atividade                          |                          Resultado |
-|----+------------------------------------+------------------------------------|
-| 01 | Crie uma string com o conte�do     |   Ainda que falasse as l�nguas dos |
-|    | &quot;Ainda que falasse as l�nguas dos  |      homens e falasse a l�ngua dos |
-|    | homens e falasse a  l�ngua dos     |     anjos, sem amor eu nada seria. |
-|    | anjos, sem amor eu nada seria.&quot;    |                                    |
-|----+------------------------------------+------------------------------------|
-| 02 | Imprima cada caractere da string   |  A i n d a   q u e   f a l a s s e |
-|    |                                    |  a s   l � n g u a s   d o s   h o |
-|    |                                    |    m e n s   e   f a l a s s e   a |
-|    |                                    |  l � n g u a   d o s   a n j o s , |
-|    |                                    |    s e m   a m o r   e u   n a d a |
-|    |                                    |                        s e r i a . |
-|----+------------------------------------+------------------------------------|
-| 03 | Segmente a string em uma lista     |  [&#39;Ainda&#39;, &#39;que&#39;, &#39;falasse&#39;, &#39;as&#39;, |
-|    |                                    |   &#39;l�nguas&#39;, &#39;dos&#39;, &#39;homens&#39;, &#39;e&#39;, |
-|    |                                    |   &#39;falasse&#39;, &#39;a&#39;, &#39;l�ngua&#39;, &#39;dos&#39;, |
-|    |                                    |     &#39;anjos,&#39;, &#39;sem&#39;, &#39;amor&#39;, &#39;eu&#39;, |
-|    |                                    |                  &#39;nada&#39;, &#39;seria.&#39;] |
-|----+------------------------------------+------------------------------------|
-| 04 | Quantas palavras h� na lista?      |                                 18 |
-|----+------------------------------------+------------------------------------|
-| 05 | Imprima cada palavra da string     |       Ainda | que | falasse | as | |
-|    |                                    |       l�nguas | dos | homens | e | |
-|    |                                    |       falasse | a | l�ngua | dos | |
-|    |                                    |  anjos, | sem | amor | eu | nada | |
-|    |                                    |                             seria. |
-|----+------------------------------------+------------------------------------|
-| 06 | Substitua o termo &quot;dos homens&quot; por |    Ainda que falasse as l�nguas do |
-|    | &quot;do mundo&quot;                         |       mundo e falasse a l�ngua dos |
-|    |                                    |     anjos, sem amor eu nada seria. |
-|----+------------------------------------+------------------------------------|
-| 07 | Imprima o fragmento que vai do 21� |                       &quot; l�nguas d&quot; |
-|    | at� o 30� caracteres               |                                    |
-|----+------------------------------------+------------------------------------|
-| 08 | Imprima os �ltimos 15 caracteres   |                  &quot; eu nada seria.&quot; |
-|----+------------------------------------+------------------------------------|
-| 09 | Salve a senten�a em um arquivo do  | Arquivo salvo em: C:\Users\rodri\D |
-|    | tipo txt                           | ropbox\P�sGradua��o\entregas\data\ |
-|    |                                    | textanalysis.booklet.booklet0\book |
-|    |                                    |                      let0_ex01.txt |
-+------------------------------------------------------------------------------+
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/entregas$ python3 -m textanalysis.booklet
 </pre></div>
 </div>
 </div>
 <div class="section" id="resultados-de-machine-learning">
 <h2>Resultados de Machine Learning<a class="headerlink" href="#resultados-de-machine-learning" title="Link permanente para este título">¶</a></h2>
+<div class="topic">
+<p class="topic-title">Adicionar o módulo de machine learning</p>
+<p>teste</p>
+</div>
 </div>
 </div>
 
@@ -311,7 +224,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="equipe.html" class="btn btn-neutral float-right" title="Equipe Rocket" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sa%C3%ADdas.html" class="btn btn-neutral float-right" title="Saídas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="atividades.html" class="btn btn-neutral float-left" title="Atividades" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

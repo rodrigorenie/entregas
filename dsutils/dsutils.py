@@ -34,3 +34,12 @@ class DataDir:
             name = os.path.join(self.datadir, f'{name}.txt')
 
         return name
+
+    def datadirname(self, name: Optional[str] = None) -> str:
+        if name:
+            name = os.path.join(self.datadir, os.path.basename(name))
+        else:
+            name = os.path.basename(tempfile.TemporaryDirectory().name)
+            name = os.path.join(self.datadir, f'{name}')
+
+        return name

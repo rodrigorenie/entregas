@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/sa%C3%ADdas.html">Saídas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
@@ -215,7 +216,7 @@ realize o que se pede.</p>
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
         <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizada</span>
 
 <span class="sd">        Gera um iterador sobre cada sentença encontrada em :attr:`text`. Ao</span>
@@ -248,7 +249,7 @@ realize o que se pede.</p>
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">top_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">top_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
         <span class="sd">&quot;&quot;&quot;Gera as palavras mais frequentes</span>
 
 <span class="sd">        Gera as palavras (neste caso, tokens) mais frequentes em :attr:`text`</span>
@@ -281,7 +282,7 @@ realize o que se pede.</p>
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">def</span> <span class="nf">sents_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
         <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizadas sem *stopwords*.</span>
 
 <span class="sd">        Mesma funcionalidade de :attr:`sents`, porém a sentença não contém</span>
@@ -317,7 +318,7 @@ realize o que se pede.</p>
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">top_bigram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">top_bigram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
         <span class="sd">&quot;&quot;&quot;Gera os bigramas mais frequentes no texto utilizando</span>
 
 <span class="sd">        Gera os bigramas de :attr:`text` utilzando a classe</span>
@@ -372,7 +373,7 @@ realize o que se pede.</p>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+    <span class="k">def</span> <span class="nf">sents_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
         <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças com tokens POS</span>
 
 <span class="sd">        Realiza o tagueamento gramatical das sentenças retornadas por</span>

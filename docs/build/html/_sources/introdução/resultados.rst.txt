@@ -1,38 +1,48 @@
 Resultados
 =========================
 
-Para verificar os resultados das entregas, primeiro realize clone do :github_rodrigorenie:`repositório do código <>`:
+A implementação permite imprimir na tela o resultado de cada atividade. Para
+verificar estes restulados, siga os passos abaixo:
 
-.. parsed-literal::
+.. important::
 
-    git clone :github_entregas:`\ `
+    Utilize versão 3.6 do Python ou superior.
 
-Em seguida, execute os passos abaixo para os verificar os resultados individuais de cada módulo.
+.. topic:: Realize o clone do :github_rodrigorenie:`repositório do código no GibHub<>`:
 
-.. note::
+    .. parsed-literal::
 
-    Utiliza versão 3.9 do Python ou superior.
+        git clone :github_entregas:`\ `
 
+
+.. topic:: Instale os pré-requisitos usando PIP:
+
+    .. code-block:: bash
+
+        pip install -r entregas/requirements.txt
+
+Em seguida, execute os passos abaixo para os verificar os resultados individuais de cada módulo implementado.
 
 Resultados de Análise de Texto
 ******************************
 
-Dentro de ``entregas``, execute o seguinte:
+.. seealso:: :ref:`Saídas` > :ref:`Saídas de Análise de Texto`
+
+Na pasta ``entregas``, execute os comandos descritos abaixo para imprimir na
+tela os resultados da implementação de cada módulo:
 
 .. parsed-literal::
 
-    ~/entregas$ python -m textanalysis.classactivity
-
-.. program-output:: python -m textanalysis.classactivity
-    :cwd: ../../../
-
+    ~/entregas$ python3 -m textanalysis.classactivity
 
 .. parsed-literal::
 
-    ~/entregas$ python -m textanalysis.booklet
+    ~/entregas$ python3 -m textanalysis.booklet
 
-.. program-output:: python -m textanalysis.booklet
-    :cwd: ../../../
 
 Resultados de Machine Learning
 ******************************
+
+.. topic:: Adicionar o módulo de machine learning
+
+    teste

@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/sa%C3%ADdas.html">Saídas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
@@ -169,6 +170,7 @@
   <h1>Código fonte para dsutils.dsutils</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
@@ -178,7 +180,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dirname</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">dirname</span><span class="p">:</span>
-            <span class="n">dirname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__module__</span>
+            <span class="n">dirname</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmodule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__package__</span>
 
         <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">dirname</span><span class="p">)</span>
         <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
