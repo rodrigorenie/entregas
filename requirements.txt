@@ -9,3 +9,7 @@ wikipedia
 sphinxcontrib-programoutput
 sphinx-autodoc-typehints
 sphinx_rtd_theme
+pandas
+sklearn
+numpy
+imblearn
