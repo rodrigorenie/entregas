@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import sklearn.preprocessing
+import sklearn.metrics
 import imblearn
 
 from dsutils import DataDir
@@ -68,14 +69,29 @@ class Diabetes(DiabetesData):
     def __init__(self):
         super().__init__('diabetes.csv')
         self.xtrain, self.xtest, self.ytrain, self.ytest = self.datasplit
-        print(self.xtrain.head())
-        print(self.ytrain.shape)
-        print(type(self.datafull['class']))
+        self.ytrain = self.ytrain.values.ravel()
+        self._model = None
+
+        print(self.predict().info())
 
     @property
     def model(self):
-        model = sklearn.ensemble.RandomForestClassifier()
-        return model.fit(self.xtrain, self.ytrain)
+        if self._model is None:
+            model = sklearn.ensemble.RandomForestClassifier()
+            model.fit(self.xtrain, self.ytrain)
+            self._model = model
+        return self._model
+
+    def predict(self, xvalues: pd.DataFrame = None) -> pd.DataFrame:
+        if xvalues is None:
+            xvalues = self.xtest
+
+        predict = self.model.predict(xvalues)
+        xvalues[self.dataclass.columns[0]] = predict
+        return xvalues
+
+    def accuracy(self):
+        print('Acurácia do bank full', sklearn.metrics.accuracy_score(y_test, y_previsto))
 
 
 
