@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import sklearn.preprocessing
 import sklearn.metrics
+import sklearn.linear_model
 import imblearn
 
 from dsutils import DataDir
@@ -10,15 +11,15 @@ from typing import Tuple
 
 class DiabetesData(DataDir):
 
-    def __init__(self, csvfile: str, classcol: str = 'class') -> None:
+    def __init__(self, csvfile: str, classname: str = 'class') -> None:
         super().__init__()
         csvfile = self.datafilename(csvfile)
         self._fulldata = pd.read_csv(csvfile)
 
-        if classcol not in self._fulldata.columns:
-            raise ValueError(f"'{classcol}' must exist in '{csvfile}'")
+        if classname not in self._fulldata.columns:
+            raise ValueError(f"'{classname}' must exist in '{csvfile}'")
 
-        self._classcol = classcol
+        self.classname = classname
 
     @property
     def datafull(self) -> pd.DataFrame:
@@ -26,11 +27,11 @@ class DiabetesData(DataDir):
 
     @property
     def data(self) -> pd.DataFrame:
-        return self.datafull.drop(columns=[self._classcol])
+        return self.datafull.drop(columns=[self.classname])
 
     @property
     def dataclass(self) -> pd.DataFrame:
-        return self.datafull[[self._classcol]]
+        return self.datafull[[self.classname]]
 
     @property
     def datanum(self) -> pd.DataFrame:
@@ -59,8 +60,8 @@ class DiabetesData(DataDir):
     def datasplit(self) -> Tuple[pd.DataFrame, pd.DataFrame,
                                  pd.DataFrame, pd.DataFrame]:
         balanced = self.datafullbalanced
-        x = balanced.drop(columns=[self._classcol])
-        y = balanced[[self._classcol]]
+        x = balanced.drop(columns=[self.classname])
+        y = balanced[[self.classname]]
         return sklearn.model_selection.train_test_split(x, y, test_size=0.3)
 
 
@@ -70,28 +71,44 @@ class Diabetes(DiabetesData):
         super().__init__('diabetes.csv')
         self.xtrain, self.xtest, self.ytrain, self.ytest = self.datasplit
         self.ytrain = self.ytrain.values.ravel()
-        self._model = None
 
-        print(self.predict().info())
+        self._model = None
+        self._predict = None
+
+        print(self.predict().iloc[:, -4:])
 
     @property
     def model(self):
         if self._model is None:
-            model = sklearn.ensemble.RandomForestClassifier()
+            # model = sklearn.ensemble.RandomForestClassifier()
+            model = sklearn.ensemble.AdaBoostClassifier()
+            # model = sklearn.ensemble.BaggingClassifier()
+            # model = sklearn.ensemble.GradientBoostingClassifier()
+            # model = sklearn.linear_model.LogisticRegression()
+            # model = sklearn.linear_model.LogisticRegressionCV()
             model.fit(self.xtrain, self.ytrain)
             self._model = model
         return self._model
 
-    def predict(self, xvalues: pd.DataFrame = None) -> pd.DataFrame:
-        if xvalues is None:
-            xvalues = self.xtest
+    def predict(self, instances: pd.DataFrame = None) -> pd.DataFrame:
+        if instances is None:
+            instances = self.xtest
 
-        predict = self.model.predict(xvalues)
-        xvalues[self.dataclass.columns[0]] = predict
-        return xvalues
+        result = self.model.predict(instances)
+        proba = self.model.predict_proba(instances)
+        proba = proba.T
+        instances[self.classname] = result
 
-    def accuracy(self):
-        print('Acurácia do bank full', sklearn.metrics.accuracy_score(y_test, y_previsto))
+        for i, name in enumerate(self.model.classes_):
+            name = f'{name}_p'
+            instances[name] = proba[i]
+
+        self._predict = instances
+        return self._predict
+
+    def accuracy(self) -> float:
+        return sklearn.metrics.accuracy_score(self.ytest,
+                                              self._predict[self.classname])
 
 
 
