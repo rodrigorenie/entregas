@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import pandas as pd
 import numpy as np
 import sklearn.preprocessing
@@ -6,27 +8,17 @@ import sklearn.linear_model
 import imblearn
 
 from dsutils import DataDir
-from typing import Tuple, List
-from __future__ import annotations
+from typing import Tuple, List, Union
 
 
-class PandasData(DataDir):
-    def __init__(self,
-                 data: pd.DataFrame,
-                 classnames: List[str] = None) -> None:
-        classnames = ['class'] if classnames is None else classnames
+@pd.api.extensions.register_dataframe_accessor("rocket")
+class RocketFrame(DataDir):
+    def __init__(self, data: pd.DataFrame) -> None:
+        super().__init__()
+        self._data = data
+        self._classnames = []
 
-        for cls in csvclasses:
-            if cls not in self._data.columns:
-                raise ValueError(f"'{cls} class must exist in 'csvfile'")
-
-        self._instances = data.drop(columns=classnames)
-        self._classess = data[classnames]
-
-    def __repr__(self):
-        return repr(self._data)
-
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self._data)
 
     @property
@@ -34,12 +26,75 @@ class PandasData(DataDir):
         return self._data
 
     @property
-    def classes(self) -> pd.DataFrame:
-        return self.data[self.classnames]
+    def classnames(self) -> List[str]:
+        return self._classnames
+
+    @classnames.setter
+    def classnames(self, classnames: List[str]) -> None:
+        for cls in classnames:
+            if cls not in self._data.columns:
+                raise ValueError(f"'{cls}' column must exist in the dataframe")
+        self._classnames = classnames
 
     @property
-    def instances(self) -> pd.DataFrame:
-        return self.data.drop(columns=self.classnames)
+    def classes(self) -> RocketFrame:
+        return self.__class__(self.data[self.classnames])
+
+    @property
+    def instances(self) -> RocketFrame:
+        return self.__class__(self.data.drop(columns=self.classnames))
+
+    @property
+    def numericals(self) -> RocketFrame:
+        cls = self.classes.data
+        num = self.data.select_dtypes(include=np.number)
+        num = num.drop(columns=cls.columns, errors='ignore')
+        num = num.join(cls)
+        num = self.__class__(num)
+        num.classnames = cls.columns
+        return num
+
+    @property
+    def categoricals(self) -> RocketFrame:
+        cls = self.classes.data
+        cat = self.data.select_dtypes(include=object)
+        cat = cat.drop(columns=cls.columns, errors='ignore')
+        cat = cat.join(cls)
+        cat = self.__class__(cat)
+        cat.classnames = cls.columns
+        return cat
+
+    @property
+    def normalized(self) -> RocketFrame:
+        cls = self.classes.data
+
+        num = self.numericals.instances.data
+        num_normalizer = sklearn.preprocessing.MinMaxScaler()
+        num_cols = num.columns
+
+        num = num_normalizer.fit_transform(num)
+        num = pd.DataFrame(num, columns=num_cols)
+
+        cat = self.categoricals.instances.data
+        cat = pd.get_dummies(cat) if cat.size > 0 else cat
+
+        data = self.__class__(num.join(cat).join(cls))
+        data.classnames = self.classnames
+        return data
+
+    @property
+    def balanced(self) -> RocketFrame:
+        balancer = imblearn.over_sampling.SMOTE()
+        instances, classes = self.instances.data, self.classes.data
+        instances, classes = balancer.fit_resample(instances, classes)
+
+        data = self.__class__(instances.join(classes))
+        data.classnames = self.classnames
+        return data
+
+
+
+
 
 
 class DiabetesData(DataDir):
