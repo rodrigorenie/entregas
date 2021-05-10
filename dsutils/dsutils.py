@@ -12,7 +12,7 @@ class DataDir:
         if not dirname:
             dirname = inspect.getmodule(self).__package__
 
-        dirname = os.path.join(os.path.dirname(__file__), '..', 'data', dirname)
+        dirname = os.path.join(os.path.dirname(__file__), '..', 'df', dirname)
         dirname = os.path.abspath(dirname)
         self._datadir = dirname
 

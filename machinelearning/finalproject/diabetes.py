@@ -12,87 +12,88 @@ from typing import Tuple, List, Union
 
 
 @pd.api.extensions.register_dataframe_accessor("rocket")
-class RocketFrame(DataDir):
-    def __init__(self, data: pd.DataFrame) -> None:
-        super().__init__()
-        self._data = data
-        self._classnames = []
+class RocketFrame:
+    def __init__(self, df: pd.DataFrame, classcols: List[str] = []) -> None:
+        self._df = df
+        self._dftrain = None
+        self._dftest = None
+        self._classcols = classcols
+
+    @property
+    def df(self) -> pd.DataFrame:
+        return self._df
 
     def __str__(self) -> str:
-        return str(self._data)
+        return str(self.df)
 
     @property
-    def data(self) -> pd.DataFrame:
-        return self._data
+    def classcols(self) -> List[str]:
+        return self._classcols
 
-    @property
-    def classnames(self) -> List[str]:
-        return self._classnames
-
-    @classnames.setter
-    def classnames(self, classnames: List[str]) -> None:
-        for cls in classnames:
-            if cls not in self._data.columns:
-                raise ValueError(f"'{cls}' column must exist in the dataframe")
-        self._classnames = classnames
+    @classcols.setter
+    def classcols(self, classcols: List[str]) -> None:
+        for col in classcols:
+            if col not in self.df.columns:
+                raise ValueError(f"'{col}' column must exist in the dataframe")
+        self._classcols = classcols
 
     @property
     def classes(self) -> RocketFrame:
-        return self.__class__(self.data[self.classnames])
+        cols = self.df.columns.difference(self.classcols)
+        df = self.df.drop(cols, 1)
+        return self.__class__(df, self.classcols)
 
     @property
     def instances(self) -> RocketFrame:
-        return self.__class__(self.data.drop(columns=self.classnames))
+        df = self.df.drop(columns=self.classcols, errors='ignore')
+        return self.__class__(df, self.classcols)
 
     @property
     def numericals(self) -> RocketFrame:
-        cls = self.classes.data
-        num = self.data.select_dtypes(include=np.number)
-        num = num.drop(columns=cls.columns, errors='ignore')
-        num = num.join(cls)
-        num = self.__class__(num)
-        num.classnames = cls.columns
-        return num
+        df = self.df.select_dtypes(include=np.number)
+        df = df.drop(columns=self.classcols, errors='ignore')
+        df = df.join(self.classes.df)
+        return self.__class__(df, self.classcols)
 
     @property
     def categoricals(self) -> RocketFrame:
-        cls = self.classes.data
-        cat = self.data.select_dtypes(include=object)
-        cat = cat.drop(columns=cls.columns, errors='ignore')
-        cat = cat.join(cls)
-        cat = self.__class__(cat)
-        cat.classnames = cls.columns
-        return cat
+        df = self.df.select_dtypes(include=object)
+        df = df.drop(columns=self.classcols, errors='ignore')
+        df = df.join(self.classes.df)
+        return self.__class__(df, self.classcols)
 
     @property
     def normalized(self) -> RocketFrame:
-        cls = self.classes.data
+        normalizer = sklearn.preprocessing.MinMaxScaler()
 
-        num = self.numericals.instances.data
-        num_normalizer = sklearn.preprocessing.MinMaxScaler()
-        num_cols = num.columns
+        dfcat = self.categoricals.instances.df
+        dfcat = pd.get_dummies(dfcat) if dfcat.size > 0 else dfcat
+        dfcat = dfcat.join(self.classes.df)
 
-        num = num_normalizer.fit_transform(num)
-        num = pd.DataFrame(num, columns=num_cols)
+        df = self.numericals.instances.df
+        df = pd.DataFrame(normalizer.fit_transform(df), columns=df.columns)
 
-        cat = self.categoricals.instances.data
-        cat = pd.get_dummies(cat) if cat.size > 0 else cat
-
-        data = self.__class__(num.join(cat).join(cls))
-        data.classnames = self.classnames
-        return data
+        return self.__class__(df.join(dfcat), self.classcols)
 
     @property
     def balanced(self) -> RocketFrame:
         balancer = imblearn.over_sampling.SMOTE()
-        instances, classes = self.instances.data, self.classes.data
-        instances, classes = balancer.fit_resample(instances, classes)
+        dfinst, dfclass = self.instances.df, self.classes.df
+        dfinst, dfclass = balancer.fit_resample(dfinst, dfclass)
+        return self.__class__(dfinst.join(dfclass), self.classcols)
 
-        data = self.__class__(instances.join(classes))
-        data.classnames = self.classnames
-        return data
+    def split(self, size: float = 0.7) -> Tuple[RocketFrame, RocketFrame]:
+        x = self.instances.df
+        y = self.classes.df
+        c = self.classcols
 
+        split = sklearn.model_selection.train_test_split(x, y, test_size=size)
+        x_train, x_test, y_train, y_test = split
 
+        train = x_train.join(y_train).reset_index(drop=True)
+        test = x_test.join(y_test).reset_index(drop=True)
+
+        return self.__class__(train, c), self.__class__(test, c)
 
 
 
@@ -236,46 +237,47 @@ class DiabetesData(DataDir):
         )
 
 
-class Diabetes(DiabetesData):
+class Diabetes:
 
-    def __init__(self):
-        super().__init__('diabetes.csv')
-        self.xtrain, self.xtest, self.ytrain, self.ytest = self.split
-        self.ytrain = self.ytrain.values.ravel()
+    def __init__(self, csvfile: str = 'diabetes.csv'):
+        super().__init__()
+        self.df = pd.read_csv(csvfile)
+        self.df.rocket.classcols = ['class']
+        self.train, self.test = self.df.rocket.normalized.balanced.split(0.3)
 
         self._model = None
         self._predict = None
 
-        print(self.predict().iloc[:, -4:])
-
     @property
     def model(self):
         if self._model is None:
+            x = self.train.instances.df
+            y = self.train.classes.df.values.ravel()
+
             # model = sklearn.ensemble.RandomForestClassifier()
-            model = sklearn.ensemble.AdaBoostClassifier()
+            # model = sklearn.ensemble.AdaBoostClassifier()
             # model = sklearn.ensemble.BaggingClassifier()
-            # model = sklearn.ensemble.GradientBoostingClassifier()
+            model = sklearn.ensemble.GradientBoostingClassifier()
             # model = sklearn.linear_model.LogisticRegression()
             # model = sklearn.linear_model.LogisticRegressionCV()
-            model.fit(self.xtrain, self.ytrain)
-            self._model = model
+
+            self._model = model.fit(x, y)
+
         return self._model
 
     def predict(self, instances: pd.DataFrame = None) -> pd.DataFrame:
         if instances is None:
-            instances = self.xtest
+            instances = self.test.instances.df
 
-        result = self.model.predict(instances)
-        proba = self.model.predict_proba(instances)
-        proba = proba.T
-        instances[self.classnames] = result
+        classcols = self.df.rocket.classcols
+        predict = pd.DataFrame(self.model.predict(instances), columns=classcols)
+        proba = self.model.predict_proba(instances).T
+        instances = instances.join(predict)
 
         for i, name in enumerate(self.model.classes_):
-            name = f'{name}_p'
-            instances[name] = proba[i]
+            instances[f'{name}_p'] = proba[i]
 
-        self._predict = instances
-        return self._predict
+        return instances
 
     def accuracy(self) -> float:
         return sklearn.metrics.accuracy_score(self.ytest,
