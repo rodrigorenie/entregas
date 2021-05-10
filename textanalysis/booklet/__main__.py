@@ -1,11 +1,8 @@
-import os
-
 from textanalysis.booklet import booklet0
 from textanalysis.booklet import booklet1
 
 from rich import box
 from rich.table import Table
-from rich.table import Column
 from rich.console import Console
 
 

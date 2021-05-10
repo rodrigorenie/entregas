@@ -106,7 +106,7 @@ class RocketFrame:
         dfinst, dfclass = balancer.fit_resample(dfinst, dfclass)
         return self.__class__(dfinst.join(dfclass), self.classcols)
 
-    def split(self, size: float = 0.7) -> Tuple[RocketFrame, RocketFrame]:
+    def split(self, size: float = 0.3) -> Tuple[RocketFrame, RocketFrame]:
         x = self.instances.df
         y = self.classes.df
         c = self.classcols
