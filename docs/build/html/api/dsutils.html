@@ -40,7 +40,7 @@
     
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
-    <link rel="next" title="textanalysis.classactivity" href="classactivity.html" />
+    <link rel="next" title="textanalysis.classactivity" href="textanalysis.classactivity.html" />
     <link rel="prev" title="Exercícios da Apostila 0" href="../an%C3%A1lise%20de%20texto/apostila0.html" /> 
 </head>
 
@@ -102,8 +102,9 @@
 <p class="caption"><span class="caption-text">API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">dsutils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="classactivity.html">textanalysis.classactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="booklet0.html">textanalysis.booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textanalysis.classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textanalysis.booklet.html">textanalysis.booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machinelearning.finalproject.html">machinelearning.finalproject</a></li>
 </ul>
 
             
@@ -186,22 +187,97 @@
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.DataDir.datafilename">
-<code class="sig-name descname"><span class="pre">datafilename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir.datafilename"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir.datafilename" title="Link permanente para esta definição">¶</a></dt>
+</dd></dl>
+
+<dl class="py class">
+<dt id="dsutils.RocketFrame">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">dsutils.</span></code><code class="sig-name descname"><span class="pre">RocketFrame</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classcols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py method">
+<dt id="dsutils.RocketFrame.df">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">df</span></code><a class="headerlink" href="#dsutils.RocketFrame.df" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="dsutils.DataDir.datadirname">
-<code class="sig-name descname"><span class="pre">datadirname</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir.datadirname"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir.datadirname" title="Link permanente para esta definição">¶</a></dt>
+<dt id="dsutils.RocketFrame.classcols">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">classcols</span></code><a class="headerlink" href="#dsutils.RocketFrame.classcols" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="dsutils.RocketFrame.classes">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">classes</span></code><a class="headerlink" href="#dsutils.RocketFrame.classes" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="dsutils.RocketFrame.instances">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">instances</span></code><a class="headerlink" href="#dsutils.RocketFrame.instances" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="dsutils.RocketFrame.numericals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">numericals</span></code><a class="headerlink" href="#dsutils.RocketFrame.numericals" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="dsutils.RocketFrame.categoricals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">categoricals</span></code><a class="headerlink" href="#dsutils.RocketFrame.categoricals" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="dsutils.RocketFrame.normalized">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">normalized</span></code><a class="headerlink" href="#dsutils.RocketFrame.normalized" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="dsutils.RocketFrame.balanced">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">balanced</span></code><a class="headerlink" href="#dsutils.RocketFrame.balanced" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="dsutils.RocketFrame.split">
+<code class="sig-name descname"><span class="pre">split</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame.split"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame.split" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(em Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -216,7 +292,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="classactivity.html" class="btn btn-neutral float-right" title="textanalysis.classactivity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="textanalysis.classactivity.html" class="btn btn-neutral float-right" title="textanalysis.classactivity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../an%C3%A1lise%20de%20texto/apostila0.html" class="btn btn-neutral float-left" title="Exercícios da Apostila 0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

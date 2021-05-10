@@ -106,8 +106,9 @@
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/dsutils.html">dsutils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/classactivity.html">textanalysis.classactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/booklet0.html">textanalysis.booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/textanalysis.classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/textanalysis.booklet.html">textanalysis.booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/machinelearning.finalproject.html">machinelearning.finalproject</a></li>
 </ul>
 
             
@@ -180,415 +181,64 @@
 <div class="section" id="saidas-de-analise-de-texto">
 <h2>Saídas de Análise de Texto<a class="headerlink" href="#saidas-de-analise-de-texto" title="Link permanente para este título">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">python3 -m textanalysis.classactivity</span><a class="headerlink" href="#id1" title="Link Permanente para esse código">¶</a></div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>     ╷                                    ╷                                     
-     │ Atividade                          │                          Resultado  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  01 │ Contar o número de palavras no     │                                950  
-     │ texto                              │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  02 │ Imprimir as 10 palavras mais       │                     universal:  11  
-     │ utilizadas                         │                     constants:   9  
-     │                                    │                    conjecture:   8  
-     │                                    │                   conjectures:   8  
-     │                                    │                      formulas:   8  
-     │                                    │                         value:   8  
-     │                                    │                      fraction:   7  
-     │                                    │                  mathematical:   6  
-     │                                    │                   mathematics:   6  
-     │                                    │                            &#39;s:   6  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  03 │ Imprimir os 10 bigramas mais       │    (&#39;universal&#39;, &#39;constants&#39;):   6  
-     │ utilizados                         │      (&#39;Ramanujan&#39;, &#39;Machine&#39;):   4  
-     │                                    │     (&#39;continued&#39;, &#39;fraction&#39;):   4  
-     │                                    │          (&#39;compute&#39;, &#39;value&#39;):   3  
-     │                                    │        (&#39;value&#39;, &#39;universal&#39;):   3  
-     │                                    │     (&#39;universal&#39;, &#39;constant&#39;):   3  
-     │                                    │             (&#39;Catalan&#39;, &quot;&#39;s&quot;):   3  
-     │                                    │        (&#39;good&#39;, &#39;conjecture&#39;):   2  
-     │                                    │     (&#39;researchers&#39;, &#39;system&#39;):   2  
-     │                                    │       (&#39;called&#39;, &#39;universal&#39;):   2  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  04 │ Contar o número de sentenças no    │                                 39  
-     │ texto                              │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  05 │ Realizar a classificação           │        mostrando apenas o primeiro  
-     │ gramatical (POS e NER)             │ resultado, veja a implementação de  
-     │                                    │    News.sents_pos e News.sents_ner  
-     │                                    │                                     
-     │                                    │                                POS  
-     │                                    │      [(&#39;Machines&#39;, &#39;NNS&#39;), (&#39;Are&#39;,  
-     │                                    │      &#39;NNP&#39;), (&#39;Inventing&#39;, &#39;VBG&#39;),  
-     │                                    │   (&#39;New&#39;, &#39;NNP&#39;), (&#39;Math&#39;, &#39;NNP&#39;),  
-     │                                    │     (&#39;We&#39;, &#39;PRP&#39;), (&quot;&#39;ve&quot;, &#39;VBP&#39;),  
-     │                                    │  (&#39;Never&#39;, &#39;RB&#39;), (&#39;Seen&#39;, &#39;NNP&#39;),  
-     │                                    │ (&#39;Pushing&#39;, &#39;VBG&#39;), (&#39;the&#39;, &#39;DT&#39;),  
-     │                                    │      (&#39;boundaries&#39;, &#39;NNS&#39;), (&#39;of&#39;,  
-     │                                    │             &#39;IN&#39;), (&#39;math&#39;, &#39;NN&#39;),  
-     │                                    │     (&#39;requires&#39;, &#39;VBZ&#39;), (&#39;great&#39;,  
-     │                                    │    &#39;JJ&#39;), (&#39;minds&#39;, &#39;NNS&#39;), (&#39;to&#39;,  
-     │                                    │             &#39;TO&#39;), (&#39;pose&#39;, &#39;VB&#39;),  
-     │                                    │             (&#39;fascinating&#39;, &#39;JJ&#39;),  
-     │                                    │   (&#39;problems&#39;, &#39;NNS&#39;), (&#39;.&#39;, &#39;.&#39;)]  
-     │                                    │                                     
-     │                                    │                                NER  
-     │                                    │          (S  Machines/NNS  Are/NNP  
-     │                                    │       Inventing/VBG  (GPE New/NNP)  
-     │                                    │          Math/NNP  We/PRP  &#39;ve/VBP  
-     │                                    │    Never/RB  Seen/NNP  Pushing/VBG  
-     │                                    │      the/DT  boundaries/NNS  of/IN  
-     │                                    │    math/NN  requires/VBZ  great/JJ  
-     │                                    │          minds/NNS  to/TO  pose/VB  
-     │                                    │ fascinating/JJ  problems/NNS  ./.)  
-     ╵                                    ╵
+<div class="code-block-caption"><span class="caption-text">python -m textanalysis.classactivity</span><a class="headerlink" href="#id1" title="Link Permanente para esse código">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;z:\python38\lib\runpy.py&quot;, line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;z:\python38\lib\runpy.py&quot;, line 87, in _run_code
+    exec(code, run_globals)
+  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\classactivity\__main__.py&quot;, line 8, in &lt;module&gt;
+    news = News()
+  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\classactivity\classactivity.py&quot;, line 26, in __init__
+    self._newsfile = self.file(newsfile)
+AttributeError: &#39;News&#39; object has no attribute &#39;file&#39;
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">python3 -m textanalysis.booklet</span><a class="headerlink" href="#id2" title="Link Permanente para esse código">¶</a></div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                         Apostila 0 - Exercitando 01                          ┃
-└──────────────────────────────────────────────────────────────────────────────┘
-     ╷                                    ╷                                     
-     │ Atividade                          │                          Resultado  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  01 │ Crie uma string com o conteúdo     │   Ainda que falasse as línguas dos  
-     │ &quot;Ainda que falasse as línguas dos  │      homens e falasse a língua dos  
-     │ homens e falasse a  língua dos     │     anjos, sem amor eu nada seria.  
-     │ anjos, sem amor eu nada seria.&quot;    │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  02 │ Imprima cada caractere da string   │  A i n d a   q u e   f a l a s s e  
-     │                                    │  a s   l í n g u a s   d o s   h o  
-     │                                    │    m e n s   e   f a l a s s e   a  
-     │                                    │  l í n g u a   d o s   a n j o s ,  
-     │                                    │    s e m   a m o r   e u   n a d a  
-     │                                    │                        s e r i a .  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  03 │ Segmente a string em uma lista     │  [&#39;Ainda&#39;, &#39;que&#39;, &#39;falasse&#39;, &#39;as&#39;,  
-     │                                    │   &#39;línguas&#39;, &#39;dos&#39;, &#39;homens&#39;, &#39;e&#39;,  
-     │                                    │   &#39;falasse&#39;, &#39;a&#39;, &#39;língua&#39;, &#39;dos&#39;,  
-     │                                    │     &#39;anjos,&#39;, &#39;sem&#39;, &#39;amor&#39;, &#39;eu&#39;,  
-     │                                    │                  &#39;nada&#39;, &#39;seria.&#39;]  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  04 │ Quantas palavras há na lista?      │                                 18  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  05 │ Imprima cada palavra da string     │       Ainda | que | falasse | as |  
-     │                                    │       línguas | dos | homens | e |  
-     │                                    │       falasse | a | língua | dos |  
-     │                                    │  anjos, | sem | amor | eu | nada |  
-     │                                    │                             seria.  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  06 │ Substitua o termo &quot;dos homens&quot; por │    Ainda que falasse as línguas do  
-     │ &quot;do mundo&quot;                         │       mundo e falasse a língua dos  
-     │                                    │     anjos, sem amor eu nada seria.  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  07 │ Imprima o fragmento que vai do 21º │                       &quot; línguas d&quot;  
-     │ até o 30º caracteres               │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  08 │ Imprima os últimos 15 caracteres   │                  &quot; eu nada seria.&quot;  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  09 │ Salve a sentença em um arquivo do  │ Arquivo salvo em: /mnt/dados/Dropb  
-     │ tipo txt                           │ ox/PósGraduação/entregas/data/text  
-     │                                    │ analysis.booklet/booklet0_ex01.txt  
-     ╵                                    ╵                                     
-
-
-
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                         Apostila 0 - Exercitando 02                          ┃
-└──────────────────────────────────────────────────────────────────────────────┘
-     ╷                                    ╷                                     
-     │ Atividade                          │                          Resultado  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  01 │ Crie uma lista com os parágrafos   │           Apenas os dois primeiros  
-     │ do documento                       │                        parágrafos:  
-     │                                    │ [&#39;ROMANCE , Ressurreição , 1872 &#39;,  
-     │                                    │ &#39;Ressurreição Texto - fonte : Obra  
-     │                                    │  Completa , Machado de Assis , Rio  
-     │                                    │  de Janeiro : Editora Nova Aguilar  
-     │                                    │                        , 1994 . &#39;]  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  02 │ Quantos parágrafos o documento     │                                 14  
-     │ possui?                            │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  03 │ Imprima o conteúdo do 1º parágrafo │      ROMANCE , Ressurreição , 1872  
-     │ do texto                           │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  04 │ Imprima os parágrafos 3 a 6,       │       Publicado originalmente pela  
-     │ inclusive                          │ Editora Garnier , Rio de Janeiro ,  
-     │                                    │                             1872 .  
-     │                                    │                                     
-     │                                    │         ADVERTÊNCIA DA NOVA EDIÇÃO  
-     │                                    │                                     
-     │                                    │  Este foi o meu primeiro romance ,  
-     │                                    │  escrito aí vão muitos anos . Dado  
-     │                                    │  em nova edição , não lhe altero a  
-     │                                    │   composição nem o estilo , apenas  
-     │                                    │   troco dois ou três vocábulos , e  
-     │                                    │    faço tais ou quais correções de  
-     │                                    │       ortografia . Como outros que  
-     │                                    │  vieram depois , e alguns contos e  
-     │                                    │      novelas de então , pertence à  
-     │                                    │        primeira fase da minha vida  
-     │                                    │      literária . M . DE A . 1905 .  
-     │                                    │                                     
-     │                                    │     ADVERTÊNCIA DA PRIMEIRA EDIÇÃO  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  05 │ O termo ‘Machado’ está no          │                                Sim  
-     │ documento?                         │       veja Ex02.paragraphs_hastext  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  06 │ Crie um  texto corrido a partir    │                                ...  
-     │ dos parágrafos lidos               │ do cavalheiro que lhe dá o braço ?  
-     │                                    │ O cavalheiro era o mesmo rapaz que  
-     │                                    │      valsara com a viúva , um Dr .  
-     │                                    │     Batista , descendente em linha  
-     │                                    │     reta do Leonardo de Camões , &#39;  
-     │                                    │ manhoso e namorado &#39;. -- Oh ! isso  
-     │                                    │                                não  
-     │                                    │                                ...  
-     │                                    │                        ver método:  
-     │                                    │               Ex02.paragraphs_text  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  07 │ Substitua o termo &quot;Batista&quot; por    │                                ...  
-     │ &quot;João Batista&quot;                     │    valheiro que lhe dá o braço ? O  
-     │                                    │   cavalheiro era o mesmo rapaz que  
-     │                                    │ valsara com a viúva , um Dr . João  
-     │                                    │     Batista , descendente em linha  
-     │                                    │     reta do Leonardo de Camões , &#39;  
-     │                                    │ manhoso e namorado &#39;. -- Oh ! isso  
-     │                                    │                                não  
-     │                                    │                                ...  
-     │                                    │                        ver método:  
-     │                                    │        Ex02.paragraphs_replacetext  
-     ╵                                    ╵                                     
-
-
-
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                         Apostila 1 - Exercitando 01                          ┃
-└──────────────────────────────────────────────────────────────────────────────┘
-     ╷                                    ╷                                     
-     │ Atividade                          │                          Resultado  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  01 │ Imprima as palavras dos documentos │                cv002_tok-3321.txt:  
-     │ neg/cv002_tok-3321.txt e           │      the, brady, bunch, movie, is,  
-     │ pos/cv003_tok-8338.txt             │ less, a, motion, picture, than, a,  
-     │                                    │      minor, pop, event, ., forget,  
-     │                                    │   your, reruns, and, forget, your,  
-     │                                    │  nick, at, nite, ;, this, dead, -,  
-     │                                    │   on, recreation, of, the, fabled,  
-     │                                    │   seventies, sitcom, is, both, so,  
-     │                                    │          exhilarating, and, *, so,  
-     │                                    │    disturbing, that, you, half, -,  
-     │                                    │               expect, to, see, ...  
-     │                                    │                                     
-     │                                    │                cv003_tok-8338.txt:  
-     │                                    │    cast, :, mel, gibson, (, jerry,  
-     │                                    │ fletcher, ), ,, julia, roberts, (,  
-     │                                    │      alice, sutton, ), ,, patrick,  
-     │                                    │    stewart, (, dr, ., jonas, ), ,,  
-     │                                    │  cylk, cozart, (, agent, lowry, ),  
-     │                                    │      director, :, richard, donner,  
-     │                                    │    certification, :, r, (, usa, ),  
-     │                                    │      presumably, for, violence, ,,  
-     │                                    │         language, ,, and, intense,  
-     │                                    │              situations, year, ...  
-     │                                    │                                     
-     │                                    │                                     
-     ╵                                    ╵                                     
-
-
-
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                         Apostila 1 - Exercitando 02                          ┃
-└──────────────────────────────────────────────────────────────────────────────┘
-     ╷                                    ╷                                     
-     │ Atividade                          │                          Resultado  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  01 │ Utilize o arquivo Noticia_1        │                          bigramas:  
-     │ disponível na pasta de dados da    │                  (&#39;para&#39;, &#39;a&#39;):  5  
-     │ turma e liste os 20 bigramas e     │               (&#39;a&#39;, &#39;família&#39;):  3  
-     │ trigramas mais frequentes obtidos  │                   (&#39;de&#39;, &#39;97&#39;):  2  
-     │ do texto                           │                (&#39;97&#39;, &#39;anos,&#39;):  2  
-     │                                    │                 (&#39;75&#39;, &#39;anos&#39;):  2  
-     │                                    │                (&#39;em&#39;, &#39;1945,&#39;):  2  
-     │                                    │                  (&#39;e&#39;, &#39;duas&#39;):  2  
-     │                                    │                (&#39;campo&#39;, &#39;de&#39;):  2  
-     │                                    │                (&#39;cerca&#39;, &#39;de&#39;):  2  
-     │                                    │                (&#39;1&#39;, &#39;milhão&#39;):  2  
-     │                                    │               (&#39;milhão&#39;, &#39;de&#39;):  2  
-     │                                    │             (&#39;milhares&#39;, &#39;de&#39;):  2  
-     │                                    │                  (&#39;e&#39;, &#39;três&#39;):  2  
-     │                                    │                  (&#39;por&#39;, &#39;um&#39;):  2  
-     │                                    │                (&#39;o&#39;, &#39;médico&#39;):  2  
-     │                                    │                  (&#39;Após&#39;, &#39;a&#39;):  2  
-     │                                    │                   (&#39;com&#39;, &#39;o&#39;):  2  
-     │                                    │                  (&#39;Lily&#39;, &#39;e&#39;):  2  
-     │                                    │                (&#39;as&#39;, &#39;irmãs&#39;):  2  
-     │                                    │              (&#39;da&#39;, &#39;família&#39;):  2  
-     │                                    │                                     
-     │                                    │                         trigramas:  
-     │                                    │          (&#39;1&#39;, &#39;milhão&#39;, &#39;de&#39;):  2  
-     │                                    │         (&#39;E&#39;, &#39;de&#39;, &#39;repente&#39;):  2  
-     │                                    │          (&#39;A&#39;, &#39;mulher&#39;, &#39;de&#39;):  1  
-     │                                    │         (&#39;mulher&#39;, &#39;de&#39;, &#39;97&#39;):  1  
-     │                                    │           (&#39;de&#39;, &#39;97&#39;, &#39;anos&#39;):  1  
-     │                                    │          (&#39;97&#39;, &#39;anos&#39;, &#39;que&#39;):  1  
-     │                                    │  (&#39;anos&#39;, &#39;que&#39;, &#39;sobreviveu&#39;):  1  
-     │                                    │     (&#39;que&#39;, &#39;sobreviveu&#39;, &#39;a&#39;):  1  
-     │                                    │  (&#39;sobreviveu&#39;, &#39;a&#39;, &#39;Auschwitz&#39;):  
-     │                                    │                                  1  
-     │                                    │        (&#39;a&#39;, &#39;Auschwitz&#39;, &#39;e&#39;):  1  
-     │                                    │        (&#39;Auschwitz&#39;, &#39;e&#39;, &#39;à&#39;):  1  
-     │                                    │         (&#39;e&#39;, &#39;à&#39;, &#39;covid-19&#39;):  1  
-     │                                    │      (&#39;à&#39;, &#39;covid-19&#39;, &#39;Lily&#39;):  1  
-     │                                    │ (&#39;covid-19&#39;, &#39;Lily&#39;, &#39;Ebert,&#39;):  1  
-     │                                    │       (&#39;Lily&#39;, &#39;Ebert,&#39;, &#39;de&#39;):  1  
-     │                                    │         (&#39;Ebert,&#39;, &#39;de&#39;, &#39;97&#39;):  1  
-     │                                    │          (&#39;de&#39;, &#39;97&#39;, &#39;anos,&#39;):  1  
-     │                                    │           (&#39;97&#39;, &#39;anos,&#39;, &#39;é&#39;):  1  
-     │                                    │          (&#39;anos,&#39;, &#39;é&#39;, &#39;uma&#39;):  1  
-     │                                    │            (&#39;é&#39;, &#39;uma&#39;, &#39;das&#39;):  1  
-     ╵                                    ╵                                     
-
-
-
-
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                         Apostila 1 - Exercitando 03                          ┃
-└──────────────────────────────────────────────────────────────────────────────┘
-     ╷                                    ╷                                     
-     │ Atividade                          │                          Resultado  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  01 │ Analise a frequência das palavras  │                        singles.txt  
-     │ [&quot;the&quot;, &quot;that&quot;] no arquivo         │                          the:   14  
-     │ singles.txt e,depois, no arquivo   │                         that:    1  
-     │ pirates.txt                        │                        pirates.txt  
-     │                                    │                          the:    0  
-     │                                    │                         that:    0  
-     │                                    │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  02 │ Inclua a geração do gráfico de     │                                     
-     │ frequência                         │                                     
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  03 │ Gere a lista dos 15 bigramas mais  │                        singles.txt  
-     │ frequentes do texto                │              (&#39;non&#39;, &#39;smoker&#39;): 20  
-     │                                    │              (&#39;seeks&#39;, &#39;lady&#39;): 14  
-     │                                    │              (&#39;would&#39;, &#39;like&#39;): 13  
-     │                                    │                (&#39;age&#39;, &#39;open&#39;): 12  
-     │                                    │               (&#39;like&#39;, &#39;meet&#39;): 12  
-     │                                    │            (&#39;medium&#39;, &#39;build&#39;): 10  
-     │                                    │           (&#39;social&#39;, &#39;drinker&#39;): 9  
-     │                                    │               (&#39;male&#39;, &#39;seeks&#39;): 7  
-     │                                    │                (&#39;fun&#39;, &#39;times&#39;): 7  
-     │                                    │                (&#39;med&#39;, &#39;build&#39;): 7  
-     │                                    │             (&#39;quiet&#39;, &#39;nights&#39;): 7  
-     │                                    │            (&#39;smoker&#39;, &#39;social&#39;): 7  
-     │                                    │               (&#39;poss&#39;, &#39;rship&#39;): 7  
-     │                                    │               (&#39;slim&#39;, &#39;build&#39;): 6  
-     │                                    │                (&#39;long&#39;, &#39;term&#39;): 6  
-     │                                    │                                     
-     │                                    │                        pirates.txt  
-     │                                    │           (&#39;jack&#39;, &#39;sparrow&#39;): 222  
-     │                                    │         (&#39;elizabeth&#39;, &#39;swann&#39;): 93  
-     │                                    │              (&#39;davy&#39;, &#39;jones&#39;): 58  
-     │                                    │                   (&#39;ha&#39;, &#39;ha&#39;): 39  
-     │                                    │             (&#39;black&#39;, &#39;pearl&#39;): 37  
-     │                                    │         (&#39;flying&#39;, &#39;dutchman&#39;): 37  
-     │                                    │             (&#39;lord&#39;, &#39;cutler&#39;): 35  
-     │                                    │          (&#39;cutler&#39;, &#39;beckett&#39;): 35  
-     │                                    │               (&#39;tia&#39;, &#39;dalma&#39;): 29  
-     │                                    │          (&#39;pintel&#39;, &#39;ragetti&#39;): 22  
-     │                                    │                 (&#39;heh&#39;, &#39;heh&#39;): 14  
-     │                                    │         (&#39;cannibal&#39;, &#39;island&#39;): 14  
-     │                                    │          (&#39;scene&#39;, &#39;cannibal&#39;): 13  
-     │                                    │             (&#39;turner&#39;, &#39;jack&#39;): 13  
-     │                                    │               (&#39;jack&#39;, &#39;jack&#39;): 12  
-╶────┼────────────────────────────────────┼────────────────────────────────────╴
-  04 │ Gere a lista dos 20 quadrigramas   │                        singles.txt  
-     │ gramas mais frequentes que possuam │        (&#39;non&#39;, &#39;smoker&#39;, &#39;social&#39;,  
-     │ a palavra &quot;life&quot;                   │                      &#39;drinker&#39;): 6  
-     │                                    │        (&#39;quiet&#39;, &#39;nights&#39;, &#39;home&#39;,  
-     │                                    │                      &#39;seeking&#39;): 3  
-     │                                    │          (&#39;would&#39;, &#39;like&#39;, &#39;meet&#39;,  
-     │                                    │                   &#39;attractive&#39;): 3  
-     │                                    │ (&#39;would&#39;, &#39;like&#39;, &#39;meet&#39;, &#39;lady&#39;):  
-     │                                    │                                  2  
-     │                                    │         (&#39;looking&#39;, &#39;lady&#39;, &#39;non&#39;,  
-     │                                    │                       &#39;smoker&#39;): 2  
-     │                                    │     (&#39;beach&#39;, &#39;country&#39;, &#39;drives&#39;,  
-     │                                    │                        &#39;quiet&#39;): 2  
-     │                                    │     (&#39;country&#39;, &#39;drives&#39;, &#39;quiet&#39;,  
-     │                                    │                       &#39;nights&#39;): 2  
-     │                                    │           (&#39;slim&#39;, &#39;build&#39;, &#39;non&#39;,  
-     │                                    │                       &#39;smoker&#39;): 2  
-     │                                    │ (&#39;lady&#39;, &#39;age&#39;, &#39;open&#39;, &#39;ship&#39;): 2  
-     │                                    │ (&#39;25&#39;, &#39;sexy&#39;, &#39;male&#39;, &#39;seeks&#39;): 1  
-     │                                    │          (&#39;sexy&#39;, &#39;male&#39;, &#39;seeks&#39;,  
-     │                                    │                       &#39;attrac&#39;): 1  
-     │                                    │        (&#39;male&#39;, &#39;seeks&#39;, &#39;attrac&#39;,  
-     │                                    │                        &#39;older&#39;): 1  
-     │                                    │       (&#39;seeks&#39;, &#39;attrac&#39;, &#39;older&#39;,  
-     │                                    │                       &#39;single&#39;): 1  
-     │                                    │      (&#39;attrac&#39;, &#39;older&#39;, &#39;single&#39;,  
-     │                                    │                         &#39;lady&#39;): 1  
-     │                                    │        (&#39;older&#39;, &#39;single&#39;, &#39;lady&#39;,  
-     │                                    │                     &#39;discreet&#39;): 1  
-     │                                    │     (&#39;single&#39;, &#39;lady&#39;, &#39;discreet&#39;,  
-     │                                    │                   &#39;encounters&#39;): 1  
-     │                                    │ (&#39;lady&#39;, &#39;discreet&#39;, &#39;encounters&#39;,  
-     │                                    │                         &#39;35yo&#39;): 1  
-     │                                    │ (&#39;discreet&#39;, &#39;encounters&#39;, &#39;35yo&#39;,  
-     │                                    │                     &#39;security&#39;): 1  
-     │                                    │ (&#39;encounters&#39;, &#39;35yo&#39;, &#39;security&#39;,  
-     │                                    │                        &#39;guard&#39;): 1  
-     │                                    │      (&#39;35yo&#39;, &#39;security&#39;, &#39;guard&#39;,  
-     │                                    │                      &#39;seeking&#39;): 1  
-     │                                    │                                     
-     │                                    │                        pirates.txt  
-     │                                    │       (&#39;ha&#39;, &#39;ha&#39;, &#39;ha&#39;, &#39;ha&#39;): 21  
-     │                                    │    (&#39;heh&#39;, &#39;heh&#39;, &#39;heh&#39;, &#39;heh&#39;): 8  
-     │                                    │       (&#39;east&#39;, &#39;india&#39;, &#39;trading&#39;,  
-     │                                    │                      &#39;company&#39;): 5  
-     │                                    │          (&#39;port&#39;, &#39;royal&#39;, &#39;eitc&#39;,  
-     │                                    │                 &#39;headquarters&#39;): 4  
-     │                                    │           (&#39;gibbs&#39;, &#39;cap&#39;, &#39;jack&#39;,  
-     │                                    │                      &#39;sparrow&#39;): 3  
-     │                                    │        (&#39;jack&#39;, &#39;sparrow&#39;, &#39;jack&#39;,  
-     │                                    │                      &#39;sparrow&#39;): 3  
-     │                                    │    (&#39;scene&#39;, &#39;cannibal&#39;, &#39;island&#39;,  
-     │                                    │                        &#39;beach&#39;): 3  
-     │                                    │         (&#39;turner&#39;, &#39;jack&#39;, &#39;jack&#39;,  
-     │                                    │                      &#39;sparrow&#39;): 3  
-     │                                    │    (&#39;scene&#39;, &#39;cannibal&#39;, &#39;island&#39;,  
-     │                                    │                       &#39;throne&#39;): 3  
-     │                                    │      (&#39;ha&#39;, &#39;ha&#39;, &#39;ha&#39;, &#39;jack&#39;): 3  
-     │                                    │ (&#39;ha&#39;, &#39;ha&#39;, &#39;jack&#39;, &#39;sparrow&#39;): 3  
-     │                                    │        (&#39;jack&#39;, &#39;sparrow&#39;, &#39;sent&#39;,  
-     │                                    │                       &#39;settle&#39;): 3  
-     │                                    │      (&#39;sparrow&#39;, &#39;sent&#39;, &#39;settle&#39;,  
-     │                                    │                         &#39;debt&#39;): 3  
-     │                                    │        (&#39;heave&#39;, &#39;heave&#39;, &#39;heave&#39;,  
-     │                                    │                        &#39;heave&#39;): 3  
-     │                                    │    (&#39;unh&#39;, &#39;unh&#39;, &#39;unh&#39;, &#39;unh&#39;): 3  
-     │                                    │     (&#39;bugger&#39;, &#39;bugger&#39;, &#39;bugger&#39;,  
-     │                                    │                       &#39;bugger&#39;): 3  
-     │                                    │      (&#39;lord&#39;, &#39;cutler&#39;, &#39;beckett&#39;,  
-     │                                    │                           &#39;oh&#39;): 2  
-     │                                    │      (&#39;lord&#39;, &#39;cutler&#39;, &#39;beckett&#39;,  
-     │                                    │                           &#39;ah&#39;): 2  
-     │                                    │    (&#39;yo&#39;, &#39;ho&#39;, &#39;ho&#39;, &#39;bottle&#39;): 2  
-     │                                    │   (&#39;ho&#39;, &#39;ho&#39;, &#39;bottle&#39;, &#39;rum&#39;): 2  
-     ╵                                    ╵
+<div class="code-block-caption"><span class="caption-text">python -m textanalysis.booklet</span><a class="headerlink" href="#id2" title="Link Permanente para esse código">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------------------+
+|                         Apostila 0 - Exercitando 01                          |
++------------------------------------------------------------------------------+
+Traceback (most recent call last):
+  File &quot;z:\python38\lib\runpy.py&quot;, line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File &quot;z:\python38\lib\runpy.py&quot;, line 87, in _run_code
+    exec(code, run_globals)
+  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\booklet\__main__.py&quot;, line 231, in &lt;module&gt;
+    booklet0ex01()
+  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\booklet\__main__.py&quot;, line 64, in booklet0ex01
+    res = &#39;Arquivo salvo em: {}&#39;.format(ex.text_save(&#39;booklet0_ex01.txt&#39;))
+  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\booklet\booklet0.py&quot;, line 143, in text_save
+    filename = self.file(filename)
+AttributeError: &#39;Ex01&#39; object has no attribute &#39;file&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="saidas-de-machine-learning">
 <h2>Saídas de Machine Learning<a class="headerlink" href="#saidas-de-machine-learning" title="Link permanente para este título">¶</a></h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">python -m machinelearning.finalproject</span><a class="headerlink" href="#id3" title="Link Permanente para esse código">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   preg  plas  pres  ...            class  tested_negative_p  tested_positive_p
+0     6   148    72  ...  tested_positive               0.41               0.59
+1     8   183    64  ...  tested_positive               0.41               0.59
+2     0   137    40  ...  tested_positive               0.49               0.51
+3     3    78    50  ...  tested_positive               0.39               0.61
+4     2   197    70  ...  tested_positive               0.40               0.60
+5     8   125    96  ...  tested_negative               0.64               0.36
+
+[6 rows x 11 columns]
+   preg  plas  pres  ...            class  tested_negative_p  tested_positive_p
+0     1    85    66  ...  tested_positive               0.32               0.68
+1     1    89    66  ...  tested_positive               0.40               0.60
+2     5   116    74  ...  tested_positive               0.37               0.63
+3    10   115     0  ...  tested_positive               0.33               0.67
+
+[4 rows x 11 columns]
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

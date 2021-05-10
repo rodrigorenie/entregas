@@ -23,6 +23,6 @@ Avaliação do Módulo de Análise de Texto
     :caption: API
 
     api/dsutils
-    api/classactivity
-    api/booklet0
-    api/booklet1
+    api/textanalysis.classactivity
+    api/textanalysis.booklet
+    api/machinelearning.finalproject

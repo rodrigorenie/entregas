@@ -4,13 +4,17 @@ Saídas
 Saídas de Análise de Texto
 ******************************
 
-.. program-output:: python3 -m textanalysis.classactivity
+.. program-output:: python -m textanalysis.classactivity
     :caption:
     :cwd: ../../../
 
-.. program-output:: python3 -m textanalysis.booklet
+.. program-output:: python -m textanalysis.booklet
     :caption:
     :cwd: ../../../
 
 Saídas de Machine Learning
 ******************************
+
+.. program-output:: python -m machinelearning.finalproject
+    :caption:
+    :cwd: ../../../

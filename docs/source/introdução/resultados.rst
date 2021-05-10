@@ -33,11 +33,11 @@ tela os resultados da implementação de cada módulo:
 
 .. parsed-literal::
 
-    ~/entregas$ python3 -m textanalysis.classactivity
+    ~/entregas$ python -m textanalysis.classactivity
 
 .. parsed-literal::
 
-    ~/entregas$ python3 -m textanalysis.booklet
+    ~/entregas$ python -m textanalysis.booklet
 
 
 Resultados de Machine Learning

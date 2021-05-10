@@ -100,8 +100,9 @@
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/dsutils.html">dsutils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/classactivity.html">textanalysis.classactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/booklet0.html">textanalysis.booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/textanalysis.classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/textanalysis.booklet.html">textanalysis.booklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/machinelearning.finalproject.html">machinelearning.finalproject</a></li>
 </ul>
 
             
@@ -174,7 +175,7 @@
 <span class="kn">from</span> <span class="nn">dsutils</span> <span class="kn">import</span> <span class="n">DataDir</span>
 
 
-<div class="viewcode-block" id="Ex01"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01">[documentos]</a><span class="k">class</span> <span class="nc">Ex01</span><span class="p">(</span><span class="n">DataDir</span><span class="p">):</span>
+<div class="viewcode-block" id="Ex01"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01">[documentos]</a><span class="k">class</span> <span class="nc">Ex01</span><span class="p">(</span><span class="n">DataDir</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
 
 <span class="sd">    :param text: Texto a ser utilizado como base para o exercício.</span>
@@ -243,7 +244,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text_split</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Ex01.text_replace"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_replace">[documentos]</a>    <span class="k">def</span> <span class="nf">text_replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex01.text_replace"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_replace">[documentos]</a>    <span class="k">def</span> <span class="nf">text_replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Substitui ``old`` por ``new``</span>
 
 <span class="sd">        Substitui o trecho de :attr:`text` indicado pelo parâmetro ``old`` pelo</span>
@@ -259,7 +260,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span></div>
 
-<div class="viewcode-block" id="Ex01.text_segment"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">text_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex01.text_segment"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">text_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Retorna o segmento do texto entre ``first`` e ``last``</span>
 
 <span class="sd">        Retorna o segmento do texto indicado, da posição inicial ``first``</span>
@@ -289,7 +290,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">first</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">last</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Ex01.text_last"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_last">[documentos]</a>    <span class="k">def</span> <span class="nf">text_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex01.text_last"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_last">[documentos]</a>    <span class="k">def</span> <span class="nf">text_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Retorna os últimos caracteres do texto, de tamanho indicado pelo</span>
 <span class="sd">        parâmetro ``n``, que é opcional com valor padrão ``15``.</span>
 
@@ -302,7 +303,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span></div>
 
-<div class="viewcode-block" id="Ex01.text_save"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex01.text_save">[documentos]</a>    <span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex01.text_save"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_save">[documentos]</a>    <span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Salva o texto em um arquivo indicado pelo parâmetro ``filename``.</span>
 
 <span class="sd">        :param filename: Caminho do arquivo</span>
@@ -310,13 +311,13 @@
 
 <span class="sd">        :return: Caminho completo do arquivo salvo</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">datafilename</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">filename</span></div></div>
 
 
-<div class="viewcode-block" id="Ex02"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02">[documentos]</a><span class="k">class</span> <span class="nc">Ex02</span><span class="p">(</span><span class="n">DataDir</span><span class="p">):</span>
+<div class="viewcode-block" id="Ex02"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02">[documentos]</a><span class="k">class</span> <span class="nc">Ex02</span><span class="p">(</span><span class="n">DataDir</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
 
 <span class="sd">    :param docname: Caminho do arquivo ``docx`` a ser carregado.</span>
@@ -325,7 +326,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datafilename</span><span class="p">(</span><span class="n">docname</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">docname</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">paragraphs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
@@ -354,7 +355,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Ex02.paragraphs_segment"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<div class="viewcode-block" id="Ex02.paragraphs_segment"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                            <span class="n">last</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Retorna os parágrafos do documento, da posição inicial ``first`` até</span>
 <span class="sd">        a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os</span>
@@ -385,7 +386,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">[</span><span class="n">first</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Ex02.paragraphs_hastext"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_hastext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_hastext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex02.paragraphs_hastext"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_hastext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_hastext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Verifica se a string indicado pelo parâmetro ``text`` existe no</span>
 <span class="sd">        documento.</span>
 
@@ -404,7 +405,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paragraphs_list</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Ex02.paragraphs_replacetext"><a class="viewcode-back" href="../../../api/booklet0.html#textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_replacetext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Ex02.paragraphs_replacetext"><a class="viewcode-back" href="../../../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext">[documentos]</a>    <span class="k">def</span> <span class="nf">paragraphs_replacetext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Retorna uma string com o conteúdo do documento, substiuindo o texto</span>
 <span class="sd">        indicado pelo parâmetro ``old`` por ``new``.</span>
 

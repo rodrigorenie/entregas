@@ -110,7 +110,7 @@ autodoc_member_order = 'bysource'
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'nltk': ('https://www.nltk.org/', None),
-    'pandas': ('https://pandas.pydata.org/pandas-docs/dev', None)
+    'pandas': ('https://pandas.pydata.org/pandas-docs/dev', None),
 }
 
 # https://github.com/readthedocs/sphinx_rtd_theme/issues/117#issuecomment-41506687
