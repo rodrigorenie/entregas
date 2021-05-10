@@ -2,17 +2,16 @@ import pandas as pd
 import sklearn.preprocessing
 import sklearn.metrics
 import sklearn.linear_model
-import imblearn
+import os
 
 from dsutils import DataDir
-from typing import Tuple, List
 
 
-class Diabetes:
+class Diabetes(DataDir):
 
-    def __init__(self, csvfile: str = 'diabetes.csv'):
+    def __init__(self, csvfile: str = 'diabetes.csv') -> None:
         super().__init__()
-        self.df = pd.read_csv(csvfile)
+        self.df = pd.read_csv(os.path.join(self.datadir, csvfile))
         self.df.rocket.classcols = ['class']
         self.train, self.test = self.df.rocket.normalized.balanced.split(0.3)
 
@@ -25,10 +24,10 @@ class Diabetes:
             x = self.train.instances.df
             y = self.train.classes.df.values.ravel()
 
-            # model = sklearn.ensemble.RandomForestClassifier()
+            model = sklearn.ensemble.RandomForestClassifier()
             # model = sklearn.ensemble.AdaBoostClassifier()
             # model = sklearn.ensemble.BaggingClassifier()
-            model = sklearn.ensemble.GradientBoostingClassifier()
+            # model = sklearn.ensemble.GradientBoostingClassifier()
             # model = sklearn.linear_model.LogisticRegression()
             # model = sklearn.linear_model.LogisticRegressionCV()
 

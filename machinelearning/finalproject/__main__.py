@@ -2,8 +2,7 @@ import pandas as pd
 from machinelearning.finalproject import Diabetes
 
 if __name__ == '__main__':
-    csv_diabetes = 'data/machinelearning.finalproject/diabetes.csv'
-    diabetes = Diabetes(csv_diabetes)
+    diabetes = Diabetes('diabetes.csv')
 
     csv_test_pos = 'data/machinelearning.finalproject/instances_positive.csv'
     group1 = pd.read_csv(csv_test_pos)

@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import os
-import tempfile
+import sklearn
 import inspect
 import pandas as pd
+import numpy as np
+import imblearn
 
 from typing import Optional, Tuple, List
 
@@ -31,39 +33,6 @@ class DataDir:
             os.mkdir(self._datadir)
 
         return self._datadir
-
-    def filepath(self, name: Optional[str] = None, *path: str) -> str:
-        filepath = None
-
-        for path in filepath:
-            path = self.dirpath(path)
-
-        if filepath:
-            filepath = os.path.join(self.datadir, os.path.basename(filepath))
-        else:
-            filepath = os.path.basename(tempfile.NamedTemporaryFile().name)
-            filepath = os.path.join(self.datadir, f'{filepath}.txt')
-
-        return filepath
-
-    def dirpath(self, *dirpath: str) -> str:
-        path = None
-
-        for dirname in dirpath:
-            dirname = os.path.basename(dirname)
-            path = os.path.join(self.datadir, os.path.basename(dirname))
-
-            if not os.path.exists(path):
-                os.mkdir(path)
-
-        if not path:
-            path = os.path.basename(tempfile.TemporaryDirectory().name)
-            path = os.path.join(self.datadir, f'{path}')
-
-        if not os.path.exists(path):
-            os.mkdir(path)
-
-        return path
 
 
 @pd.api.extensions.register_dataframe_accessor("rocket")
