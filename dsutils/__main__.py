@@ -1,5 +1,7 @@
-from dsutils.dsutils import T
+from dsutils import DataDir
+import os
 
 if __name__ == '__main__':
-    t = T()
-    print(t.datadir)
+    # d = DataDir('teste')
+    # print(d.dirpath('teste3/teste4', 'teste5'))
+    print(os.path.join('teste', 'teste2', None))

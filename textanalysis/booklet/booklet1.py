@@ -47,7 +47,7 @@ class Ex02(DataDir):
 
     def __init__(self, docfile: str) -> None:
         super().__init__()
-        docfile = self.datafilename(docfile)
+        docfile = self.file(docfile)
         self._doc = docx.Document(docfile)
 
     @property

@@ -1,4 +1,3 @@
-from machinelearning.finalproject.diabetes import DiabetesData, Diabetes, \
-    RocketFrame
+from machinelearning.finalproject.diabetes import Diabetes
 
-__all__ = ['DiabetesData', 'Diabetes', 'RocketFrame']
+__all__ = ['Diabetes']

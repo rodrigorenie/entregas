@@ -1,3 +1,3 @@
-from dsutils.dsutils import DataDir
+from dsutils.dsutils import DataDir, RocketFrame
 
-__all__ = ['DataDir']
+__all__ = ['DataDir', 'RocketFrame']

@@ -140,7 +140,7 @@ class Ex01(DataDir):
 
         :return: Caminho completo do arquivo salvo
         """
-        filename = self.datafilename(filename)
+        filename = self.file(filename)
         with open(filename, 'w', encoding='utf8') as f:
             f.write(self.text + '\n')
             return filename
@@ -155,7 +155,7 @@ class Ex02(DataDir):
 
     def __init__(self, docname: str) -> None:
         super().__init__()
-        self._doc = docx.Document(self.datafilename(docname))
+        self._doc = docx.Document(self.file(docname))
 
     @property
     def paragraphs(self) -> Iterator[str]:

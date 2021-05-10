@@ -23,7 +23,7 @@ class News(DataDir):
                  newsfile: str = 'news.txt') -> None:
         super().__init__()
 
-        self._newsfile = self.datafilename(newsfile)
+        self._newsfile = self.file(newsfile)
         self._stopwords = list(string.punctuation)
         self._stopwords += nltk.corpus.stopwords.words('english')
         self._stopwords += ['a', 'the']
