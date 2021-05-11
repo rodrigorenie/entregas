@@ -12,40 +12,43 @@ from typing import Optional, Tuple, List
 
 class DataDir:
 
-    def __init__(self, dirname: Optional[str] = None) -> None:
-        if not dirname:
-            dirname = inspect.getmodule(self).__package__
+    datadir = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), '..', 'data')
+    )
 
-        dirname = os.path.basename(dirname)
-        dirname = os.path.join(os.path.dirname(__file__), '..', 'data', dirname)
-        dirname = os.path.abspath(dirname)
-        self._datadir = dirname
-
-    def __str__(self):
-        return self.datadir
-
-    @property
-    def datadir(self) -> str:
-        if os.path.exists(self._datadir):
-            if not os.path.isdir(self._datadir):
-                raise NotADirectoryError
-        else:
-            os.mkdir(self._datadir)
-
-        return self._datadir
+    @staticmethod
+    def join(*args):
+        caller = inspect.getmodule(inspect.currentframe().f_back).__package__
+        path = os.path.join(DataDir.datadir, caller)
+        for arg in args:
+            arg = os.path.basename(arg)
+            path = os.path.join(path, arg)
+        return path
 
 
 @pd.api.extensions.register_dataframe_accessor("rocket")
 class RocketFrame:
-    def __init__(self, df: pd.DataFrame, classcols: List[str] = []) -> None:
+    def __init__(self, df: pd.DataFrame, classcols: List[str] = None) -> None:
         self._df = df
-        self._dftrain = None
-        self._dftest = None
-        self._classcols = classcols
+        self._classcols = classcols if classcols is not None else []
+        self._train = None
+        self._test = None
 
     @property
     def df(self) -> pd.DataFrame:
         return self._df
+
+    @property
+    def train(self) -> RocketFrame:
+        if self._train is None:
+            self._train, self._test = self.split()
+        return self._train
+
+    @property
+    def test(self) -> RocketFrame:
+        if self._test is None:
+            self._train, self._test = self.split()
+        return self._test
 
     def __str__(self) -> str:
         return str(self.df)
@@ -118,3 +121,4 @@ class RocketFrame:
         test = x_test.join(y_test).reset_index(drop=True)
 
         return self.__class__(train, c), self.__class__(test, c)
+
