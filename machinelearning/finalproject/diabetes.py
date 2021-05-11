@@ -2,7 +2,6 @@ import pandas as pd
 import sklearn.preprocessing
 import sklearn.metrics
 import sklearn.linear_model
-import os
 
 from dsutils import DataDir
 from typing import Any, Iterable, Tuple
@@ -30,6 +29,10 @@ class Diabetes:
     @property
     def df(self):
         return self._df
+
+    @property
+    def testdf(self):
+        return self.df.rocket
 
     @property
     def model(self) -> Any:

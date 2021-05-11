@@ -3,11 +3,17 @@ from __future__ import annotations
 import os
 import sklearn
 import inspect
-import pandas as pd
-import numpy as np
+import pandas
+import numpy
 import imblearn
 
-from typing import Optional, Tuple, List
+from typing import Tuple, List
+from rich import box
+from rich.columns import Columns
+from rich.panel import Panel
+from rich.text import Text
+from rich.console import Console
+from rich.rule import Rule
 
 
 class DataDir:
@@ -26,16 +32,36 @@ class DataDir:
         return path
 
 
-@pd.api.extensions.register_dataframe_accessor("rocket")
+@pandas.api.extensions.register_dataframe_accessor("rocket")
 class RocketFrame:
-    def __init__(self, df: pd.DataFrame, classcols: List[str] = None) -> None:
+    """Classe que extende a funcionalidade de um :class:`pandas.DataFrame`
+
+    Adiciona uma propriedade nas instâncias da classe :class:`pandas.DataFrame`
+    chamado ``rocket``, a partir da onde é possível acessar todos os métodos
+    implementados nesta classe.
+
+    Exemplo:
+
+    >>> import pandas
+    >>> # Obrigatório importar o módulo para registrar a propriedade 'rocket'
+    >>> import dsutils
+    >>> pd = pandas.DataFrame([[1, 2], [3, 4], [5, 6]], columns=[['i', 'c']])
+    >>> pd.rocket.classcols = ['c']
+    >>> # Cópia do DataFrame contendo apenas as instâncias
+    >>> pd.rocket.instances.df
+    >>> # Cópia do DataFrame contendo apenas as classes
+    >>> pd.rocket.classes.df
+    """
+    def __init__(self,
+                 df: pandas.DataFrame,
+                 classcols: List[str] = None) -> None:
         self._df = df
         self._classcols = classcols if classcols is not None else []
         self._train = None
         self._test = None
 
     @property
-    def df(self) -> pd.DataFrame:
+    def df(self) -> pandas.DataFrame:
         return self._df
 
     @property
@@ -76,8 +102,16 @@ class RocketFrame:
         return self.__class__(df, self.classcols)
 
     @property
+    def nona(self) -> RocketFrame:
+        df = self.df
+        df = df.drop(columns=df.columns[df.isna().all()])
+        df = df.dropna()
+        df = df.reset_index(drop=True)
+        return self.__class__(df, self.classcols)
+
+    @property
     def numericals(self) -> RocketFrame:
-        df = self.df.select_dtypes(include=np.number)
+        df = self.df.select_dtypes(include=numpy.number)
         df = df.drop(columns=self.classcols, errors='ignore')
         df = df.join(self.classes.df)
         return self.__class__(df, self.classcols)
@@ -94,11 +128,11 @@ class RocketFrame:
         normalizer = sklearn.preprocessing.MinMaxScaler()
 
         dfcat = self.categoricals.instances.df
-        dfcat = pd.get_dummies(dfcat) if dfcat.size > 0 else dfcat
+        dfcat = pandas.get_dummies(dfcat) if dfcat.size > 0 else dfcat
         dfcat = dfcat.join(self.classes.df)
 
         df = self.numericals.instances.df
-        df = pd.DataFrame(normalizer.fit_transform(df), columns=df.columns)
+        df = pandas.DataFrame(normalizer.fit_transform(df), columns=df.columns)
 
         return self.__class__(df.join(dfcat), self.classcols)
 
@@ -122,3 +156,33 @@ class RocketFrame:
 
         return self.__class__(train, c), self.__class__(test, c)
 
+
+class Exercise:
+
+    def __init__(self, title):
+        self._title = title
+        self._items = {}
+
+    @staticmethod
+    def text(*args, **kwargs):
+        return Text(*args, **kwargs)
+
+    def __iter__(self):
+        for number, (item, resolution) in enumerate(self._items.items()):
+            yield f'{number+1:02}', item, resolution
+
+    def item(self, item, *resolutions):
+        self._items[item] = resolutions
+
+    def print(self):
+        console = Console(width=80)
+        console.print(Panel(Text(self._title, justify='center')))
+
+        for number, item, resolutions in self:
+            console.print(Columns([
+                Panel(number, width=6, box=box.SIMPLE),
+                Panel(item, width=73, box=box.SIMPLE)
+            ]))
+            console.print(*resolutions, sep='\n')
+            console.print()
+            console.print(Rule(characters='-'))
