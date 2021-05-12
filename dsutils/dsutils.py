@@ -139,7 +139,9 @@ class RocketFrame:
     @property
     def balanced(self) -> RocketFrame:
         balancer = imblearn.over_sampling.SMOTE()
-        dfinst, dfclass = self.instances.df, self.classes.df
+        df = self.df.groupby(self.classcols).filter(lambda x: len(x) > 6)
+        df.rocket.classcols = self.classcols
+        dfinst, dfclass = df.rocket.instances.df, df.rocket.classes.df
         dfinst, dfclass = balancer.fit_resample(dfinst, dfclass)
         return self.__class__(dfinst.join(dfclass), self.classcols)
 

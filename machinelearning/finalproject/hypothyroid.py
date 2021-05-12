@@ -13,6 +13,4 @@ class Hypothyroid:
         df = pd.read_csv(DataDir.join(csvfile), na_values='?',
                          keep_default_na=True)
         df.rocket.classcols = ['Class']
-
-        print(df.info())
-        print(df.rocket.nona.normalized.numericals)
+        df = df.rocket.nona.normalized.balanced
