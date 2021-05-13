@@ -19,7 +19,7 @@ class Hypothyroid:
         df: pandas.DataFrame = pd.read_csv(DataDir.join(csvfile), na_values='?',
                          keep_default_na=True)
         df.rocket.classcols = ['Class']
-        df = df.rocket.nona.normalized.balanced.instances.df
+        df = df.rocket.nona.normalized.instances.df
         inertia = []
         distortions = []
         # for n in range(1, 11):
@@ -61,11 +61,29 @@ class Hypothyroid:
         # plt.scatter(model.cluster_centers_[:, 0], model.cluster_centers_[:, 1])
         # plt.show()
 
-        df = pd.DataFrame(np.random.rand(10, 2), columns=["A", "B"])
-        km = KMeans(n_clusters=3).fit(df)
-        df['cluster_id'] = km.labels_
-        dic = {0: "Blue", 1: "Red", 2: "Green"}
-        print(df)
-        plt.scatter(x="A", y="B", data=df)
+        from sklearn.decomposition import PCA
+
+        # df = pd.DataFrame(np.random.rand(100, 6))
+        df = pd.DataFrame(PCA(n_components=2).fit_transform(df),
+                          columns=['x', 'y'])
+        model = KMeans(n_clusters=3).fit(df)
+        print(model.labels_)
+
+        # df = pd.DataFrame(np.random.rand(10, 2), columns=["x", "y"])
+        # print(df[df.cluster == 0])
+        df['cluster'] = model.labels_
+
+        # df = pd.DataFrame(reduced_data, columns=['A', 'B'])
+        # df['cluster'] = km.labels_
+
+        # print(df[cluster == 'A'])
+        plt.scatter(df[df.cluster == 0]['x'], df[df.cluster == 0]['y'],
+                    color='red')
+        plt.scatter(df[df.cluster == 1]['x'], df[df.cluster == 1]['y'],
+                    color='blue')
+        plt.scatter(df[df.cluster == 2]['x'], df[df.cluster == 2]['y'],
+                    color='green')
+        plt.scatter(model.cluster_centers_[:, 0], model.cluster_centers_[:, 1],
+                    color='black', s=80)
         plt.show()
 
