@@ -7,13 +7,55 @@ import pandas
 import numpy
 import imblearn
 
-from typing import Tuple, List
+from typing import Tuple
 from rich import box
 from rich.columns import Columns
 from rich.panel import Panel
 from rich.text import Text
 from rich.console import Console
 from rich.rule import Rule
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+class Colors:
+    blue = '#2CBDFE'
+    green = '#47DBCD'
+    pink = '#F3A0F2'
+    purple = '#9D2EC5'
+    violet = '#661D98'
+    amber = '#F5B14C'
+    list = [blue, green, pink, purple, violet, amber]
+
+
+plt.rcParams['axes.prop_cycle'] = plt.cycler(color=Colors.list)
+
+sns.set(rc={'axes.axisbelow': False,
+            'axes.edgecolor': 'lightgrey',
+            'axes.facecolor': 'None',
+            'axes.grid': False,
+            'axes.labelcolor': 'dimgrey',
+            #'axes.spines.right': False,
+            #'axes.spines.top': False,
+            'figure.facecolor': 'white',
+            'lines.solid_capstyle': 'round',
+            'patch.edgecolor': 'w',
+            'patch.force_edgecolor': True,
+            'text.color': 'dimgrey',
+            'xtick.bottom': False,
+            'xtick.color': 'dimgrey',
+            'xtick.direction': 'out',
+            'xtick.top': False,
+            'ytick.color': 'dimgrey',
+            'ytick.direction': 'out',
+            #'ytick.left': False,
+            #'ytick.right': False
+            })
+
+sns.set_context('notebook', rc={'font.size': 12,
+                                'axes.titlesize': 20,
+                                'axes.labelsize': 12})
 
 
 class DataDir:
@@ -51,10 +93,12 @@ class RocketFrame:
     >>> pd.rocket.instances.df
     >>> # Cópia do DataFrame contendo apenas as classes
     >>> pd.rocket.classes.df
+    >>> # Cópia do DataFrame com as instâncias normalizaas e balanceaas
+    >>> pd.rocket.normalized.balanced.instances.df
     """
     def __init__(self,
                  df: pandas.DataFrame,
-                 classcols: List[str] = None) -> None:
+                 classcols: list[str] = None) -> None:
         self._df = df
         self._classcols = classcols if classcols is not None else []
         self._train = None
@@ -80,11 +124,11 @@ class RocketFrame:
         return str(self.df)
 
     @property
-    def classcols(self) -> List[str]:
+    def classcols(self) -> list[str]:
         return self._classcols
 
     @classcols.setter
-    def classcols(self, classcols: List[str]) -> None:
+    def classcols(self, classcols: list[str]) -> None:
         for col in classcols:
             if col not in self.df.columns:
                 raise ValueError(f"'{col}' column must exist in the dataframe")
@@ -143,9 +187,21 @@ class RocketFrame:
         df.rocket.classcols = self.classcols
         dfinst, dfclass = df.rocket.instances.df, df.rocket.classes.df
         dfinst, dfclass = balancer.fit_resample(dfinst, dfclass)
+        dfinst = dfinst.reset_index(drop=True)
+        dfclass = dfclass.reset_index(drop=True)
         return self.__class__(dfinst.join(dfclass), self.classcols)
 
-    def split(self, size: float = 0.3) -> Tuple[RocketFrame, RocketFrame]:
+    @property
+    def reduced(self) -> RocketFrame:
+        df, dfclass = self.instances.df, self.classes.df
+
+        df = sklearn.decomposition.PCA(n_components=2).fit_transform(df)
+        df = pandas.DataFrame(df, columns=['X', 'y'])
+        df = df.join(dfclass.reset_index(drop=True))
+
+        return self.__class__(df, self.classcols)
+
+    def split(self, size: float = 0.3) -> tuple[RocketFrame, RocketFrame]:
         x = self.instances.df
         y = self.classes.df
         c = self.classcols

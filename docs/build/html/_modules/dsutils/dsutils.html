@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
 
   
@@ -30,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -67,7 +70,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -178,7 +181,55 @@
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">imblearn</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="n">box</span>
+<span class="kn">from</span> <span class="nn">rich.columns</span> <span class="kn">import</span> <span class="n">Columns</span>
+<span class="kn">from</span> <span class="nn">rich.panel</span> <span class="kn">import</span> <span class="n">Panel</span>
+<span class="kn">from</span> <span class="nn">rich.text</span> <span class="kn">import</span> <span class="n">Text</span>
+<span class="kn">from</span> <span class="nn">rich.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">rich.rule</span> <span class="kn">import</span> <span class="n">Rule</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+
+<div class="viewcode-block" id="Colors"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.Colors">[documentos]</a><span class="k">class</span> <span class="nc">Colors</span><span class="p">:</span>
+    <span class="n">blue</span> <span class="o">=</span> <span class="s1">&#39;#2CBDFE&#39;</span>
+    <span class="n">green</span> <span class="o">=</span> <span class="s1">&#39;#47DBCD&#39;</span>
+    <span class="n">pink</span> <span class="o">=</span> <span class="s1">&#39;#F3A0F2&#39;</span>
+    <span class="n">purple</span> <span class="o">=</span> <span class="s1">&#39;#9D2EC5&#39;</span>
+    <span class="n">violet</span> <span class="o">=</span> <span class="s1">&#39;#661D98&#39;</span>
+    <span class="n">amber</span> <span class="o">=</span> <span class="s1">&#39;#F5B14C&#39;</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="n">blue</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">pink</span><span class="p">,</span> <span class="n">purple</span><span class="p">,</span> <span class="n">violet</span><span class="p">,</span> <span class="n">amber</span><span class="p">]</span></div>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cycler</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+            <span class="c1">#&#39;axes.spines.right&#39;: False,</span>
+            <span class="c1">#&#39;axes.spines.top&#39;: False,</span>
+            <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;patch.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;patch.force_edgecolor&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;xtick.bottom&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;xtick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;xtick.top&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+            <span class="c1">#&#39;ytick.left&#39;: False,</span>
+            <span class="c1">#&#39;ytick.right&#39;: False</span>
+            <span class="p">})</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                                <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                                <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
 
 
 <div class="viewcode-block" id="DataDir"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DataDir">[documentos]</a><span class="k">class</span> <span class="nc">DataDir</span><span class="p">:</span>
@@ -207,17 +258,21 @@
 
 <span class="sd">    Exemplo:</span>
 
-<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
-<span class="sd">    &gt;&gt;&gt; # Obrigatório importar o módulo para registrar a propriedade ``rocket``</span>
+<span class="sd">    &gt;&gt;&gt; import pandas</span>
+<span class="sd">    &gt;&gt;&gt; # Obrigatório importar o módulo para registrar a propriedade &#39;rocket&#39;</span>
 <span class="sd">    &gt;&gt;&gt; import dsutils</span>
 <span class="sd">    &gt;&gt;&gt; pd = pandas.DataFrame([[1, 2], [3, 4], [5, 6]], columns=[[&#39;i&#39;, &#39;c&#39;]])</span>
 <span class="sd">    &gt;&gt;&gt; pd.rocket.classcols = [&#39;c&#39;]</span>
 <span class="sd">    &gt;&gt;&gt; # Cópia do DataFrame contendo apenas as instâncias</span>
-<span class="sd">    &gt;&gt;&gt; print(pd.rocket.instances.df)</span>
+<span class="sd">    &gt;&gt;&gt; pd.rocket.instances.df</span>
 <span class="sd">    &gt;&gt;&gt; # Cópia do DataFrame contendo apenas as classes</span>
-<span class="sd">    &gt;&gt;&gt; print(pd.rocket.classes.df)</span>
+<span class="sd">    &gt;&gt;&gt; pd.rocket.classes.df</span>
+<span class="sd">    &gt;&gt;&gt; # Cópia do DataFrame com as instâncias normalizaas e balanceaas</span>
+<span class="sd">    &gt;&gt;&gt; pd.rocket.normalized.balanced.instances.df</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">classcols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+                 <span class="n">classcols</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="n">df</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_classcols</span> <span class="o">=</span> <span class="n">classcols</span> <span class="k">if</span> <span class="n">classcols</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_train</span> <span class="o">=</span> <span class="kc">None</span>
@@ -243,11 +298,11 @@
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">classcols</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">classcols</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_classcols</span>
 
     <span class="nd">@classcols</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">classcols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classcols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">classcols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classcols</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">classcols</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; column must exist in the dataframe&quot;</span><span class="p">)</span>
@@ -262,6 +317,14 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">instances</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RocketFrame</span><span class="p">:</span>
         <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classcols</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">classcols</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nona</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RocketFrame</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()])</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">classcols</span><span class="p">)</span>
 
     <span class="nd">@property</span>
@@ -283,22 +346,36 @@
         <span class="n">normalizer</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">()</span>
 
         <span class="n">dfcat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">categoricals</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span>
-        <span class="n">dfcat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">dfcat</span><span class="p">)</span> <span class="k">if</span> <span class="n">dfcat</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">dfcat</span>
+        <span class="n">dfcat</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">dfcat</span><span class="p">)</span> <span class="k">if</span> <span class="n">dfcat</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">dfcat</span>
         <span class="n">dfcat</span> <span class="o">=</span> <span class="n">dfcat</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
 
         <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numericals</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">normalizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">normalizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dfcat</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">classcols</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">balanced</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RocketFrame</span><span class="p">:</span>
         <span class="n">balancer</span> <span class="o">=</span> <span class="n">imblearn</span><span class="o">.</span><span class="n">over_sampling</span><span class="o">.</span><span class="n">SMOTE</span><span class="p">()</span>
-        <span class="n">dfinst</span><span class="p">,</span> <span class="n">dfclass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classcols</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">classcols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classcols</span>
+        <span class="n">dfinst</span><span class="p">,</span> <span class="n">dfclass</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span>
         <span class="n">dfinst</span><span class="p">,</span> <span class="n">dfclass</span> <span class="o">=</span> <span class="n">balancer</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">dfinst</span><span class="p">,</span> <span class="n">dfclass</span><span class="p">)</span>
+        <span class="n">dfinst</span> <span class="o">=</span> <span class="n">dfinst</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">dfclass</span> <span class="o">=</span> <span class="n">dfclass</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">dfinst</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dfclass</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">classcols</span><span class="p">)</span>
 
-<div class="viewcode-block" id="RocketFrame.split"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.RocketFrame.split">[documentos]</a>    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">RocketFrame</span><span class="p">,</span> <span class="n">RocketFrame</span><span class="p">]:</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">reduced</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RocketFrame</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">,</span> <span class="n">dfclass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dfclass</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">classcols</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RocketFrame.split"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.RocketFrame.split">[documentos]</a>    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">RocketFrame</span><span class="p">,</span> <span class="n">RocketFrame</span><span class="p">]:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span>
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span>
         <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classcols</span>
@@ -311,6 +388,36 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div></div>
 
+
+<div class="viewcode-block" id="Exercise"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.Exercise">[documentos]</a><span class="k">class</span> <span class="nc">Exercise</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="Exercise.text"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.Exercise.text">[documentos]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">resolution</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="k">yield</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s1">02</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">resolution</span>
+
+<div class="viewcode-block" id="Exercise.item"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.Exercise.item">[documentos]</a>    <span class="k">def</span> <span class="nf">item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">*</span><span class="n">resolutions</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_items</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">resolutions</span></div>
+
+<div class="viewcode-block" id="Exercise.print"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.Exercise.print">[documentos]</a>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">console</span> <span class="o">=</span> <span class="n">Console</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">Panel</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_title</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)))</span>
+
+        <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">resolutions</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">Columns</span><span class="p">([</span>
+                <span class="n">Panel</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">box</span><span class="o">=</span><span class="n">box</span><span class="o">.</span><span class="n">SIMPLE</span><span class="p">),</span>
+                <span class="n">Panel</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">73</span><span class="p">,</span> <span class="n">box</span><span class="o">=</span><span class="n">box</span><span class="o">.</span><span class="n">SIMPLE</span><span class="p">)</span>
+            <span class="p">]))</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="o">*</span><span class="n">resolutions</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+            <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">Rule</span><span class="p">(</span><span class="n">characters</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">))</span></div></div>
 </pre></div>
 
            </div>
@@ -329,11 +436,11 @@
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>

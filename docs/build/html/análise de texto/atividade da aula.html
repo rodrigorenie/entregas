@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
   
@@ -30,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -69,7 +72,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -159,7 +162,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/análise de texto/atividade da aula.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/análise de texto/atividade da aula.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
           
         
       </li>
@@ -183,234 +186,140 @@ realize o que se pede.</p>
 <div class="topic">
 <p class="topic-title">Contar o número de palavras no texto</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.sents_words_len" title="textanalysis.classactivity.News.sents_words_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_words_len</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents_words_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Quantidade de tokens</span>
-
-<span class="sd">        Contabiliza a quantidade de tokens de todas as sentenças.</span>
-
-<span class="sd">        :return: quantidade de tokens em todas as sentaças</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    <span class="nd">@property</span>
+<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">sents_words_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos">3</span>        <span class="sd">&quot;&quot;&quot;Quantidade de tokens</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="sd">        Contabiliza a quantidade de tokens de todas as sentenças.</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="sd">        :return: quantidade de tokens em todas as sentaças</span>
+<span class="linenos">8</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">9</span>        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">])</span>
 </pre></div>
-</td></tr></table></div>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizada</span>
-
-<span class="sd">        Gera um iterador sobre cada sentença encontrada em :attr:`text`. Ao</span>
-<span class="sd">        tokenizar (utilizando as funções :func:`nltk.tokenize.sent_tokenize` e</span>
-<span class="sd">        :func:`nltk.tokenize.word_tokenize`, a sentença se torna uma lista de</span>
-<span class="sd">        tokens.</span>
-
-<span class="sd">        :return: iterador de lista de sentenças tokenizadas</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
-            <span class="n">sent</span> <span class="o">=</span> <span class="n">sent</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-            <span class="n">sent</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="n">sent</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizada</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="sd">        Gera um iterador sobre cada sentença encontrada em :attr:`text`. Ao</span>
+<span class="linenos"> 6</span><span class="sd">        tokenizar (utilizando as funções :func:`nltk.tokenize.sent_tokenize` e</span>
+<span class="linenos"> 7</span><span class="sd">        :func:`nltk.tokenize.word_tokenize`, a sentença se torna uma lista de</span>
+<span class="linenos"> 8</span><span class="sd">        tokens.</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="sd">        :return: iterador de lista de sentenças tokenizadas</span>
+<span class="linenos">11</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">12</span>        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">13</span>            <span class="n">sent</span> <span class="o">=</span> <span class="n">sent</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="linenos">14</span>            <span class="n">sent</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+<span class="linenos">15</span>            <span class="k">yield</span> <span class="n">sent</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="topic">
 <p class="topic-title">Imprimir as 10 palavras mais utilizadas</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.top_words" title="textanalysis.classactivity.News.top_words"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.top_words</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">top_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;Gera as palavras mais frequentes</span>
-
-<span class="sd">        Gera as palavras (neste caso, tokens) mais frequentes em :attr:`text`</span>
-<span class="sd">        utilizando a classe :class:`nltk.probability.FreqDist`.</span>
-
-<span class="sd">        :param n: número de palavras a retornar</span>
-<span class="sd">        :type n: int</span>
-<span class="sd">        :return: iterador de tupla (palavra, frequência)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">freq</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">probability</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents_clean</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">yield</span> <span class="n">word</span><span class="p">,</span> <span class="n">top</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">top_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="linenos"> 2</span>        <span class="sd">&quot;&quot;&quot;Gera as palavras mais frequentes</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="sd">        Gera as palavras (neste caso, tokens) mais frequentes em :attr:`text`</span>
+<span class="linenos"> 5</span><span class="sd">        utilizando a classe :class:`nltk.probability.FreqDist`.</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="sd">        :param n: número de palavras a retornar</span>
+<span class="linenos"> 8</span><span class="sd">        :type n: int</span>
+<span class="linenos"> 9</span><span class="sd">        :return: iterador de tupla (palavra, frequência)</span>
+<span class="linenos">10</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">11</span>        <span class="n">freq</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">probability</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents_clean</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">14</span>            <span class="k">yield</span> <span class="n">word</span><span class="p">,</span> <span class="n">top</span>
 </pre></div>
-</td></tr></table></div>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizadas sem *stopwords*.</span>
-
-<span class="sd">        Mesma funcionalidade de :attr:`sents`, porém a sentença não contém</span>
-<span class="sd">        tokens definidos em :attr:`stopwords`.</span>
-
-<span class="sd">        :return: iterador de lista de sentenças tokenizadas</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sent</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopwords</span><span class="p">:</span>
-                    <span class="n">sent</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sent</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopwords</span><span class="p">:</span>
-                    <span class="n">sent</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="n">sent</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizadas sem *stopwords*.</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="sd">        Mesma funcionalidade de :attr:`sents`, porém a sentença não contém</span>
+<span class="linenos"> 6</span><span class="sd">        tokens definidos em :attr:`stopwords`.</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">        :return: iterador de lista de sentenças tokenizadas</span>
+<span class="linenos"> 9</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">10</span>        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">:</span>
+<span class="linenos">11</span>            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sent</span><span class="p">:</span>
+<span class="linenos">12</span>                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopwords</span><span class="p">:</span>
+<span class="linenos">13</span>                    <span class="n">sent</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="linenos">14</span>            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sent</span><span class="p">:</span>
+<span class="linenos">15</span>                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopwords</span><span class="p">:</span>
+<span class="linenos">16</span>                    <span class="n">sent</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="linenos">17</span>            <span class="k">yield</span> <span class="n">sent</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="topic">
 <p class="topic-title">Imprimir os 10 bigramas mais utilizados</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.top_bigram" title="textanalysis.classactivity.News.top_bigram"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.top_bigram</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">top_bigram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;Gera os bigramas mais frequentes no texto utilizando</span>
-
-<span class="sd">        Gera os bigramas de :attr:`text` utilzando a classe</span>
-<span class="sd">        :class:`nltk.probability.FreqDist` no resultado da função</span>
-<span class="sd">        :func:`nltk.util.ngrams`.</span>
-
-<span class="sd">        :param n: número de bigramas a retornar</span>
-<span class="sd">        :type n: int</span>
-<span class="sd">        :return: iterador de tupla (palavra, frequência)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">bigrams</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents_clean</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="n">freq</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">probability</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">bigrams</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">bigram</span><span class="p">,</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">yield</span> <span class="n">bigram</span><span class="p">,</span> <span class="n">top</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">top_bigram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="linenos"> 2</span>        <span class="sd">&quot;&quot;&quot;Gera os bigramas mais frequentes no texto utilizando</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="sd">        Gera os bigramas de :attr:`text` utilzando a classe</span>
+<span class="linenos"> 5</span><span class="sd">        :class:`nltk.probability.FreqDist` no resultado da função</span>
+<span class="linenos"> 6</span><span class="sd">        :func:`nltk.util.ngrams`.</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">        :param n: número de bigramas a retornar</span>
+<span class="linenos"> 9</span><span class="sd">        :type n: int</span>
+<span class="linenos">10</span><span class="sd">        :return: iterador de tupla (palavra, frequência)</span>
+<span class="linenos">11</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">12</span>        <span class="n">bigrams</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents_clean</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">13</span>        <span class="n">freq</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">probability</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">bigrams</span><span class="p">)</span>
+<span class="linenos">14</span>        <span class="k">for</span> <span class="n">bigram</span><span class="p">,</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">15</span>            <span class="k">yield</span> <span class="n">bigram</span><span class="p">,</span> <span class="n">top</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="topic">
 <p class="topic-title">Contar o número de sentenças no texto</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.sents_len" title="textanalysis.classactivity.News.sents_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_len</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Quantidade de sentenças</span>
-
-<span class="sd">        Retorna o tamanho da lista de sentenças gerado por :attr:`sents`.</span>
-
-<span class="sd">        :return: quantidade de sentenças</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    <span class="nd">@property</span>
+<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">sents_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos">3</span>        <span class="sd">&quot;&quot;&quot;Quantidade de sentenças</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="sd">        Retorna o tamanho da lista de sentenças gerado por :attr:`sents`.</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="sd">        :return: quantidade de sentenças</span>
+<span class="linenos">8</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">9</span>        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">])</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="topic">
 <p class="topic-title">Realizar a classificação gramatical (POS e NER)</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.sents_pos" title="textanalysis.classactivity.News.sents_pos"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_pos</span></code></a></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
-        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças com tokens POS</span>
-
-<span class="sd">        Realiza o tagueamento gramatical das sentenças retornadas por</span>
-<span class="sd">        :attr:`sents` utilizando a função :func:`nltk.tag.pos_tag_sents`.</span>
-
-<span class="sd">        :return: iterador de lista de tokens POS</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">pos_tag_sents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">):</span>
-            <span class="k">yield</span> <span class="n">sent</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças com tokens POS</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="sd">        Realiza o tagueamento gramatical das sentenças retornadas por</span>
+<span class="linenos"> 6</span><span class="sd">        :attr:`sents` utilizando a função :func:`nltk.tag.pos_tag_sents`.</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">        :return: iterador de lista de tokens POS</span>
+<span class="linenos"> 9</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">10</span>        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">pos_tag_sents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sents</span><span class="p">):</span>
+<span class="linenos">11</span>            <span class="k">yield</span> <span class="n">sent</span>
 </pre></div>
-</td></tr></table></div>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">sents_ner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">nltk</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">Tree</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças com tokens NER</span>
-
-<span class="sd">        Realiza o reconhecimento de entidades nomeadas (NER) das sentenças</span>
-<span class="sd">        retornadas por :attr:`sents` utilizando a função</span>
-<span class="sd">        :func:`nltk.chunk.ne_chunk_sents`.</span>
-
-<span class="sd">        :return: iterador de lista de tokens NER</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk_sents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sents_pos</span><span class="p">):</span>
-            <span class="k">yield</span> <span class="n">sent</span>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents_ner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">nltk</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">Tree</span><span class="p">]:</span>
+<span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças com tokens NER</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="sd">        Realiza o reconhecimento de entidades nomeadas (NER) das sentenças</span>
+<span class="linenos"> 6</span><span class="sd">        retornadas por :attr:`sents` utilizando a função</span>
+<span class="linenos"> 7</span><span class="sd">        :func:`nltk.chunk.ne_chunk_sents`.</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="sd">        :return: iterador de lista de tokens NER</span>
+<span class="linenos">10</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="linenos">11</span>        <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk_sents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sents_pos</span><span class="p">):</span>
+<span class="linenos">12</span>            <span class="k">yield</span> <span class="n">sent</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 </div>
 
@@ -420,8 +329,8 @@ realize o que se pede.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="apostila0.html" class="btn btn-neutral float-right" title="Exercícios da Apostila 0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../introdu%C3%A7%C3%A3o/equipe.html" class="btn btn-neutral float-left" title="Equipe Rocket" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="apostila0.html" class="btn btn-neutral float-right" title="Exercícios da Apostila 0" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../introdu%C3%A7%C3%A3o/equipe.html" class="btn btn-neutral float-left" title="Equipe Rocket" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 
   <hr/>
@@ -435,11 +344,11 @@ realize o que se pede.</p>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>

@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
   
@@ -30,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -69,7 +72,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -159,7 +162,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/textanalysis.classactivity.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/textanalysis.classactivity.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
           
         
       </li>
@@ -175,8 +178,8 @@
   <div class="section" id="module-textanalysis.classactivity">
 <span id="textanalysis-classactivity"></span><h1>textanalysis.classactivity<a class="headerlink" href="#module-textanalysis.classactivity" title="Link permanente para este título">¶</a></h1>
 <dl class="py class">
-<dt id="textanalysis.classactivity.News">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">textanalysis.classactivity.</span></code><code class="sig-name descname"><span class="pre">News</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newsfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'news.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="textanalysis.classactivity.News">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">textanalysis.classactivity.</span></span><span class="sig-name descname"><span class="pre">News</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newsfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'news.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Implementa a atividade descrita em :ref`Atividade da Aula`.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
@@ -189,14 +192,14 @@ detalhes)</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.stopwords">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">stopwords</span></code><a class="headerlink" href="#textanalysis.classactivity.News.stopwords" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.stopwords">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">stopwords</span></span><a class="headerlink" href="#textanalysis.classactivity.News.stopwords" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.newsfile">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">newsfile</span></code><a class="headerlink" href="#textanalysis.classactivity.News.newsfile" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.newsfile">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">newsfile</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#textanalysis.classactivity.News.newsfile" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Propriedade que define o nome do arquivo de notícia</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
@@ -208,9 +211,9 @@ detalhes)</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.text">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">text</span></code><a class="headerlink" href="#textanalysis.classactivity.News.text" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.text">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#textanalysis.classactivity.News.text" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Conteúdo do arquivo definido em <a class="reference internal" href="#textanalysis.classactivity.News.newsfile" title="textanalysis.classactivity.News.newsfile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsfile</span></code></a></p>
 <p>Na primeira execução, abre o arquivo definido em <a class="reference internal" href="#textanalysis.classactivity.News.newsfile" title="textanalysis.classactivity.News.newsfile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">newsfile</span></code></a>
 como somente leitura, armazena e retorna seu conteúdo. Nas execuções
@@ -225,9 +228,9 @@ seguintes, apenas retorna o valor armazenado.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.sents">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.sents">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[List[str]]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças tokenizada</p>
 <p>Gera um iterador sobre cada sentença encontrada em <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a>. Ao
 tokenizar (utilizando as funções <a class="reference external" href="https://www.nltk.org/api/nltk.tokenize.html#nltk.tokenize.sent_tokenize" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.tokenize.sent_tokenize()</span></code></a> e
@@ -243,9 +246,9 @@ tokens.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.sents_clean">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_clean</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_clean" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_clean">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_clean</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[List[str]]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_clean" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças tokenizadas sem <em>stopwords</em>.</p>
 <p>Mesma funcionalidade de <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a>, porém a sentença não contém
 tokens definidos em <a class="reference internal" href="#textanalysis.classactivity.News.stopwords" title="textanalysis.classactivity.News.stopwords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stopwords</span></code></a>.</p>
@@ -259,9 +262,9 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.sents_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_len</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_len" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_len">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_len</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_len" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Quantidade de sentenças</p>
 <p>Retorna o tamanho da lista de sentenças gerado por <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a>.</p>
 <dl class="field-list simple">
@@ -274,9 +277,9 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.sents_words_len">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_words_len</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_words_len" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_words_len">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_words_len</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_words_len" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Quantidade de tokens</p>
 <p>Contabiliza a quantidade de tokens de todas as sentenças.</p>
 <dl class="field-list simple">
@@ -289,9 +292,9 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.sents_pos">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_pos</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_pos" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_pos">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_pos</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[List[Tuple[str,</span> <span class="pre">str]]]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_pos" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças com tokens POS</p>
 <p>Realiza o tagueamento gramatical das sentenças retornadas por
 <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função <a class="reference external" href="https://www.nltk.org/api/nltk.tag.html#nltk.tag.pos_tag_sents" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.tag.pos_tag_sents()</span></code></a>.</p>
@@ -305,9 +308,9 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="textanalysis.classactivity.News.sents_ner">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sents_ner</span></code><a class="headerlink" href="#textanalysis.classactivity.News.sents_ner" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_ner">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_ner</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[nltk.tree.Tree]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_ner" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças com tokens NER</p>
 <p>Realiza o reconhecimento de entidades nomeadas (NER) das sentenças
 retornadas por <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função
@@ -323,8 +326,8 @@ retornadas por <a class="reference internal" href="#textanalysis.classactivity.N
 </dd></dl>
 
 <dl class="py method">
-<dt id="textanalysis.classactivity.News.top_words">
-<code class="sig-name descname"><span class="pre">top_words</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_words"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_words" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.top_words">
+<span class="sig-name descname"><span class="pre">top_words</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_words"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_words" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera as palavras mais frequentes</p>
 <p>Gera as palavras (neste caso, tokens) mais frequentes em <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a>
 utilizando a classe <a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.probability.FreqDist" title="(em NLTK v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">nltk.probability.FreqDist</span></code></a>.</p>
@@ -342,8 +345,8 @@ utilizando a classe <a class="reference external" href="https://www.nltk.org/api
 </dd></dl>
 
 <dl class="py method">
-<dt id="textanalysis.classactivity.News.top_bigram">
-<code class="sig-name descname"><span class="pre">top_bigram</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_bigram"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_bigram" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="textanalysis.classactivity.News.top_bigram">
+<span class="sig-name descname"><span class="pre">top_bigram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News.top_bigram"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News.top_bigram" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera os bigramas mais frequentes no texto utilizando</p>
 <p>Gera os bigramas de <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> utilzando a classe
 <a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.probability.FreqDist" title="(em NLTK v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">nltk.probability.FreqDist</span></code></a> no resultado da função
@@ -371,8 +374,8 @@ utilizando a classe <a class="reference external" href="https://www.nltk.org/api
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="textanalysis.booklet.html" class="btn btn-neutral float-right" title="textanalysis.booklet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="dsutils.html" class="btn btn-neutral float-left" title="dsutils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="textanalysis.booklet.html" class="btn btn-neutral float-right" title="textanalysis.booklet" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dsutils.html" class="btn btn-neutral float-left" title="dsutils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 
   <hr/>
@@ -386,11 +389,11 @@ utilizando a classe <a class="reference external" href="https://www.nltk.org/api
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>

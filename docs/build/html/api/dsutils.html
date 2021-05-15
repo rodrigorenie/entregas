@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
   
@@ -30,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -69,7 +72,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -159,7 +162,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/dsutils.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/dsutils.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
           
         
       </li>
@@ -175,42 +178,44 @@
   <div class="section" id="module-dsutils">
 <span id="dsutils"></span><h1>dsutils<a class="headerlink" href="#module-dsutils" title="Link permanente para este título">¶</a></h1>
 <dl class="py class">
-<dt id="dsutils.DataDir">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">dsutils.</span></code><code class="sig-name descname"><span class="pre">DataDir</span></code><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DataDir">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DataDir</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="py attribute">
-<dt id="dsutils.DataDir.datadir">
-<code class="sig-name descname"><span class="pre">datadir</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'C:\\Users\\renie\\PycharmProjects\\entregas\\data'</span></em><a class="headerlink" href="#dsutils.DataDir.datadir" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DataDir.datadir">
+<span class="sig-name descname"><span class="pre">datadir</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'/mnt/dados/Dropbox/PósGraduação/entregas/data'</span></em><a class="headerlink" href="#dsutils.DataDir.datadir" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="dsutils.DataDir.join">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">join</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir.join"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir.join" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DataDir.join">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir.join"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir.join" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="dsutils.RocketFrame">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">dsutils.</span></code><code class="sig-name descname"><span class="pre">RocketFrame</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classcols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Classe que extende a funcionalidade de um <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1586.g15dff11b79)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></p>
-<p>Adiciona uma propriedade nas instâncias da classe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1586.g15dff11b79)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>
+<dt class="sig sig-object py" id="dsutils.RocketFrame">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">RocketFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classcols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Classe que extende a funcionalidade de um <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1626.g40482273cd)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></p>
+<p>Adiciona uma propriedade nas instâncias da classe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1626.g40482273cd)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>
 chamado <code class="docutils literal notranslate"><span class="pre">rocket</span></code>, a partir da onde é possível acessar todos os métodos
 implementados nesta classe.</p>
 <p>Exemplo:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Obrigatório importar o módulo para registrar a propriedade ``rocket``</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Obrigatório importar o módulo para registrar a propriedade &#39;rocket&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dsutils</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">classcols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Cópia do DataFrame contendo apenas as instâncias</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Cópia do DataFrame contendo apenas as classes</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Cópia do DataFrame com as instâncias normalizaas e balanceaas</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">normalized</span><span class="o">.</span><span class="n">balanced</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span>
 </pre></div>
 </div>
-<dl class="py method">
-<dt id="dsutils.RocketFrame.df">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">df</span></code><a class="headerlink" href="#dsutils.RocketFrame.df" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.df">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.df" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
@@ -218,105 +223,185 @@ implementados nesta classe.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.RocketFrame.train">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">train</span></code><a class="headerlink" href="#dsutils.RocketFrame.train" title="Link permanente para esta definição">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.train">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">train</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.train" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.test">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">test</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.test" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.classcols">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">classcols</span></span><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#dsutils.RocketFrame.classcols" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.classes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">classes</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.classes" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.instances">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">instances</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.instances" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.nona">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">nona</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.nona" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.numericals">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">numericals</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.numericals" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.categoricals">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">categoricals</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.categoricals" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.normalized">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">normalized</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.normalized" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.balanced">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">balanced</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.balanced" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.RocketFrame.reduced">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">reduced</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.reduced" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="dsutils.RocketFrame.test">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">test</span></code><a class="headerlink" href="#dsutils.RocketFrame.test" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.RocketFrame.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame.split"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame.split" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a>, <a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.RocketFrame.classcols">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">classcols</span></code><a class="headerlink" href="#dsutils.RocketFrame.classcols" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
-</dd>
-</dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.RocketFrame.classes">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">classes</span></code><a class="headerlink" href="#dsutils.RocketFrame.classes" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.Exercise">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">Exercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="dsutils.Exercise.text">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise.text"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise.text" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt id="dsutils.RocketFrame.instances">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">instances</span></code><a class="headerlink" href="#dsutils.RocketFrame.instances" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="dsutils.Exercise.item">
+<span class="sig-name descname"><span class="pre">item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">resolutions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise.item"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise.item" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt id="dsutils.RocketFrame.numericals">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">numericals</span></code><a class="headerlink" href="#dsutils.RocketFrame.numericals" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="dsutils.Exercise.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise.print"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise.print" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.RocketFrame.categoricals">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">categoricals</span></code><a class="headerlink" href="#dsutils.RocketFrame.categoricals" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.Colors">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">Colors</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Colors"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Colors" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.blue">
+<span class="sig-name descname"><span class="pre">blue</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#2CBDFE'</span></em><a class="headerlink" href="#dsutils.Colors.blue" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.RocketFrame.normalized">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">normalized</span></code><a class="headerlink" href="#dsutils.RocketFrame.normalized" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.green">
+<span class="sig-name descname"><span class="pre">green</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#47DBCD'</span></em><a class="headerlink" href="#dsutils.Colors.green" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.RocketFrame.balanced">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">balanced</span></code><a class="headerlink" href="#dsutils.RocketFrame.balanced" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.pink">
+<span class="sig-name descname"><span class="pre">pink</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#F3A0F2'</span></em><a class="headerlink" href="#dsutils.Colors.pink" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="py method">
-<dt id="dsutils.RocketFrame.split">
-<code class="sig-name descname"><span class="pre">split</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame.split"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame.split" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(em Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.purple">
+<span class="sig-name descname"><span class="pre">purple</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#9D2EC5'</span></em><a class="headerlink" href="#dsutils.Colors.purple" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.violet">
+<span class="sig-name descname"><span class="pre">violet</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#661D98'</span></em><a class="headerlink" href="#dsutils.Colors.violet" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.amber">
+<span class="sig-name descname"><span class="pre">amber</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#F5B14C'</span></em><a class="headerlink" href="#dsutils.Colors.amber" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.list">
+<span class="sig-name descname"><span class="pre">list</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['#2CBDFE',</span> <span class="pre">'#47DBCD',</span> <span class="pre">'#F3A0F2',</span> <span class="pre">'#9D2EC5',</span> <span class="pre">'#661D98',</span> <span class="pre">'#F5B14C']</span></em><a class="headerlink" href="#dsutils.Colors.list" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -328,8 +413,8 @@ implementados nesta classe.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="textanalysis.classactivity.html" class="btn btn-neutral float-right" title="textanalysis.classactivity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../an%C3%A1lise%20de%20texto/apostila0.html" class="btn btn-neutral float-left" title="Exercícios da Apostila 0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="textanalysis.classactivity.html" class="btn btn-neutral float-right" title="textanalysis.classactivity" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../an%C3%A1lise%20de%20texto/apostila0.html" class="btn btn-neutral float-left" title="Exercícios da Apostila 0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 
   <hr/>
@@ -343,11 +428,11 @@ implementados nesta classe.</p>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>

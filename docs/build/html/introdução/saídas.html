@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
 
   
@@ -30,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -69,7 +72,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -163,7 +166,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/introdução/saídas.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/introdução/saídas.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
           
         
       </li>
@@ -182,37 +185,16 @@
 <h2>Saídas de Análise de Texto<a class="headerlink" href="#saidas-de-analise-de-texto" title="Link permanente para este título">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">python -m textanalysis.classactivity</span><a class="headerlink" href="#id1" title="Link Permanente para esse código">¶</a></div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;z:\python38\lib\runpy.py&quot;, line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File &quot;z:\python38\lib\runpy.py&quot;, line 87, in _run_code
-    exec(code, run_globals)
-  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\classactivity\__main__.py&quot;, line 8, in &lt;module&gt;
-    news = News()
-  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\classactivity\classactivity.py&quot;, line 26, in __init__
-    self._newsfile = self.file(newsfile)
-AttributeError: &#39;News&#39; object has no attribute &#39;file&#39;
-</pre></div>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/6 (<span class="docutils literal">/mnt/dados/Dropbox/PósGraduação/entregas/docs/source/introdução/saídas.rst</span>, line 7)</p>
+<p>Command ['python', '-m', 'textanalysis.classactivity'] failed: [Errno 2] Arquivo ou diretório inexistente: 'python'</p>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">python -m textanalysis.booklet</span><a class="headerlink" href="#id2" title="Link Permanente para esse código">¶</a></div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------------------------------------------------------------------+
-|                         Apostila 0 - Exercitando 01                          |
-+------------------------------------------------------------------------------+
-Traceback (most recent call last):
-  File &quot;z:\python38\lib\runpy.py&quot;, line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File &quot;z:\python38\lib\runpy.py&quot;, line 87, in _run_code
-    exec(code, run_globals)
-  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\booklet\__main__.py&quot;, line 228, in &lt;module&gt;
-    booklet0ex01()
-  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\booklet\__main__.py&quot;, line 61, in booklet0ex01
-    res = &#39;Arquivo salvo em: {}&#39;.format(ex.text_save(&#39;booklet0_ex01.txt&#39;))
-  File &quot;C:\Users\renie\PycharmProjects\entregas\textanalysis\booklet\booklet0.py&quot;, line 143, in text_save
-    filename = self.file(filename)
-AttributeError: &#39;Ex01&#39; object has no attribute &#39;file&#39;
-</pre></div>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/6 (<span class="docutils literal">/mnt/dados/Dropbox/PósGraduação/entregas/docs/source/introdução/saídas.rst</span>, line 11)</p>
+<p>Command ['python', '-m', 'textanalysis.booklet'] failed: [Errno 2] Arquivo ou diretório inexistente: 'python'</p>
 </div>
 </div>
 </div>
@@ -220,20 +202,9 @@ AttributeError: &#39;Ex01&#39; object has no attribute &#39;file&#39;
 <h2>Saídas de Machine Learning<a class="headerlink" href="#saidas-de-machine-learning" title="Link permanente para este título">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">python -m machinelearning.finalproject</span><a class="headerlink" href="#id3" title="Link Permanente para esse código">¶</a></div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;z:\python38\lib\runpy.py&quot;, line 185, in _run_module_as_main
-    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
-  File &quot;z:\python38\lib\runpy.py&quot;, line 144, in _get_module_details
-    return _get_module_details(pkg_main_name, error)
-  File &quot;z:\python38\lib\runpy.py&quot;, line 111, in _get_module_details
-    __import__(pkg_name)
-  File &quot;C:\Users\renie\PycharmProjects\entregas\machinelearning\finalproject\__init__.py&quot;, line 1, in &lt;module&gt;
-    from machinelearning.finalproject.diabetes import Diabetes
-  File &quot;C:\Users\renie\PycharmProjects\entregas\machinelearning\finalproject\diabetes.py&quot;, line 36
-    return self.df.rocket.
-                         ^
-SyntaxError: invalid syntax
-</pre></div>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/6 (<span class="docutils literal">/mnt/dados/Dropbox/PósGraduação/entregas/docs/source/introdução/saídas.rst</span>, line 18)</p>
+<p>Command ['python', '-m', 'machinelearning.finalproject'] failed: [Errno 2] Arquivo ou diretório inexistente: 'python'</p>
 </div>
 </div>
 </div>
@@ -245,8 +216,8 @@ SyntaxError: invalid syntax
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="equipe.html" class="btn btn-neutral float-right" title="Equipe Rocket" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="resultados.html" class="btn btn-neutral float-left" title="Resultados" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="equipe.html" class="btn btn-neutral float-right" title="Equipe Rocket" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="resultados.html" class="btn btn-neutral float-left" title="Resultados" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 
   <hr/>
@@ -260,11 +231,11 @@ SyntaxError: invalid syntax
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>

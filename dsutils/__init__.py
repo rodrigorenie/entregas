@@ -1,3 +1,4 @@
-from dsutils.dsutils import DataDir, RocketFrame, Exercise
+from dsutils.dsutils import DataDir, RocketFrame, Exercise, Colors
 
-__all__ = ['DataDir', 'RocketFrame', 'Exercise']
+__all__ = ['DataDir', 'RocketFrame', 'Exercise', 'Colors']
+

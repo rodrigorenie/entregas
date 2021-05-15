@@ -1,13 +1,13 @@
 version: 2
 
 build:
-  image: latest
+  image: testing
 
 formats:
    - pdf
 
 python:
-  version: 3.8
+  version: 3.9
   install:
     - requirements: requirements.txt
   system_packages: true

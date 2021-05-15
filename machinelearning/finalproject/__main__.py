@@ -94,4 +94,7 @@ def ex2():
 if __name__ == '__main__':
     # ex1()
     # ex2()
-    Hypothyroid()
+    h = Hypothyroid()
+    ine, dis = h.distances
+    print(h.optimal_number_of_clusters2(ine))
+    print(h.optimal_number_of_clusters2(dis))
