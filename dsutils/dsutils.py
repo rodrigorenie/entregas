@@ -1,13 +1,10 @@
 from __future__ import annotations
 
-import os
 import sklearn
-import inspect
 import pandas
 import numpy
 import imblearn
 
-from typing import Tuple
 from rich import box
 from rich.columns import Columns
 from rich.panel import Panel
@@ -15,63 +12,8 @@ from rich.text import Text
 from rich.console import Console
 from rich.rule import Rule
 
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 
-class Colors:
-    blue = '#2CBDFE'
-    green = '#47DBCD'
-    pink = '#F3A0F2'
-    purple = '#9D2EC5'
-    violet = '#661D98'
-    amber = '#F5B14C'
-    list = [blue, green, pink, purple, violet, amber]
-
-
-plt.rcParams['axes.prop_cycle'] = plt.cycler(color=Colors.list)
-
-sns.set(rc={'axes.axisbelow': False,
-            'axes.edgecolor': 'lightgrey',
-            'axes.facecolor': 'None',
-            'axes.grid': False,
-            'axes.labelcolor': 'dimgrey',
-            #'axes.spines.right': False,
-            #'axes.spines.top': False,
-            'figure.facecolor': 'white',
-            'lines.solid_capstyle': 'round',
-            'patch.edgecolor': 'w',
-            'patch.force_edgecolor': True,
-            'text.color': 'dimgrey',
-            'xtick.bottom': False,
-            'xtick.color': 'dimgrey',
-            'xtick.direction': 'out',
-            'xtick.top': False,
-            'ytick.color': 'dimgrey',
-            'ytick.direction': 'out',
-            #'ytick.left': False,
-            #'ytick.right': False
-            })
-
-sns.set_context('notebook', rc={'font.size': 12,
-                                'axes.titlesize': 20,
-                                'axes.labelsize': 12})
-
-
-class DataDir:
-
-    datadir = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), '..', 'data')
-    )
-
-    @staticmethod
-    def join(*args):
-        caller = inspect.getmodule(inspect.currentframe().f_back).__package__
-        path = os.path.join(DataDir.datadir, caller)
-        for arg in args:
-            arg = os.path.basename(arg)
-            path = os.path.join(path, arg)
-        return path
 
 
 @pandas.api.extensions.register_dataframe_accessor("rocket")

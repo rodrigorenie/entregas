@@ -1,7 +1,8 @@
 import pandas
+import dsutils
 
 from machinelearning.finalproject import Diabetes, Hypothyroid
-from dsutils import Exercise, DataDir
+from dsutils import Exercise
 
 
 def ex1():
@@ -32,13 +33,13 @@ def ex1():
         ex.text("Instâncias de Teste 1 (todos verdadeiramente positivos)",
                 justify='center'),
         diabetes.predict(
-            pandas.read_csv(DataDir.join('instances_positive.csv'))
+            pandas.read_csv(dsutils.datadir.join('instances_positive.csv'))
         ),
 
         ex.text("Instâncias de Teste 2 (todos verdadeiramente negativos)",
                 justify='center'),
         diabetes.predict(
-            pandas.read_csv(DataDir.join('instances_negative.csv'))
+            pandas.read_csv(dsutils.datadir.join('instances_negative.csv'))
         )
     ]
     ex.item(
@@ -92,9 +93,8 @@ def ex2():
 
 
 if __name__ == '__main__':
-    # ex1()
-    # ex2()
+    ex1()
+    ex2()
     h = Hypothyroid()
-    ine, dis = h.distances
-    print(h.optimal_number_of_clusters2(ine))
-    print(h.optimal_number_of_clusters2(dis))
+    h.plot_models()
+    h.plot_elbow()

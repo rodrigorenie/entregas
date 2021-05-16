@@ -2,15 +2,15 @@ import pandas as pd
 import sklearn.preprocessing
 import sklearn.metrics
 import sklearn.linear_model
+import dsutils
 
-from dsutils import DataDir
 from typing import Any, Iterable, Tuple
 
 
 class Diabetes:
 
     def __init__(self, csvfile: str = 'diabetes.csv') -> None:
-        self._df = pd.read_csv(DataDir.join(csvfile))
+        self._df = pd.read_csv(dsutils.datadir.join(csvfile))
         self._df.rocket.classcols = ['class']
         self._supported_models = []
 

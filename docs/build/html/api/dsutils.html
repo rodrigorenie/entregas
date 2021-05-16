@@ -195,8 +195,8 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="dsutils.RocketFrame">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">RocketFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classcols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Classe que extende a funcionalidade de um <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1626.g40482273cd)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></p>
-<p>Adiciona uma propriedade nas instâncias da classe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1626.g40482273cd)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>
+<dd><p>Classe que extende a funcionalidade de um <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1627.gb2a36bdf88)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></p>
+<p>Adiciona uma propriedade nas instâncias da classe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1627.gb2a36bdf88)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>
 chamado <code class="docutils literal notranslate"><span class="pre">rocket</span></code>, a partir da onde é possível acessar todos os métodos
 implementados nesta classe.</p>
 <p>Exemplo:</p>
@@ -402,6 +402,94 @@ implementados nesta classe.</p>
 <dt class="sig sig-object py" id="dsutils.Colors.list">
 <span class="sig-name descname"><span class="pre">list</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['#2CBDFE',</span> <span class="pre">'#47DBCD',</span> <span class="pre">'#F3A0F2',</span> <span class="pre">'#9D2EC5',</span> <span class="pre">'#661D98',</span> <span class="pre">'#F5B14C']</span></em><a class="headerlink" href="#dsutils.Colors.list" title="Link permanente para esta definição">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;itertools.cycle</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#dsutils.Colors.color" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.Colors.marker">
+<span class="sig-name descname"><span class="pre">marker</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;itertools.cycle</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#dsutils.Colors.marker" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.DSLog">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSLog</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSLog"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Classe auxiliar para interface com módulo <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(em Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> do Python.</p>
+<p>Esta classe configura o módulo <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(em Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> do Python definido um nível
+de log customizado para que as mensagens não conflitem com os logs do
+sistema ou de outros módulos.</p>
+<p>Além disso, são definidos métodos para facilitar e padronizar a geração de
+logs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variáveis</dt>
+<dd class="field-odd"><p><strong>DSINFO</strong> – Nível de log customizado</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSLog.DSINFO">
+<span class="sig-name descname"><span class="pre">DSINFO</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><span class="pre">int</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">45</span></em><a class="headerlink" href="#dsutils.DSLog.DSINFO" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSLog.log">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSLog.log"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog.log" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Gera uma mensagem de log.</p>
+<p>Gera uma mensagem de log cujo nível padrão é <code class="docutils literal notranslate"><span class="pre">DSINFO</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(em Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSLog.logged">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">logged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSLog.logged"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog.logged" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Decorador para gerar mensagens de log automaticamente.</p>
+<p>Este método tem como objetivo ser utilizado como decorador de funções ou
+outros métodos, gerando uma mensagem de log com o nome da função ou
+método decorado quando este é executado.</p>
+<p>Exemplo:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dsutils</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@dsutils</span><span class="o">.</span><span class="n">DSLog</span><span class="o">.</span><span class="n">logged</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">teste</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">teste</span><span class="p">()</span> <span class="c1"># Gera um log informando que teste está em execução</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.DSTimer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSTimer</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSTimer"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSTimer" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Classe auxiliar para interface com módulo <a class="reference external" href="https://docs.python.org/3/library/time.html#module-time" title="(em Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">time</span></code></a> do Python.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSTimer.timed">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSTimer.timed"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSTimer.timed" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Decorador para cronometrar a execção de código automaticamente.</p>
+<p>Este método tem como objetivo ser utilizado como decorador de funções ou
+outros métodos, cronometrando seu tempo de execução automaticamente. Ao
+final da execução da função ou método decorado, é gerado um log com o seu
+tempo de execução utilizando o método <code class="xref py py-meth docutils literal notranslate"><span class="pre">DSLogger.log()</span></code>.</p>
+<p>Exemplo:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dsutils</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@dsutils</span><span class="o">.</span><span class="n">DSTimer</span><span class="o">.</span><span class="n">timed</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">teste</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">teste</span><span class="p">()</span> <span class="c1"># Gera um log informando o tempo de execução da função</span>
+</pre></div>
+</div>
+</dd></dl>
 
 </dd></dl>
 

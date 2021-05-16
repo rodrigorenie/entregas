@@ -180,8 +180,13 @@
 <span class="kn">import</span> <span class="nn">pandas</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">imblearn</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
 <span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="n">box</span>
 <span class="kn">from</span> <span class="nn">rich.columns</span> <span class="kn">import</span> <span class="n">Columns</span>
 <span class="kn">from</span> <span class="nn">rich.panel</span> <span class="kn">import</span> <span class="n">Panel</span>
@@ -189,8 +194,115 @@
 <span class="kn">from</span> <span class="nn">rich.console</span> <span class="kn">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">rich.rule</span> <span class="kn">import</span> <span class="n">Rule</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Callable</span>
+
+
+<div class="viewcode-block" id="DSLog"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSLog">[documentos]</a><span class="k">class</span> <span class="nc">DSLog</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Classe auxiliar para interface com módulo :mod:`logging` do Python.</span>
+
+<span class="sd">    Esta classe configura o módulo :mod:`logging` do Python definido um nível</span>
+<span class="sd">    de log customizado para que as mensagens não conflitem com os logs do</span>
+<span class="sd">    sistema ou de outros módulos.</span>
+
+<span class="sd">    Além disso, são definidos métodos para facilitar e padronizar a geração de</span>
+<span class="sd">    logs.</span>
+
+<span class="sd">    :cvar DSINFO: Nível de log customizado</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">DSINFO</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">45</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">DSINFO</span><span class="p">,</span> <span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">.</span><span class="si">%(msecs)03d</span><span class="s1"> [</span><span class="si">%(name)s</span><span class="s1">] [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y %H:%M:%S&#39;</span><span class="p">,</span>
+        <span class="c1"># filename=&#39;dados/debug.log&#39;,</span>
+        <span class="c1"># filemode=&#39;w&#39;</span>
+    <span class="p">)</span>
+
+<div class="viewcode-block" id="DSLog.log"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSLog.log">[documentos]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DSINFO</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Gera uma mensagem de log.</span>
+
+<span class="sd">        Gera uma mensagem de log cujo nível padrão é ``DSINFO``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DSLog.logged"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSLog.logged">[documentos]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">logged</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+               <span class="n">msg</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DSINFO</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Decorador para gerar mensagens de log automaticamente.</span>
+
+<span class="sd">        Este método tem como objetivo ser utilizado como decorador de funções ou</span>
+<span class="sd">        outros métodos, gerando uma mensagem de log com o nome da função ou</span>
+<span class="sd">        método decorado quando este é executado.</span>
+
+<span class="sd">        Exemplo:</span>
+
+<span class="sd">        &gt;&gt;&gt; import dsutils</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; @dsutils.DSLog.logged</span>
+<span class="sd">        &gt;&gt;&gt; def teste():</span>
+<span class="sd">        &gt;&gt;&gt;     return 1</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; teste() # Gera um log informando que teste está em execução</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">DSLog</span><span class="o">.</span><span class="n">logged</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="k">if</span> <span class="n">msg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="si">{name}</span><span class="s1">: em execução&#39;</span>
+
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span></div></div>
+
+
+<div class="viewcode-block" id="DSTimer"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSTimer">[documentos]</a><span class="k">class</span> <span class="nc">DSTimer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Classe auxiliar para interface com módulo :mod:`time` do Python.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DSTimer.timed"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSTimer.timed">[documentos]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">timed</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+              <span class="n">msg</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DSLog</span><span class="o">.</span><span class="n">DSINFO</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Decorador para cronometrar a execção de código automaticamente.</span>
+
+<span class="sd">       Este método tem como objetivo ser utilizado como decorador de funções ou</span>
+<span class="sd">       outros métodos, cronometrando seu tempo de execução automaticamente. Ao</span>
+<span class="sd">       final da execução da função ou método decorado, é gerado um log com o seu</span>
+<span class="sd">       tempo de execução utilizando o método :meth:`DSLogger.log`.</span>
+
+<span class="sd">       Exemplo:</span>
+
+<span class="sd">       &gt;&gt;&gt; import dsutils</span>
+<span class="sd">       &gt;&gt;&gt;</span>
+<span class="sd">       &gt;&gt;&gt; @dsutils.DSTimer.timed</span>
+<span class="sd">       &gt;&gt;&gt; def teste():</span>
+<span class="sd">       &gt;&gt;&gt;     return 1</span>
+<span class="sd">       &gt;&gt;&gt;</span>
+<span class="sd">       &gt;&gt;&gt; teste() # Gera um log informando o tempo de execução da função</span>
+<span class="sd">       &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">DSTimer</span><span class="o">.</span><span class="n">timed</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="k">if</span> <span class="n">msg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="si">{name}</span><span class="s1">: execução levou </span><span class="si">{run_time}</span><span class="s1">&#39;</span>
+
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">run_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">run_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">run_time</span>
+            <span class="n">run_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">run_time</span><span class="p">))</span>
+            <span class="n">DSLog</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">run_time</span><span class="o">=</span><span class="n">run_time</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span></div></div>
 
 
 <div class="viewcode-block" id="Colors"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.Colors">[documentos]</a><span class="k">class</span> <span class="nc">Colors</span><span class="p">:</span>
@@ -200,18 +312,20 @@
     <span class="n">purple</span> <span class="o">=</span> <span class="s1">&#39;#9D2EC5&#39;</span>
     <span class="n">violet</span> <span class="o">=</span> <span class="s1">&#39;#661D98&#39;</span>
     <span class="n">amber</span> <span class="o">=</span> <span class="s1">&#39;#F5B14C&#39;</span>
-    <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="n">blue</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">pink</span><span class="p">,</span> <span class="n">purple</span><span class="p">,</span> <span class="n">violet</span><span class="p">,</span> <span class="n">amber</span><span class="p">]</span></div>
+    <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="n">blue</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">pink</span><span class="p">,</span> <span class="n">purple</span><span class="p">,</span> <span class="n">violet</span><span class="p">,</span> <span class="n">amber</span><span class="p">]</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">marker</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">((</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">))</span></div>
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cycler</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Colors</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
             <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span>
             <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span>
             <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
             <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
-            <span class="c1">#&#39;axes.spines.right&#39;: False,</span>
-            <span class="c1">#&#39;axes.spines.top&#39;: False,</span>
+            <span class="c1"># &#39;axes.spines.right&#39;: False,</span>
+            <span class="c1"># &#39;axes.spines.top&#39;: False,</span>
             <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
             <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
             <span class="s1">&#39;patch.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span>
@@ -223,11 +337,11 @@
             <span class="s1">&#39;xtick.top&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
             <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
             <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
-            <span class="c1">#&#39;ytick.left&#39;: False,</span>
-            <span class="c1">#&#39;ytick.right&#39;: False</span>
+            <span class="c1"># &#39;ytick.left&#39;: False,</span>
+            <span class="c1"># &#39;ytick.right&#39;: False</span>
             <span class="p">})</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+<span class="n">seaborn</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
                                 <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
                                 <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
 
