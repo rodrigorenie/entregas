@@ -10,21 +10,43 @@ from sklearn.cluster import KMeans
 from typing import Iterator
 
 
+class HypoModel:
+    """Armazena um modelo de cluster, facilitando o acesso as dados de distorção
+    e inércia
+
+    """
+
+    def __init__(self, data: pandas.DataFrame, n_clusters: int) -> None:
+        self._data = data
+        self._kmeans = KMeans(n_clusters=n_clusters).fit(data)
+
+    @property
+    def kmeans(self):
+        return self._kmeans
+
+    @property
+    def inertia(self):
+        return self._
+
+    @property
+    def distorcion(self):
+        data = self._data.to_numpy()
+        distortion = cdist(data, self.kmeans.cluster_centers_, 'euclidean')
+        distortion = sum(numpy.min(distortion, axis=1))
+        distortion /= data.shape[0]
+
+
 class Hypothyroid:
 
     def __init__(self, maxclusters: int = 12) -> None:
         csvfile = dsutils.datadir.join('hypothyroid.csv')
-        self._csv = self.load_csv(csvfile, ['Class'])
+        self._df = pandas.read_csv(csvfile, na_values='?')
+        # df = df.hypo.nona.hypo.normalized.hypo.balanced
+        # df = df.normalized
+        # df = df.balanced.reduced.instances.df
 
-        maxclusters = min(maxclusters, self._csv.shape[0])
-        self._modeldata = self.load_model(maxclusters, self._csv)
-
-    @staticmethod
-    def load_csv(csvpath: str, csvclass: list[str]) -> pandas.DataFrame:
-        df = pandas.read_csv(csvpath, na_values='?')
-        df.rocket.classcols = csvclass
-        df = df.rocket.nona.normalized.balanced.reduced.instances.df
-        return df
+        maxclusters = min(maxclusters, self._df.shape[0])
+        self._modeldata = self.load_model(maxclusters, self._df)
 
     @staticmethod
     @dsutils.logged
@@ -78,7 +100,7 @@ class Hypothyroid:
 
     @property
     def csv(self) -> pandas.DataFrame:
-        return self._csv
+        return self._df
 
     @property
     def modeldata(self):

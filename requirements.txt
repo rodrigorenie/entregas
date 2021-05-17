@@ -1,7 +1,6 @@
 wheel
 nltk
 spacy
-wordcloud
 matplotlib
 python-docx
 pysub-parser
@@ -16,3 +15,4 @@ seaborn
 sphinxcontrib-programoutput
 sphinx-autodoc-typehints
 sphinx_rtd_theme
+wordcloud

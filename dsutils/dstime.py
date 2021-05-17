@@ -46,6 +46,3 @@ class DSTime:
             return value
 
         return wrapper
-
-
-timed = DSTime.timed

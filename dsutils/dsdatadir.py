@@ -18,6 +18,3 @@ class DSDataDir:
             arg = os.path.basename(arg)
             path = os.path.join(path, arg)
         return path
-
-
-datadir = DSDataDir

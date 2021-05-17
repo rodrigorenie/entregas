@@ -93,8 +93,10 @@ def ex2():
 
 
 if __name__ == '__main__':
-    ex1()
-    ex2()
-    h = Hypothyroid()
-    h.plot_models()
-    h.plot_elbow()
+    # ex1()
+    # ex2()
+    # h = Hypothyroid()
+    # h.plot_models()
+    # h.plot_elbow()
+    p = pandas.DataFrame([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
+    print(p)

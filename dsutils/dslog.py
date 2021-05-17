@@ -67,7 +67,3 @@ class DSLog:
             return func(*args, **kwargs)
 
         return wrapper
-
-
-logged = DSLog.logged
-log = DSLog.log
