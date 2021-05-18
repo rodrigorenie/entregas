@@ -1,13 +1,13 @@
+import dsutils
 import numpy
 import pandas
-
-import dsutils
 import math
 import matplotlib.pyplot as pyplot
 
 from scipy.spatial.distance import cdist
 from sklearn.cluster import KMeans
-from typing import Iterator
+from collections.abc import Iterator
+from typing import Optional
 
 
 class HypoModel:
@@ -15,25 +15,148 @@ class HypoModel:
     e inércia
 
     """
+    globaldata: pandas.DataFrame = None
 
-    def __init__(self, data: pandas.DataFrame, n_clusters: int) -> None:
-        self._data = data
-        self._kmeans = KMeans(n_clusters=n_clusters).fit(data)
+    @dsutils.logged
+    @dsutils.timed
+    def __init__(self, n_clusters: int,
+                 data: Optional[pandas.DataFrame] = None) -> None:
+        self.data = data
+        self.n_clusters = n_clusters
+
+        km = KMeans(n_clusters=n_clusters).fit(self.data)
+        ds = cdist(self.data, km.cluster_centers_, 'euclidean')
+        ds = sum(numpy.min(ds, axis=1))
+        ds /= self.data.shape[0]
+
+        self._kmeans = km
+        self._inertia = km.inertia_
+        self._distortion = ds
 
     @property
-    def kmeans(self):
+    def data(self) -> pandas.DataFrame:
+        return self._data
+
+    @data.setter
+    def data(self, data: pandas.DataFrame) -> None:
+        if data is not None:
+            data = data.hypo.nona
+            data = data.hypo.normalized
+            data = data.hypo.balanced
+            data = data.hypo.reduced
+            data = data.hypo.instances
+        else:
+            data = HypoModel.globaldata
+
+        if data is None:
+            globaldata = f'{self.__class__.__qualname__}.globaldata'
+            raise ValueError(f'Defina o valor de {globaldata} primeiro')
+
+        self._data = data
+
+    @property
+    def n_clusters(self) -> int:
+        return self._n_clusters
+
+    @n_clusters.setter
+    def n_clusters(self, n_clusters: int) -> None:
+        self._n_clusters = n_clusters
+
+    @property
+    def kmeans(self) -> KMeans:
         return self._kmeans
 
     @property
-    def inertia(self):
-        return self._
+    def distorcion(self) -> float:
+        return self._distortion
 
     @property
-    def distorcion(self):
-        data = self._data.to_numpy()
-        distortion = cdist(data, self.kmeans.cluster_centers_, 'euclidean')
-        distortion = sum(numpy.min(distortion, axis=1))
-        distortion /= data.shape[0]
+    def inertia(self) -> float:
+        return self._inertia
+
+    def scatter(self) -> pyplot.Figure:
+        title = f'Modelo com {self.n_clusters:02} Clusters'
+        dpi = 185
+        dsutils.log(f'Plotando {title}')
+
+        fig: pyplot.Figure
+        ax: pyplot.Axes
+        fig, ax = pyplot.subplots()
+        fig.set_dpi(dpi)
+        fig.set_size_inches(1024/dpi, 768/dpi)
+        ax.set_xlim(self.data.X.min()-.5, self.data.X.max()+.1)
+        ax.set_ylim(self.data.y.min()-.1, self.data.y.max()+.1)
+
+        for c in range(self.n_clusters):
+            data = self.data.assign(cluster=self.kmeans.labels_)
+            data = data[data.cluster == c]
+            label = f'Cluster {c + 1:02}'
+            ax.scatter(x='X', y='y', data=data, label=label, alpha=0.7, s=15)
+
+        ax.scatter(self.kmeans.cluster_centers_[:, 0],
+                   self.kmeans.cluster_centers_[:, 1],
+                   marker=dsutils.DSPlot.marker.plus_filled,
+                   color=dsutils.DSPlot.color.black,
+                   alpha=0.7, label='Centroide')
+
+        ax.legend(frameon=False, loc='upper left', fontsize='xx-small')
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.set_title(title)
+        fig.tight_layout()
+
+        return fig
+
+
+class HypoModelList:
+
+    def __init__(self, n_models: int, data: pandas.DataFrame) -> None:
+        models = []
+        data = data.hypo.nona
+        data = data.hypo.normalized
+        data = data.hypo.balanced
+        data = data.hypo.reduced
+        data = data.hypo.instances
+        HypoModel.globaldata = data
+
+        for n in range(1, n_models + 1):
+            models.append(HypoModel(n))
+
+        self._models = models
+        self._inertia = numpy.array([m.inertia for m in models])
+        self._distortion = numpy.array([m.distorcion for m in models])
+
+    @staticmethod
+    def elbow(x: numpy.array, y: numpy.array) -> int:
+        x1, y1 = x[0], y[0]
+        x2, y2 = x[-1], y[-1]
+
+        num = abs((y2 - y1) * x - (x2 - x1) * y + x2 * y1 - y2 * x1)
+        den = math.sqrt((y2 - y1) ** 2 + (x2 - x1) ** 2)
+
+        return numpy.argmax(num / den)
+
+    @property
+    def models(self) -> list[HypoModel]:
+        return self._models
+
+    @property
+    def inertia(self) -> numpy.array:
+        return self._inertia
+
+    @property
+    def distortion(self) -> numpy.array:
+        return self._distortion
+
+    def best_inertia(self) -> KMeans:
+        pass
+
+    def scatter(self) -> None:
+        for m in self.models:
+            n = m.n_clusters
+            fname = dsutils.datadir.join(f'plot_model{n:02}.png')
+            fig = m.scatter()
+            fig.savefig(fname)
 
 
 class Hypothyroid:

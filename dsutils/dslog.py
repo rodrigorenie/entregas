@@ -59,7 +59,7 @@ class DSLog:
             return functools.partial(DSLog.logged, msg=msg, level=level)
 
         name = func.__qualname__
-        msg = msg if msg is not None else '{name}: em execução'
+        msg = f'{name}: {msg}' if msg is not None else '{name}: em execução'
 
         @functools.wraps(func)
         def wrapper(*args, **kwargs):

@@ -1,15 +1,17 @@
 import pandas
+from matplotlib import pyplot
+
 import dsutils
 
-from machinelearning.finalproject import Diabetes, Hypothyroid
-from dsutils import Exercise
+from machinelearning.finalproject import Diabetes, HypoModel, HypoModelList
+from dsutils import DSExercise
 
 
 def ex1():
     diabetes = Diabetes()
 
-    ex = Exercise('Construa um sistema que permita indicar risco de diabetes '
-                  'em pacientes. Utilize o arquivo "diabetes.csv"')
+    ex = DSExercise('Construa um sistema que permita indicar risco de diabetes '
+                    'em pacientes. Utilize o arquivo "diabetes.csv"')
     ex.item(
         'Todas as etapas da preparação dos dados devem ser consideradas '
         '(normalizar e balancear)',
@@ -62,9 +64,9 @@ def ex1():
 
 
 def ex2():
-    ex = Exercise('Com o arquivo "hypothyroid.csv", desenvolva um modelo de '
-                  'clusters que descreva as características de cada tipo de '
-                  'hipotireoidismo')
+    ex = DSExercise('Com o arquivo "hypothyroid.csv", desenvolva um modelo de '
+                    'clusters que descreva as características de cada tipo de '
+                    'hipotireoidismo')
 
     ex.item(
         'Todas as etapas da preparação dos dados devem ser consideradas '
@@ -98,5 +100,15 @@ if __name__ == '__main__':
     # h = Hypothyroid()
     # h.plot_models()
     # h.plot_elbow()
-    p = pandas.DataFrame([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
-    print(p)
+    df = pandas.read_csv(dsutils.datadir.join('hypothyroid.csv'),
+                         na_values=['?'])
+    # model = HypoModel(1, df)
+    # model.scatter()
+    # pyplot.show()
+
+    # model = HypoModel(df, 2)
+    # model.scatter()
+    # pyplot.show()
+
+    models = HypoModelList(15, df)
+    models.scatter()
