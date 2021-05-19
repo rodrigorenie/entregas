@@ -3,7 +3,7 @@ from matplotlib import pyplot
 
 import dsutils
 
-from machinelearning.finalproject import Diabetes, HypoModel, HypoModelList
+from machinelearning.finalproject import Diabetes, Hypothyroid
 from dsutils import DSExercise
 
 
@@ -64,15 +64,35 @@ def ex1():
 
 
 def ex2():
+    h = Hypothyroid()
+    # h.plot()
+    # raise SystemExit
+
     ex = DSExercise('Com o arquivo "hypothyroid.csv", desenvolva um modelo de '
                     'clusters que descreva as características de cada tipo de '
                     'hipotireoidismo')
 
+    resultado = [
+        ex.text('Instâncias de "hypothyroid.csv" balanceadas, normalizadas e '
+                'sem valores ausentes', justify='center'),
+        '',
+        h.data.hypo.nona.hypo.normalized.hypo.balanced.hypo.reduced3d.head(10)
+    ]
     ex.item(
         'Todas as etapas da preparação dos dados devem ser consideradas '
         '(normalizar e balancear)',
-        ''
+        *resultado
     )
+
+    import matplotlib.pyplot as plt
+    data = h.data.hypo.nona.hypo.normalized.hypo.balanced.hypo.reduced3d
+    xs = data['X']
+    ys = data['y']
+    zs = data['z']
+    fig = plt.figure()
+    ax = fig.add_subplot(projection='3d')
+    ax.scatter(xs, ys, zs)
+    fig.savefig('teste.png')
 
     ex.item(
         'Determine o número ideal de clusters antes de obter o modelo'
@@ -96,19 +116,4 @@ def ex2():
 
 if __name__ == '__main__':
     # ex1()
-    # ex2()
-    # h = Hypothyroid()
-    # h.plot_models()
-    # h.plot_elbow()
-    df = pandas.read_csv(dsutils.datadir.join('hypothyroid.csv'),
-                         na_values=['?'])
-    # model = HypoModel(1, df)
-    # model.scatter()
-    # pyplot.show()
-
-    # model = HypoModel(df, 2)
-    # model.scatter()
-    # pyplot.show()
-
-    models = HypoModelList(16, df)
-    models.plot()
+    ex2()

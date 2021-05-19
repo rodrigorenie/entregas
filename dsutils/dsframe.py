@@ -122,6 +122,16 @@ class DSFrame:
 
         return df
 
+    @property
+    def reduced3d(self) -> pandas.DataFrame:
+        df, dfclass = self.instances, self.classes
+
+        df = sklearn.decomposition.PCA(n_components=3).fit_transform(df)
+        df = pandas.DataFrame(df, columns=['X', 'y', 'z'])
+        df = df.join(dfclass.reset_index(drop=True))
+
+        return df
+
     def split(self, size: float = 0.3) -> tuple[pandas.DataFrame,
                                                 pandas.DataFrame]:
         x = self.instances
