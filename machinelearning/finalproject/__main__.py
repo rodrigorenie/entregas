@@ -110,5 +110,5 @@ if __name__ == '__main__':
     # model.scatter()
     # pyplot.show()
 
-    models = HypoModelList(15, df)
-    models.scatter()
+    models = HypoModelList(16, df)
+    models.plot()

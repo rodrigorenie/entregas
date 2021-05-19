@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import dsutils
 import numpy
 import pandas
@@ -32,6 +34,11 @@ class HypoModel:
         self._kmeans = km
         self._inertia = km.inertia_
         self._distortion = ds
+        self._bestinertia = False
+        self._bestdistortion = False
+
+    def __eq__(self, other: HypoModel) -> bool:
+        return self.n_clusters == other.n_clusters
 
     @property
     def data(self) -> pandas.DataFrame:
@@ -74,6 +81,22 @@ class HypoModel:
     def inertia(self) -> float:
         return self._inertia
 
+    @property
+    def bestinertia(self) -> bool:
+        return self._bestinertia
+
+    @bestinertia.setter
+    def bestinertia(self, bestinertia) -> None:
+        self._bestinertia = bestinertia
+
+    @property
+    def bestdistortion(self) -> bool:
+        return self._bestdistortion
+
+    @bestdistortion.setter
+    def bestdistortion(self, bestdistortion) -> None:
+        self._bestdistortion = bestdistortion
+
     def scatter(self) -> pyplot.Figure:
         title = f'Modelo com {self.n_clusters:02} Clusters'
         dpi = 185
@@ -91,15 +114,28 @@ class HypoModel:
             data = self.data.assign(cluster=self.kmeans.labels_)
             data = data[data.cluster == c]
             label = f'Cluster {c + 1:02}'
-            ax.scatter(x='X', y='y', data=data, label=label, alpha=0.7, s=15)
+            ax.scatter(x='X', y='y', data=data, label=label, alpha=0.8, s=15)
 
         ax.scatter(self.kmeans.cluster_centers_[:, 0],
                    self.kmeans.cluster_centers_[:, 1],
                    marker=dsutils.DSPlot.marker.plus_filled,
-                   color=dsutils.DSPlot.color.black,
-                   alpha=0.7, label='Centroide')
+                   color=dsutils.DSPlot.color.darkgray,
+                   alpha=0.8, label='Centroide')
 
         ax.legend(frameon=False, loc='upper left', fontsize='xx-small')
+
+        if self.bestinertia:
+            ax.set_xlabel('Melhor modelo segundo o critério: inércia',
+                          fontsize='xx-small')
+
+        if self.bestdistortion:
+            if len(ax.get_xlabel()) > 0:
+                label = f'{ax.get_xlabel()} e distorção'
+            else:
+                label = 'Melhor modelo segundo o critério: distorção'
+
+            ax.set_xlabel(label, fontsize='xx-small')
+
         ax.set_xticks([])
         ax.set_yticks([])
         ax.set_title(title)
@@ -112,6 +148,7 @@ class HypoModelList:
 
     def __init__(self, n_models: int, data: pandas.DataFrame) -> None:
         models = []
+        n_models = numpy.arange(n_models) + 1
         data = data.hypo.nona
         data = data.hypo.normalized
         data = data.hypo.balanced
@@ -119,12 +156,23 @@ class HypoModelList:
         data = data.hypo.instances
         HypoModel.globaldata = data
 
-        for n in range(1, n_models + 1):
+        for n in n_models:
             models.append(HypoModel(n))
 
+        inertia = numpy.array([m.inertia for m in models])
+        distortion = numpy.array([m.distorcion for m in models])
+
+        optimalinertia = HypoModelList.elbow(n_models, inertia)
+        optimaldistortion = HypoModelList.elbow(n_models, distortion)
+        print(optimalinertia, optimaldistortion)
+
+        for model in models:
+            model.bestinertia = optimalinertia == model.n_clusters
+            model.bestdistortion = optimaldistortion == model.n_clusters
+
         self._models = models
-        self._inertia = numpy.array([m.inertia for m in models])
-        self._distortion = numpy.array([m.distorcion for m in models])
+        self._inertia = inertia
+        self._distortion = distortion
 
     @staticmethod
     def elbow(x: numpy.array, y: numpy.array) -> int:
@@ -134,7 +182,7 @@ class HypoModelList:
         num = abs((y2 - y1) * x - (x2 - x1) * y + x2 * y1 - y2 * x1)
         den = math.sqrt((y2 - y1) ** 2 + (x2 - x1) ** 2)
 
-        return numpy.argmax(num / den)
+        return x[int(numpy.argmax(num / den))]
 
     @property
     def models(self) -> list[HypoModel]:
@@ -148,15 +196,66 @@ class HypoModelList:
     def distortion(self) -> numpy.array:
         return self._distortion
 
-    def best_inertia(self) -> KMeans:
+    def model_inertia(self) -> KMeans:
         pass
 
-    def scatter(self) -> None:
+    def model_distortion(self) -> KMeans:
+        pass
+
+    def plot(self) -> None:
+        output = dsutils.datadir.join('plot_elbow.png')
+
+        nc = len(self.models)
+        x = numpy.arange(nc) + 1
+        y1 = self.inertia
+        y2 = self.distortion
+        dpi = 185
+
+        fig_elbow: pyplot.Figure
+        axinertia: pyplot.Axes
+        axdistortion: pyplot.Axes
+
+        fig_elbow, axinertia = pyplot.subplots()
+        fig_elbow.set_dpi(dpi)
+        fig_elbow.set_size_inches(1024 / dpi, 768 / dpi)
+        axdistortion = axinertia.twinx()
+
+        axinertia.set_title(f'Algoritmo Elbow para {nc:02} Clusters')
+
+        p1, = axinertia.plot(x, y1, label='inertia',
+                             color=dsutils.DSPlot.color.lipstick)
+
+        p2, = axdistortion.plot(x, y2, label='distortions',
+                                color=dsutils.DSPlot.color.azure)
+
+        axinertia.legend(handles=[p1, p2], frameon=False)
+
+        style = dict(textcoords='axes fraction',
+                     arrowprops=dict(facecolor=dsutils.DSPlot.color.gray,
+                                     alpha=0.5, shrink=0.02),
+                     fontsize='xx-small', alpha=0.8)
+
         for m in self.models:
+            if m.bestinertia:
+                bx = m.n_clusters
+                by = m.inertia
+                axinertia.annotate(f'optimal inertia ({bx}, {by:.2f})',
+                                   (bx, by), xytext=(0.6, 0.2), **style)
+
+            if m.bestdistortion:
+                bx = m.n_clusters
+                by = m.distorcion
+                axdistortion.annotate(f'optimal distortion ({bx}, {by:.2f})',
+                                      (bx, by), xytext=(0.6, 0.4), **style)
+
             n = m.n_clusters
             fname = dsutils.datadir.join(f'plot_model{n:02}.png')
-            fig = m.scatter()
-            fig.savefig(fname)
+            figcluster = m.scatter()
+            figcluster.savefig(fname)
+
+        axinertia.set_xticks(x)
+        fig_elbow.tight_layout()
+        fig_elbow.savefig(output)
 
 
 class Hypothyroid:
@@ -279,7 +378,7 @@ class Hypothyroid:
 
         style = dict(textcoords='axes fraction',
                      arrowprops=dict(
-                         facecolor=dsutils.DSPlot.color.black,
+                         facecolor=dsutils.DSPlot.color.grey,
                          alpha=0.5, shrink=0.02),
                      fontsize='xx-small', alpha=0.7)
 
