@@ -84,15 +84,9 @@ def ex2():
         *resultado
     )
 
-    import matplotlib.pyplot as plt
-    data = h.data.hypo.nona.hypo.normalized.hypo.balanced.hypo.reduced3d
-    xs = data['X']
-    ys = data['y']
-    zs = data['z']
-    fig = plt.figure()
-    ax = fig.add_subplot(projection='3d')
-    ax.scatter(xs, ys, zs)
-    fig.savefig('teste.png')
+    resultado = [
+        e
+    ]
 
     ex.item(
         'Determine o número ideal de clusters antes de obter o modelo'
