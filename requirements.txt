@@ -15,4 +15,5 @@ seaborn
 sphinxcontrib-programoutput
 sphinx-autodoc-typehints
 sphinx_rtd_theme
+tensorflow
 wordcloud
