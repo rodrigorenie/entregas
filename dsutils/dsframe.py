@@ -3,7 +3,6 @@ import pandas
 import numpy
 import imblearn
 
-
 @pandas.api.extensions.register_dataframe_accessor('ds')
 class DSFrame:
     """Classe que extende a funcionalidade de um :class:`pandas.DataFrame`
@@ -92,10 +91,9 @@ class DSFrame:
 
     @property
     def normalized(self) -> pandas.DataFrame:
-        normalizer = sklearn.preprocessing.MinMaxScaler()
-
         dfcat = self.__class__(self.categoricals).instances
         dfnum = self.__class__(self.numericals).instances
+        normalizer = sklearn.preprocessing.MinMaxScaler()
 
         dfcat = pandas.get_dummies(dfcat) if dfcat.size > 0 else dfcat
         dfnum = pandas.DataFrame(normalizer.fit_transform(dfnum),

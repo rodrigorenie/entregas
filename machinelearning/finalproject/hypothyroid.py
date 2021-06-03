@@ -21,16 +21,18 @@ class HypoModel:
     def __init__(self, n_clusters: int,
                  data: Optional[pandas.DataFrame] = None) -> None:
         self.data = data
-        self.n_clusters = n_clusters
+        instances = self.data.hypo.instances
+        self._n_clusters = n_clusters
 
-        km = KMeans(n_clusters=n_clusters).fit(self.data)
-        ds = cdist(self.data, km.cluster_centers_, 'euclidean')
-        ds = sum(numpy.min(ds, axis=1))
-        ds /= self.data.shape[0]
+        km = KMeans(n_clusters).fit(instances)
+        dist = cdist(instances.to_numpy(), km.cluster_centers_, 'euclidean')
+        dist = sum(numpy.min(dist, axis=1))
+        dist /= self.data.shape[0]
 
         self._kmeans = km
         self._inertia = km.inertia_
-        self._distortion = ds
+        self._distortion = dist
+        self._datacluster = self.data.assign(cluster=km.labels_)
 
     def __eq__(self, other: HypoModel) -> bool:
         return self.n_clusters == other.n_clusters
@@ -41,18 +43,18 @@ class HypoModel:
 
     @data.setter
     def data(self, data: pandas.DataFrame) -> None:
-        if data is not None:
+        if data is None and HypoModel.globaldata is None:
+            globaldata = f'{self.__class__.__qualname__}.globaldata'
+            raise ValueError(f'Defina o valor de {globaldata} antes de '
+                             f'instanciar a classe ou informe um DataFrame como'
+                             f'parâmetro do constructor')
+
+        if data is None:
+            data = HypoModel.globaldata
+        else:
             data = data.hypo.nona
             data = data.hypo.normalized
             data = data.hypo.balanced
-            data = data.hypo.reduced
-            data = data.hypo.instances
-        else:
-            data = HypoModel.globaldata
-
-        if data is None:
-            globaldata = f'{self.__class__.__qualname__}.globaldata'
-            raise ValueError(f'Defina o valor de {globaldata} primeiro')
 
         self._data = data
 
@@ -60,37 +62,45 @@ class HypoModel:
     def n_clusters(self) -> int:
         return self._n_clusters
 
-    @n_clusters.setter
-    def n_clusters(self, n_clusters: int) -> None:
-        self._n_clusters = n_clusters
-
     @property
     def kmeans(self) -> KMeans:
         return self._kmeans
+
+    @property
+    def inertia(self) -> float:
+        return self._inertia
 
     @property
     def distorcion(self) -> float:
         return self._distortion
 
     @property
-    def inertia(self) -> float:
-        return self._inertia
+    def datacluster(self) -> pandas.DataFrame:
+        return self._datacluster
+
+    def to_csv(self) -> None:
+        for cluster in range(self.n_clusters):
+            filename = f'hypomodel_cluster{cluster:02}.csv'
+            filename = dsutils.datadir.join(filename)
+            df = self.datacluster[self.datacluster.cluster == cluster]
+            df.to_csv(filename)
 
     def scatter(self) -> pyplot.Figure:
         title = f'Modelo com {self.n_clusters:02} Clusters'
         dpi = 185
         dsutils.log(f'Plotando {title}')
 
+        data = self.data.hypo.reduced.assign(cluster=self.kmeans.labels_)
+
         fig: pyplot.Figure
         ax: pyplot.Axes
         fig, ax = pyplot.subplots()
         fig.set_dpi(dpi)
         fig.set_size_inches(1024/dpi, 768/dpi)
-        ax.set_xlim(self.data.X.min()-.5, self.data.X.max()+.1)
-        ax.set_ylim(self.data.y.min()-.1, self.data.y.max()+.1)
+        ax.set_xlim(data.X.min()-.5, data.X.max()+.1)
+        ax.set_ylim(data.y.min()-.1, data.y.max()+.1)
 
         for c in range(self.n_clusters):
-            data = self.data.assign(cluster=self.kmeans.labels_)
             data = data[data.cluster == c]
             label = f'Cluster {c + 1:02}'
             ax.scatter(x='X', y='y', data=data, label=label, alpha=0.8, s=15)
@@ -118,8 +128,7 @@ class HypoModelList:
         newdata = data.hypo.nona
         newdata = newdata.hypo.normalized
         newdata = newdata.hypo.balanced
-        newdata = newdata.hypo.reduced
-        newdata = newdata.hypo.instances
+        # newdata = newdata.hypo.instances
         HypoModel.globaldata = newdata
 
         for n in range(1, n_models + 1):
