@@ -94,20 +94,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/sa%C3%ADdas.html">Saídas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../an%C3%A1lise%20de%20texto/atividade%20da%20aula.html">Atividade da Aula</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../an%C3%A1lise%20de%20texto/apostila0.html">Exercícios da Apostila 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../an%C3%A1lise%20de%20texto/apostila1.html">Exercícios da Apostila 1</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API</span></p>
+<p class="caption"><span class="caption-text">Implementação</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="dsutils.html">dsutils</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">textanalysis.classactivity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="textanalysis.booklet.html">textanalysis.booklet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machinelearning.finalproject.html">machinelearning.finalproject</a></li>
 </ul>
 
             
@@ -179,23 +177,27 @@
 <span id="textanalysis-classactivity"></span><h1>textanalysis.classactivity<a class="headerlink" href="#module-textanalysis.classactivity" title="Link permanente para este título">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="textanalysis.classactivity.News">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">textanalysis.classactivity.</span></span><span class="sig-name descname"><span class="pre">News</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newsfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'news.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Implementa a atividade descrita em :ref`Atividade da Aula`.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">textanalysis.classactivity.</span></span><span class="sig-name descname"><span class="pre">News</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newsfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'news.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/textanalysis/classactivity/classactivity.html#News"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#textanalysis.classactivity.News" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Implementa a atividade descrita em <a class="reference internal" href="../an%C3%A1lise%20de%20texto/atividade%20da%20aula.html#atividade-da-aula"><span class="std std-ref">Atividade da Aula</span></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>newsdir</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(em Python v3.9)"><em>None</em></a><em>]</em>) – Caminho da pasta de dados (veja a propriedade
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">newsdir</span></code> para mais detalhes)</p></li>
-<li><p><strong>newsfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a>) – Caminho relativo a pasta de dados do arquivo contendo a
-notícia a ser analisada (veja a propriedade <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> para mais
-detalhes)</p></li>
-</ul>
+<dd class="field-odd"><p><strong>newsfile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><em>str</em></a>) – Nome do arquivo contendo a notícia a ser analisada (veja a
+propriedade <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a> para mais detalhes)</p>
 </dd>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="textanalysis.classactivity.News.stopwords">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">stopwords</span></span><a class="headerlink" href="#textanalysis.classactivity.News.stopwords" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">stopwords</span></span><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#textanalysis.classactivity.News.stopwords" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Propriedade que define a lista de stopwords</p>
+<dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>lista de stopwords</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="textanalysis.classactivity.News.newsfile">
@@ -230,7 +232,7 @@ seguintes, apenas retorna o valor armazenado.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="textanalysis.classactivity.News.sents">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[List[str]]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents</span></span><em class="property"><span class="pre">:</span> <span class="pre">collections.abc.Iterator[list]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças tokenizada</p>
 <p>Gera um iterador sobre cada sentença encontrada em <a class="reference internal" href="#textanalysis.classactivity.News.text" title="textanalysis.classactivity.News.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a>. Ao
 tokenizar (utilizando as funções <a class="reference external" href="https://www.nltk.org/api/nltk.tokenize.html#nltk.tokenize.sent_tokenize" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.tokenize.sent_tokenize()</span></code></a> e
@@ -238,7 +240,7 @@ tokenizar (utilizando as funções <a class="reference external" href="https://w
 tokens.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</p>
 </dd>
 <dt class="field-even">Retorna</dt>
 <dd class="field-even"><p>iterador de lista de sentenças tokenizadas</p>
@@ -248,13 +250,13 @@ tokens.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_clean">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_clean</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[List[str]]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_clean" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_clean</span></span><em class="property"><span class="pre">:</span> <span class="pre">collections.abc.Iterator[list]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_clean" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças tokenizadas sem <em>stopwords</em>.</p>
 <p>Mesma funcionalidade de <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a>, porém a sentença não contém
 tokens definidos em <a class="reference internal" href="#textanalysis.classactivity.News.stopwords" title="textanalysis.classactivity.News.stopwords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stopwords</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</p>
 </dd>
 <dt class="field-even">Retorna</dt>
 <dd class="field-even"><p>iterador de lista de sentenças tokenizadas</p>
@@ -294,13 +296,13 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 
 <dl class="py property">
 <dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_pos">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_pos</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[List[Tuple[str,</span> <span class="pre">str]]]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_pos" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_pos</span></span><em class="property"><span class="pre">:</span> <span class="pre">collections.abc.Iterator[list]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_pos" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças com tokens POS</p>
 <p>Realiza o tagueamento gramatical das sentenças retornadas por
 <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função <a class="reference external" href="https://www.nltk.org/api/nltk.tag.html#nltk.tag.pos_tag_sents" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.tag.pos_tag_sents()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(em Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]]</p>
 </dd>
 <dt class="field-even">Retorna</dt>
 <dd class="field-even"><p>iterador de lista de tokens POS</p>
@@ -310,14 +312,14 @@ tokens definidos em <a class="reference internal" href="#textanalysis.classactiv
 
 <dl class="py property">
 <dt class="sig sig-object py" id="textanalysis.classactivity.News.sents_ner">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_ner</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[nltk.tree.Tree]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_ner" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sents_ner</span></span><em class="property"><span class="pre">:</span> <span class="pre">collections.abc.Iterator[nltk.tree.Tree]</span></em><a class="headerlink" href="#textanalysis.classactivity.News.sents_ner" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera a lista de sentenças com tokens NER</p>
 <p>Realiza o reconhecimento de entidades nomeadas (NER) das sentenças
 retornadas por <a class="reference internal" href="#textanalysis.classactivity.News.sents" title="textanalysis.classactivity.News.sents"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sents</span></code></a> utilizando a função
 <a class="reference external" href="https://www.nltk.org/api/nltk.chunk.html#nltk.chunk.ne_chunk_sents" title="(em NLTK v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">nltk.chunk.ne_chunk_sents()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.tree.Tree" title="(em NLTK v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tree</span></code></a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.tree.Tree" title="(em NLTK v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tree</span></code></a>]</p>
 </dd>
 <dt class="field-even">Retorna</dt>
 <dd class="field-even"><p>iterador de lista de tokens NER</p>
@@ -336,7 +338,7 @@ utilizando a classe <a class="reference external" href="https://www.nltk.org/api
 <dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a>) – número de palavras a retornar</p>
 </dd>
 <dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(em Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</p>
 </dd>
 <dt class="field-odd">Retorna</dt>
 <dd class="field-odd"><p>iterador de tupla (palavra, frequência)</p>
@@ -356,7 +358,7 @@ utilizando a classe <a class="reference external" href="https://www.nltk.org/api
 <dd class="field-odd"><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><em>int</em></a>) – número de bigramas a retornar</p>
 </dd>
 <dt class="field-even">Tipo de retorno</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(em Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</p>
 </dd>
 <dt class="field-odd">Retorna</dt>
 <dd class="field-odd"><p>iterador de tupla (palavra, frequência)</p>

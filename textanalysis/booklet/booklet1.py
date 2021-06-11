@@ -1,88 +1,149 @@
+from __future__ import annotations
+
 import docx
 import nltk
 import string
-import os
+import dsutils
 
-from typing import Optional, List, Tuple, Iterator, Any
-from dsutils import DataDir
+from typing import Optional, Union
+
 from nltk import ngrams
 from nltk import tokenize
-from nltk.corpus import CategorizedPlaintextCorpusReader
 from nltk.corpus import webtext
 from nltk.corpus import stopwords
 from nltk.corpus import machado
+from matplotlib import pyplot
+
+BiGram = tuple[str, str]
+TriGram = tuple[str, str, str]
+QuadriGram = tuple[str, str, str, str]
+
+BiGramFreq = tuple[BiGram, int]
+TriGramFreq = tuple[TriGram, int]
+QuadriGramFreq = tuple[QuadriGram, int]
+
+NGramFreq = tuple[Union[BiGram, TriGram], int]
 
 
-class Ex01(DataDir):
+class Ex01:
+    """Implementa a atividade descrita em :ref:`Apostila 1 Exercitando 01`
+    """
 
     def __init__(self):
-        super().__init__()
-        path = os.path.join(self.datadir,
-                            'mix20_rand700_tokens_cleaned',
-                            'tokens')
-        self._corpus = CategorizedPlaintextCorpusReader(
+        path = dsutils.datadir.join('mix20_rand700_tokens_cleaned', 'tokens')
+        self._corpus = nltk.corpus.CategorizedPlaintextCorpusReader(
             path, '.*.txt', cat_pattern=r'(\w+)/*'
         )
 
     @property
-    def corpus(self) -> CategorizedPlaintextCorpusReader:
+    def corpus(self) -> nltk.corpus.CategorizedPlaintextCorpusReader:
+        """
+        :return: O Corpus carregado dos arquivos na pasta de dados
+        """
         return self._corpus
 
-    def findid(self, fid: str,
-               category: Optional[str] = None) -> List[str]:
+    def findid(self, fid: str, category: Optional[str] = None) -> list[str]:
+        """ Encontra o fileid desejado no :attr:`corpus`
+
+        :param fid: O id desejado
+        :type fid: str
+
+        :param category: A categoria desejada
+        :type category: str
+
+        :return: Lista de ids encontrado
+        """
         if category not in (None, 'neg', 'pos'):
             raise ValueError("'category' deve ser 'neg' ou 'pos'")
 
         fileids = self.corpus.fileids(category)
         return [fileid for fileid in fileids if fid in fileid]
 
-    def words(self, fileid: str,
-              category: Optional[str] = None) -> Iterator[str]:
+    def words(self, fileid: str, category: Optional[str] = None) -> iter[str]:
+        """Iterador das palavras do corpus com ID ``fileid``
+
+        :param fileid: ID desejado
+        :type fileid: str
+
+        :param category: Categoria desejada
+        :type category: str
+
+        :return: Iterador de string
+        """
         for fid in self.findid(fileid, category):
             for word in self.corpus.words(fid):
                 yield word
 
 
-class Ex02(DataDir):
+class Ex02:
+    """Implementa a atividade descrita em :ref:`Apostila 1 Exercitando 02`
+    """
 
     def __init__(self, docfile: str) -> None:
-        super().__init__()
-        docfile = self.file(docfile)
-        self._doc = docx.Document(docfile)
+        self._doc = docx.Document(dsutils.datadir.join(docfile))
 
     @property
     def doc(self) -> docx.Document:
+        """
+
+        :return: Documento em formato docx
+        """
         return self._doc
 
     @property
-    def words(self) -> Iterator[str]:
+    def words(self) -> iter[str]:
+        """
+
+        :return: Iterador de string
+        """
         for para in self.doc.paragraphs:
             for word in para.text.split():
                 yield word
 
     @property
-    def bigrams(self) -> Iterator[Tuple[str, str]]:
+    def bigrams(self) -> iter[BiGram]:
+        """
+
+        :return: Iterador de tupla
+        """
         return ngrams(list(self.words), 2)
 
     @property
-    def trigrams(self) -> Iterator[Tuple[str, str, str]]:
+    def trigrams(self) -> iter[TriGram]:
+        """
+
+        :return: Iterador de tupla
+        """
         return ngrams(list(self.words), 3)
 
-    def top_bigrams(self,
-                    top: Optional[int] = 20) -> Iterator[Tuple[Any, int]]:
+    def top_bigrams(self, top: Optional[int] = 20) -> iter[BiGramFreq]:
+        """
+
+        :param top:
+        :type top: int
+
+        :return: Iterador de tupla
+        """
         for obj, freq in nltk.FreqDist(self.bigrams).most_common(top):
             yield obj, freq
 
-    def top_trigrams(self,
-                     top: Optional[int] = 20) -> Iterator[Tuple[Any, int]]:
+    def top_trigrams(self, top: Optional[int] = 20) -> iter[TriGramFreq]:
+        """
+
+        :param top:
+        :type top: int
+
+        :return: Iterador de tupla
+        """
         for obj, freq in nltk.FreqDist(self.trigrams).most_common(top):
             yield obj, freq
 
 
-class Ex03(DataDir):
+class Ex03:
+    """Implementa a atividade descrita em :ref:`Apostila 1 Exercitando 03`
+    """
 
     def __init__(self, file: str) -> None:
-        super().__init__()
         self.file = file
         self._words = None
 
@@ -92,7 +153,7 @@ class Ex03(DataDir):
             "n/s", "s/d", "n/d", "s/s", "s/e", "''"] + list(string.punctuation)
 
     @property
-    def stopwords(self) -> List[str]:
+    def stopwords(self) -> list[str]:
         return self._stopwords
 
     @property
@@ -106,144 +167,58 @@ class Ex03(DataDir):
         self._file = file
 
     @property
-    def words(self) -> List[str]:
+    def words(self) -> list[str]:
         if not self._words:
             self._words = webtext.words(self.file)
 
         return self._words
 
-    def word_freq(self, word: str) -> int:
-        try:
-            freq = nltk.FreqDist(self.words)[word]
-        except KeyError:
-            freq = 0
-
-        return freq
-
     @property
-    def tokens(self) -> Iterator[str]:
+    def tokens(self) -> iter[str]:
         for token in self.words:
             t = token.lower()
             if t not in self.stopwords and len(t) > 1:
                 yield token.lower()
 
-    def token_freq(self, token: str) -> int:
-        try:
-            freq = nltk.FreqDist(self.tokens)[token]
-        except KeyError:
-            freq = 0
-
-        return freq
+    @property
+    def tokens_freq(self) -> nltk.FreqDist:
+        return nltk.FreqDist(self.tokens)
 
     @property
-    def bigrams(self) -> Iterator[Tuple[str, str]]:
+    def words_freq(self) -> nltk.FreqDist:
+        return nltk.FreqDist(self.words)
+
+    def tokens_freq_plot(self) -> str:
+        out = dsutils.datadir.join(self.file.split('.')[0] + '.png')
+
+        fig = pyplot.figure(figsize=(10, 4))
+        pyplot.ion()
+        self.tokens_freq.plot(50, cumulative=False)
+        fig.savefig(out, bbox_inches="tight")
+        pyplot.ioff()
+
+        return out
+
+    @property
+    def bigrams(self) -> iter[BiGram]:
         return ngrams(list(self.tokens), 2)
 
-    def quadrigrams(
-            self,
-            word: Optional[str] = None
-    ) -> Iterator[Tuple[str, str, str, str]]:
-
-        if not word:
+    def quadrigrams(self, word: Optional[str] = None) -> iter[QuadriGram]:
+        if word is None:
             for gram in ngrams(list(self.tokens), 4):
                 yield gram
-
-        for gram in ngrams(list(self.tokens), 4):
-            if word in gram:
-                yield gram
+        else:
+            for gram in ngrams(list(self.tokens), 4):
+                if word in gram:
+                    yield gram
 
     @property
-    def top_bigrams(self):
+    def top_bigrams(self) -> list[BiGramFreq]:
         return nltk.FreqDist(self.bigrams).most_common(15)
 
     @property
-    def top_quadrigrams(self):
-        return nltk.FreqDist(self.quadrigrams()).most_common(20)
-
-
-
-def ex03():
-    data = {
-        'singles.txt': {
-            'tokens': [],
-            'freq_tokens': None,
-            'freq_tokens_top15': [],
-            'freq_bigrams': None,
-            'freq_bigrams_top15': [],
-            'freq_quadrigrams_life': []
-        },
-        'pirates.txt': {
-            'tokens': [],
-            'freq_tokens': None,
-            'freq_tokens_top15': [],
-            'freq_bigrams': None,
-            'freq_bigrams_top15': [],
-            'freq_quadrigrams_life': []
-        }
-    }
-
-    # Gera os stopwords e inclui palavras personalizadas
-    sw = stopwords.words('english') + [
-        "[", "]", ".", ",", "?", "*", ":", "...", "!", "'", "'s",
-        "#", "(", ")", "'m", "-", "'ve", "ft.", "n't", "y.o", "&", "..",
-        "n/s", "s/d", "n/d", "s/s", "s/e", "''"
-    ]
-
-    for file in data:
-        text = webtext.raw(file)
-
-        # Gera e filtra os tokens de cada arquivo
-        data[file]['tokens'] = tokenize.word_tokenize(text)
-        data[file]['tokens'] = [t.lower() for t in data[file]['tokens']
-                                if t.lower() not in sw]
-
-        # Gera os dados de frequência dos tokens
-        data[file]['freq_tokens'] = nltk.FreqDist(data[file]['tokens'])
-
-        # Gera os dados dos 15 tokens mais frequentes
-        top15 = data[file]['freq_tokens'].most_common(15)
-        data[file]['freq_tokens_top15'] = top15
-
-        # Gera os dados de frequência dos bigramas
-        bigram = ngrams(data[file]['tokens'], 2)
-        data[file]['freq_bigrams'] = nltk.FreqDist(bigram)
-
-        # Gera os dados dos 15 bigramas mais frequentes
-        top15 = data[file]['freq_bigrams'].most_common(15)
-        data[file]['freq_bigrams_top15'] = top15
-
-        # Gera os dados de frequência dos quadrigramas com palavra "life"
-        quadrigram = [ng for ng in ngrams(data[file]['tokens'], 4)
-                      if 'life' in ng]
-        data[file]['freq_quadrigrams_life'] = nltk.FreqDist(quadrigram)
-
-        # Imprime frequência das palavras 'the' e 'that'
-        print('\n{:20s} {:35s} {}'.format('Arquivo', 'Token', 'Frequência'))
-        for word in ['the', 'that']:
-            freq = data[file]['freq_tokens'][word]
-            print('{:20s} {:35s} {:03}'.format(file, word, freq))
-
-        # Imprime Top 15 Tokens
-        print('\n{:20s} {:35s} {}'.format('Arquivo', 'Top 15 Tokens',
-                                          'Frequência'))
-        for token, freq in data[file]['freq_tokens_top15']:
-            print('{:20s} {:35s} {:03}'.format(file, token, freq))
-
-        # Imprime Top 15 Bigramas
-        print('\n{:20s} {:35s} {}'.format(
-            'Arquivo', 'Top 15 Bigrama', 'Frequência'))
-        for bigram, freq in data[file]['freq_bigrams_top15']:
-            print('{:20s} {:35s} {:03}'.format(file, str(bigram), freq))
-
-        # Imprime Top 20 Quadrigramas com palavra "life"
-        print('\n{:20s} {:50s} {}'.format(
-            'Arquivo', 'Top 20 Quadrigrama', 'Frequência'))
-        top20 = data[file]['freq_quadrigrams_life'].most_common(20)
-        for quadrigram, freq in top20:
-            print('{:20s} {:50s} {:03}'.format(file, str(quadrigram), freq))
-
-    data['singles.txt']['freq_tokens'].plot(cumulative=False)
-    data['pirates.txt']['freq_tokens'].plot(cumulative=True)
+    def top_life_quadrigrams(self) -> list[QuadriGramFreq]:
+        return nltk.FreqDist(self.quadrigrams('life')).most_common(20)
 
 
 def ex04():

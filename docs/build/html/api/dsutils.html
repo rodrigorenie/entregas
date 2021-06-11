@@ -44,7 +44,7 @@
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
     <link rel="next" title="textanalysis.classactivity" href="textanalysis.classactivity.html" />
-    <link rel="prev" title="Exercícios da Apostila 0" href="../an%C3%A1lise%20de%20texto/apostila0.html" /> 
+    <link rel="prev" title="Exercícios da Apostila 1" href="../an%C3%A1lise%20de%20texto/apostila1.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,20 +94,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/sa%C3%ADdas.html">Saídas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../an%C3%A1lise%20de%20texto/atividade%20da%20aula.html">Atividade da Aula</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../an%C3%A1lise%20de%20texto/apostila0.html">Exercícios da Apostila 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../an%C3%A1lise%20de%20texto/apostila1.html">Exercícios da Apostila 1</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API</span></p>
+<p class="caption"><span class="caption-text">Implementação</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">dsutils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="textanalysis.classactivity.html">textanalysis.classactivity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="textanalysis.booklet.html">textanalysis.booklet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="machinelearning.finalproject.html">machinelearning.finalproject</a></li>
 </ul>
 
             
@@ -178,44 +176,29 @@
   <div class="section" id="module-dsutils">
 <span id="dsutils"></span><h1>dsutils<a class="headerlink" href="#module-dsutils" title="Link permanente para este título">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="dsutils.DataDir">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DataDir</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.DataDir.datadir">
-<span class="sig-name descname"><span class="pre">datadir</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'/mnt/dados/Dropbox/PósGraduação/entregas/data'</span></em><a class="headerlink" href="#dsutils.DataDir.datadir" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="dsutils.DataDir.join">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DataDir.join"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DataDir.join" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="dsutils.RocketFrame">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">RocketFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classcols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Classe que extende a funcionalidade de um <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1627.gb2a36bdf88)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></p>
-<p>Adiciona uma propriedade nas instâncias da classe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1627.gb2a36bdf88)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>
-chamado <code class="docutils literal notranslate"><span class="pre">rocket</span></code>, a partir da onde é possível acessar todos os métodos
+<dt class="sig sig-object py" id="dsutils.DSFrame">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsframe.html#DSFrame"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSFrame" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Classe que extende a funcionalidade de um <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1828.g3f67dc3308)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></p>
+<p>Adiciona uma propriedade nas instâncias da classe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(em pandas v1.3.0.dev0+1828.g3f67dc3308)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>
+chamado <code class="docutils literal notranslate"><span class="pre">ds</span></code>, a partir da onde é possível acessar todos os métodos
 implementados nesta classe.</p>
 <p>Exemplo:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Obrigatório importar o módulo para registrar a propriedade &#39;rocket&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Obrigatório importar o módulo para registrar a propriedade &#39;ds&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dsutils</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">classcols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">classcols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Cópia do DataFrame contendo apenas as instâncias</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">instances</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Cópia do DataFrame contendo apenas as classes</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">df</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">classes</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Cópia do DataFrame com as instâncias normalizaas e balanceaas</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">normalized</span><span class="o">.</span><span class="n">balanced</span><span class="o">.</span><span class="n">instances</span><span class="o">.</span><span class="n">df</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">normalized</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">balanced</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">instances</span>
 </pre></div>
 </div>
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.df">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.df" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.df">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.df" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
@@ -224,28 +207,8 @@ implementados nesta classe.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.train">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">train</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.train" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.test">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">test</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.test" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.classcols">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">classcols</span></span><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#dsutils.RocketFrame.classcols" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.classcols">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">classcols</span></span><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#dsutils.DSFrame.classcols" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
@@ -254,170 +217,120 @@ implementados nesta classe.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.classes">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">classes</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.classes" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.train">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">train</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.train" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.instances">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">instances</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.instances" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.classes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">classes</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.classes" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.nona">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">nona</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.nona" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.instances">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">instances</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.instances" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.numericals">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">numericals</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.numericals" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.nona">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">nona</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.nona" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.categoricals">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">categoricals</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.categoricals" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.numericals">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">numericals</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.numericals" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.normalized">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">normalized</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.normalized" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.categoricals">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">categoricals</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.categoricals" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.balanced">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">balanced</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.balanced" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.normalized">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">normalized</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.normalized" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.reduced">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">reduced</span></span><em class="property"><span class="pre">:</span> <span class="pre">dsutils.dsutils.RocketFrame</span></em><a class="headerlink" href="#dsutils.RocketFrame.reduced" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.balanced">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">balanced</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.balanced" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a></p>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.DSFrame.reduced">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">reduced</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.reduced" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dsutils.DSFrame.reduced3d">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">reduced3d</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#dsutils.DSFrame.reduced3d" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="dsutils.RocketFrame.split">
-<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#RocketFrame.split"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.RocketFrame.split" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSFrame.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsframe.html#DSFrame.split"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSFrame.split" title="Link permanente para esta definição">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Tipo de retorno</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a>, <a class="reference internal" href="#dsutils.RocketFrame" title="dsutils.dsutils.RocketFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">RocketFrame</span></code></a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(em Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]</p>
 </dd>
 </dl>
 </dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="dsutils.Exercise">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">Exercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="dsutils.Exercise.text">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise.text"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise.text" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="dsutils.Exercise.item">
-<span class="sig-name descname"><span class="pre">item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">resolutions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise.item"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise.item" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="dsutils.Exercise.print">
-<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Exercise.print"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Exercise.print" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="dsutils.Colors">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">Colors</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#Colors"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.Colors" title="Link permanente para esta definição">¶</a></dt>
-<dd><dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.blue">
-<span class="sig-name descname"><span class="pre">blue</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#2CBDFE'</span></em><a class="headerlink" href="#dsutils.Colors.blue" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.green">
-<span class="sig-name descname"><span class="pre">green</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#47DBCD'</span></em><a class="headerlink" href="#dsutils.Colors.green" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.pink">
-<span class="sig-name descname"><span class="pre">pink</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#F3A0F2'</span></em><a class="headerlink" href="#dsutils.Colors.pink" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.purple">
-<span class="sig-name descname"><span class="pre">purple</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#9D2EC5'</span></em><a class="headerlink" href="#dsutils.Colors.purple" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.violet">
-<span class="sig-name descname"><span class="pre">violet</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#661D98'</span></em><a class="headerlink" href="#dsutils.Colors.violet" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.amber">
-<span class="sig-name descname"><span class="pre">amber</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'#F5B14C'</span></em><a class="headerlink" href="#dsutils.Colors.amber" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.list">
-<span class="sig-name descname"><span class="pre">list</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['#2CBDFE',</span> <span class="pre">'#47DBCD',</span> <span class="pre">'#F3A0F2',</span> <span class="pre">'#9D2EC5',</span> <span class="pre">'#661D98',</span> <span class="pre">'#F5B14C']</span></em><a class="headerlink" href="#dsutils.Colors.list" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.color">
-<span class="sig-name descname"><span class="pre">color</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;itertools.cycle</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#dsutils.Colors.color" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="dsutils.Colors.marker">
-<span class="sig-name descname"><span class="pre">marker</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;itertools.cycle</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#dsutils.Colors.marker" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="dsutils.DSLog">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSLog</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSLog"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSLog</span></span><a class="reference internal" href="../_modules/dsutils/dslog.html#DSLog"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Classe auxiliar para interface com módulo <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(em Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> do Python.</p>
 <p>Esta classe configura o módulo <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(em Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> do Python definido um nível
 de log customizado para que as mensagens não conflitem com os logs do
@@ -436,7 +349,7 @@ logs.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dsutils.DSLog.log">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSLog.log"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog.log" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dslog.html#DSLog.log"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog.log" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Gera uma mensagem de log.</p>
 <p>Gera uma mensagem de log cujo nível padrão é <code class="docutils literal notranslate"><span class="pre">DSINFO</span></code>.</p>
 <dl class="field-list simple">
@@ -448,7 +361,7 @@ logs.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dsutils.DSLog.logged">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">logged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSLog.logged"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog.logged" title="Link permanente para esta definição">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">logged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dslog.html#DSLog.logged"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSLog.logged" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Decorador para gerar mensagens de log automaticamente.</p>
 <p>Este método tem como objetivo ser utilizado como decorador de funções ou
 outros métodos, gerando uma mensagem de log com o nome da função ou
@@ -467,13 +380,44 @@ método decorado quando este é executado.</p>
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="dsutils.logged">
+<span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">logged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dsutils.logged" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Decorador para gerar mensagens de log automaticamente.</p>
+<p>Este método tem como objetivo ser utilizado como decorador de funções ou
+outros métodos, gerando uma mensagem de log com o nome da função ou
+método decorado quando este é executado.</p>
+<p>Exemplo:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dsutils</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@dsutils</span><span class="o">.</span><span class="n">DSLog</span><span class="o">.</span><span class="n">logged</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">teste</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">teste</span><span class="p">()</span> <span class="c1"># Gera um log informando que teste está em execução</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dsutils.log">
+<span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dsutils.log" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Gera uma mensagem de log.</p>
+<p>Gera uma mensagem de log cujo nível padrão é <code class="docutils literal notranslate"><span class="pre">DSINFO</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Tipo de retorno</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(em Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="dsutils.DSTimer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSTimer</span></span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSTimer"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSTimer" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSTime">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSTime</span></span><a class="reference internal" href="../_modules/dsutils/dstime.html#DSTime"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSTime" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Classe auxiliar para interface com módulo <a class="reference external" href="https://docs.python.org/3/library/time.html#module-time" title="(em Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">time</span></code></a> do Python.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="dsutils.DSTimer.timed">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsutils.html#DSTimer.timed"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSTimer.timed" title="Link permanente para esta definição">¶</a></dt>
+<dt class="sig sig-object py" id="dsutils.DSTime.timed">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dstime.html#DSTime.timed"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSTime.timed" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Decorador para cronometrar a execção de código automaticamente.</p>
 <p>Este método tem como objetivo ser utilizado como decorador de funções ou
 outros métodos, cronometrando seu tempo de execução automaticamente. Ao
@@ -493,6 +437,227 @@ tempo de execução utilizando o método <code class="xref py py-meth docutils l
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="dsutils.timed">
+<span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">timed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dsutils.timed" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Decorador para cronometrar a execção de código automaticamente.</p>
+<p>Este método tem como objetivo ser utilizado como decorador de funções ou
+outros métodos, cronometrando seu tempo de execução automaticamente. Ao
+final da execução da função ou método decorado, é gerado um log com o seu
+tempo de execução utilizando o método <code class="xref py py-meth docutils literal notranslate"><span class="pre">DSLogger.log()</span></code>.</p>
+<p>Exemplo:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dsutils</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@dsutils</span><span class="o">.</span><span class="n">DSTimer</span><span class="o">.</span><span class="n">timed</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">teste</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">teste</span><span class="p">()</span> <span class="c1"># Gera um log informando o tempo de execução da função</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.DSPlot">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSPlot</span></span><a class="reference internal" href="../_modules/dsutils/dsplot.html#DSPlot"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSPlot" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py class">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yellow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#ddb310'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">darkgreen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#005900'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lipstick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#b80058'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#008cf9'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">darkgray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#585858'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#006e00'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lavender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#d163e6'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#b24502'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coral</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#ff9287'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">darkblue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#000078'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indigo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#5954d6'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turquoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#00c6f8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">olive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#878500'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#00a76c'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#bdbdbd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">darkpink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#8a034f'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsplot.html#DSPlot.Color"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSPlot.Color" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.yellow">
+<span class="sig-name descname"><span class="pre">yellow</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#ddb310'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.yellow" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.darkgreen">
+<span class="sig-name descname"><span class="pre">darkgreen</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#005900'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.darkgreen" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.lipstick">
+<span class="sig-name descname"><span class="pre">lipstick</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#b80058'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.lipstick" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.azure">
+<span class="sig-name descname"><span class="pre">azure</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#008cf9'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.azure" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.darkgray">
+<span class="sig-name descname"><span class="pre">darkgray</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#585858'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.darkgray" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.green">
+<span class="sig-name descname"><span class="pre">green</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#006e00'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.green" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.lavender">
+<span class="sig-name descname"><span class="pre">lavender</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#d163e6'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.lavender" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.brown">
+<span class="sig-name descname"><span class="pre">brown</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#b24502'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.brown" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.coral">
+<span class="sig-name descname"><span class="pre">coral</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#ff9287'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.coral" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.darkblue">
+<span class="sig-name descname"><span class="pre">darkblue</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#000078'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.darkblue" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.indigo">
+<span class="sig-name descname"><span class="pre">indigo</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#5954d6'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.indigo" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.turquoise">
+<span class="sig-name descname"><span class="pre">turquoise</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#00c6f8'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.turquoise" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.olive">
+<span class="sig-name descname"><span class="pre">olive</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#878500'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.olive" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.jade">
+<span class="sig-name descname"><span class="pre">jade</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#00a76c'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.jade" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.gray">
+<span class="sig-name descname"><span class="pre">gray</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#bdbdbd'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.gray" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Color.darkpink">
+<span class="sig-name descname"><span class="pre">darkpink</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(em Python v3.9)"><span class="pre">str</span></a></em><em class="property"> <span class="pre">=</span> <span class="pre">'#8a034f'</span></em><a class="headerlink" href="#dsutils.DSPlot.Color.darkpink" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Marker</span></span><a class="reference internal" href="../_modules/dsutils/dsplot.html#DSPlot.Marker"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSPlot.Marker" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.point">
+<span class="sig-name descname"><span class="pre">point</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'.'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.point" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.circle">
+<span class="sig-name descname"><span class="pre">circle</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'o'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.circle" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.plus_filled">
+<span class="sig-name descname"><span class="pre">plus_filled</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'P'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.plus_filled" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.hexagon2">
+<span class="sig-name descname"><span class="pre">hexagon2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'H'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.hexagon2" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.star">
+<span class="sig-name descname"><span class="pre">star</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'*'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.star" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.square">
+<span class="sig-name descname"><span class="pre">square</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'s'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.square" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.x_filled">
+<span class="sig-name descname"><span class="pre">x_filled</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'X'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.x_filled" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.diamond">
+<span class="sig-name descname"><span class="pre">diamond</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'D'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.diamond" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.Marker.triangle_down">
+<span class="sig-name descname"><span class="pre">triangle_down</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'v'</span></em><a class="headerlink" href="#dsutils.DSPlot.Marker.triangle_down" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"> <span class="pre">=</span> <span class="pre">DSPlot.Color(yellow='#ddb310',</span> <span class="pre">darkgreen='#005900',</span> <span class="pre">lipstick='#b80058',</span> <span class="pre">azure='#008cf9',</span> <span class="pre">darkgray='#585858',</span> <span class="pre">green='#006e00',</span> <span class="pre">lavender='#d163e6',</span> <span class="pre">brown='#b24502',</span> <span class="pre">coral='#ff9287',</span> <span class="pre">darkblue='#000078',</span> <span class="pre">indigo='#5954d6',</span> <span class="pre">turquoise='#00c6f8',</span> <span class="pre">olive='#878500',</span> <span class="pre">jade='#00a76c',</span> <span class="pre">gray='#bdbdbd',</span> <span class="pre">darkpink='#8a034f')</span></em><a class="headerlink" href="#dsutils.DSPlot.color" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.marker">
+<span class="sig-name descname"><span class="pre">marker</span></span><em class="property"> <span class="pre">=</span> <span class="pre">DSPlot.Marker()</span></em><a class="headerlink" href="#dsutils.DSPlot.marker" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSPlot.pyplot_rc">
+<span class="sig-name descname"><span class="pre">pyplot_rc</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'axes.axisbelow':</span> <span class="pre">False,</span> <span class="pre">'axes.edgecolor':</span> <span class="pre">'lightgrey',</span> <span class="pre">'axes.facecolor':</span> <span class="pre">'None',</span> <span class="pre">'axes.grid':</span> <span class="pre">False,</span> <span class="pre">'axes.labelcolor':</span> <span class="pre">'dimgrey',</span> <span class="pre">'figure.facecolor':</span> <span class="pre">'white',</span> <span class="pre">'lines.solid_capstyle':</span> <span class="pre">'round',</span> <span class="pre">'patch.edgecolor':</span> <span class="pre">'w',</span> <span class="pre">'patch.force_edgecolor':</span> <span class="pre">True,</span> <span class="pre">'text.color':</span> <span class="pre">'dimgrey',</span> <span class="pre">'xtick.bottom':</span> <span class="pre">False,</span> <span class="pre">'xtick.color':</span> <span class="pre">'dimgrey',</span> <span class="pre">'xtick.direction':</span> <span class="pre">'out',</span> <span class="pre">'xtick.top':</span> <span class="pre">False,</span> <span class="pre">'ytick.color':</span> <span class="pre">'dimgrey',</span> <span class="pre">'ytick.direction':</span> <span class="pre">'out'}</span></em><a class="headerlink" href="#dsutils.DSPlot.pyplot_rc" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.DSDataDir">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSDataDir</span></span><a class="reference internal" href="../_modules/dsutils/dsdatadir.html#DSDataDir"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSDataDir" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.DSDataDir.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'/mnt/dados/Dropbox/PósGraduação/equiperocket/data'</span></em><a class="headerlink" href="#dsutils.DSDataDir.path" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSDataDir.join">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsdatadir.html#DSDataDir.join"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSDataDir.join" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dsutils.datadir">
+<span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">datadir</span></span><a class="headerlink" href="#dsutils.datadir" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>apelido de <a class="reference internal" href="#dsutils.DSDataDir" title="dsutils.dsdatadir.DSDataDir"><code class="xref py py-class docutils literal notranslate"><span class="pre">dsutils.dsdatadir.DSDataDir</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dsutils.DSExercise">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dsutils.</span></span><span class="sig-name descname"><span class="pre">DSExercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsexercise.html#DSExercise"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSExercise" title="Link permanente para esta definição">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSExercise.text">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsexercise.html#DSExercise.text"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSExercise.text" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSExercise.columns">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsexercise.html#DSExercise.columns"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSExercise.columns" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSExercise.item">
+<span class="sig-name descname"><span class="pre">item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">resolutions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsexercise.html#DSExercise.item"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSExercise.item" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dsutils.DSExercise.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dsutils/dsexercise.html#DSExercise.print"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#dsutils.DSExercise.print" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -502,7 +667,7 @@ tempo de execução utilizando o método <code class="xref py py-meth docutils l
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="textanalysis.classactivity.html" class="btn btn-neutral float-right" title="textanalysis.classactivity" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../an%C3%A1lise%20de%20texto/apostila0.html" class="btn btn-neutral float-left" title="Exercícios da Apostila 0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../an%C3%A1lise%20de%20texto/apostila1.html" class="btn btn-neutral float-left" title="Exercícios da Apostila 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 
   <hr/>

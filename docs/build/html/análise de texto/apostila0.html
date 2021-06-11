@@ -43,7 +43,7 @@
     
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
-    <link rel="next" title="dsutils" href="../api/dsutils.html" />
+    <link rel="next" title="Exercícios da Apostila 1" href="apostila1.html" />
     <link rel="prev" title="Atividade da Aula" href="atividade%20da%20aula.html" /> 
 </head>
 
@@ -94,8 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/sa%C3%ADdas.html">Saídas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
 <ul class="current">
@@ -105,13 +103,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#apostila-0-exercitando-02">Apostila 0 Exercitando 02</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="apostila1.html">Exercícios da Apostila 1</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API</span></p>
+<p class="caption"><span class="caption-text">Implementação</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/dsutils.html">dsutils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/textanalysis.classactivity.html">textanalysis.classactivity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/textanalysis.booklet.html">textanalysis.booklet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/machinelearning.finalproject.html">machinelearning.finalproject</a></li>
 </ul>
 
             
@@ -187,15 +185,16 @@
 </div>
 <div class="section" id="apostila-0-exercitando-01">
 <h2>Apostila 0 Exercitando 01<a class="headerlink" href="#apostila-0-exercitando-01" title="Link permanente para este título">¶</a></h2>
-<p>Execute o que se pede. Logo após, cole a solução do exercício neste documento. Lembre-se de salvar seu programa, para
-estudos posteriores.</p>
+<p>Execute o que se pede. Logo após, cole a solução do exercício neste documento.
+Lembre-se de salvar seu programa, para estudos posteriores.</p>
+<hr class="docutils" />
 <div class="topic">
-<p class="topic-title">Crie uma string com o conteúdo “Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem
-amor eu nada seria.”</p>
+<p class="topic-title">Crie uma string com o conteúdo “Ainda que falasse as línguas dos
+homens e falasse a língua dos anjos, sem amor eu nada seria.”</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text" title="textanalysis.booklet.booklet0.Ex01.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    <span class="nd">@text</span><span class="o">.</span><span class="n">setter</span>
-<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">3</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">3</span>        <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span class="linenos">4</span>            <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="linenos">5</span>
 <span class="linenos">6</span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -205,11 +204,12 @@ amor eu nada seria.”</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprima cada caractere da string</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_chars" title="textanalysis.booklet.booklet0.Ex01.text_chars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_chars</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    <span class="nd">@property</span>
-<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">text_chars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">text_chars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">iter</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="linenos">3</span>        <span class="sd">&quot;&quot;&quot;Cria um gerador para os caracteres individuais do texto.</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="sd">        :return: Iterador dos caracteres de :attr:`text`</span>
@@ -219,11 +219,12 @@ amor eu nada seria.”</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Segmente a string em uma lista</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
-<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">text_split</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">text_split</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">iter</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="sd">        Divide o texto em uma lista de palavras, separadas por um espaço em</span>
@@ -236,6 +237,7 @@ amor eu nada seria.”</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Quantas palavras há na lista?</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_split_len" title="textanalysis.booklet.booklet0.Ex01.text_split_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split_len</span></code></a></p>
@@ -249,11 +251,12 @@ amor eu nada seria.”</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprima cada palavra da string</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_split" title="textanalysis.booklet.booklet0.Ex01.text_split"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_split</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
-<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">text_split</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">text_split</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">iter</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Divide o texto em uma lista de palavras</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="sd">        Divide o texto em uma lista de palavras, separadas por um espaço em</span>
@@ -266,6 +269,7 @@ amor eu nada seria.”</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Substitua o termo “dos homens” por “do mundo”</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_replace" title="textanalysis.booklet.booklet0.Ex01.text_replace"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_replace()</span></code></a></p>
@@ -287,6 +291,7 @@ amor eu nada seria.”</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprima o fragmento que vai do 21º até o 30º caracteres</p>
 <p>Implementado na propriedade
@@ -325,6 +330,7 @@ requisitado neste item.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprima os últimos 15 caracteres</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_last" title="textanalysis.booklet.booklet0.Ex01.text_last"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_last()</span></code></a></p>
@@ -343,6 +349,7 @@ requisitado neste item.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Salve a sentença em um arquivo do tipo txt</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex01.text_save" title="textanalysis.booklet.booklet0.Ex01.text_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex01.text_save()</span></code></a></p>
@@ -354,7 +361,7 @@ requisitado neste item.</p>
 <span class="linenos"> 6</span>
 <span class="linenos"> 7</span><span class="sd">        :return: Caminho completo do arquivo salvo</span>
 <span class="linenos"> 8</span><span class="sd">        &quot;&quot;&quot;</span>
-<span class="linenos"> 9</span>        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="linenos"> 9</span>        <span class="n">filename</span> <span class="o">=</span> <span class="n">dsutils</span><span class="o">.</span><span class="n">datadir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="linenos">10</span>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="linenos">11</span>            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="linenos">12</span>            <span class="k">return</span> <span class="n">filename</span>
@@ -366,13 +373,14 @@ requisitado neste item.</p>
 <h2>Apostila 0 Exercitando 02<a class="headerlink" href="#apostila-0-exercitando-02" title="Link permanente para este título">¶</a></h2>
 <p>Execute o que se pede. Logo após, cole a solução do exercício neste documento.
 Lembre-se de salvar seu programa, para estudos posteriores.</p>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Crie uma lista com os parágrafos do documento</p>
 <p>Implementado no construtor da Classe
 <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02" title="textanalysis.booklet.booklet0.Ex02"><code class="xref py py-class docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02</span></code></a>. O caminho do <code class="docutils literal notranslate"><span class="pre">docx</span></code>
 deve ser passado como parâmetro.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Ex02</span><span class="p">(</span><span class="n">DataDir</span><span class="p">):</span>
-<span class="linenos"> 2</span>    <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Ex02</span><span class="p">:</span>
+<span class="linenos"> 2</span>    <span class="sd">&quot;&quot;&quot;Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 02`</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">    :param docname: Caminho do arquivo ``docx`` a ser carregado.</span>
 <span class="linenos"> 5</span><span class="sd">    :type docname: str</span>
@@ -380,7 +388,7 @@ deve ser passado como parâmetro.</p>
 <span class="linenos"> 7</span>
 <span class="linenos"> 8</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="linenos"> 9</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<span class="linenos">10</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">docname</span><span class="p">))</span>
+<span class="linenos">10</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span> <span class="o">=</span> <span class="n">docx</span><span class="o">.</span><span class="n">Document</span><span class="p">(</span><span class="n">dsutils</span><span class="o">.</span><span class="n">datadir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docname</span><span class="p">))</span>
 <span class="linenos">11</span>
 </pre></div>
 </div>
@@ -390,7 +398,7 @@ deve ser passado como parâmetro.</p>
 <p class="topic-title">Crie uma lista com os parágrafos do documento</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_list" title="textanalysis.booklet.booklet0.Ex02.paragraphs_list"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_list</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    <span class="nd">@property</span>
-<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">paragraphs_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">paragraphs_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="linenos">3</span>        <span class="sd">&quot;&quot;&quot;Cria uma lista contendo cada parágrafo encontrado no documento.</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="sd">        :return: Lista com os parágrafos.</span>
@@ -399,7 +407,7 @@ deve ser passado como parâmetro.</p>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    <span class="nd">@property</span>
-<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">paragraphs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="linenos">2</span>    <span class="k">def</span> <span class="nf">paragraphs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">iter</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="linenos">3</span>        <span class="sd">&quot;&quot;&quot;Cria um iterador para os parágrafos encontrados no documento.</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="sd">        :returns: iterador dos parágrafos no documento</span>
@@ -410,6 +418,7 @@ deve ser passado como parâmetro.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Quantos parágrafos o documento possui?</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_len" title="textanalysis.booklet.booklet0.Ex02.paragraphs_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_len</span></code></a></p>
@@ -424,11 +433,12 @@ deve ser passado como parâmetro.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprima o conteúdo do 1º parágrafo do texto</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment" title="textanalysis.booklet.booklet0.Ex02.paragraphs_segment"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_segment()</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">paragraphs_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span class="linenos"> 2</span>                           <span class="n">last</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="linenos"> 2</span>                           <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
 <span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Retorna os parágrafos do documento, da posição inicial ``first`` até</span>
 <span class="linenos"> 4</span><span class="sd">        a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os</span>
 <span class="linenos"> 5</span><span class="sd">        parágrafos nas posições indicadas. Se ``last`` for omitido, retorna</span>
@@ -460,11 +470,12 @@ deve ser passado como parâmetro.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprima os parágrafos 3 a 6, inclusive</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_segment" title="textanalysis.booklet.booklet0.Ex02.paragraphs_segment"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_segment()</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">paragraphs_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span class="linenos"> 2</span>                           <span class="n">last</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="linenos"> 2</span>                           <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]:</span>
 <span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Retorna os parágrafos do documento, da posição inicial ``first`` até</span>
 <span class="linenos"> 4</span><span class="sd">        a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os</span>
 <span class="linenos"> 5</span><span class="sd">        parágrafos nas posições indicadas. Se ``last`` for omitido, retorna</span>
@@ -496,6 +507,7 @@ deve ser passado como parâmetro.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">O termo “Machado” está no documento?</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_hastext" title="textanalysis.booklet.booklet0.Ex02.paragraphs_hastext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_hastext()</span></code></a></p>
@@ -512,6 +524,7 @@ deve ser passado como parâmetro.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Crie um  texto corrido a partir dos parágrafos lidos</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_text" title="textanalysis.booklet.booklet0.Ex02.paragraphs_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_text</span></code></a></p>
@@ -525,6 +538,7 @@ deve ser passado como parâmetro.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Substitua o termo “Batista” por “João Batista”</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.booklet.html#textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext" title="textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">textanalysis.booklet.booklet0.Ex02.paragraphs_replacetext()</span></code></a></p>
@@ -552,7 +566,7 @@ deve ser passado como parâmetro.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../api/dsutils.html" class="btn btn-neutral float-right" title="dsutils" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="apostila1.html" class="btn btn-neutral float-right" title="Exercícios da Apostila 1" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="atividade%20da%20aula.html" class="btn btn-neutral float-left" title="Atividade da Aula" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 

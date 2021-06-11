@@ -8,12 +8,13 @@ Exercícios da Apostila 0
 Apostila 0 Exercitando 01
 ******************************
 
-Execute o que se pede. Logo após, cole a solução do exercício neste documento. Lembre-se de salvar seu programa, para
-estudos posteriores.
+Execute o que se pede. Logo após, cole a solução do exercício neste documento.
+Lembre-se de salvar seu programa, para estudos posteriores.
 
+-----
 
-.. topic:: Crie uma string com o conteúdo "Ainda que falasse as línguas dos homens e falasse a língua dos anjos, sem
-    amor eu nada seria."
+.. topic:: Crie uma string com o conteúdo "Ainda que falasse as línguas dos
+    homens e falasse a língua dos anjos, sem amor eu nada seria."
 
     Implementado em :attr:`textanalysis.booklet.booklet0.Ex01.text`
 
@@ -21,6 +22,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text
 
+-----
 
 .. topic:: Imprima cada caractere da string
 
@@ -30,6 +32,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text_chars
 
+-----
 
 .. topic:: Segmente a string em uma lista
 
@@ -39,6 +42,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text_split
 
+-----
 
 .. topic:: Quantas palavras há na lista?
 
@@ -48,6 +52,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text_split_len
 
+-----
 
 .. topic:: Imprima cada palavra da string
 
@@ -57,6 +62,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text_split
 
+-----
 
 .. topic:: Substitua o termo "dos homens" por "do mundo"
 
@@ -66,6 +72,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text_replace
 
+-----
 
 .. topic:: Imprima o fragmento que vai do 21º até o 30º caracteres
 
@@ -78,6 +85,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text_segment
 
+-----
 
 .. topic:: Imprima os últimos 15 caracteres
 
@@ -87,6 +95,7 @@ estudos posteriores.
         :linenos:
         :pyobject: Ex01.text_last
 
+-----
 
 .. topic:: Salve a sentença em um arquivo do tipo txt
 
@@ -103,6 +112,7 @@ Apostila 0 Exercitando 02
 Execute o que se pede. Logo após, cole a solução do exercício neste documento.
 Lembre-se de salvar seu programa, para estudos posteriores.
 
+-----
 
 .. topic:: Crie uma lista com os parágrafos do documento
 
@@ -129,6 +139,7 @@ Lembre-se de salvar seu programa, para estudos posteriores.
         :linenos:
         :pyobject: Ex02.paragraphs
 
+-----
 
 .. topic:: Quantos parágrafos o documento possui?
 
@@ -138,6 +149,7 @@ Lembre-se de salvar seu programa, para estudos posteriores.
         :linenos:
         :pyobject: Ex02.paragraphs_len
 
+-----
 
 .. topic:: Imprima o conteúdo do 1º parágrafo do texto
 
@@ -147,6 +159,7 @@ Lembre-se de salvar seu programa, para estudos posteriores.
         :linenos:
         :pyobject: Ex02.paragraphs_segment
 
+-----
 
 .. topic:: Imprima os parágrafos 3 a 6, inclusive
 
@@ -156,6 +169,7 @@ Lembre-se de salvar seu programa, para estudos posteriores.
         :linenos:
         :pyobject: Ex02.paragraphs_segment
 
+-----
 
 .. topic:: O termo "Machado" está no documento?
 
@@ -165,6 +179,7 @@ Lembre-se de salvar seu programa, para estudos posteriores.
         :linenos:
         :pyobject: Ex02.paragraphs_hastext
 
+-----
 
 .. topic:: Crie um  texto corrido a partir dos parágrafos lidos
 
@@ -174,6 +189,7 @@ Lembre-se de salvar seu programa, para estudos posteriores.
         :linenos:
         :pyobject: Ex02.paragraphs_text
 
+-----
 
 .. topic:: Substitua o termo "Batista" por "João Batista"
 

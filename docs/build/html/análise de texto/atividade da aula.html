@@ -44,7 +44,7 @@
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
     <link rel="next" title="Exercícios da Apostila 0" href="apostila0.html" />
-    <link rel="prev" title="Equipe Rocket" href="../introdu%C3%A7%C3%A3o/equipe.html" /> 
+    <link rel="prev" title="Resultados" href="../introdu%C3%A7%C3%A3o/resultados.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,20 +94,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/sa%C3%ADdas.html">Saídas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introdu%C3%A7%C3%A3o/equipe.html">Equipe Rocket</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Análise de Texto</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Atividade da Aula</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apostila0.html">Exercícios da Apostila 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apostila1.html">Exercícios da Apostila 1</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API</span></p>
+<p class="caption"><span class="caption-text">Implementação</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/dsutils.html">dsutils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/textanalysis.classactivity.html">textanalysis.classactivity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/textanalysis.booklet.html">textanalysis.booklet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/machinelearning.finalproject.html">machinelearning.finalproject</a></li>
 </ul>
 
             
@@ -181,8 +179,9 @@
 <p class="admonition-title">Ver também</p>
 <p><a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html#resultados"><span class="std std-ref">Resultados</span></a> &gt; <a class="reference internal" href="../introdu%C3%A7%C3%A3o/resultados.html#resultados-de-analise-de-texto"><span class="std std-ref">Resultados de Análise de Texto</span></a></p>
 </div>
-<p>Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto. Utilize a notícia baixada e crie um script que
-realize o que se pede.</p>
+<p>Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto.
+Utilize a notícia baixada e crie um script que realize o que se pede.</p>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Contar o número de palavras no texto</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.sents_words_len" title="textanalysis.classactivity.News.sents_words_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_words_len</span></code></a></p>
@@ -198,7 +197,7 @@ realize o que se pede.</p>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
-<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
 <span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizada</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="sd">        Gera um iterador sobre cada sentença encontrada em :attr:`text`. Ao</span>
@@ -215,10 +214,11 @@ realize o que se pede.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprimir as 10 palavras mais utilizadas</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.top_words" title="textanalysis.classactivity.News.top_words"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.top_words</span></code></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">top_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">top_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
 <span class="linenos"> 2</span>        <span class="sd">&quot;&quot;&quot;Gera as palavras mais frequentes</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">        Gera as palavras (neste caso, tokens) mais frequentes em :attr:`text`</span>
@@ -235,7 +235,7 @@ realize o que se pede.</p>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
-<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
 <span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças tokenizadas sem *stopwords*.</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="sd">        Mesma funcionalidade de :attr:`sents`, porém a sentença não contém</span>
@@ -254,10 +254,11 @@ realize o que se pede.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Imprimir os 10 bigramas mais utilizados</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.top_bigram" title="textanalysis.classactivity.News.top_bigram"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.top_bigram</span></code></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">top_bigram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="k">def</span> <span class="nf">top_bigram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
 <span class="linenos"> 2</span>        <span class="sd">&quot;&quot;&quot;Gera os bigramas mais frequentes no texto utilizando</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="sd">        Gera os bigramas de :attr:`text` utilzando a classe</span>
@@ -275,6 +276,7 @@ realize o que se pede.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Contar o número de sentenças no texto</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.sents_len" title="textanalysis.classactivity.News.sents_len"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_len</span></code></a></p>
@@ -290,11 +292,12 @@ realize o que se pede.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="topic">
 <p class="topic-title">Realizar a classificação gramatical (POS e NER)</p>
 <p>Implementado em <a class="reference internal" href="../api/textanalysis.classactivity.html#textanalysis.classactivity.News.sents_pos" title="textanalysis.classactivity.News.sents_pos"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textanalysis.classactivity.News.sents_pos</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="nd">@property</span>
-<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
+<span class="linenos"> 2</span>    <span class="k">def</span> <span class="nf">sents_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]:</span>
 <span class="linenos"> 3</span>        <span class="sd">&quot;&quot;&quot;Gera a lista de sentenças com tokens POS</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="sd">        Realiza o tagueamento gramatical das sentenças retornadas por</span>
@@ -330,7 +333,7 @@ realize o que se pede.</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="apostila0.html" class="btn btn-neutral float-right" title="Exercícios da Apostila 0" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../introdu%C3%A7%C3%A3o/equipe.html" class="btn btn-neutral float-left" title="Equipe Rocket" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../introdu%C3%A7%C3%A3o/resultados.html" class="btn btn-neutral float-left" title="Resultados" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 
   <hr/>

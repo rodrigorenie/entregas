@@ -1,9 +1,8 @@
-import os
 import nltk
+import dsutils
 
 from textanalysis.classactivity.classactivity import News
 
-nltk_data = os.path.join(os.path.dirname(__file__), '..', '..', 'df', 'nltk')
-nltk.data.path.append(nltk_data)
+nltk.data.path.append(dsutils.datadir.join('nltk'))
 
 __all__ = ['News']

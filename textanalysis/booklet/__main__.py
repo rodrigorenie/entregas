@@ -1,242 +1,266 @@
+import argparse
+
 from textanalysis.booklet import booklet0
 from textanalysis.booklet import booklet1
 
-from rich import box
-from rich.table import Table
-from rich.console import Console
+from dsutils import DSExercise
+
+
+def get_argparser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog='textanalysis.booklet',
+        description='Imprime o resultados dos exercícios das apostilas'
+    )
+    parser.add_argument('-b', nargs='*',
+                        choices=['booklet0', 'booklet1', 'booklet2'],
+                        help='Seleciona qual apostila deseja mostrar o '
+                             'resultado')
+
+    return parser
 
 
 def booklet0ex01() -> None:
-    console = Console(width=80)
-    table = Table(show_header=True, width=80, show_lines=True, box=box.MINIMAL)
+    ex = booklet0.Ex01('Ainda que falasse as línguas dos homens e falasse a '
+                       'língua dos anjos, sem amor eu nada seria.')
 
-    title = Table(show_header=False, width=80, show_lines=True)
-    title.add_column("", justify='center')
-    title.add_row("Apostila 0 - Exercitando 01")
-    console.print(title)
+    table = DSExercise('Apostila 0 - Exercitando 01')
 
-    table.add_column("", justify='center')
-    table.add_column("Atividade")
-    table.add_column("Resultado", justify='right', overflow='fold')
-
-    ex = booklet0.Ex01(
-        'Ainda que falasse as línguas dos homens e falasse a língua dos anjos, '
-        'sem amor eu nada seria.'
+    table.item(
+        f'Crie uma string com o conteúdo {str(ex)}',
+        str(ex)
     )
 
-    act = 'Crie uma string com o conteúdo "Ainda que falasse as línguas dos ' \
-          'homens e falasse a  língua dos  anjos, sem amor eu nada seria."'
-    res = str(ex)
-    table.add_row('01', act, res)
+    table.item(
+        'Imprima cada caractere da string',
+        ' '.join([c for c in ex.text_chars])
+    )
 
-    act = 'Imprima cada caractere da string'
-    res = ' '.join([c for c in ex.text_chars])
-    table.add_row('02', act, res)
+    table.item(
+        'Segmente a string em uma lista',
+        str(list(ex.text_split))
+    )
 
-    act = 'Segmente a string em uma lista'
-    res = str(list(ex.text_split))
-    table.add_row('03', act, res)
+    table.item(
+        'Quantas palavras há na lista?',
+        table.text(str(ex.text_split_len), justify='center')
+    )
 
-    act = 'Quantas palavras há na lista?'
-    res = str(ex.text_split_len)
-    table.add_row('04', act, res)
+    table.item(
+        'Imprima cada palavra da string',
+        ' | '.join(list(ex.text_split))
+    )
 
-    act = 'Imprima cada palavra da string'
-    res = ' | '.join(list(ex.text_split))
-    table.add_row('05', act, res)
+    table.item(
+        'Substitua o termo "dos homens" por "do mundo"',
+        ex.text_replace('dos homens', 'do mundo')
+    )
 
-    act = 'Substitua o termo "dos homens" por "do mundo"'
-    res = ex.text_replace('dos homens', 'do mundo')
-    table.add_row('06', act, res)
+    table.item(
+        'Imprima o fragmento que vai do 21º até o 30º caracteres',
+        '"{}"'.format(ex.text_segment(21, 30))
+    )
 
-    act = 'Imprima o fragmento que vai do 21º até o 30º caracteres'
-    res = '"{}"'.format(ex.text_segment(21, 30))
-    table.add_row('07', act, res)
+    table.item(
+        'Imprima os últimos 15 caracteres',
+        '"{}"'.format(ex.text_last(15))
+    )
 
-    act = 'Imprima os últimos 15 caracteres'
-    res = '"{}"'.format(ex.text_last(15))
-    table.add_row('08', act, res)
+    table.item(
+        'Salve a sentença em um arquivo do tipo txt',
+        'Arquivo salvo em: {}'.format(ex.text_save('booklet0_ex01.txt'))
+    )
 
-    act = 'Salve a sentença em um arquivo do tipo txt'
-    res = 'Arquivo salvo em: {}'.format(ex.text_save('booklet0_ex01.txt'))
-    table.add_row('09', act, res)
-
-    console.print(table)
-    console.print("\n\n\n")
+    table.print()
 
 
 def booklet0ex02() -> None:
     ex = booklet0.Ex02('ROMANCE.docx')
+    table = DSExercise('Apostila 0 - Exercitando 02')
 
-    console = Console(width=80)
-    table = Table(show_header=True, width=80, show_lines=True, box=box.MINIMAL)
+    table.item(
+        'Crie uma lista com os parágrafos do documento',
+        'Apenas os dois primeiros parágrafos:\n',
+        str(ex.paragraphs_list[0:2])
+    )
 
-    title = Table(show_header=False, width=80, show_lines=True)
-    title.add_column("", justify='center')
-    title.add_row("Apostila 0 - Exercitando 02")
-    console.print(title)
+    table.item(
+        'Quantos parágrafos o documento possui?',
+        table.text(str(ex.paragraphs_len), justify='center')
+    )
 
-    table.add_column("", justify='center')
-    table.add_column("Atividade")
-    table.add_column("Resultado", justify='right', overflow='fold')
+    table.item(
+        'Imprima o conteúdo do 1º parágrafo  do texto',
+        str(ex.paragraphs_segment(1))
+    )
 
-    act = 'Crie uma lista com os parágrafos do documento'
-    res = 'Apenas os dois primeiros parágrafos:\n'
-    res += str(ex.paragraphs_list[0:2])
-    table.add_row('01', act, res)
+    table.item(
+        'Imprima os parágrafos 3 a 6, inclusive',
+        '\n\n'.join(ex.paragraphs_segment(3, 6))
+    )
 
-    act = 'Quantos parágrafos o documento possui?'
-    res = str(ex.paragraphs_len)
-    table.add_row('02', act, res)
+    table.item(
+        'O termo ‘Machado’ está no documento?',
+        table.columns(
+            'Sim' if ex.paragraphs_hastext('Machado') else 'Não',
+            '(Veja Ex02.paragraphs_hastext)'
+        )
+    )
 
-    act = 'Imprima o conteúdo do 1º parágrafo  do texto'
-    res = str(ex.paragraphs_segment(1))
-    table.add_row('03', act, res)
+    table.item(
+        'Crie um texto corrido a partir dos parágrafos lidos',
+        ex.paragraphs_text
+    )
 
-    act = 'Imprima os parágrafos 3 a 6, inclusive'
-    res = '\n\n'.join(ex.paragraphs_segment(3, 6))
-    table.add_row('04', act, res)
+    table.item(
+        'Substitua o termo "Batista" por "João Batista"',
+        ex.paragraphs_replacetext('Batista', 'João Batista')
+    )
 
-    act = 'O termo ‘Machado’ está no documento?'
-    res = 'Sim' if ex.paragraphs_hastext('Machado') else 'Não'
-    res += '\n veja Ex02.paragraphs_hastext'
-    table.add_row('05', act, res)
-
-    act = 'Crie um  texto corrido a partir dos parágrafos lidos'
-    res = ex.paragraphs_text
-    idx = res.index('Batista')
-    res = res[idx - 100:idx + 100]
-    res = f'...\n{res}\n...\nver método:\nEx02.paragraphs_text'
-    table.add_row('06', act, res)
-
-    act = 'Substitua o termo "Batista" por "João Batista"'
-    res = ex.paragraphs_replacetext('Batista', 'João Batista')
-    idx = res.index('Batista')
-    res = res[idx-100:idx+100]
-    res = f'...\n{res}\n...\nver método:\nEx02.paragraphs_replacetext'
-    table.add_row('07', act, res)
-
-    console.print(table)
-    console.print("\n\n\n")
+    table.print()
 
 
 def booklet1ex01() -> None:
     ex = booklet1.Ex01()
 
-    console = Console(width=80)
-    table = Table(show_header=True, width=80, show_lines=True, box=box.MINIMAL)
+    table = DSExercise('Apostila 1 - Exercitando 01')
 
-    title = Table(show_header=False, width=80, show_lines=True)
-    title.add_column("", justify='center')
-    title.add_row("Apostila 1 - Exercitando 01")
-    console.print(title)
+    table.item(
+        'Imprima as palavras dos documentos neg/cv002_tok-3321.txt e '
+        'pos/cv003_tok-8338.txt',
 
-    table.add_column("", justify='center')
-    table.add_column("Atividade")
-    table.add_column("Resultado", justify='right', overflow='fold')
+        'cv002_tok-3321.txt\n',
+        ', '.join(list(ex.words('cv002_tok-3321'))[0:50]),
 
-    act = 'Imprima as palavras dos documentos neg/cv002_tok-3321.txt e ' \
-          'pos/cv003_tok-8338.txt'
-    res = 'cv002_tok-3321.txt:\n'
-    res += ', '.join(list(ex.words('cv002_tok-3321'))[0:50])
-    res += ', ...\n\ncv003_tok-8338.txt:\n'
-    res += ', '.join(list(ex.words('cv003_tok-8338'))[0:50])
-    res += ', ...\n\n'
-    table.add_row('01', act, res)
+        '\n\ncv003_tok-8338.txt\n',
+        ', '.join(list(ex.words('cv003_tok-8338'))[0:50]),
+    )
 
-    console.print(table)
-    console.print("\n\n\n")
+    table.print()
 
 
 def booklet1ex02() -> None:
+    table = DSExercise('Apostila 1 - Exercitando 02')
     ex = booklet1.Ex02('Noticia_1.docx')
 
-    console = Console(width=80)
-    table = Table(show_header=True, width=80, show_lines=True, box=box.MINIMAL)
+    table.item(
+        'Utilize o arquivo Noticia_1 disponível na pasta de dados da turma  e '
+        'liste os 20 bigramas e trigramas mais frequentes obtidos do texto',
+        table.columns(
+            table.text('bigramas\n', justify='center'),
+            table.text('trigramas\n', justify='center'),
+        ),
+        table.columns(
+            table.text('\n', justify='right').join([
+                table.text(f'{a}: {b:2}') for a, b in ex.top_bigrams()
+            ]),
+            table.text('\n', justify='right').join([
+                table.text(f'{a}: {b:2}') for a, b in ex.top_trigrams()
+            ])
+        )
+    )
 
-    title = Table(show_header=False, width=80, show_lines=True)
-    title.add_column("", justify='center')
-    title.add_row("Apostila 1 - Exercitando 02")
-    console.print(title)
-
-    table.add_column("", justify='center')
-    table.add_column("Atividade")
-    table.add_column("Resultado", justify='right', overflow='fold')
-
-    act = 'Utilize o arquivo Noticia_1 disponível na pasta de dados da turma ' \
-          'e liste os 20 bigramas e trigramas mais frequentes obtidos do texto'
-    res = 'bigramas:\n'
-    res += '\n'.join(['{}: {:2}'.format(a, b) for a, b in ex.top_bigrams()])
-    res += '\n\ntrigramas:\n'
-    res += '\n'.join(['{}: {:2}'.format(a, b) for a, b in ex.top_trigrams()])
-    table.add_row('01', act, res)
-
-    console.print(table)
-    console.print("\n\n\n")
+    table.print()
 
 
 def booklet1ex03() -> None:
     exs = booklet1.Ex03('singles.txt')
     exp = booklet1.Ex03('pirates.txt')
+    table = DSExercise('Apostila 1 - Exercitando 03')
 
-    console = Console(width=80)
-    table = Table(show_header=True, width=80, show_lines=True, box=box.MINIMAL)
+    exs.tokens_freq_plot()
+    exp.tokens_freq_plot()
 
-    title = Table(show_header=False, width=80, show_lines=True)
-    title.add_column("", justify='center')
-    title.add_row("Apostila 1 - Exercitando 03")
-    console.print(title)
+    table.item(
+        'Analise a frequência das palavras ["the", "that"] no arquivo '
+        '"singles.txt" e,depois, no arquivo "pirates.txt"',
 
-    table.add_column("", justify='center')
-    table.add_column("Atividade")
-    table.add_column("Resultado", justify='right', overflow='fold')
+        table.columns(
+            table.columns(
+                table.text('singles.txt', justify='center'),
+                'the: {:4}'.format(exs.words_freq['the']),
+                'that: {:4}'.format(exs.words_freq['that']),
+            ),
+            table.columns(
+                table.text('pirates.txt', justify='center'),
+                'the: {:4}'.format(exp.words_freq['the']),
+                'that: {:4}'.format(exp.words_freq['that']),
+            )
 
-    act = 'Analise a frequência das palavras ["the", "that"] no arquivo ' \
-          'singles.txt e,depois, no arquivo pirates.txt'
-    res = 'singles.txt\n'
-    res += 'the: {:4}\n'.format(exs.word_freq('the'))
-    res += 'that: {:4}\n'.format(exs.word_freq('that'))
-    res += 'pirates.txt\n'
-    res += 'the: {:4}\n'.format(exp.token_freq('the'))
-    res += 'that: {:4}\n'.format(exp.token_freq('that'))
-    table.add_row('01', act, res)
+        ),
+    )
 
-    act = 'Inclua a geração do gráfico de frequência'
-    res = ''
-    table.add_row('02', act, res)
+    table.item(
+        'Inclua a geração do gráfico de frequência',
+        table.columns(
+            table.text('singles.txt', justify='center'),
+            '... {}'.format(exs.tokens_freq_plot()[-37:])
+        ),
+        table.columns(
+            table.text('pirates.txt', justify='center'),
+            '... {}'.format(exp.tokens_freq_plot()[-37:])
+        )
+    )
 
-    act = 'Gere a lista dos 15 bigramas mais frequentes do texto'
-    res = 'singles.txt\n'
-    res += '\n'.join([f'{a}: {b}' for a, b in exs.top_bigrams])
-    res += '\n\npirates.txt\n'
-    res += '\n'.join([f'{a}: {b}' for a, b in exp.top_bigrams])
-    table.add_row('03', act, res)
+    table.item(
+        'Gere a lista dos 15 bigramas mais frequentes do texto',
 
-    act = 'Gere a lista dos 20 quadrigramas gramas mais frequentes que ' \
-          'possuam a palavra "life"'
-    res = 'singles.txt\n'
-    res += '\n'.join([f'{a}: {b}' for a, b in exs.top_quadrigrams])
-    res += '\n\npirates.txt\n'
-    res += '\n'.join([f'{a}: {b}' for a, b in exp.top_quadrigrams])
-    table.add_row('04', act, res)
+        table.columns(
+            table.text('singles.txt\n', justify='center'),
+            table.text('pirates.txt\n', justify='center'),
+        ),
 
-    console.print(table)
-    console.print("\n\n\n")
+        table.columns(
+            table.text('\n', justify='right').join([
+                table.text(f'{a}: {b:2}') for a, b in exs.top_bigrams
+            ]),
+            table.text('\n', justify='right').join([
+                table.text(f'{a}: {b:2}') for a, b in exp.top_bigrams
+            ])
+        )
+    )
+
+    table.item(
+        'Gere a lista dos 20 quadrigramas gramas mais frequentes que possuam a '
+        'palavra "life"',
+
+        table.text('singles.txt\n', justify='center'),
+        table.text('\n', justify='right').join([
+            table.text(f'{a}: {b:2}') for a, b in exs.top_life_quadrigrams
+        ]),
+
+        table.text('\n\npirates.txt\n', justify='center'),
+        table.text('\n', justify='right').join([
+            table.text(f'{a}: {b:2}') for a, b in exp.top_life_quadrigrams
+        ])
+    )
+
+    table.print()
+
+
+def booklet1ex04() -> None:
+    table = DSExercise('Apostila 1 - Exercitando 03')
+
+    table.item(
+        '',
+        booklet1.ex04()
+    )
 
 
 if __name__ == '__main__':
-    booklet0ex01()
-    booklet0ex02()
 
-    booklet1ex01()
-    booklet1ex02()
-    booklet1ex03()
+    parser = get_argparser()
+    args = parser.parse_args()
 
-    # apostila1.ex01()
-    # apostila1.ex02()
-    # apostila1.ex03()
-    # apostila1.ex04()
-    #
+    if args.b is None or 'booklet0' in args.b:
+        booklet0ex01()
+        booklet0ex02()
+
+    if args.b is None or 'booklet1' in args.b:
+        booklet1ex01()
+        booklet1ex02()
+        booklet1ex03()
+        # booklet1ex04()
+
     # apostila2.ex01()
     # apostila2.ex02()
     # apostila2.ex03()

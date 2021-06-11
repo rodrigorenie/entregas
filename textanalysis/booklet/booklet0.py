@@ -1,17 +1,19 @@
+from __future__ import annotations
+
 import docx
+import dsutils
 
-from typing import Optional, Union, Iterator, List
-from dsutils import DataDir
+from typing import Optional, Union
 
 
-class Ex01(DataDir):
+class Ex01:
     """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`
 
     :param text: Texto a ser utilizado como base para o exercício.
     :type text: str
     """
 
-    def __init__(self, text: str = None) -> None:
+    def __init__(self, text: Optional[str] = None) -> None:
         super().__init__()
         self.text = text
 
@@ -35,8 +37,8 @@ class Ex01(DataDir):
         return self._text
 
     @text.setter
-    def text(self, text: Optional[str]) -> None:
-        if not text:
+    def text(self, text: str) -> None:
+        if text is None:
             text = ''
 
         if not isinstance(text, str):
@@ -45,7 +47,7 @@ class Ex01(DataDir):
         self._text = text
 
     @property
-    def text_chars(self) -> Iterator[str]:
+    def text_chars(self) -> iter[str]:
         """Cria um gerador para os caracteres individuais do texto.
 
         :return: Iterador dos caracteres de :attr:`text`
@@ -54,7 +56,7 @@ class Ex01(DataDir):
             yield char
 
     @property
-    def text_split(self) -> Iterator[str]:
+    def text_split(self) -> iter[str]:
         """Divide o texto em uma lista de palavras
 
         Divide o texto em uma lista de palavras, separadas por um espaço em
@@ -140,14 +142,14 @@ class Ex01(DataDir):
 
         :return: Caminho completo do arquivo salvo
         """
-        filename = self.file(filename)
+        filename = dsutils.datadir.join(filename)
         with open(filename, 'w', encoding='utf8') as f:
             f.write(self.text + '\n')
             return filename
 
 
-class Ex02(DataDir):
-    """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 01`
+class Ex02:
+    """Implementa a atividade descrita em :ref:`Apostila 0 Exercitando 02`
 
     :param docname: Caminho do arquivo ``docx`` a ser carregado.
     :type docname: str
@@ -155,10 +157,10 @@ class Ex02(DataDir):
 
     def __init__(self, docname: str) -> None:
         super().__init__()
-        self._doc = docx.Document(self.file(docname))
+        self._doc = docx.Document(dsutils.datadir.join(docname))
 
     @property
-    def paragraphs(self) -> Iterator[str]:
+    def paragraphs(self) -> iter[str]:
         """Cria um iterador para os parágrafos encontrados no documento.
 
         :returns: iterador dos parágrafos no documento
@@ -168,7 +170,7 @@ class Ex02(DataDir):
             yield paragraph.text
 
     @property
-    def paragraphs_list(self) -> List[str]:
+    def paragraphs_list(self) -> list[str]:
         """Cria uma lista contendo cada parágrafo encontrado no documento.
 
         :return: Lista com os parágrafos.
@@ -185,7 +187,7 @@ class Ex02(DataDir):
         return len(self.paragraphs_list)
 
     def paragraphs_segment(self, first: int,
-                           last: int = None) -> Union[List[str], str]:
+                           last: Optional[int] = None) -> Union[list[str], str]:
         """Retorna os parágrafos do documento, da posição inicial ``first`` até
         a posição ``last``, ambos *INCLUSIVO*, ou seja, também retorna os
         parágrafos nas posições indicadas. Se ``last`` for omitido, retorna

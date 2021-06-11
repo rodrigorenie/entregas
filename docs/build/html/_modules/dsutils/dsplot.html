@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>dsutils.dsplot &mdash; documentação Entregas da Equipe Rocket </title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Buscar" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Entregas da Equipe Rocket
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introdução</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/introdu%C3%A7%C3%A3o.html">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/atividades.html">Atividades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introdu%C3%A7%C3%A3o/resultados.html">Resultados</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Análise de Texto</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../an%C3%A1lise%20de%20texto/atividade%20da%20aula.html">Atividade da Aula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../an%C3%A1lise%20de%20texto/apostila0.html">Exercícios da Apostila 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../an%C3%A1lise%20de%20texto/apostila1.html">Exercícios da Apostila 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementação</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dsutils.html">dsutils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/textanalysis.classactivity.html">textanalysis.classactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/textanalysis.booklet.html">textanalysis.booklet</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Entregas da Equipe Rocket</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Código do módulo</a> &raquo;</li>
+        
+      <li>dsutils.dsplot</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Código fonte para dsutils.dsplot</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">seaborn</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterator</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+
+
+<div class="viewcode-block" id="DSPlot"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSPlot">[documentos]</a><span class="k">class</span> <span class="nc">DSPlot</span><span class="p">:</span>
+
+<div class="viewcode-block" id="DSPlot.Color"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSPlot.Color">[documentos]</a>    <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">Color</span><span class="p">:</span>
+        <span class="n">yellow</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#ddb310&#39;</span>
+        <span class="n">darkgreen</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#005900&#39;</span>
+        <span class="n">lipstick</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#b80058&#39;</span>
+        <span class="n">azure</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#008cf9&#39;</span>
+        <span class="n">darkgray</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#585858&#39;</span>
+        <span class="n">green</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#006e00&#39;</span>
+        <span class="n">lavender</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#d163e6&#39;</span>
+        <span class="n">brown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#b24502&#39;</span>
+        <span class="n">coral</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#ff9287&#39;</span>
+        <span class="n">darkblue</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#000078&#39;</span>
+        <span class="n">indigo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#5954d6&#39;</span>
+        <span class="n">turquoise</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#00c6f8&#39;</span>
+        <span class="n">olive</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#878500&#39;</span>
+        <span class="n">jade</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#00a76c&#39;</span>
+        <span class="n">gray</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#bdbdbd&#39;</span>
+        <span class="n">darkpink</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#8a034f&#39;</span>
+
+        <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">yield</span> <span class="n">color</span></div>
+
+<div class="viewcode-block" id="DSPlot.Marker"><a class="viewcode-back" href="../../api/dsutils.html#dsutils.DSPlot.Marker">[documentos]</a>    <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">Marker</span><span class="p">:</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+        <span class="n">circle</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span>
+        <span class="n">plus_filled</span> <span class="o">=</span> <span class="s1">&#39;P&#39;</span>
+        <span class="n">hexagon2</span> <span class="o">=</span> <span class="s1">&#39;H&#39;</span>
+        <span class="n">star</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+        <span class="n">square</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span>
+        <span class="n">x_filled</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+        <span class="n">diamond</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
+        <span class="n">triangle_down</span> <span class="o">=</span> <span class="s1">&#39;v&#39;</span>
+
+        <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">yield</span> <span class="n">marker</span></div>
+
+    <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">()</span>
+    <span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
+
+    <span class="n">pyplot_rc</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+        <span class="c1"># &#39;axes.spines.right&#39;: False,</span>
+        <span class="c1"># &#39;axes.spines.top&#39;: False,</span>
+        <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;patch.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;patch.force_edgecolor&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;xtick.bottom&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;xtick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;xtick.top&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+        <span class="c1"># &#39;ytick.left&#39;: False,</span>
+        <span class="c1"># &#39;ytick.right&#39;: False</span>
+    <span class="p">}</span>
+
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyplot</span><span class="o">.</span><span class="n">cycler</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
+    <span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="n">pyplot_rc</span><span class="p">)</span></div>
+    <span class="c1"># seaborn.set_context(&#39;notebook&#39;, rc={&#39;font.size&#39;: 12,</span>
+    <span class="c1">#                                     &#39;axes.titlesize&#39;: 20,</span>
+    <span class="c1">#                                     &#39;axes.labelsize&#39;: 12})</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Equipe Rocket.
+
+    </p>
+  </div>
+    
+    
+    
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

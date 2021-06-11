@@ -16,6 +16,10 @@ class DSExercise:
     def text(*args, **kwargs):
         return Text(*args, **kwargs)
 
+    @staticmethod
+    def columns(*args, **kwargs):
+        return Columns(renderables=args, expand=True, **kwargs)
+
     def __iter__(self):
         for number, (item, resolution) in enumerate(self._items.items()):
             yield f'{number+1:02}', item, resolution

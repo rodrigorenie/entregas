@@ -78,7 +78,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 2,
+    'navigation_depth': 3,
     'includehidden': True,
     'titles_only': False
 }
@@ -92,16 +92,35 @@ html_static_path = ['_static']
 # -- Extension configuration -------------------------------------------------
 
 extlinks = {
-    'nltk': ('https://www.nltk.org', 'NLTK'),
-    'github_rodrigorenie': ('https://github.com/rodrigorenie/%s', None),
-    'github_entregas': ('https://github.com/rodrigorenie/entregas/%s', None),
-    'ta-aula': ('https://docs.google.com/document/d/13s6jq6--Ouh3eGQ8qKt1urZbT49Sq2eXM2drTfZT0EQ/%s', None),
-    'ta-p0': ('https://docs.google.com/document/d/1eZew1Qwm64EyAbaiL5Xt8owmttOH9YGo/%s', None),
-    'ta-p1': ('https://docs.google.com/document/d/1DMUES7vDRG0ubwjYIjR5KbUh2MLIeE9r/%s', None),
-    'ta-p2': ('https://docs.google.com/document/d/15Bsq4fk7fs2MRFMHjVLL0R5fvptTJovz/%s', None),
-    'ta-final': ('https://docs.google.com/document/d/13SZAiID1Qth1ywr5RxHFT5TGnzksLFvi/%s', None),
-    'ml-at': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None),
-    'ml-final': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None)
+    # NLTK
+    'l01': ('https://www.nltk.org', 'NLTK'),
+
+    # GitHub Rodrigo Renie
+    'l02': ('https://github.com/rodrigorenie/%s', None),
+
+    # GitHub Equipe Rocket
+    'l03': ('https://github.com/rodrigorenie/equiperocket/%s', None),
+
+    # Análise de Texto: Atividade da Aula
+    'l04': ('https://docs.google.com/document/d/13s6jq6--Ouh3eGQ8qKt1urZbT49Sq2eXM2drTfZT0EQ/%s', None),
+
+    # Análise de Texto: Apostila Parte 0
+    'l05': ('https://docs.google.com/document/d/1eZew1Qwm64EyAbaiL5Xt8owmttOH9YGo/%s', None),
+
+    # Análise de Texto: Apostila Parte 1
+    'l06': ('https://docs.google.com/document/d/1DMUES7vDRG0ubwjYIjR5KbUh2MLIeE9r/%s', None),
+
+    # Análise de Texto: Apostila Parte 2
+    'l07': ('https://docs.google.com/document/d/15Bsq4fk7fs2MRFMHjVLL0R5fvptTJovz/%s', None),
+
+    # Análise de Texto: Atividade Final
+    'l08': ('https://docs.google.com/document/d/13SZAiID1Qth1ywr5RxHFT5TGnzksLFvi/%s', None),
+
+    # Machine Learning: Checklist de Atividades
+    'l09': ('https://docs.google.com/document/d/1HjeszGf-SIvLUIi20SgbuFdi-A2GtN0Q/%s', None),
+
+    # Machine Learning: Atividade Final
+    'l10': ('https://docs.google.com/document/d/1BTSezlm_hMFStU6UHfdUO2DHyjF5Vf64/%s', None),
 }
 
 coverage_show_missing_items = True

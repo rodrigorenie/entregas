@@ -1,35 +1,32 @@
 import nltk
 import string
-import os
+import dsutils
 
-from dsutils import DataDir
-from typing import Optional, Iterator, List, Tuple
+from collections.abc import Iterator
 
 
-class News(DataDir):
-    """Implementa a atividade descrita em :ref`Atividade da Aula`.
+class News:
+    """Implementa a atividade descrita em :ref:`Atividade da Aula`.
 
-    :param newsdir: Caminho da pasta de dados (veja a propriedade
-        :attr:`newsdir` para mais detalhes)
-    :type newsdir: Union[str, None]
-
-    :param newsfile: Caminho relativo a pasta de dados do arquivo contendo a
-        notícia a ser analisada (veja a propriedade :attr:`text` para mais
-        detalhes)
+    :param newsfile: Nome do arquivo contendo a notícia a ser analisada (veja a
+        propriedade :attr:`text` para mais detalhes)
     :type newsfile: str
     """
 
-    def __init__(self, newsdir: Optional[str] = None,
-                 newsfile: str = 'news.txt') -> None:
+    def __init__(self, newsfile: str = 'news.txt') -> None:
         super().__init__()
 
-        self._newsfile = self.file(newsfile)
+        self._newsfile = dsutils.datadir.join(newsfile)
         self._stopwords = list(string.punctuation)
         self._stopwords += nltk.corpus.stopwords.words('english')
         self._stopwords += ['a', 'the']
 
     @property
-    def stopwords(self):
+    def stopwords(self) -> list[str]:
+        """ Propriedade que define a lista de stopwords
+
+        :return: lista de stopwords
+        """
         return self._stopwords
 
     @property
@@ -56,7 +53,7 @@ class News(DataDir):
         return text
 
     @property
-    def sents(self) -> Iterator[List[str]]:
+    def sents(self) -> Iterator[list[str]]:
         """Gera a lista de sentenças tokenizada
 
         Gera um iterador sobre cada sentença encontrada em :attr:`text`. Ao
@@ -72,7 +69,7 @@ class News(DataDir):
             yield sent
 
     @property
-    def sents_clean(self) -> Iterator[List[str]]:
+    def sents_clean(self) -> Iterator[list[str]]:
         """Gera a lista de sentenças tokenizadas sem *stopwords*.
 
         Mesma funcionalidade de :attr:`sents`, porém a sentença não contém
@@ -110,7 +107,7 @@ class News(DataDir):
         return sum([1 for _ in self.sents for _ in _])
 
     @property
-    def sents_pos(self) -> Iterator[List[Tuple[str, str]]]:
+    def sents_pos(self) -> Iterator[list[tuple[str, str]]]:
         """Gera a lista de sentenças com tokens POS
 
         Realiza o tagueamento gramatical das sentenças retornadas por
@@ -134,7 +131,7 @@ class News(DataDir):
         for sent in nltk.chunk.ne_chunk_sents(self.sents_pos):
             yield sent
 
-    def top_words(self, n: int = 10) -> Iterator[Tuple[str, int]]:
+    def top_words(self, n: int = 10) -> Iterator[tuple[str, int]]:
         """Gera as palavras mais frequentes
 
         Gera as palavras (neste caso, tokens) mais frequentes em :attr:`text`
@@ -149,7 +146,7 @@ class News(DataDir):
         for word, top in freq.most_common(n):
             yield word, top
 
-    def top_bigram(self, n: int = 10) -> Iterator[Tuple[str, int]]:
+    def top_bigram(self, n: int = 10) -> Iterator[tuple[str, int]]:
         """Gera os bigramas mais frequentes no texto utilizando
 
         Gera os bigramas de :attr:`text` utilzando a classe

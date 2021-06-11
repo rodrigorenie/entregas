@@ -4,9 +4,10 @@ Atividade da Aula
 .. seealso::
     :ref:`Resultados` > :ref:`Resultados de Análise de Texto`
 
-Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto. Utilize a notícia baixada e crie um script que
-realize o que se pede.
+Selecione uma notícia completa, copie-a e salve-a em um arquivo de texto.
+Utilize a notícia baixada e crie um script que realize o que se pede.
 
+-----
 
 .. topic:: Contar o número de palavras no texto
 
@@ -20,6 +21,7 @@ realize o que se pede.
         :linenos:
         :pyobject: News.sents
 
+-----
 
 .. topic:: Imprimir as 10 palavras mais utilizadas
 
@@ -33,6 +35,7 @@ realize o que se pede.
         :linenos:
         :pyobject: News.sents_clean
 
+-----
 
 .. topic:: Imprimir os 10 bigramas mais utilizados
 
@@ -42,6 +45,7 @@ realize o que se pede.
         :linenos:
         :pyobject: News.top_bigram
 
+-----
 
 .. topic:: Contar o número de sentenças no texto
 
@@ -51,6 +55,7 @@ realize o que se pede.
         :linenos:
         :pyobject: News.sents_len
 
+-----
 
 .. topic:: Realizar a classificação gramatical (POS e NER)
 

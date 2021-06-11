@@ -1,48 +1,85 @@
 Resultados
 =========================
 
-A implementação permite imprimir na tela o resultado de cada atividade. Para
-verificar estes restulados, siga os passos abaixo:
+A implementação permite imprimir na tela em format de tabela o resultado de cada
+atividade. Para verificar estes resultados, siga os passos abaixo:
 
-.. important::
+Pré Requisitos
+*************************
 
-    Utilize versão 3.6 do Python ou superior.
+.. topic:: Git e Python
 
-.. topic:: Realize o clone do :github_rodrigorenie:`repositório do código no GibHub<>`:
+    Intale o GIT e Python na versão 3.9 ou superior.
+
+
+.. topic:: Clone do repositório
+
+    Realize o clone do :l03:`repositório do código no GibHub<>`:
 
     .. parsed-literal::
 
-        git clone :github_entregas:`\ `
+        git clone :l03:`\ `
 
 
-.. topic:: Instale os pré-requisitos usando PIP:
+.. topic:: Bibliotecas do Python
+
+    Instale as bibliotecas do Python necessárias usando PIP:
 
     .. code-block:: bash
 
-        pip install -r entregas/requirements.txt
+        pip install -Ur equiperocket/requirements.txt
 
-Em seguida, execute os passos abaixo para os verificar os resultados individuais de cada módulo implementado.
+
 
 Resultados de Análise de Texto
 ******************************
 
-.. seealso:: :ref:`Saídas` > :ref:`Saídas de Análise de Texto`
-
 Na pasta ``entregas``, execute os comandos descritos abaixo para imprimir na
-tela os resultados da implementação de cada módulo:
+tela os resultados da implementação de cada módulo.
+
+Resultado da Atividade de Aula
+++++++++++++++++++++++++++++++
 
 .. parsed-literal::
 
     ~/entregas$ python -m textanalysis.classactivity
 
+
+.. program-output:: python -m textanalysis.classactivity
+    :cwd: ../../../
+
+
+Resultado da Apostila 0
+++++++++++++++++++++++++++++++
+
 .. parsed-literal::
 
-    ~/entregas$ python -m textanalysis.booklet
+    ~/entregas$ python -m textanalysis.booklet -b booklet0
+
+
+.. program-output:: python -m textanalysis.booklet -b booklet0
+    :cwd: ../../../
+
+
+Resultado da Apostila 1
+++++++++++++++++++++++++++++++
+
+.. parsed-literal::
+
+    ~/entregas$ python -m textanalysis.booklet -b booklet1
+
+
+.. program-output:: python -m textanalysis.booklet -b booklet1
+    :cwd: ../../../
+
+
+Resultado da Apostila 2
+++++++++++++++++++++++++++++++
+
+    TODO: apostila 2
 
 
 Resultados de Machine Learning
 ******************************
 
-.. topic:: Adicionar o módulo de machine learning
-
-    teste
+    TODO: Adicionar o módulo de machine learning

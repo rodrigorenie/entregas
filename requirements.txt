@@ -1,13 +1,19 @@
-wheel
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.8.1+cu111
+torchvision==0.9.1+cu111
+torchaudio===0.8.1
+tensorboard
+tensorflow
+numpy
+sklearn
+matplotlib
+keras
+pandas
 nltk
 spacy
-matplotlib
 python-docx
 pysub-parser
-wikipedia
-pandas
 sklearn
-numpy
 imblearn
 scipy
 rich
@@ -15,5 +21,5 @@ seaborn
 sphinxcontrib-programoutput
 sphinx-autodoc-typehints
 sphinx_rtd_theme
-tensorflow
+wikipedia
 wordcloud
