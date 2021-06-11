@@ -159,3 +159,11 @@ class DSDiabetesFrame(DSFrame):
     def __init__(self, df: pandas.DataFrame) -> None:
         super().__init__(df)
         self.classcols = ['class']
+
+
+@pandas.api.extensions.register_dataframe_accessor('titanic')
+class DSDiabetesFrame(DSFrame):
+
+    def __init__(self, df: pandas.DataFrame) -> None:
+        super().__init__(df)
+        self.classcols = ['Survived']
