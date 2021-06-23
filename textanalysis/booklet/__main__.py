@@ -248,8 +248,7 @@ def booklet1ex04() -> None:
 
 if __name__ == '__main__':
 
-    parser = get_argparser()
-    args = parser.parse_args()
+    args = get_argparser().parse_args()
 
     if args.b is None or 'booklet0' in args.b:
         booklet0ex01()

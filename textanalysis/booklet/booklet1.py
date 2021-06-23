@@ -221,6 +221,13 @@ class Ex03:
         return nltk.FreqDist(self.quadrigrams('life')).most_common(20)
 
 
+class Ex04:
+
+    def __init__(self):
+        pass
+
+
+
 def ex04():
     # Execute print(machado.readme()) para conhecer melhor o corpus
     print(machado.readme())
