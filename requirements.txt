@@ -23,3 +23,5 @@ sphinx-autodoc-typehints
 sphinx_rtd_theme
 wikipedia
 wordcloud
+pyspark
+pyspark-stubs

@@ -109,14 +109,50 @@ As entregas que devem ser realizadas para o módulo de Redes Neurais são:
         - Detalhes
         - Implementação
     *   - 01
-        - Mnist
+        - Mnist Vanilla
         -
         -
     *   - 02
-        - Minist Vanilla
+        - Minist Vanilla CNN
         -
         -
     *   - 03
         - Cats and Dogs
+        -
+        -
+    *   - 04
+        - Titanic
+        -
+        -
+    *   - 05
+        - Heart Failure
+        -
+        -
+    *   - 06
+        - Red Wine Quality
+        -
+        -
+    *   - 07
+        - Gender Voice
+        -
+        -
+    *   - 08
+        - Orange - Titanic
+        -
+        -
+    *   - 09
+        - Orange - Heart Failure
+        -
+        -
+    *   - 10
+        - Orange - Red Wine Quality
+        -
+        -
+    *   - 11
+        - Orange - Gender Voice
+        -
+        -
+    *   - 12
+        - Chat Bot
         -
         -
