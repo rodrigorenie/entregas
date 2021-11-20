@@ -18,7 +18,7 @@ class News:
 
         self._newsfile = dsutils.datadir.join(newsfile)
         self._stopwords = list(string.punctuation)
-        self._stopwords += nltk.corpus.stopwords.words('english')
+        self._stopwords += nltk.corpus.stopwords.wordlist('english')
         self._stopwords += ['a', 'the']
 
     @property

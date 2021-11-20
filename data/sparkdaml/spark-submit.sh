@@ -5,7 +5,7 @@ export YARN_CONF_DIR=data/sparkdaml
 
 cat << EOF > sparkjob.py
 import sparkdaml
-sparkdaml.Ex01.run()
+sparkdaml.run()
 EOF
 
 zip -x '*__pycache__*' -r sparkdaml.zip sparkdaml

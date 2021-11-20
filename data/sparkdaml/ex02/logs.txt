@@ -1,0 +1,45 @@
+﻿Nível	Data e Hora	Fonte	Identificação do Evento	Categoria da Tarefa
+Informações	25/04/2018 21:09:11	VSS	8224	Nenhum	O serviço VSS está sendo desligado devido ao tempo limite ocioso.
+Informações	25/04/2018 21:07:11	ESENT	916	Geral	svchost (9132,G,0) O recurso beta EseDiskFlushConsistency está habilitado em ESENT devido às configurações de modo de site beta 0x800000.
+Informações	25/04/2018 21:07:11	ESENT	916	Geral	DllHost (10820,G,0) O recurso beta EseDiskFlushConsistency está habilitado em ESENT devido às configurações de modo de site beta 0x800000.
+Informações	25/04/2018 21:04:06	ESENT	916	Geral	svchost (5812,G,0) O recurso beta EseDiskFlushConsistency está habilitado em ESENT devido às configurações de modo de site beta 0x800000.
+Informações	25/04/2018 21:02:01	ESENT	916	Geral	DllHost (10820,G,0) O recurso beta EseDiskFlushConsistency está habilitado em ESENT devido às configurações de modo de site beta 0x800000.
+Informações	25/04/2018 21:00:19	Microsoft-Windows-Security-SPP	16384	Nenhum	Serviço Proteção de Software agendado com êxito para reiniciar em 2018-05-21T20:35:19Z. Motivo: RulesEngine.
+Informações	25/04/2018 20:59:49	Microsoft-Windows-Security-SPP	1003	Nenhum	"O serviço de Proteção de Software concluiu a verificação do status do licenciamento.
+ID do Aplicativo=0ff1ce15-a989-479d-af46-f275c6370663
+Status do Licenciamento=
+1: 2b88c4f2-ea8f-43cd-805e-4d41346e18a7, 1, 0 [(0 [0xC004F014, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )]
+2: b322da9c-a2e2-4058-9e4e-f59a6970bd69, 1, 1 [(0 [0x00000000, 1, 0], [(?)( 1 0x00000000)(?)( 2 0x00000000 0 0 msft:rm/algorithm/volume/1.0 0x00000000 253263)(?)(?)(?)(?)])(1 )(2 )(3 )]
+
+"
+Informações	25/04/2018 20:56:42	Windows Error Reporting	1001	Nenhum	"Falha no bucket 1534166779183453381, tipo 5
+Nome do Evento: RADAR_PRE_LEAK_64
+Resposta: Não disponível
+ID do CAB: 0
+
+Assinatura do problema:
+P1: Microsoft.Photos.exe
+P2: 2018.18022.15810.0
+P3: 10.0.16299.2.0.0
+P4: 
+P5: 
+P6: 
+P7: 
+P8: 
+P9: 
+P10: 
+
+Arquivos anexados:
+\\?\C:\Users\Everton\AppData\Local\Temp\RDREF6D.tmp\empty.txt
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WEREF6E.tmp.WERInternalMetadata.xml
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WEREFDA.tmp.csv
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WERF00A.tmp.txt
+
+Esses arquivos podem estar disponíveis em:
+
+
+Símbolo da análise: 
+Verificando novamente solução: 0
+ID do Relatório: 70424fd1-970e-4a52-8698-88a2357f53c3
+Status do Relatório: 268435456
+Bucket com hash: 768b9693b543ff51454a748eab6f54c5"

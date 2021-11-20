@@ -1,4 +1,4 @@
-from sparkdaml import Ex01
+from sparkdaml import run
 
 if __name__ == '__main__':
-    Ex01.run()
+    run()

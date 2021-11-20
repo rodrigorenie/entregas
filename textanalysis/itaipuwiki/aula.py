@@ -19,7 +19,7 @@ class Aula:
 def aula():
 
     def tokenizer(text, lang='portuguese'):
-        sw = stopwords.words(lang)
+        sw = stopwords.wordlist(lang)
 
         for c in string.punctuation:
             sw += [c]

@@ -185,7 +185,7 @@ class ProjetoFinalNLTK(ProjetoFinal):
         self._stopwords = [punct for punct in string.punctuation]
         self._stopwords += ["''", '``', '--', '...', '... ...', "'", '-', '\n']
         self._stopwords += ["n't", "'re", "'m", "oh", "hey", "'ll", "'ve", "'s"]
-        self._stopwords += nltk.corpus.stopwords.words('english')
+        self._stopwords += nltk.corpus.stopwords.wordlist('english')
 
     @property
     def text(self):

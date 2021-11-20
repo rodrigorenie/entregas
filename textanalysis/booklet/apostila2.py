@@ -21,7 +21,7 @@ def ex01():
     # A posição 17 é o primeiro parágrafo do primeiro capítulo, portanto:
     book_tokens = book_paras[17][0] + book_paras[18][0]
 
-    book_stopwords = stopwords.words('portuguese')
+    book_stopwords = stopwords.wordlist('portuguese')
     book_stopwords += [p for p in string.punctuation]
     book_tokens = [t.lower() for t in book_tokens
                    if t.lower() not in book_stopwords]

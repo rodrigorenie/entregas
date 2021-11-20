@@ -71,7 +71,7 @@ class Ex01:
         :return: Iterador de string
         """
         for fid in self.findid(fileid, category):
-            for word in self.corpus.words(fid):
+            for word in self.corpus.wordlist(fid):
                 yield word
 
 
@@ -147,7 +147,7 @@ class Ex03:
         self.file = file
         self._words = None
 
-        self._stopwords = stopwords.words('english') + [
+        self._stopwords = stopwords.wordlist('english') + [
             "[", "]", ".", ",", "?", "*", ":", "...", "!", "'", "'s",
             "#", "(", ")", "'m", "-", "'ve", "ft.", "n't", "y.o", "&", "..",
             "n/s", "s/d", "n/d", "s/s", "s/e", "''"] + list(string.punctuation)
@@ -169,7 +169,7 @@ class Ex03:
     @property
     def words(self) -> list[str]:
         if not self._words:
-            self._words = webtext.words(self.file)
+            self._words = webtext.wordlist(self.file)
 
         return self._words
 
@@ -277,7 +277,7 @@ def ex04():
     book_freq.plot(15, title='Top 15 words', cumulative=False)
 
     # k. Remova os termos indesejados  e repita as questões 'h' a 'j'
-    book_stopwords = stopwords.words('portuguese')
+    book_stopwords = stopwords.wordlist('portuguese')
     book_stopwords += ['\x97', '...', 'd.']
     book_stopwords += [p for p in string.punctuation]
     book_tokens = [t.lower() for t in book_tokens

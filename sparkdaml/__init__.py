@@ -1,3 +1,10 @@
-from sparkdaml.exercises import Ex01
+from sparkdaml.exercises import Ex01, Ex02, Ex02b
 
-__all__ = ['Ex01']
+
+def run():
+    # Ex01.run()
+    # Ex02.run()
+    Ex02b.run()
+
+
+__all__ = ['Ex01', 'Ex02', 'Ex02b', 'run']
