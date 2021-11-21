@@ -1,18 +1,18 @@
 #!/bin/bash
+
 export HADOOP_USER_NAME=hadoop
 export HADOOP_CONF_DIR=data/sparkdaml
 export YARN_CONF_DIR=data/sparkdaml
 
-cat << EOF > sparkjob.py
-import sparkdaml
-sparkdaml.run()
-EOF
+for cls in $(python -c "import sparkdaml;print(*sparkdaml.__all__)"); do
+  echo "import sparkdaml"             >   sparkjob_${cls}.py
+  echo "sparkdaml.__dict__['${cls}']()" >>  sparkjob_${cls}.py
+done
 
-zip -x '*__pycache__*' -r sparkdaml.zip sparkdaml
+zip -q -x '*__pycache__*' -r sparkdaml.zip sparkdaml
 
-# spark.archives
-#
-spark-submit --properties-file=data/sparkdaml/spark-defaults.conf sparkjob.py
+for sparkjob in sparkjob_*; do
+  spark-submit --properties-file=data/sparkdaml/spark-defaults.conf "${sparkjob}"
+done
 
-rm -f sparkjob.py
-rm -f sparkdaml.zip
+rm -f sparkjob_*.py sparkdaml.zip

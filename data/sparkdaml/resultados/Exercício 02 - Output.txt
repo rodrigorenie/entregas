@@ -1,0 +1,36 @@
+/tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0017/container_1637438231238_0017_01_000001/pyspark.zip/pyspark/context.py:260: RuntimeWarning: Failed to add file [file:///home/renie/Documentos/PyCharm/equiperocket/sparkdaml.zip] speficied in 'spark.submit.pyFiles' to Python path:
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/filecache/95
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0017/spark-c30e2eb8-3727-474a-aa30-ed50c52edb6d/userFiles-11038d58-3474-4da5-88bb-dc55691317fd
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/filecache/97/__spark_libs__14131035308115713057.zip/spark-core_2.12-3.0.3.jar
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0017/container_1637438231238_0017_01_000001/pyspark.zip
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0017/container_1637438231238_0017_01_000001/py4j-0.10.9-src.zip
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0017/container_1637438231238_0017_01_000001/sparkdaml.zip
+  /usr/lib64/python39.zip
+  /usr/lib64/python3.9
+  /usr/lib64/python3.9/lib-dynload
+  /opt/python3/lib64/python3.9/site-packages
+  /opt/python3/lib/python3.9/site-packages
+  warnings.warn(
+Exercício 02
+   87 : intel(r) dynamic platform and thermal framework : esif(8.1.10603.192) type: error
+   13 : erro ao atualizar o status  para security_product_state_off.
+   13 : "nome do aplicativo com falha: dwm.exe, versão: 10.0.16299.15, carimbo de data/hora: 0x7f22d77c
+    4 : "nome do aplicativo com falha: bad_module_info, versão: 0.0.0.0, carimbo de data/hora: 0x00000000
+    4 : falha ao tentar obter o estado do nó do cluster: .código de erro retornado: 0x8007085a
+    4 : falha ao carregar as configurações de aplicativo do pacote microsoft.windows.contentdeliverymanager_cw5n1h2txyewy. código de erro: -2147023446
+    3 : "nome do aplicativo com falha: backgroundtaskhost.exe, versão: 10.0.16299.15, carimbo de data/hora: 0x290d9f78
+    2 : "o windows não pôde carregar o registro. isso geralmente é causado por memória insuficiente ou direitos de segurança insuficientes. 
+    2 : "nome do aplicativo com falha: acrord32.exe, versão: 11.0.10.32, carimbo de data/hora: 0x547e9779
+    2 : "falha no procedimento open para o serviço ""bits"" na dll ""c:\windows\system32\bitsperf.dll"". os dados de desempenho para este serviço não estarão disponíveis. os primeiros quatro bytes (dword) da seção de dados contêm o código do erro."
+    2 : "nome do aplicativo com falha: clview.exe, versão: 15.0.4841.1000, carimbo de data/hora: 0x575fdc12
+    2 : aplicativo: avpui.exe
+    1 : "erro do serviço de cópias de sombra de volume: erro inesperado ao chamar a rotina queryfullprocessimagenamew.  hr = 0x8007001f, um dispositivo conectado ao sistema não está funcionando.
+    1 : "o programa shellexperiencehost.exe versão 10.0.16299.334 parou de interagir com o windows e foi fechado. para ver se há mais informações disponíveis sobre o problema, verifique o histórico de problemas no painel de controle segurança e manutenção.
+    1 : o aplicativo microsoft.windows.shellexperiencehost_10.0.16299.371_neutral_neutral_cw5n1h2txyewy+app não foi iniciado dentro do tempo alocado.
+    1 : intel(r) dynamic platform and thermal framework : esif(8.1.10603.192) type: error func: rsrc_app_start_app_in_active_user_session file: rsrc_app.c line: 328 time: 207893817 ms
+    1 : "o windows não pode fazer o seu logon porque o perfil não pode ser carregado. verifique se você está conectado à rede e se a rede está funcionando corretamente. 
+    1 : o windows não pode localizar o perfil local e está fazendo seu logon com um perfil temporário. as alterações que você fizer nesse perfil serão perdidas quando você fizer logoff.
+    1 : o windows fez o backup deste perfil de usuário. o windows tentará usar automaticamente esse perfil na próxima vez em que o usuário fizer logon.
+    1 : "o windows não pode carregar o perfil armazenado localmente. as possíveis causas do erro são direitos de segurança insuficientes ou um perfil local corrompido. 
+
+

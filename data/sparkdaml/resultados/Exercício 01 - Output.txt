@@ -1,0 +1,36 @@
+/tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0015/container_1637438231238_0015_01_000001/pyspark.zip/pyspark/context.py:260: RuntimeWarning: Failed to add file [file:///home/renie/Documentos/PyCharm/equiperocket/sparkdaml.zip] speficied in 'spark.submit.pyFiles' to Python path:
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/filecache/87
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0015/spark-d10e8e01-8a9a-404a-9f27-641218955714/userFiles-057c415d-5c14-4bde-a82b-9d695d2d3f41
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/filecache/85/__spark_libs__14412584242130115753.zip/spark-core_2.12-3.0.3.jar
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0015/container_1637438231238_0015_01_000001/pyspark.zip
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0015/container_1637438231238_0015_01_000001/py4j-0.10.9-src.zip
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0015/container_1637438231238_0015_01_000001/sparkdaml.zip
+  /usr/lib64/python39.zip
+  /usr/lib64/python3.9
+  /usr/lib64/python3.9/lib-dynload
+  /opt/python3/lib64/python3.9/site-packages
+  /opt/python3/lib/python3.9/site-packages
+  warnings.warn(
+Exercício 01
+20998 : que
+ 8432 : para
+ 7604 : Senhor
+ 7038 : não
+ 4877 : com
+ 4699 : dos
+ 4334 : Deus
+ 3815 : por
+ 3715 : seu
+ 3659 : como
+ 3563 : ele
+ 3423 : sua
+ 3113 : seus
+ 2936 : terra
+ 2790 : lhe
+ 2773 : filhos
+ 2727 : sobre
+ 2644 : pois
+ 2542 : Israel
+ 2420 : rei
+
+

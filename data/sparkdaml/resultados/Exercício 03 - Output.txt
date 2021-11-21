@@ -1,0 +1,62 @@
+/tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0018/container_1637438231238_0018_01_000001/pyspark.zip/pyspark/context.py:260: RuntimeWarning: Failed to add file [file:///home/renie/Documentos/PyCharm/equiperocket/sparkdaml.zip] speficied in 'spark.submit.pyFiles' to Python path:
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/filecache/101
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0018/spark-4daa0fb0-3a16-4a1b-9e87-e017f5a23506/userFiles-efde85eb-2e86-4ee9-96a0-1a6c880b44a6
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/filecache/103/__spark_libs__5590059856009801533.zip/spark-core_2.12-3.0.3.jar
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0018/container_1637438231238_0018_01_000001/pyspark.zip
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0018/container_1637438231238_0018_01_000001/py4j-0.10.9-src.zip
+  /tmp/hadoop-hadoop/nm-local-dir/usercache/hadoop/appcache/application_1637438231238_0018/container_1637438231238_0018_01_000001/sparkdaml.zip
+  /usr/lib64/python39.zip
+  /usr/lib64/python3.9
+  /usr/lib64/python3.9/lib-dynload
+  /opt/python3/lib64/python3.9/site-packages
+  /opt/python3/lib/python3.9/site-packages
+  warnings.warn(
+Exercício 03 - Veículos com maior número de registros
++-------+---------+
+|  Placa|Registros|
++-------+---------+
+|UFC2015|     7000|
+|GKK7588|     7000|
+|XDB0846|     7000|
+|MJG5107|     7000|
+|ITQ3207|     7000|
+|DTV4023|     7000|
+|VAL5944|     7000|
+|RQO8737|     7000|
+|BYO5817|     7000|
+|XLQ5165|     7000|
++-------+---------+
+
+Exercício 03 - Veículos com as maiores velocidades registradas
++-------+--------+
+|  Placa|km/h max|
++-------+--------+
+|NDH5121|      99|
+|LSG4437|      99|
+|IHD9565|      99|
+|XDB0846|      99|
+|GKK7588|      99|
+|UFC2015|      99|
+|RVO0854|      99|
+|LJF1109|      99|
+|ITQ3207|      99|
+|ZXH5193|      99|
++-------+--------+
+
+Exercício 03 - Veículos com as maiores velocidades médias registradas
++-------+------------------+
+|  Placa|          km/h avg|
++-------+------------------+
+|EZB0648|108.66371428571429|
+|QZQ0584|            98.573|
+|GKK7588| 97.92585714285714|
+|RZW5936| 96.12071428571429|
+|CVV0439| 94.49485714285714|
+|UFC2015| 94.33242857142857|
+|LJF1109| 89.13985714285714|
+|GZH9344| 88.68671428571429|
+|AYC9263| 88.39257142857143|
+|WYL3175| 87.77857142857142|
++-------+------------------+
+
+
